@@ -6,13 +6,13 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="breadcrumb-main">
-            <h4 class="text-capitalize breadcrumb-title">Quản lý dịch vụ</h4>
+            <h4 class="text-capitalize breadcrumb-title">Quản lý bài viết</h4>
             <div class="breadcrumb-action justify-content-center flex-wrap">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Dashboard</a></li>
                   <li class="breadcrumb-item"><a href="#">Apps</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Quản lý dịch vụ</li>
+                  <li class="breadcrumb-item active" aria-current="page">Quản lý bài viết</li>
                 </ol>
               </nav>
             </div>
@@ -25,79 +25,53 @@
             <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
               <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
                 <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                  <h4 class="text-capitalize fw-500 breadcrumb-title">Danh mục dịch vụ</h4>
+                  <h4 class="text-capitalize fw-500 breadcrumb-title">Bài Viết</h4>
                 </div>
               </div>
               <div class="action-btn">
-                <a href="#" class="btn px-15 btn-primary" data-bs-toggle="modal" data-bs-target="#new-member">
-                  <i class="las la-plus fs-16"></i> Thêm mới</a>
-
-                <div class="modal fade new-member " id="new-member" role="dialog" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content  radius-xl">
-                      <div class="modal-header">
-                        <h6 class="modal-title fw-500" id="staticBackdropLabel">Thêm mới dịch vụ</h6>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                          <img src="{{''.'app/views/admin/public/assets/img/svg/x.svg'}}" alt="x" class="svg">
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="new-member-modal">
-                          <form action="{{route('add-category-post')}}" method="post">
-                            <div class="form-group mb-20">
-                              <input type="text" name="namect" class="form-control" placeholder="Tên dịch vụ">
-                            </div>
-                            <div class="button-group d-flex pt-25">
-                              <input type="submit" name="add-new" class="btn btn-primary btn-default btn-squared text-capitalize" value="Add New">
-                              <button type="reset" class="btn btn-light btn-default btn-squared fw-400 text-capitalize b-light color-light" data-bs-dismiss="modal">Cancel</button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <a href="{{route('add-blog-service')}}" class="btn px-15 btn-primary" >
+                  <i class="las la-plus fs-16"></i> Thêm mới bài viết</a>
               </div>
             </div>
             @if(isset($_SESSION['errors']) && isset($_GET['msg']))
               <div class="alert">
                 @foreach($_SESSION['errors'] as $er)
                   <div
-                class="alert alert-warning alert-dismissible fade show"
-                role="alert"
-              >
-                <div class="alert-content">
-                  <p>
-                    {{$er}}
-                  </p>
-                  <button
-                    type="button"
-                    class="btn-close text-capitalize"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"
+                    class="alert alert-warning alert-dismissible fade show"
+                    role="alert"
                   >
-                    <img
-                      src="{{route(''.'app/views/admin/public/assets/img/svg/x.svg')}}"
-                      alt="x"
-                      class="svg"
-                      aria-hidden="true"
-                    />
-                  </button>
-                </div>
-              </div>
+                    <div class="alert-content">
+                      <p>
+                        {{$er}}
+                      </p>
+                      <button
+                        type="button"
+                        class="btn-close text-capitalize"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <img
+                          src="{{route(''.'app/views/admin/public/assets/img/svg/x.svg')}}"
+                          alt="x"
+                          class="svg"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 @endforeach
-            </div>
+              </div>
             @endif
             <div class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
               <div class="support-form__input">
                 <div class="d-flex flex-wrap">
                   <div class="support-form__input-id">
-                    <label>Id:</label>
+                    <label>Service: </label>
                     <div class="dm-select ">
                       <select name="select-search" class="select-search form-control ">
                         <option value="0">All</option>
-                        @foreach($category as $ct)
-                          <option value="{{$ct->id}}">{{$ct->name}}</option>
+                        @foreach($service as $sv)
+                          <option value="{{$sv->id}}">{{$sv->name}}</option>
                         @endforeach
                       </select>
                     </div>
@@ -133,7 +107,16 @@
                       <span class="userDatatable-title">STT</span>
                     </th>
                     <th>
-                      <span class="userDatatable-title">Name</span>
+                      <span class="userDatatable-title">Servive</span>
+                    </th>
+                    <th>
+                      <span class="userDatatable-title">Title</span>
+                    </th>
+                    <th>
+                      <span class="userDatatable-title">Create Date</span>
+                    </th>
+                    <th>
+                      <span class="userDatatable-title">Create Update</span>
                     </th>
                     <th class="actions">
                       <span class="userDatatable-title">Actions</span>
@@ -141,54 +124,70 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach($category as $key => $ct)
-                  <tr>
-                    <td class="pe-0">
-                      <div class="d-flex">
-                        <div class="userDatatable__imgWrapper d-flex align-items-center m-0">
-                          <div class="checkbox-group-wrapper">
-                            <div class="checkbox-group d-flex">
-                              <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
-                                <input class="checkbox" type="checkbox" id="check-grp-#01">
-                                <label for="check-grp-#01" class="ps-0"></label>
+                  @foreach($blog as $key => $bl)
+                    <tr>
+                      <td class="pe-0">
+                        <div class="d-flex">
+                          <div class="userDatatable__imgWrapper d-flex align-items-center m-0">
+                            <div class="checkbox-group-wrapper">
+                              <div class="checkbox-group d-flex">
+                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                  <input class="checkbox" type="checkbox" id="check-grp-#01">
+                                  <label for="check-grp-#01" class="ps-0"></label>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex">
-                        <div class="userDatatable-inline-title">
-                          <a href="#" class="text-dark fw-500">
-                            <h6>{{$key + 1}}</h6>
-                          </a>
+                      </td>
+                      <td>
+                        <div class="d-flex">
+                          <div class="userDatatable-inline-title">
+                            <a href="#" class="text-dark fw-500">
+                              <h6>{{$key + 1}}</h6>
+                            </a>
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="userDatatable-content--subject">
-                        {{$ct->name}}
-                      </div>
-                    </td>
-                    <td>
-                      <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                        <li>
-                          <button class="btn btn-info btn-default btn-squared" onclick="location.href='{{route('detail-category/'.$ct->id)}}'">Detail
-                          </button>
-                        </li>
-                        <li>
-                          <button class="btn btn-warning btn-default btn-squared" onclick="location.href='{{route('edit-category/'.$ct->id)}}'">Edit
-                          </button>
-                        </li>
-                        <li>
-                          <button class="btn btn-danger btn-default btn-squared" onclick="return confirm('Bạn có muốn xóa?') == true ? location.href='{{route('delete-category/'.$ct->id)}}' : ''">Delete
-                          </button>
-                          </a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content--subject">
+                          @foreach($service as $sv)
+                            <?php echo $sv->id == $bl->id_service ? $sv->name : ''?>
+                          @endforeach
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content--subject">
+                          {{$bl->title}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content--subject">
+                          {{$bl->create_date}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content--subject">
+                          {{$bl->create_update}}
+                        </div>
+                      </td>
+                      <td>
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+{{--                          <li>--}}
+{{--                            <button class="btn btn-info btn-default btn-squared" onclick="location.href='{{route('detail-blog-service/'.$bl->id)}}'">Detail--}}
+{{--                            </button>--}}
+{{--                          </li>--}}
+                          <li>
+                            <button class="btn btn-warning btn-default btn-squared" onclick="location.href='{{route('edit-blog-service/'.$bl->id)}}'">Edit
+                            </button>
+                          </li>
+                          <li>
+                            <button class="btn btn-danger btn-default btn-squared" onclick="return confirm('Bạn có muốn xóa?') == true ? location.href='{{route('delete-blog-service/'.$bl->id)}}' : ''">Delete
+                            </button>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
                   @endforeach
 
                   </tbody>
@@ -227,19 +226,6 @@
     </div>
   </div>
 @endsection
-@push('scripts')
-@if(isset($_SESSION['success']) && isset($_GET['msg']))
-  <script>
-    Swal.fire(
-      'Thêm mới!',
-      '{{$_SESSION['success']}}',
-      'success'
-    )
-    window.setTimeout(function(){
-      window.location.href = '{{ route('service-category') }}';
-    },1000)
-  </script>
-@endif
-@endpush
+
 
 
