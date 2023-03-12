@@ -174,7 +174,7 @@
                     <td>
                       <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
                         <li>
-                          <button class="btn btn-info btn-default btn-squared" onclick="location.href='{{route('detail-category/'.$ct->id)}}'">Detail
+                          <button class="btn btn-info btn-default btn-squared" onclick="location.href='{{route('detail-category/'.$ct->id)}}'">Chi tiết
                           </button>
                         </li>
                         <li>

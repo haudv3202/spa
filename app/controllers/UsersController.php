@@ -32,7 +32,7 @@ class UsersController extends BaseController
                 $err["total_price"] = "Bạn chưa nhập total_price";
             }
             if (empty($_POST['create_date'])) {
-                $err["create_date	"] = "Bạn chưa nhập create_date	";
+                $err["create_date"] = "Bạn chưa nhập create_date	";
             }
             if (empty($_POST['update_date'])) {
                 $err["update_date"] = "Bạn chưa nhập update_date";
@@ -61,15 +61,6 @@ class UsersController extends BaseController
     public function index()
     {
         $err = [];
-
-
-
-
-//        if (isset($_SESSION["login"])) {
-//            if ($_SESSION["login"]) {
-//                route("dashboard");
-//            }
-//        }
 
         if (isset($_POST["btn-login"])) {
             $email = $this->user->index();
@@ -115,7 +106,7 @@ class UsersController extends BaseController
 //        if ($_SESSION["login"] == false) {
 //            route("");
 //        }
-       return $this->render('admin.home.adminIndex');
+//       return $this->render('admin.home.adminIndex');
     }
 }
 

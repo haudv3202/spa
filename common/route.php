@@ -15,13 +15,8 @@ $router->filter('auth', function(){
     }
 });
 
-
-// bắt đầu định nghĩa ra các đường dẫn
-//$router->get('/', function(){
-//    return "trang chủ";
-//});
-$router->get('/admin', [App\Controllers\UsersController::class, 'dashboard']);
-$router->get('/admin-lỗian', [App\admin\controllers\HomeController::class, 'index']);
+//$router->get('/admin', [App\Controllers\UsersController::class, 'dashboard']);
+//$router->get('/admin-error', [App\admin\controllers\HomeController::class, 'index']);
 //Category
 $router->get('add-category', [App\admin\controllers\CategoryController::class, 'addCategory']);
 $router->post('add-category-post', [App\admin\controllers\CategoryController::class, 'addCategoryPost']);
@@ -33,9 +28,9 @@ $router->get('detail-category/{id}', [App\admin\controllers\ServiceController::c
 //Service
 $router->get('service-list', [App\admin\controllers\ServiceController::class, 'listService']);
 $router->post('add-service-post', [App\admin\controllers\ServiceController::class, 'addServicePost']);
-$router->get('edit-service/{id}', [App\admin\controllers\CategoryController::class, 'editService']);
-$router->post('update-service/{id}', [App\admin\controllers\CategoryController::class, 'updateServicePost']);
-$router->get('delete-service/{id}', [App\admin\controllers\CategoryController::class, 'deteleService']);
+//$router->get('edit-service/{id}', [App\admin\controllers\CategoryController::class, 'editService']);
+//$router->post('update-service/{id}', [App\admin\controllers\CategoryController::class, 'updateServicePost']);
+//$router->get('delete-service/{id}', [App\admin\controllers\CategoryController::class, 'deteleService']);
 $router->get('/log-out', function () {
     $_SESSION["login"] = false;
     setcookie("email",$_POST["email"],time()-86401,'/');
@@ -67,16 +62,13 @@ $router->get('questions', [QuestionsController::class, 'index']);
 $router->get('add-question', [QuestionsController::class, 'addQuestion']);
 $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
 $router->get('edit-question/{id}', [QuestionsController::class, 'editQuestion']);
-$router->get('update-question/{id}', [QuestionsController::class, 'updateQuestion']);
+$router->post('edit-question/{id}', [QuestionsController::class, 'updateQuestion']);
 $router->get('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
 
 
 //login -register
 $router->get('home', [App\Controllers\HomeController::class, 'index']);
 $router->get('/', [App\Controllers\UsersController::class, 'index']);
-//$router->get('/',function (){
-//    return "xin chào Hoa ";
-//});
 $router->post('/', [App\Controllers\UsersController::class, 'index']);
 $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
