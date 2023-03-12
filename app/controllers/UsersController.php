@@ -32,7 +32,7 @@ class UsersController extends BaseController
                 $err["total_price"] = "Bạn chưa nhập total_price";
             }
             if (empty($_POST['create_date'])) {
-                $err["create_date"] = "Bạn chưa nhập create_date	";
+                $err["create_date	"] = "Bạn chưa nhập create_date	";
             }
             if (empty($_POST['update_date'])) {
                 $err["update_date"] = "Bạn chưa nhập update_date";
@@ -61,6 +61,11 @@ class UsersController extends BaseController
     public function index()
     {
         $err = [];
+        if (isset($_SESSION["login"])) {
+            if ($_SESSION["login"]) {
+                route("dashboard");
+            }
+        }
 
         if (isset($_POST["btn-login"])) {
             $email = $this->user->index();
@@ -75,14 +80,14 @@ class UsersController extends BaseController
 
                     if ($_POST["email"] == $value->email && $_POST["password"] == $value->password) {
                         $_SESSION["username"] = $value->name;
-//                        $_SESSION["login"] = true;
-//                        if (isset($_POST["remember"])) {
-//                            setcookie("email", $_POST["email"], time() + 86400, '/');
-//                            setcookie("pass", $_POST["password"], time() + 86400, '/');
-//                        }
+                        $_SESSION["login"] = true;
+                        if (isset($_POST["remember"])) {
+                            setcookie("email", $_POST["email"], time() + 86400, '/');
+                            setcookie("pass", $_POST["password"], time() + 86400, '/');
+                        }
                         if($value->role_id==0){
-//                            header('location:./admin');
-//                            route('hello');
+                            header('location:./admin');
+                            route('hello');
                             redirect('success','Đăng nhập thành công','admin');
                         }
                         else{
@@ -103,10 +108,10 @@ class UsersController extends BaseController
     public function dashboard()
 
     {
-//        if ($_SESSION["login"] == false) {
-//            route("");
-//        }
-//       return $this->render('admin.home.adminIndex');
+        if ($_SESSION["login"] == false) {
+            route("");
+        }
+       return $this->render('admin.home.adminIndex');
     }
 }
 
