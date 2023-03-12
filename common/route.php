@@ -50,7 +50,7 @@ $router->get('add-question', [QuestionsController::class, 'addQuestion']);
 $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
 $router->get('edit-question/{id}', [QuestionsController::class, 'editQuestion']);
 $router->get('update-question/{id}', [QuestionsController::class, 'updateQuestion']);
-$router->delete('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
+$router->get('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
 
 
 //login -register

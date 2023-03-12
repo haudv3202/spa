@@ -84,11 +84,11 @@
                             </button>
                           </li>
                           <li>
-                            <button onclick="location.href='{{route('edit-question')}}'" class="btn btn-primary btn-default btn-rounded bg-primary text-white">Sửa
+                            <button onclick="location.href='{{route('edit-question/'.$value->id)}}'" class="btn btn-primary btn-default btn-rounded bg-primary text-white">Sửa
                             </button>
                           </li>
                           <li>
-                            <button onclick="location.href='{{route('delete-question')}}'" class="btn btn-danger btn-default btn-rounded bg-danger text-white">Xóa
+                            <button onclick="deletItem({!! $value->id !!})"  class="btn btn-danger btn-default btn-rounded bg-danger text-white">Xóa
                             </button>
                           </li>
                         </ul>
@@ -106,10 +106,37 @@
     </div>
   </div>
 @endsection
-@push('script')
+@push('scripts')
   <script>
-    function DeletItem(id){
-      alert(id);
+    function deletItem(id){
+      Swal.fire({
+        title: 'Bạn chắc chắn?',
+        text: "Bạn có chắc chắn muốn xóa không ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = `{{route('delete-question/')}}` + id;
+        }
+      })
     }
   </script>
+  @if(isset($_SESSION['success']) && isset($_GET['msg']))
+    <script>
+      Swal.fire(
+        'Delete!',
+        '{{$_SESSION['success']}}',
+        'success'
+      )
+      @php
+       unset( $_SESSION['success']);
+        @endphp
+      window.setTimeout(function(){
+        window.location.href = '{{ route('questions') }}';
+      },1000)
+    </script>
+  @endif
 @endpush

@@ -52,6 +52,8 @@ class QuestionsController extends BaseController
     }
 
     public function deleteQuestion($id){
-
+        questions::delete($id);
+        $_SESSION['success'] = "Xóa thành công!";
+        header('location: '.route('questions'));
     }
 }
