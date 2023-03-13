@@ -53,7 +53,10 @@ $router->get('edit-blog-service/{id}', [App\admin\controllers\BlogServiceControl
 $router->post('update-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'updateBlogSvPost']);
 $router->get('delete-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'deleteBlogSv']);
 $router->get('detail-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'detailBlogSv']);
-
+//Staff
+$router->get('staff-list', [App\admin\controllers\StaffController::class, 'listStaff']);
+$router->get('edit-staff/{id}', [App\admin\controllers\StaffController::class, 'editStaff']);
+$router->post('update-staff-post/{id}', [App\admin\controllers\StaffController::class, 'updateStaffPost']);
 //giao-dien
 $router->get('contact-us', [UserDisplayController::class, 'index']);
 $router->get('quan-li-khach-hang', [UserDisplayController::class, 'index']);

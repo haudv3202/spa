@@ -37,7 +37,10 @@
               <a href="{{route('contact-us')}}">Contact Us</a>
             </li>
             <li class="">
-              <a href="{{route('instagram')}}">instagram</a>
+              <a href="{{route('instagram')}}">Instagram</a>
+            </li>
+            <li class="">
+              <a href="{{route('staff-list')}}">Quản lý nhân viên</a>
             </li>
           </ul>
         </li>
