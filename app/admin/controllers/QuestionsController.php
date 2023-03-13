@@ -82,8 +82,8 @@ class QuestionsController extends BaseController
         $_SESSION['success'] = "Xóa thành công!";
         header('location: '.route('questions'));
     }
-    public function blogQuestion(){
-        $questions = questions::GetAll();
-        $this->render('admin.UserDisplay.questions.blogQuestion',compact('questions'));
+    public function blogQuestion($id){
+        $question = questions::findOne($id);
+        $this->render('admin.UserDisplay.questions.blogQuestion',compact('question'));
     }
 }

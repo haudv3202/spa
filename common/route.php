@@ -32,18 +32,18 @@ $router->get('detail-category/{id}', [App\admin\controllers\ServiceController::c
 //Service
 $router->get('service-list', [App\admin\controllers\ServiceController::class, 'listService']);
 $router->post('add-service-post', [App\admin\controllers\ServiceController::class, 'addServicePost']);
-$router->get('edit-service/{id}', [App\admin\controllers\CategoryController::class, 'editService']);
-$router->post('update-service/{id}', [App\admin\controllers\CategoryController::class, 'updateServicePost']);
-$router->get('delete-service/{id}', [App\admin\controllers\CategoryController::class, 'deteleService']);
+//$router->get('edit-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'editService']);
+//$router->post('update-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'updateServicePost']);
+//$router->get('delete-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'deteleService']);
 $router->get('/log-out', function () {
     $_SESSION["login"] = false;
     setcookie("email",$_POST["email"],time()-86401,'/');
     setcookie("pass",$_POST["password"],time()-86401,'/');
     header("location:./");
 });
-//$router->get('edit-service/{id}', [App\admin\controllers\ServiceController::class, 'editService']);
-//$router->post('update-service/{id}', [App\admin\controllers\ServiceController::class, 'updateServicePost']);
-//$router->get('delete-service/{id}', [App\admin\controllers\ServiceController::class, 'deteleService']);
+$router->get('edit-service/{id}', [App\admin\controllers\ServiceController::class, 'editService']);
+$router->post('update-service/{id}', [App\admin\controllers\ServiceController::class, 'updateServicePost']);
+$router->get('delete-service/{id}', [App\admin\controllers\ServiceController::class, 'deteleService']);
 $router->get('detail-service/{id}', [App\admin\controllers\BlogServiceController::class, 'listBlogSvIdCate']);
 //Blog Service
 $router->get('service-blog', [App\admin\controllers\BlogServiceController::class, 'listBlogSv']);
@@ -69,7 +69,7 @@ $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
 $router->get('edit-question/{id}', [QuestionsController::class, 'editQuestion']);
 $router->post('edit-question/{id}', [QuestionsController::class, 'updateQuestion']);
 $router->get('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
-$router->get('blog-question',[QuestionsController::class, 'blogQuestion']);
+$router->get('blog-question/{id}',[QuestionsController::class, 'blogQuestion']);
 
 //login -register
 $router->get('home', [App\Controllers\HomeController::class, 'index']);
