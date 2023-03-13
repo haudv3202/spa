@@ -3,7 +3,7 @@
 @section('content')
   <div class="contents">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row text-center">
         <div class="col-lg-12 mb-30">
           <div class="card mt-30">
             <div class="card-body">
@@ -18,7 +18,7 @@
                   </div>
                   <div id="filter-form-container"></div>
                   <table
-                    class="table mb-0 table-borderless adv-table text-center"
+                    class="table mb-0 table-borderless adv-table"
                     data-sorting="true"
                     data-filter-container="#filter-form-container"
                     data-paging-current="1"
@@ -34,23 +34,15 @@
                         <span class="userDatatable-title">Câu hỏi</span>
                       </th>
                       <th>
-                        <span class="userDatatable-title">Trả lời</span>
-                      </th>
-                      <th>
-                        <span class="userDatatable-title">status</span>
-                      </th>
-                      <th>
-                              <span class="userDatatable-title float-end"
-                              >Chức năng</span
-                              >
+                        Chức năng
                       </th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($questions as $value)
+                    @foreach($questions as $key => $value)
                       <tr>
                         <td>
-                          <div class="userDatatable-content">{{ $value->id }}</div>
+                          <div class="userDatatable-content">{{$key + 1}}</div>
                         </td>
                         <td>
                           <div class="d-flex">
@@ -61,40 +53,15 @@
                             </div>
                           </div>
                         </td>
-
                         <td>
-                          <div class="userDatatable-content text-truncate" style="max-width: 150px;">
-                            {!! $value->reply !!}
-                          </div>
-                        </td>
-                        <td>
-                          <div class="userDatatable-content d-inline-block">
-                                <span
-                                  class="bg-opacity-success color-success rounded-pill userDatatable-content-status active"
-                                >active</span
-                                >
-                          </div>
-                        </td>
-                        <td>
-                          <ul
-                            class="orderDatatable_actions mb-0 d-flex flex-wrap"
-                          >
-                            <li>
-                              <button onclick="location.href='{{route('blog-question')}}'"  class="btn btn-warning btn-default btn-rounded bg-warning text-white">Chi tiết
-                              </button>
-                            </li>
-                            <li>
-                              <button onclick="location.href='{{route('edit-question/'.$value->id)}}'" class="btn btn-primary btn-default btn-rounded bg-primary text-white">Sửa
-                              </button>
-                            </li>
-                            <li>
-                              <button onclick="deletItem({!! $value->id !!})"  class="btn btn-danger btn-default btn-rounded bg-danger text-white">Xóa
-                              </button>
-                            </li>
-                          </ul>
+                          <button onclick="location.href='{{route('blog-question/'.$value->id)}}'"  class="btn btn-warning btn-default btn-rounded bg-warning text-white">Chi tiết
+                          </button>
+                          <button onclick="location.href='{{route('edit-question/'.$value->id)}}'" class="btn btn-primary btn-default btn-rounded bg-primary text-white">Sửa
+                          </button>
+                          <button onclick="deletItem({!! $value->id !!})"  class="btn btn-danger btn-default btn-rounded bg-danger text-white">Xóa
+                          </button>
                         </td>
                       </tr>
-
                     @endforeach
                     </tbody>
                   </table>
