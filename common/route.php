@@ -69,7 +69,7 @@ $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
 $router->get('edit-question/{id}', [QuestionsController::class, 'editQuestion']);
 $router->post('edit-question/{id}', [QuestionsController::class, 'updateQuestion']);
 $router->get('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
-
+$router->get('blog-question',[QuestionsController::class, 'blogQuestion']);
 
 //login -register
 $router->get('home', [App\Controllers\HomeController::class, 'index']);

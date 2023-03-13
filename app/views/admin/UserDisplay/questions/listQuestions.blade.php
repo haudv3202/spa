@@ -80,7 +80,7 @@
                             class="orderDatatable_actions mb-0 d-flex flex-wrap"
                           >
                             <li>
-                              <button class="btn btn-warning btn-default btn-rounded bg-warning text-white">Chi tiết
+                              <button onclick="location.href='{{route('blog-question')}}'"  class="btn btn-warning btn-default btn-rounded bg-warning text-white">Chi tiết
                               </button>
                             </li>
                             <li>
@@ -94,6 +94,7 @@
                           </ul>
                         </td>
                       </tr>
+
                     @endforeach
                     </tbody>
                   </table>
