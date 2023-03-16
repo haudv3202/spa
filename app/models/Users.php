@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-class Users extends BaseModel{
+class Users extends boostrap {
     protected $table = 'users';
     public function index(){
         $sql="SELECT * FROM $this->table";

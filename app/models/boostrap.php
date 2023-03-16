@@ -28,9 +28,9 @@ class boostrap extends BaseModel
         $model->setQuery($sql);
         return $model->loadAllRows();
     }
-    public static function findOne($id){
+    public static function findOne($id,$search = "id"){
         $model = new static;
-        $sql = "SELECT * FROM $model->table WHERE id = ?";
+        $sql = "SELECT * FROM $model->table WHERE $search = ?";
         $model->setQuery($sql);
         return $model->loadRow([$id]);
     }

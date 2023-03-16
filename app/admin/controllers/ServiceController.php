@@ -50,10 +50,13 @@ class ServiceController extends BaseController{
             if (empty($_POST['namesv'])){
                 $errors[] = 'Bạn cần nhập tên dịch vụ';
             }
+            if (empty($_POST['don_gia'])){
+                $errors[] = 'Bạn cần nhập đơn giá';
+            }
             if (count($errors) > 0){
                 redirect('errors', $errors, 'service-list');
             }else{
-                $result = $this->service->addService(NULL, $_POST['catesv'], $_POST['namesv']);
+                $result = $this->service->addService(NULL, $_POST['catesv'], $_POST['namesv'],$_POST['don_gia']);
                 if ($result){
                     redirect('success', 'Thêm mới thành công', 'service-list');
                 }
