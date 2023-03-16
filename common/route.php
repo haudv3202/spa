@@ -63,6 +63,8 @@ $router->get('delete-reply/{id}', [App\admin\controllers\ReplyController::class,
 //Endow
 $router->get('endow-list', [App\admin\controllers\EndowController::class, 'listEndow']);
 $router->get('delete-endow/{id}', [App\admin\controllers\EndowController::class, 'deleteEndow']);
+//Statistic
+$router->get('statistic-list', [App\admin\controllers\StatisticController::class, 'listStatistic']);
 
 
 //giao-dien

@@ -77,6 +77,12 @@
             <span class="menu-text">Câu hỏi thường gặp</span>
           </a>
         </li>
+        <li class="">
+          <a href="{{route('statistic-list')}}">
+            <span class="nav-icon uil uil-clipboard-notes"></span>
+            <span class="menu-text">Thống kê</span>
+          </a>
+        </li>
         </ul>
     </div>
   </div>

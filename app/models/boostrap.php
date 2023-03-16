@@ -96,4 +96,29 @@ class boostrap extends BaseModel
         $model->setQuery($sql);
         return $model->execute($data);
     }
+    public static function sevenDaysAgo($col, $col2){
+        $model = new static;
+        $sql = "SELECT SUM($col) as sum FROM $model->table WHERE $col2 >= DATE_ADD(CURRENT_DATE(), INTERVAL -7 DAY)";
+        $model->setQuery($sql);
+        return $model->loadAllRows();
+    }
+    public static function oneMonth($col, $col2){
+        $model = new static;
+        $sql = "SELECT SUM($col) as sum FROM $model->table WHERE $col2 >= DATE_ADD(CURRENT_DATE(), INTERVAL -1 MONTH)";
+        $model->setQuery($sql);
+        return $model->loadAllRows();
+    }
+    public static function oneYear($col, $col2){
+        $model = new static;
+        $sql = "SELECT SUM($col) as sum FROM $model->table WHERE $col2 >= DATE_ADD(CURRENT_DATE(), INTERVAL -1 YEAR)";
+        $model->setQuery($sql);
+        return $model->loadAllRows();
+    }
+    public static function totalStatistic($col){
+        $model = new static;
+        $sql = "SELECT SUM($col) as sum FROM `rankmember` WHERE 1";
+        $model->setQuery($sql);
+        return $model->loadAllRows();
+    }
+
 }
