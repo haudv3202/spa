@@ -53,7 +53,10 @@ $router->get('edit-blog-service/{id}', [App\admin\controllers\BlogServiceControl
 $router->post('update-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'updateBlogSvPost']);
 $router->get('delete-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'deleteBlogSv']);
 $router->get('detail-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'detailBlogSv']);
-
+//Staff
+$router->get('staff-list', [App\admin\controllers\StaffController::class, 'listStaff']);
+$router->get('edit-staff/{id}', [App\admin\controllers\StaffController::class, 'editStaff']);
+$router->post('update-staff-post/{id}', [App\admin\controllers\StaffController::class, 'updateStaffPost']);
 //giao-dien
 $router->get('contact-us', [UserDisplayController::class, 'index']);
 $router->get('quan-li-khach-hang', [UserDisplayController::class, 'index']);
@@ -63,6 +66,9 @@ $router->get('edit-insta/{id}', [UserDisplayController::class, 'editInsta']);
 $router->post('update-contact/{id}', [UserDisplayController::class, 'update']);
 $router->post('update-insta/{id}', [UserDisplayController::class, 'updateInsta']);
 $router->get('questions', [QuestionsController::class, 'index']);
+$router->get('newletters',[App\controllers\NewlettersController::class ,'index']);
+$router->get('edit-newletters/{id}', [App\controllers\NewlettersController::class, 'edit']);
+$router->post('update-newletters/{id}', [App\controllers\NewlettersController::class, 'update']);
 
 $router->get('add-question', [QuestionsController::class, 'addQuestion']);
 $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
@@ -71,18 +77,23 @@ $router->post('edit-question/{id}', [QuestionsController::class, 'updateQuestion
 $router->get('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
 $router->get('blog-question/{id}',[QuestionsController::class, 'blogQuestion']);
 
+//ql user
+$router->get('user', [App\admin\controllers\UsersControlller::class, 'showUser']);
+$router->get('add_user', [App\admin\controllers\UsersControlller::class, 'showUser']);
+$router->get('chi-tiet-nguoi-dung/{id}', [App\admin\controllers\UsersControlller::class, 'detailUser']);
+$router->get('add-serivce-user', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
+$router->post('add-serivce-user', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
+$router->get('delete-user/{id}', [App\admin\controllers\UsersControlller::class, 'deleteUser']);
+$router->get('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
+$router->post('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
+$router->get('delete-detail-user/{id}/{backpage}', [App\admin\controllers\UsersControlller::class, 'deleteServiceUser']);
 //login -register
 $router->get('home', [App\Controllers\HomeController::class, 'index']);
 $router->get('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->post('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
-$router->get('user', [App\admin\controllers\UsersControlller::class, 'showUser']);
-$router->get('add-user', [App\admin\controllers\UsersControlller::class, 'addUser']);
-$router->post('add-user', [App\admin\controllers\UsersControlller::class, 'addUser']);
-$router->get('delete-user/{id}', [App\admin\controllers\UsersControlller::class, 'deleteUser']);
-$router->get('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
-$router->post('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
+
 
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());

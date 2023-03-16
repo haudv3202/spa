@@ -45,7 +45,12 @@
                         <div class="new-member-modal">
                           <form action="{{route('add-service-post')}}" method="post">
                             <div class="form-group mb-20">
+                              <label>Tên dịch vụ</label>
                               <input type="text" name="namesv" class="form-control" placeholder="Tên dịch vụ">
+                            </div>
+                            <div class="form-group mb-20">
+                              <label>Đơn giá</label>
+                              <input type="text" name="don_gia" class="form-control" placeholder="đơn giá dịch vụ">
                             </div>
                             <div class="support-form__input-id">
                               <label>Danh mục</label>
@@ -148,6 +153,9 @@
                     <th>
                       <span class="userDatatable-title">Tên dịch vụ</span>
                     </th>
+                    <th>
+                      <span class="userDatatable-title">Đơn giá</span>
+                    </th>
                     <th class="actions">
                       <span class="userDatatable-title">Actions</span>
                     </th>
@@ -194,21 +202,17 @@
                         </div>
                       </td>
                       <td>
-                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                          <li>
+                        <div class="userDatatable-content--subject">
+                          {{number_format($sv->price)}}đ
+                        </div>
+                      </td>
+                      <td class="d-flex justify-content-around">
                             <button class="btn btn-info btn-default btn-squared" onclick="location.href='{{route('detail-service/'.$sv->id)}}'">Detail
                             </button>
-                          </li>
-                          <li>
                             <button class="btn btn-warning btn-default btn-squared" onclick="location.href='{{route('edit-service/'.$sv->id)}}'">Edit
                             </button>
-                          </li>
-                          <li>
-                            <button class="btn btn-danger btn-default btn-squared" onclick="return confirm('Bạn có muốn xóa?') == true ? location.href='{{route('delete-service/'.$sv->id)}}' : ''">Delete
+                            <button class="btn btn-danger btn-default btn-squared" onclick="deletItem({{$sv->id}})">Delete
                             </button>
-                            </a>
-                          </li>
-                        </ul>
                       </td>
                     </tr>
                   @endforeach
