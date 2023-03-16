@@ -57,6 +57,16 @@ $router->get('detail-blog-service/{id}', [App\admin\controllers\BlogServiceContr
 $router->get('staff-list', [App\admin\controllers\StaffController::class, 'listStaff']);
 $router->get('edit-staff/{id}', [App\admin\controllers\StaffController::class, 'editStaff']);
 $router->post('update-staff-post/{id}', [App\admin\controllers\StaffController::class, 'updateStaffPost']);
+//Reply
+$router->get('reply-list', [App\admin\controllers\ReplyController::class, 'listReply']);
+$router->get('delete-reply/{id}', [App\admin\controllers\ReplyController::class, 'deleteReply']);
+//Endow
+$router->get('endow-list', [App\admin\controllers\EndowController::class, 'listEndow']);
+$router->get('delete-endow/{id}', [App\admin\controllers\EndowController::class, 'deleteEndow']);
+//Statistic
+$router->get('statistic-list', [App\admin\controllers\StatisticController::class, 'listStatistic']);
+
+
 //giao-dien
 $router->get('contact-us', [UserDisplayController::class, 'index']);
 $router->get('quan-li-khach-hang', [UserDisplayController::class, 'index']);
