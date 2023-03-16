@@ -64,10 +64,29 @@
               <a href="{{route('list-rank')}}">Danh mục khách hàng</a>
             </li>
           </ul>
+        </li>
+        <li class="">
+          <a href="{{route('reply-list')}}">
+            <span class="nav-icon uil uil-clipboard-notes"></span>
+            <span class="menu-text">Quản lý phản hồi</span>
+          </a>
+        </li>
+        <li class="">
+          <a href="{{route('endow-list')}}">
+            <span class="nav-icon uil uil-clipboard-notes"></span>
+            <span class="menu-text">Quản lý phản hồi ưu đãi</span>
+          </a>
+        </li>
         <li class="">
           <a href="{{route('questions')}}">
             <span class="nav-icon uil uil-clipboard-notes"></span>
             <span class="menu-text">Câu hỏi thường gặp</span>
+          </a>
+        </li>
+        <li class="">
+          <a href="{{route('statistic-list')}}">
+            <span class="nav-icon uil uil-clipboard-notes"></span>
+            <span class="menu-text">Thống kê</span>
           </a>
         </li>
         </ul>
