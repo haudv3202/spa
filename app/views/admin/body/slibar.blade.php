@@ -42,6 +42,9 @@
             <li class="">
               <a href="{{route('staff-list')}}">Quản lý nhân viên</a>
             </li>
+            <li class="">
+              <a href="{{route('newletters')}}">Newletters</a>
+            </li>
           </ul>
         </li>
         <li class="has-child">
