@@ -36,7 +36,7 @@
                 >
                 </div>
               </div>
-              <button onclick="location.href='{{ route('add-serivce-user') }}'" class="btn btn-primary btn-default btn-squared btn-shadow-primary mb-2">
+              <button onclick="location.href='{{ route('add-serivce-user/'.$_GET['id']) }}'" class="btn btn-primary btn-default btn-squared btn-shadow-primary mb-2">
                 Thêm mới
               </button>
             </div>
@@ -103,11 +103,7 @@
                       </td>
                       <td>
                         <div class="d-flex justify-content-between">
-                          <button class="btn btn-primary btn-default btn-squared btn-shadow-primary " onclick="location.href=''">chi tiết
-                          </button>
-                          <button class="btn btn-secondary btn-default btn-squared btn-shadow-secondary " onclick="location.href=''">sửa
-                          </button>
-                          <button onclick="deletItem( {{ $value->id }},{{ $value->id_user }})" class="btn btn-danger btn-default btn-squared btn-shadow-danger ">Xóa
+                          <button onclick="deletItem({{ $value->id }},{{ $value->id_user }})" class="btn btn-danger btn-default btn-squared btn-shadow-danger ">Xóa
                           </button>
                         </div>
                       </td>
@@ -157,4 +153,8 @@
       },1000)
     </script>
   @endif
+
+
+
+
 @endpush

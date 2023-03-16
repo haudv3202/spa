@@ -22,27 +22,26 @@
                         <form action="" method="post">
                           <div class="form-group mb-25">
                             <label for="name1">danh mục</label>
-                            <select name="select-size-2" id="cate" class="form-control  form-control-lg">
+                            <select name="select-size-2" id="cate" class="form-control form-control-lg" onchange="showUser(this.value)">
                               <option selected value="0">Chưa chọn dịch vụ</option>
-                              @foreach($allservice as $value)
+                              @foreach($allCate as $value)
                                 <option data-price="{{ $value->price }}" value="{{ $value->id }}">{{ $value->name }}</option>
                               @endforeach
                             </select>
-                            <div>
+                            </div>
                           <div class="form-group mb-25">
                             <label for="name1">dịch vụ</label>
-                            <select name="select-size-2" id="service" class="form-control  form-control-lg">
+                            <select name="service" id="service" class="form-control  form-control-lg"     onchange="setCustomValidity('')"
+                            >
                               <option selected value="0">Chưa chọn dịch vụ</option>
-                              @foreach($allservice as $value)
-                              <option data-price="{{ $value->price }}" value="{{ $value->id }}">{{ $value->name }}</option>
-                              @endforeach
                             </select>
-                          <div>
+                          </div>
                             <div class="form-group mb-25" id="price">
-                              <label for="price1">đơn giá</label>
-                              <input type="text" class="form-control" name='price'   id="price1"
-                                  >
-                              <div>
+                            <label for="price1">đơn giá</label>
+                            <input type="text" class="form-control" name='price'   id="price1"
+                            >
+                          </div>
+                            <div class="form-group mb-25 d-flex justify-content-between" >
                             <button
                               class="btn btn-light btn-default btn-squared fw-400 text-capitalize radius-md btn-sm">
                               cancel
@@ -73,7 +72,7 @@
     const elementService = document.querySelector('#service');
       elementPrice.style.display = 'none';
 
-    elementService.addEventListener("change",function (e){
+    elementService.addEventListener("click",function (e){
       // e.target.value
       const selectedOption = this.options[this.selectedIndex];
       const price = selectedOption.getAttribute("data-price");
@@ -88,4 +87,23 @@
 
   </script>
 
+  <script>
+    function showUser(id) {
+      $.get("add-detailUser/"+id,function(data, status){
+        var dataOne = JSON.parse(data);
+        console.log(dataOne);
+        if (dataOne.length === 0) {
+          $('select#service').html('<option value="0">Không có dịch vụ</option>');
+        }else {
+          var selectOptions = '';
+          $.each(dataOne, function(index, element) {
+            selectOptions += '<option value="' + element.id_cate + '" data-price="'+element.price+'">' + element.name + '</option>';
+          });
+          $('select#service').html(selectOptions);
+        }
+
+      });
+
+    }
+  </script>
 @endpush

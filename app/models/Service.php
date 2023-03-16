@@ -28,6 +28,12 @@ class Service extends BaseModel{
         $this->setQuery($sql);
         return $this->loadAllRows([$id]);
     }
+
+    public function getCateId($id){
+        $sql = "SELECT * FROM $this->table WHERE id_cate = ?";
+        $this->setQuery($sql);
+        return $this->loadAllRows([$id]);
+    }
     public function getDetailService($id){
         $sql = "SELECT * FROM $this->table WHERE id = ?";
         $this->setQuery($sql);

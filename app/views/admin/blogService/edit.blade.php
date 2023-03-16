@@ -150,7 +150,7 @@
 @endsection
 
 @push('scripts')
-  <script >
+  <script type="text/javascript">
     CKEDITOR.replace( 'content-blog', {
       filebrowserUploadUrl: './app/views/ckeditor/uploadBlogSv.php',
 

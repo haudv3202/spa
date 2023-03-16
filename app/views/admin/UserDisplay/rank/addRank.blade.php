@@ -46,27 +46,31 @@
           <div class="col-md-10 col-10">
             <div class="mt-40 mb-50">
               <div class="edit-profile__body">
-                <form action="{{route('edit-question/'.$dataOne->id)}}" method="post">
+                <form action="" method="post">
                   <div class="form-group mb-25">
-                    <label for="name1">Câu hỏi</label>
+                    <label for="name1">Tên hạng</label>
                     <input
                       type="text"
                       class="form-control"
                       id="name1"
-                      name="question"
-                      value="{{ $dataOne->question }}"
+                      name="namerank"
                     />
                   </div>
                   <div class="form-group mb-25">
-                    <label for="name2">Trả lời</label>
-                    <textarea name="reply" id="" cols="30" rows="10">{{ $dataOne->reply }}</textarea>
+                    <label for="name2">Mức tiền</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="name1"
+                      name="price"
+                    />
                   </div>
                   <div
                     class="button-group d-flex pt-25 justify-content-md-end justify-content-start"
                   >
                     <button
-                      name="sb-edit-question"
                       class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm"
+                      type="submit" name="sb-rank"
                     >
                       Thêm
                     </button>
@@ -82,22 +86,17 @@
 @endsection
 
 @push('scripts')
-  <script type="text/javascript" >
-    CKEDITOR.replace( 'reply', {
-      filebrowserUploadUrl: './app/views/ckeditor/upload.php'
-    } );
-  </script>
 
   @if(isset($_SESSION['success']) && isset($_GET['msg']))
     <script>
       Swal.fire(
-        'cập nhật!',
+        'Thêm mới!',
         '{{$_SESSION['success']}}',
         'success'
       )
       window.setTimeout(function(){
-        window.location.href = '{{ route('questions') }}';
-      },1000)
+        window.location.href = '{{ route('list-rank') }}';
+      },1500)
     </script>
   @endif
 @endpush
