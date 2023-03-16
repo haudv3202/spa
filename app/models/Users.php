@@ -7,6 +7,12 @@ class Users extends boostrap {
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+
+    public function search($value){
+        $sql="SELECT * FROM $this->table WHERE (name like '%$value%') OR (sdt like '%$value%') OR (email like '%$value%')";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
     public function signup($name,$password,$sdt,$email){
         $create_date=date('Y-m-d H:i a');
         $update_date=date('Y-m-d H:i a');

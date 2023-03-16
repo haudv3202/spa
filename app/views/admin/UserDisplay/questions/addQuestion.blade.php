@@ -81,7 +81,7 @@
 @endsection
 
 @push('scripts')
-  <script >
+  <script type="text/javascript">
     CKEDITOR.replace( 'reply', {
       filebrowserUploadUrl: './app/views/ckeditor/upload.php'
     } );

@@ -57,6 +57,12 @@
             <li class="">
               <a href="{{route('user')}}">Người Dùng</a>
             </li>
+            <li class="">
+              <a href="{{route('add-user')}}">Tạo tài khoản quản trị</a>
+            </li>
+            <li class="">
+              <a href="{{route('list-rank')}}">Danh mục khách hàng</a>
+            </li>
           </ul>
         <li class="">
           <a href="{{route('questions')}}">
