@@ -8,6 +8,11 @@ class Service extends BaseModel{
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+    public function getAllServiceWhere($id){
+        $sql = "SELECT * FROM $this->table WHERE id = ?";
+        $this->setQuery($sql);
+        return $this->loadRow([$id]);
+    }
     public function getAllLimit($index){
         $sql = "SELECT * FROM $this->table LIMIT $index,8";
         $this->setQuery($sql);
@@ -28,10 +33,10 @@ class Service extends BaseModel{
         $this->setQuery($sql);
         return $this->loadRow([$id]);
     }
-    public function addService($id, $id_cate, $name){
-        $sql = "INSERT INTO $this->table VALUES (?, ?, ?)";
+    public function addService($id, $id_cate, $name,$price){
+        $sql = "INSERT INTO $this->table VALUES (?, ?, ?,?)";
         $this->setQuery($sql);
-        return $this->execute([$id, $id_cate, $name]);
+        return $this->execute([$id, $id_cate, $name,$price]);
     }
     public function updateService($id, $id_cate, $name){
         $sql = "UPDATE $this->table SET id_cate = ?, name = ? WHERE id = ?";
