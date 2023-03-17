@@ -21,7 +21,7 @@ $router->filter('auth', function(){
 //$router->get('/', function(){
 //    return "trang chủ";
 //});
-$router->get('/admin', [App\Controllers\UsersController::class, 'dashboard']);
+$router->get('admin', [App\Controllers\UsersController::class, 'dashboard']);
 //Category
 $router->get('add-category', [App\admin\controllers\CategoryController::class, 'addCategory']);
 $router->post('add-category-post', [App\admin\controllers\CategoryController::class, 'addCategoryPost']);
@@ -84,7 +84,7 @@ $router->post('add-newletters-post', [App\controllers\NewlettersController::clas
 $router->get('edit-newletters/{id}', [App\controllers\NewlettersController::class, 'edit']);
 $router->post('update-newletters/{id}', [App\controllers\NewlettersController::class, 'update']);
 $router->get('delete-newletters/{id}', [App\controllers\NewlettersController::class, 'deleteNewletters']);
-
+//question
 $router->get('add-question', [QuestionsController::class, 'addQuestion']);
 $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
 $router->get('edit-question/{id}', [QuestionsController::class, 'editQuestion']);
@@ -95,7 +95,7 @@ $router->get('blog-question/{id}',[QuestionsController::class, 'blogQuestion']);
 //ql user
 $router->get('user', [App\admin\controllers\UsersControlller::class, 'showUser']);
 $router->get('search/{value}', [App\admin\controllers\UsersControlller::class, 'search']);
-$router->get('add_user', [App\admin\controllers\UsersControlller::class, 'showUser']);
+$router->get('add-user', [App\admin\controllers\UsersControlller::class, 'showUser']);
 $router->get('chi-tiet-nguoi-dung', [App\admin\controllers\UsersControlller::class, 'detailUser']);
 $router->get('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
 $router->get('add-serivce-user/add-detailUser/{id}', [App\admin\controllers\UsersControlller::class, 'getservice']);
@@ -123,6 +123,13 @@ $router->post('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
 
+
+
+//Client
+//Home Monospa
+$router->get('/',[App\Controllers\HomeController::class,'homeList']);
+
+$router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
 
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());

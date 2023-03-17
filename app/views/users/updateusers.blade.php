@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="d-flex align-items-center user-member__title mb-30 mt-30">
-            <h4 class="text-capitalize">Edit user</h4>
+            <h4 class="text-capitalize">Edit User</h4>
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
                 <li class="nav-item">
                   <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
                      href="#v-pills-home" role="tab" aria-selected="true">
-                    <img src="img/svg/user.svg" alt="user" class="svg">personal info</a>
+                    <img src="{{route('app/views/admin/public/assets/img/svg/user.svg')}}" alt="user" class="svg">personal info</a>
                 </li>
 
               </ul>
@@ -30,7 +30,7 @@
                   <div class="col-xxl-4 col-10">
                     <div class="mt-sm-40 mb-sm-50 mt-20 mb-20">
                       <div class="user-tab-info-title mb-sm-40 mb-20 text-capitalize">
-                        <h5 class="fw-500">Personal Information</h5>
+                        <h5 class="fw-500">Thông tin người dùng</h5>
                       </div>
                       <div class="account-profile d-flex align-items-center mb-4 ">
                         <div class="ap-img pro_img_wrapper">
@@ -39,10 +39,8 @@
 
                           <label for="file-upload">
                             <img class="ap-img__main rounded-circle wh-120 bg-lighter d-flex"
-                                 src="img/author/profile.png" alt="profile">
-                            <span class="cross" id="remove_pro_pic">
-                                                                <img src="img/svg/camera.svg" alt="camera" class="svg">
-                                                            </span>
+                                 src="{{route('public/upload/user/'.$showUpdate->image)}}" alt="profile">
+
                           </label>
                         </div>
                         <div class="account-profile__title">
@@ -51,21 +49,21 @@
                         </div>
                       </div>
                       <div class="edit-profile__body">
-                        <form action="" method="post">
+                        <form action="{{route('update-user/'.$showUpdate->id)}}" method="post" enctype="multipart/form-data">
                           <div class="form-group mb-25">
-                            <label for="name1">Name</label>
+                            <label for="name1">Họ và tên</label>
                             <input type="text" class="form-control" name='username' value="{{$showUpdate->name}}"  id="name1"
-                                   placeholder="Name">
+                                   placeholder="Full Name">
                           </div>
                           <div class="form-group mb-25">
-                            <label for="name2">Password</label>
+                            <label for="name2">Mật khẩu</label>
                             <input type="password" class="form-control"  name='password' value="{{$showUpdate->password}}"  id="name2"
-                                   placeholder="password">
+                                   placeholder="Password">
                           </div>
                           <div class="form-group mb-25">
-                            <label for="phoneNumber5">phone number</label>
+                            <label for="phoneNumber5">Phone Number</label>
                             <input type="tel" class="form-control"  name='sdt' value="{{$showUpdate->sdt}}" id= "phoneNumber5"
-                                   placeholder="+440 2546 5236">
+                                   placeholder="012345678">
                           </div>
                           <div class="form-group mb-25">
                             <label for="name2">Email</label>
@@ -75,18 +73,22 @@
 
                           <div class="form-group mb-25">
                             <label for="name2">Image</label>
-                            <input type="file" class="form-control"  name='image' value="{{$showUpdate->image}} " id="name2"
+                            <input type="file" class="form-control"  name='image' id="name2"
                                    placeholder="Image">
                           </div>
                           <div class="form-group mb-25">
-                            <label for="name2">Giá</label>
-                            <input type="text" class="form-control"  name='total_price'  value="{{$showUpdate->total_price}}" id="name2"
-                                   placeholder="giá">
+                            <label for="name2">Địa chỉ</label>
+                            <input type="text" class="form-control"  name='address'  value="{{$showUpdate->address}}" id="name2"
+                                   placeholder="Địa chỉ">
                           </div>
                           <div class="form-group mb-25">
                             <label for="name2">Role_id</label>
-                            <input type="text" class="form-control"  name='role_id' value="{{$showUpdate->role_id}} " id="name2"
-                                   placeholder="sample@email.com">
+                            <div class="dm-select ">
+                              <select name="role_id" class="select-search form-control ">
+                                <option value="0" <?php echo $showUpdate->role_id == 0 ? 'selected' : ''?>>Người dùng</option>
+                                <option value="1" <?php echo $showUpdate->role_id == 1 ? 'selected' : ''?>>Quản trị</option>
+                              </select>
+                            </div>
                           </div>
                           <div
                             class="button-group d-flex pt-sm-25 justify-content-md-end justify-content-start ">
@@ -112,3 +114,20 @@
     </div>
   </div>
 @endsection
+@push('scripts')
+  @if(isset($_SESSION['success']) && isset($_GET['msg']))
+    <script>
+      Swal.fire(
+        'Thông báo!',
+        '{{$_SESSION['success']}}',
+        'success'
+      )
+      @php
+        unset( $_SESSION['success']);
+      @endphp
+      window.setTimeout(function(){
+        window.location.href = '{{ route('user') }}';
+      },1500)
+    </script>
+  @endif
+@endpush
