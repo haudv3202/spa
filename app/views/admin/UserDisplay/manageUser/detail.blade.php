@@ -23,6 +23,71 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-5 mb-5">
+          <div class="card">
+            <div class="card-header color-dark fw-500">
+              Thông tin
+            </div>
+            <div class="card-body p-0">
+              <div class="table4 p-25 mb-30">
+                <div class="table-responsive">
+                  <table class="table mb-0">
+                    <tbody>
+                      <tr>
+                        <td>
+                          Họ tên
+                        </td>
+                        <td>
+                       {{ $user->name }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                         Email
+                        </td>
+                        <td>
+                          {{ $user->email }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Số điện thoại
+                        </td>
+                        <td>
+                          {{ $user->sdt }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Địa chỉ
+                        </td>
+                        <td>
+                          {{ $user->address == "" ? "chưa có địa chỉ" : $user->address }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Xếp hạng
+                        </td>
+                        <td>
+                          {{ $user->rank }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Tổng chi tiêu
+                        </td>
+                        <td>
+                          {{ number_format($user->total_price) }}đ
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-12 mb-30">
           <div class="support-ticket-system support-ticket-system--search">
             <div
