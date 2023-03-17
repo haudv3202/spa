@@ -114,9 +114,9 @@
                     </td>
                     <td>
                       <div class="d-flex justify-content-between">
-                        <button class="btn btn-primary btn-default btn-squared btn-shadow-primary " onclick="location.href='{{ route('chi-tiet-nguoi-dung?id='.$value->id)  }}'">chi tiết
+                        <button class="btn btn-primary btn-default btn-squared btn-shadow-primary " onclick="location.href='{{ route('chi-tiet-nguoi-dung?id='.$value->id)  }}'">Chi tiết
                         </button>
-                        <button class="btn btn-secondary btn-default btn-squared btn-shadow-secondary " onclick="location.href='{{ route('update-user/'.$value->id) }}'">sửa
+                        <button class="btn btn-secondary btn-default btn-squared btn-shadow-secondary " onclick="location.href='{{ route('update-user/'.$value->id) }}'">Sửa
                         </button>
                         <button onclick="deletItem({{ $value->id }})" class="btn btn-danger btn-default btn-squared btn-shadow-danger ">Xóa
                         </button>
