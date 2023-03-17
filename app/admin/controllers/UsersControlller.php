@@ -202,13 +202,14 @@ class UsersControlller extends BaseController{
             if(count($errors) > 0){
                 redirect('errors', $errors, 'add-serivce-user/' . $id);
             }else {
+                $date = date("Y/m/d h:i:sa");
                 $result = detailUser::addItems(
                     [
                         "id" =>  NULL,
                         "id_service" => $service,
                         "id_user" => $id,
                         "price" => $price,
-                        "create_date" => null,
+                        "create_date" =>  $date,
                         "create_update" => NULL
                     ]
                 );

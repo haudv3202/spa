@@ -116,13 +116,7 @@
                       <span class="userDatatable-title">STT</span>
                     </th>
                     <th>
-                      <span class="userDatatable-title">Tên</span>
-                    </th>
-                    <th>
-                      <span class="userDatatable-title">Email</span>
-                    </th>
-                    <th>
-                      <span class="userDatatable-title">Số điện thoại</span>
+                      <span class="userDatatable-title">Ngày tạo</span>
                     </th>
                     <th>
                       <span class="userDatatable-title">dịch vụ sử dụng</span>
@@ -140,21 +134,7 @@
                     <tr>
                       <td>#{{ $key+1 }}</td>
                       <td>
-                        <div class="d-flex">
-                          <div class="userDatatable-inline-title">
-                            <a href="#" class="text-dark fw-500">
-                              <h6>{{ $value->name }}</h6>
-                            </a>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        {{ $value->email }}
-                      </td>
-                      <td>
-                        <div class="userDatatable-content--subject">
-                          {{ $value->sdt }}
-                        </div>
+                        {{ $value->create_date }}
                       </td>
                       <td>
                         <div class="userDatatable-content--priority">
