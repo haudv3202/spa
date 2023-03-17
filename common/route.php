@@ -4,6 +4,7 @@ use App\admin\controllers\HomeController;
 use App\Controllers\AuthController;
 use App\admin\controllers\UserDisplayController;
 use App\admin\controllers\QuestionsController;
+use App\admin\controllers\rankMemberController;
 $url = !isset($_GET['url']) ? "/" : $_GET['url'];
 
 $router = new RouteCollector();
@@ -77,8 +78,11 @@ $router->post('update-contact/{id}', [UserDisplayController::class, 'update']);
 $router->post('update-insta/{id}', [UserDisplayController::class, 'updateInsta']);
 $router->get('questions', [QuestionsController::class, 'index']);
 $router->get('newletters',[App\controllers\NewlettersController::class ,'index']);
+$router->get('add-newletters', [App\controllers\NewlettersController::class, 'addNewletters']);
+$router->post('add-newletters', [App\controllers\NewlettersController::class, 'addNewlettersPost']);
 $router->get('edit-newletters/{id}', [App\controllers\NewlettersController::class, 'edit']);
 $router->post('update-newletters/{id}', [App\controllers\NewlettersController::class, 'update']);
+$router->get('delete-newletters/{id}', [App\controllers\NewlettersController::class, 'deleteNewletters']);
 
 $router->get('add-question', [QuestionsController::class, 'addQuestion']);
 $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
@@ -89,14 +93,25 @@ $router->get('blog-question/{id}',[QuestionsController::class, 'blogQuestion']);
 
 //ql user
 $router->get('user', [App\admin\controllers\UsersControlller::class, 'showUser']);
+$router->get('search/{value}', [App\admin\controllers\UsersControlller::class, 'search']);
 $router->get('add_user', [App\admin\controllers\UsersControlller::class, 'showUser']);
-$router->get('chi-tiet-nguoi-dung/{id}', [App\admin\controllers\UsersControlller::class, 'detailUser']);
-$router->get('add-serivce-user', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
-$router->post('add-serivce-user', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
+$router->get('chi-tiet-nguoi-dung', [App\admin\controllers\UsersControlller::class, 'detailUser']);
+$router->get('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
+$router->get('add-serivce-user/add-detailUser/{id}', [App\admin\controllers\UsersControlller::class, 'getservice']);
+$router->get('editServiceUser/add-detailUser/{id}', [App\admin\controllers\UsersControlller::class, 'getservice']);
+$router->post('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
 $router->get('delete-user/{id}', [App\admin\controllers\UsersControlller::class, 'deleteUser']);
 $router->get('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
 $router->post('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
+//xóa chi tiết chi tiết thanh toán
 $router->get('delete-detail-user/{id}/{backpage}', [App\admin\controllers\UsersControlller::class, 'deleteServiceUser']);
+//quản lí loại khách
+$router->get('list-rank', [App\admin\controllers\rankMemberController::class, 'index']);
+$router->get('delete-rank/{id}', [App\admin\controllers\rankMemberController::class, 'deleteRank']);
+$router->get('add-rank', [App\admin\controllers\rankMemberController::class, 'addRank']);
+$router->post('add-rank', [App\admin\controllers\rankMemberController::class, 'addRank']);
+$router->get('edit-rank/{id}', [App\admin\controllers\rankMemberController::class, 'editRank']);
+$router->post('edit-rank/{id}', [App\admin\controllers\rankMemberController::class, 'editRank']);
 //login -register
 $router->get('home', [App\Controllers\HomeController::class, 'index']);
 $router->get('sign-in', [App\Controllers\UsersController::class, 'index']);

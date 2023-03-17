@@ -4,18 +4,45 @@ use App\Controllers\BaseController;
 use App\Models\Service;
 use App\Models\Users;
 use App\models\detailUser;
+use App\Models\Category;
+use App\models\rankmember;
 class UsersControlller extends BaseController{
     protected $user;
     protected $ser;
+    protected $category;
     public function __construct()
     {
         $this->user= new Users();
         $this->ser = new Service();
+        $this->category = new Category();
     }
 
+    public function search($value){
+        $users = $this->user->search($value);
+        $ranks = rankmember::GetAll();
+        foreach ($users as $value){
+            foreach ($ranks as $data){
+                if($value->total_price >= $data->total ){
+                    $value->rank = $data->name;
+                }
+            }
+        }
+
+        $data = json_encode($users);
+        print_r($data);
+    }
     public function showUser(){
-        $users= $this->user->showUser();
-        $this->render("admin.UserDisplay.manageUser.listUser",compact("users"));
+        $users = $this->user->showUser();
+        $ranks = rankmember::GetAll();
+        foreach ($users as $value){
+            foreach ($ranks as $data){
+                if($value->total_price >= $data->total ){
+                    $value->rank = $data->name;
+                }
+            }
+        }
+
+        $this->render("admin.UserDisplay.manageUser.listUser",compact("users","ranks"));
     }
 
     public function addUser(){
@@ -118,68 +145,82 @@ class UsersControlller extends BaseController{
         $this->render('users.updateusers',compact('showUpdate'));
     }
 // dịch vụ sử dụng
-    public function detailUser($id){
+    public function detailUser(){
+        $id = $_GET['id'];
         $detailUser = detailUser::findAllColumn($id,"id_user");
         $user = Users::findOne($id);
-
         foreach($detailUser as $value){
-            $service = $this->ser->getAllServiceWhere($value->id_service);
+            $service = $this->ser->getCateId($value->id_service);
             $value->name = $user->name;
             $value->sdt = $user->sdt;
             $value->email = $user->email;
-            $value->service = $service->name;
-            $value->price = $service->price;
+            $value->service = $service[0]->name;
         }
         $this->render("admin.UserDisplay.manageUser.detail",compact("detailUser"));
     }
 
-    public function addServiceUser(){
-        $allservice =  $this->ser->getAllService();
-        if(isset($_POST['sb-question'])){
-            $question = $_POST['question'];
-            $reply = $_POST['reply'];
+    public function addServiceUser($id){
+        $allCate = $this->category->getAllCategory();
+        if(isset($_POST['btn-adduser'])){
+            $service = $_POST['service'];
+            $price = $_POST['price'];
             $errors = [];
-            if(empty($_POST['question'])){
-                $errors[] = 'Bạn cần nhập câu hỏi';
+            if(empty($_POST['service'])){
+                $errors[] = 'Hãy chọn dịch vụ';
             }
-            if(empty($_POST['reply'])){
-                $errors[] = 'Bạn cần nhập tên nội dung trả lời';
+            if(empty($_POST['price'])){
+                $errors[] = 'Không để trống đơn giá dịch vụ';
             }
 
             if(count($errors) > 0){
-                redirect('errors', $errors, 'add-question');
+                redirect('errors', $errors, 'add-serivce-user/' . $id);
             }else {
-                $result = questions::addItems(
+                $result = detailUser::addItems(
                     [
                         "id" =>  NULL,
-                        "question" => $question,
-                        "reply" => $reply
+                        "id_service" => $service,
+                        "id_user" => $id,
+                        "price" => $price,
+                        "create_date" => null,
+                        "create_update" => NULL
                     ]
                 );
+
+                $datatotal = detailUser::findAllColumn($id,"id_user");
+                $total = 0;
+                foreach ($datatotal as $value){
+                    $total += $value->price ;
+                }
+                Users::updatefind($id,[
+                    "total_price" => $total
+                ]);
+
                 if ($result){
-                    redirect('success', "Thêm thành công!", 'add-question');
+                    redirect('success', "Thêm thành công!", 'chi-tiet-nguoi-dung?id='.$id);
                 }
             }
         }
 
-        $this->render("admin.UserDisplay.manageUser.addDetailService",compact("allservice"));
+        $this->render("admin.UserDisplay.manageUser.addDetailService",compact("allCate"));
     }
 
-    public function editServiceUser($id,$backpage){
-        detailUser::delete($id);
-        $_SESSION['success'] = "Xóa thành công!";
-        header('location: '.route('chi-tiet-nguoi-dung/' .$backpage ));
+    public function getservice($id){
+        $allservice =  $this->ser->getAllCateId($id);
+        $data = json_encode($allservice);
+        print_r($data);
     }
-    public function updateServiceUser($id,$backpage){
-        detailUser::delete($id);
-        $_SESSION['success'] = "Xóa thành công!";
-        header('location: '.route('chi-tiet-nguoi-dung/' .$backpage ));
-    }
+//edit
 
     public function deleteServiceUser($id,$backpage){
+        $total = Users::findOne($backpage)->total_price;
+        $priceDelete = detailUser::findOne($id)->price;
+        $amount_money = $total - $priceDelete;
+        Users::updatefind($backpage,[
+            "total_price" => $amount_money
+        ]);
         detailUser::delete($id);
         $_SESSION['success'] = "Xóa thành công!";
-        header('location: '.route('chi-tiet-nguoi-dung/' .$backpage ));
+        header('location: '.route('chi-tiet-nguoi-dung?id=' .$backpage ));
     }
 }
 ?>

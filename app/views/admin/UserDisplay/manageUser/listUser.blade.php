@@ -24,6 +24,47 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-5 mb-5">
+          <div class="card">
+            <div class="card-header color-dark fw-500">
+              Bảng xếp hạng
+            </div>
+            <div class="card-body p-0">
+              <div class="table4 p-25 mb-30">
+                <div class="table-responsive">
+                  <table class="table mb-0">
+                    <thead>
+                    <tr class="userDatatable-header">
+                      <th>
+                        <span class="userDatatable-title">Tên hạng</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Mức chi tiêu</span>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($ranks as $value)
+                    <tr>
+                      <td>
+                        <div class="userDatatable-content">
+                          {{ $value->name }}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content">
+                          {{ number_format($value->total) }}
+                        </div>
+                      </td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-12 mb-30">
           <div class="support-ticket-system support-ticket-system--search">
             <div
@@ -41,8 +82,21 @@
             <div
               class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1"
             >
+              <div class="support-form__search">
+                <div class="support-order-search">
+                  <form action="" class="support-order-search__form d-flex align-items-center">
+                    <input class="form-control border-0 box-shadow-none" type="text" placeholder="Search" oninput="datasearch(this.value)">
+                    <img src="app/views/admin/public/assets/img/svg/search.svg" alt="search" class="svg">
+                  </form>
+                </div>
+              </div>
               <div class="table-responsive">
-                <table class="table mb-0 table-borderless">
+
+
+                <table class="table mb-0 table-borderless"
+                       data-paging-current="1"
+                       data-paging-position="right"
+                       data-paging-size="10">
                   <thead>
                   <tr class="userDatatable-header">
                     <th>
@@ -52,7 +106,7 @@
                       <span class="userDatatable-title">Tên</span>
                     </th>
                     <th>
-                      <span class="userDatatable-title">Ảnh</span>
+                      <span class="userDatatable-title">Xếp hạng</span>
                     </th>
                     <th>
                       <span class="userDatatable-title">Email</span>
@@ -68,7 +122,7 @@
                     </th>
                   </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="bodyuser">
                   @foreach($users as $key=> $value)
                   <tr>
                     <td>#{{ $key+1 }}</td>
@@ -82,7 +136,7 @@
                       </div>
                     </td>
                     <td>
-                      <img src="{{ $value->image }}" alt="avatr">
+                      {{ $value->rank }}
                     </td>
                     <td>
                       <div class="userDatatable-content--subject">
@@ -96,12 +150,12 @@
                     </td>
                     <td>
                       <div class="userDatatable-content--priority">
-                        {{ $value->total_price }}
+                        {{ number_format($value->total_price) }}đ
                       </div>
                     </td>
                     <td>
                       <div class="d-flex justify-content-between">
-                        <button class="btn btn-primary btn-default btn-squared btn-shadow-primary " onclick="location.href='{{ route('chi-tiet-nguoi-dung/'.$value->id)  }}'">chi tiết
+                        <button class="btn btn-primary btn-default btn-squared btn-shadow-primary " onclick="location.href='{{ route('chi-tiet-nguoi-dung?id='.$value->id)  }}'">chi tiết
                         </button>
                         <button class="btn btn-secondary btn-default btn-squared btn-shadow-secondary " onclick="location.href='{{ route('update-user/'.$value->id) }}'">sửa
                         </button>
@@ -138,7 +192,36 @@
         }
       })
     }
+
   </script>
+  <script>
+    function datasearch(value){
+      $.get("search/"+value, function(data, status){
+        data = JSON.parse(data);
+        var searchResults = document.querySelector("#bodyuser");
+        var html = "";
+
+        for (var i = 0; i < data.length; i++) {
+          html += "<tr>";
+          html += "<td>" + (i + 1) + "</td>";
+          html += "<td>" + data[i].name + "</td>";
+          html += "<td>" + data[i].rank + "</td>";
+          html += "<td>" + data[i].email + "</td>";
+          html += "<td>" + data[i].sdt + "</td>";
+          html += "<td>" + data[i].total_price + "</td>";
+          html += '<td>  <div class="d-flex justify-content-between"><a href="{{ route('chi-tiet-nguoi-dung?id='.$value->id)  }}" class="btn btn-primary btn-default btn-squared btn-shadow-primary ">Chi tiết</a>';
+          html += '<a href="{{ route('update-user/'.$value->id) }}" class="btn btn-secondary btn-default btn-squared btn-shadow-secondary">Sửa</a>';
+          html += '<button onclick="deletItem({{ $value->id }})" class="btn btn-danger btn-default btn-squared btn-shadow-danger">Xóa</button></div></td>';
+          html += "</tr>";
+        }
+
+        searchResults.innerHTML = html;
+
+        // searchResults.innerHTML = resultHtml;
+      });
+    }
+  </script>
+
   @if(isset($_SESSION['success']) && isset($_GET['msg']))
     <script>
       Swal.fire(
