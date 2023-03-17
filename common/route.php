@@ -95,7 +95,10 @@ $router->get('blog-question/{id}',[QuestionsController::class, 'blogQuestion']);
 //ql user
 $router->get('user', [App\admin\controllers\UsersControlller::class, 'showUser']);
 $router->get('search/{value}', [App\admin\controllers\UsersControlller::class, 'search']);
-$router->get('add-user', [App\admin\controllers\UsersControlller::class, 'showUser']);
+
+$router->get('add_user', [App\admin\controllers\UsersControlller::class, 'addUser']);
+$router->post('add_user', [App\admin\controllers\UsersControlller::class, 'addUser']);
+
 $router->get('chi-tiet-nguoi-dung', [App\admin\controllers\UsersControlller::class, 'detailUser']);
 $router->get('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
 $router->get('add-serivce-user/add-detailUser/{id}', [App\admin\controllers\UsersControlller::class, 'getservice']);

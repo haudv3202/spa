@@ -10,6 +10,7 @@
  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
  <?php echo $this->runChild('admin.body.css'); ?>;
  <?php echo $this->yieldPushContent('styles'); ?>;
+ <?php echo $this->yieldPushContent('head-script'); ?>;
 </head>
 <body class="layout-light side-menu">
 <div class="mobile-search">

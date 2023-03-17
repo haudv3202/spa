@@ -7,6 +7,7 @@ use App\Models\Users;
 use App\models\detailUser;
 use App\Models\Category;
 use App\models\rankmember;
+use App\models\role;
 class UsersControlller extends BaseController{
     protected $user;
     protected $ser;
@@ -35,61 +36,78 @@ class UsersControlller extends BaseController{
     public function showUser(){
         $users = $this->user->showUser();
         $ranks = rankmember::GetAll();
-        foreach ($users as $value){
-            foreach ($ranks as $data){
-                if($value->total_price >= $data->total ){
-                    $value->rank = $data->name;
+        foreach($users as $customer) {
+            $rank_name = "vô hạng";
+            foreach($ranks as $group) {
+                if($customer->total_price >= $group->total) {
+                    $rank_name = $group->name;
                 }
             }
+            $customer->rank = $rank_name;
         }
+
 
         $this->render("admin.UserDisplay.manageUser.listUser",compact("users","ranks"));
     }
 
     public function addUser(){
+        $roles = role::GetAll();
         if(isset($_POST["btn-adduser"])){
+            $maxsize = 2000000;
+            $allowType = ['jpg', 'png', 'jpeg', 'gif', 'JPG', 'PNG', 'JPEG'];
+            $target_dir = './public/upload/avatar/';
+            $name = time() .$_FILES['fileUpload']["name"];
+            $target_file = $target_dir . $name;
             $err=[];
            if (empty($_POST['username'])) {
-                $err["name"] = "Bạn chưa nhập Name";
+                $err["name"] = "Bạn chưa nhập họ tên";
             }
             if (empty($_POST['password'])) {
-                $err["password"] = "Bạn chưa nhập Password";
+                $err["password"] = "Bạn chưa nhập mật khẩu";
             }
-            if (empty($_POST['email'])) {
-                $err["sdt"] = "Bạn chưa nhập sdt";
+            if (empty($_POST['sdt'])) {
+                $err["sdt"] = "Bạn chưa nhập số điện thoại";
             }
             if (empty($_POST['email'])) {
                 $err["email"] = "Bạn chưa nhập Email";
             }
-            if (empty($_POST['total_price'])) {
-                $err["total_price"] = "Bạn chưa nhập total_price";
-            }
-            if (empty($_POST['create_date'])) {
-                $err["create_date	"] = "Bạn chưa nhập create_date	";
-            }
-            if (empty($_POST['update_date'])) {
-                $err["update_date"] = "Bạn chưa nhập update_date";
-            }
-            if (empty($_FILES['image']['name'])) {
-                $err[] = "Image không được bỏ trống";
-            }
-            $maxsize = 2000000;
-            $allowType = ['jpg', 'png', 'jpeg', 'gif', 'JPG', 'PNG', 'JPEG', 'GIF'];
-            $target_dir = './public/upload/';
-            $target_file = $target_dir . basename($_FILES['image']["name"]);
-            if ($_FILES['image']['size'] > $maxsize) {
-                $err[] = " Ảnh của bạn có dung lượng quá lớn không thể upload";
-            }
-            if (in_array($target_file, $allowType)) {
-                $err[] = 'Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
-            }else{
-                move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
-                $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],$_POST['image'],$_POST['total_price'],1,$_POST['create_date'],$_POST['update_date'] );
-                redirect("success","Thêm Thành Công","user");
+
+            if (empty($_POST['address'])) {
+                $err["address"] = "Bạn chưa nhập địa chỉ";
             }
 
+
+            if(count($err) > 0){
+                redirect('errors', $err, 'add_user' );
+            }else {
+                if(!($_FILES['fileUpload']['name'] == "")) {
+                    if (empty($_FILES['fileUpload']['name'])) {
+                        $err[] = "Image không được bỏ trống";
+                    }
+                    if ($_FILES['fileUpload']['size'] > $maxsize) {
+                        $err[] = " Ảnh của bạn có dung lượng quá lớn không thể upload";
+                    }
+                    if (in_array($target_file, $allowType)) {
+                        $err[] = 'Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+                    }
+
+                    if(count($err) > 0) {
+                        redirect('errors', $err, 'add_user' );
+                    }else {
+                        move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_file);
+                        $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],$name,$_POST['address'],$_POST['role']);
+                        redirect("success","Thêm Thành Công","add_user");
+                    }
+                }else {
+                    $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],"avatar_default.jpg",$_POST['address'],$_POST['role'] );
+                    redirect("success","Thêm Thành Công","add_user");
+                }
+            }
+
+
+
         }
-        $this->render("users.add");
+        $this->render("users.add",compact('roles'));
     }
 
     public function deleteUser($id){
@@ -188,6 +206,15 @@ class UsersControlller extends BaseController{
         $id = $_GET['id'];
         $detailUser = detailUser::findAllColumn($id,"id_user");
         $user = Users::findOne($id);
+        $ranks = rankmember::GetAll();
+        $rank_name = "vô hạng";
+        foreach($ranks as $group) {
+                if($user->total_price >= $group->total) {
+                    $rank_name = $group->name;
+                }
+            }
+        $user->rank = $rank_name;
+
         foreach($detailUser as $value){
             $service = $this->ser->getCateId($value->id_service);
             $value->name = $user->name;
@@ -195,7 +222,7 @@ class UsersControlller extends BaseController{
             $value->email = $user->email;
             $value->service = $service[0]->name;
         }
-        $this->render("admin.UserDisplay.manageUser.detail",compact("detailUser"));
+        $this->render("admin.UserDisplay.manageUser.detail",compact("detailUser","user"));
     }
 
     public function addServiceUser($id){
@@ -214,13 +241,14 @@ class UsersControlller extends BaseController{
             if(count($errors) > 0){
                 redirect('errors', $errors, 'add-serivce-user/' . $id);
             }else {
+                $date = date("Y/m/d h:i:sa");
                 $result = detailUser::addItems(
                     [
                         "id" =>  NULL,
                         "id_service" => $service,
                         "id_user" => $id,
                         "price" => $price,
-                        "create_date" => null,
+                        "create_date" =>  $date,
                         "create_update" => NULL
                     ]
                 );
