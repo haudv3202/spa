@@ -60,7 +60,7 @@
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault01" class="il-gray fs-14 fw-500 align-center mb-10">logo
                       </label>
-                      <input type="text" name="logo" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->logo}}"  required>
+                      <input type="file" name="logo" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->logo}}"  required>
                     </div>
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Nội dung

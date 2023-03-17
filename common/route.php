@@ -77,9 +77,10 @@ $router->get('edit-insta/{id}', [UserDisplayController::class, 'editInsta']);
 $router->post('update-contact/{id}', [UserDisplayController::class, 'update']);
 $router->post('update-insta/{id}', [UserDisplayController::class, 'updateInsta']);
 $router->get('questions', [QuestionsController::class, 'index']);
+//newletters
 $router->get('newletters',[App\controllers\NewlettersController::class ,'index']);
 $router->get('add-newletters', [App\controllers\NewlettersController::class, 'addNewletters']);
-$router->post('add-newletters', [App\controllers\NewlettersController::class, 'addNewlettersPost']);
+$router->post('add-newletters-post', [App\controllers\NewlettersController::class, 'addNewlettersPost']);
 $router->get('edit-newletters/{id}', [App\controllers\NewlettersController::class, 'edit']);
 $router->post('update-newletters/{id}', [App\controllers\NewlettersController::class, 'update']);
 $router->get('delete-newletters/{id}', [App\controllers\NewlettersController::class, 'deleteNewletters']);
@@ -104,6 +105,9 @@ $router->post('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::
 $router->get('delete-user/{id}', [App\admin\controllers\UsersControlller::class, 'deleteUser']);
 $router->get('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
 $router->post('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
+$router->get('list-user', [App\Controllers\UsersController::class, 'index']);
+$router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfile']);
+$router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
 //xóa chi tiết chi tiết thanh toán
 $router->get('delete-detail-user/{id}/{backpage}', [App\admin\controllers\UsersControlller::class, 'deleteServiceUser']);
 //quản lí loại khách

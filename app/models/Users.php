@@ -49,6 +49,7 @@ class Users extends boostrap {
         $this->setQuery($sql);
         return $this->loadRow();
     }
+
 }
 
 ?>
