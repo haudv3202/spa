@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="breadcrumb-main">
-            <h4 class="text-capitalize breadcrumb-title">Edit Contact"</h4>
+            <h4 class="text-capitalize breadcrumb-title">Edit Newletters</h4>
             <div class="breadcrumb-action justify-content-center flex-wrap">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -70,18 +70,19 @@
                     </div>
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault02"  class="il-gray fs-14 fw-500 align-center mb-10">mô tả</label>
-                      <input type="text" name="desribi" class="form-control  ih-medium ip-light radius-xs b-light" id="validationDefault02" value="{{$oneData->meta}}" required>
+                      <input type="text" name="meta" class="form-control  ih-medium ip-light radius-xs b-light" id="validationDefault02" value="{{$oneData->meta}}" required>
                     </div>
+
                   </div>
-                  <div class="support-form__input-status">
-                    <label>Status</label>
-                    <div class="dm-select ">
-                      <select name="select-search" class="select-search form-control ">
-                        <option value="1" >Publish</option>
-                        <option value="0" selected>Private</option>
-                      </select>
-                    </div>
-                  </div>
+              </div>
+              <div class="support-form__input-status">
+                <label>Status</label>
+                <div class="dm-select ">
+                  <select name="select-search" class="select-search form-control ">
+                    <option value="1" >Publish</option>
+                    <option value="0" selected>Private</option>
+                  </select>
+                </div>
                   <input class="btn btn-primary px-30" name="sb-newletters" type="submit" value="Submit">
                 </form>
               </div>
