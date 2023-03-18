@@ -2,13 +2,7 @@
   <div class="sidebar sidebar-collapse" id="sidebar">
     <div class="sidebar__menu-group">
       <ul class="sidebar_nav">
-        <li class="">
-          <a href="{{ route('quan-li-khach-hang') }}">
-            <span class="nav-icon uil uil-clipboard-notes"></span>
-            <span class="menu-text">Quản lí khách hàng</span>
-          </a>
-        </li>
-        <li class="has-child">
+         <li class="has-child">
           <a href="#" class="">
             <span class="nav-icon uil uil-table"></span>
             <span class="menu-text">Quản lí dịch vụ</span>
@@ -58,7 +52,7 @@
               <a href="{{route('user')}}">Người Dùng</a>
             </li>
             <li class="">
-              <a href="{{route('add-user')}}">Tạo tài khoản quản trị</a>
+              <a href="{{route('add_user')}}">Tạo tài khoản quản trị</a>
             </li>
             <li class="">
               <a href="{{route('list-rank')}}">Danh mục khách hàng</a>

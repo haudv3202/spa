@@ -6,11 +6,12 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="breadcrumb-main">
+            <h4 class="text-capitalize breadcrumb-title">Cập nhật hồ sơ </h4>
             <div class="breadcrumb-action justify-content-center flex-wrap">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Edit Newletters</li>
+                  <li class="breadcrumb-item active" aria-current="page">Cập nhật hồ sơ </li>
                 </ol>
               </nav>
             </div>
@@ -22,7 +23,7 @@
           <div class="col-lg-12">
             <div class="card card-default card-md mb-4">
               <div class="card-header">
-                <h6>Add newletters: {{$oneData->id}}</h6>
+                <h6>Cập nhật hồ sơ : {{$oneData->id}}</h6>
               </div>
               @if(isset($_SESSION['errors']) && isset($_GET['msg']))
                 <div class="alert">
@@ -54,37 +55,45 @@
                 </div>
               @endif
               <div class="card-body pb-md-50">
-                <form action="{{route('add-newletters-post')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('update-profile/'.$oneData->id)}}" method="post" enctype="multipart/form-data">
                   <div class="row mx-n15">
+
                     <div class="col-md-4 mb-20 px-15">
-                      <label for="validationDefault01" class="il-gray fs-14 fw-500 align-center mb-10">logo
+                      <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Name
                       </label>
-                      <input type="file" name="logo" class="form-control ih-medium ip-light radius-xs b-light"  >
+                      <input type="text" name="username" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->name}}" >
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Password
+                      </label>
+                      <input type="password" name="password" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->password}}"  required>
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10"> Số điện thoại
+                      </label>
+                      <input type="text" name="sdt" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->	sdt}}"  required>
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Email
+                      </label>
+                      <input type="email" name="email" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->email}}"  required>
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault01" class="il-gray fs-14 fw-500 align-center mb-10">Image
+                      </label>
+                      <input type="file" name="image" class="form-control ih-medium ip-light radius-xs b-light"  >
+                      <img src="{{route('public/upload/users/'.$oneData->image)}}" alt="" >
                     </div>
 
                     <div class="col-md-4 mb-20 px-15">
-                      <label for="validationDefault02"  class="il-gray fs-14 fw-500 align-center mb-10">mô tả</label>
-                      <input type="text" name="meta" class="form-control  ih-medium ip-light radius-xs b-light" id="validationDefault02"  required>
-                    </div>
-                    <div class="col-md-4 mb-20 px-15">
-                      <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Nội dung
+                      <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Address
                       </label>
-                      <input type="text" name="content" class="form-control ih-medium ip-light radius-xs b-light"  required>
+                      <input type="text" name="address" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->address}}"  required>
                     </div>
-                    <div class="support-form__input-status">
-                      <label>Status</label>
-                      <div class="dm-select ">
-                        <select name="select-search" class="select-search form-control ">
-                          <option value="1" >Publish</option>
-                          <option value="0" selected>Private</option>
-                        </select>
-                      </div>
-                    </div>
-
                   </div>
-
-
-                  <input class="btn btn-primary px-30" name="sp-newletters" type="submit" value="Submit">
+              </div>
+              <div class="support-form__input-status">
+                <input class="btn btn-primary px-30" name="btn-profile" type="submit" value="Submit">
                 </form>
               </div>
             </div>
@@ -100,13 +109,14 @@
   @if(isset($_SESSION['success']) && isset($_GET['msg']))
     <script>
       Swal.fire(
-        'Thêm mới !',
+        'Update!',
         '{{$_SESSION['success']}}',
         'success'
       )
       window.setTimeout(function(){
-        window.location.href = '{{ route('newletters') }}';
+        window.location.href = '{{ route('list-user') }}';
       },1000)
     </script>
   @endif
 @endpush
+

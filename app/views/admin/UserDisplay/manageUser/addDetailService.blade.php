@@ -18,6 +18,35 @@
                 <div class="row justify-content-center">
                   <div class="col-xxl-4 col-10">
                     <div class="mt-sm-40 mb-sm-50 mt-20 mb-20">
+                      @if(isset($_SESSION['errors']) && isset($_GET['msg']))
+                        <div class="alert">
+                          @foreach($_SESSION['errors'] as $er)
+                            <div
+                              class="alert alert-warning alert-dismissible fade show"
+                              role="alert"
+                            >
+                              <div class="alert-content">
+                                <p>
+                                  {{$er}}
+                                </p>
+                                <button
+                                  type="button"
+                                  class="btn-close text-capitalize"
+                                  data-bs-dismiss="alert"
+                                  aria-label="Close"
+                                >
+                                  <img
+                                    src="{{route(''.'app/views/admin/public/assets/img/svg/x.svg')}}"
+                                    alt="x"
+                                    class="svg"
+                                    aria-hidden="true"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          @endforeach
+                        </div>
+                      @endif
                       <div class="edit-profile__body">
                         <form action="" method="post">
                           <div class="form-group mb-25">
@@ -31,7 +60,7 @@
                             </div>
                           <div class="form-group mb-25">
                             <label for="name1">dịch vụ</label>
-                            <select name="service" id="service" class="form-control  form-control-lg"     onchange="setCustomValidity('')"
+                            <select name="service" id="service" class="form-control  form-control-lg"
                             >
                               <option selected value="0">Chưa chọn dịch vụ</option>
                             </select>
@@ -42,10 +71,6 @@
                             >
                           </div>
                             <div class="form-group mb-25 d-flex justify-content-between" >
-                            <button
-                              class="btn btn-light btn-default btn-squared fw-400 text-capitalize radius-md btn-sm">
-                              cancel
-                            </button>
                             <button
                               class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm" name="btn-adduser">
                               Thêm
