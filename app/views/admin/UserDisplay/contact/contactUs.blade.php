@@ -29,7 +29,7 @@
             <div class="card-body text-center pt-30 px-25 pb-0">
               <div class="account-profile-cards" >
                 <div class="ap-img d-flex justify-content-center mb-2">
-                  <i class='{{ $value->logo }}' style="font-size:80px;color:#C6651A;"></i>
+                  <img src="./public/upload/contact_us/{{ $value->logo }}" width="200" alt="">
                 </div>
                 <div class="ap-nameAddress">
                   <h6 class="ap-nameAddress__title">{{ $value->content }}</h6>

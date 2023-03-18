@@ -55,12 +55,12 @@
                 </div>
               @endif
               <div class="card-body pb-md-50">
-                <form action="{{route('update-contact/'.$oneData->id)}}" method="post">
+                <form action="{{route('update-contact/'.$oneData->id)}}" method="post" enctype="multipart/form-data">
                   <div class="row mx-n15">
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault01" class="il-gray fs-14 fw-500 align-center mb-10">logo
                       </label>
-                      <input type="file" name="logo" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->logo}}"  required>
+                      <input type="file" name="logo" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->logo}}" >
                     </div>
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Nội dung
