@@ -99,6 +99,8 @@ class UsersController extends BaseController
         $this->render('users.updateusers', compact('showUpdate'));
     }
     public function updateProfile($id){
+
+
         if(isset($_POST["btn-updateuser"])){
             $errors = [] ;
             if (empty($_POST['username'])) {
