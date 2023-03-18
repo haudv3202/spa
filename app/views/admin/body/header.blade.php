@@ -19,24 +19,24 @@
 
         <li class="nav-author">
           <div class="dropdown-custom">
-            <a href="javascript:;" class="nav-item-toggle"><img src="{{route(''.'app/views/admin/public/assets/img/author-nav.jpg')}}" alt="" class="rounded-circle">
-              <span class="nav-item__title">Danial<i class="las la-angle-down nav-item__arrow"></i></span>
+            <a href="javascript:;" class="nav-item-toggle"><img src="{{route(''.'public/upload/user/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
+              <span class="nav-item__title">{{$_SESSION['account']->name}}<i class="las la-angle-down nav-item__arrow"></i></span>
             </a>
             <div class="dropdown-parent-wrapper">
               <div class="dropdown-wrapper">
                 <div class="nav-author__info">
                   <div class="author-img">
-                    <img src="{{route(''.'app/views/admin/public/assets/img/author-nav.jpg')}}" alt="" class="rounded-circle">
+                    <img src="{{route(''.'public/upload/user/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
                   </div>
                   <div>
-                    <h6>Rabbi Islam Rony</h6>
-                    <span>UI Designer</span>
+                    <h6>{{$_SESSION['account']->name}}</h6>
+{{--                    <span>UI Designer</span>--}}
                   </div>
                 </div>
                 <div class="nav-author__options">
                   <ul>
                     <li>
-                      <a href="#">
+                      <a href="{{route('edit-profile/'.$_SESSION['account']->id)}}">
                         <i class="uil uil-user"></i> Profile</a>
                     </li>
                     <li>

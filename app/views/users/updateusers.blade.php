@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="d-flex align-items-center user-member__title mb-30 mt-30">
-            <h4 class="text-capitalize">Edit User</h4>
+            <h4 class="text-capitalize">Edit Profile</h4>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
                         </div>
                       </div>
                       <div class="edit-profile__body">
-                        <form action="{{route('update-user/'.$showUpdate->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('update-profile/'.$showUpdate->id)}}" method="post" enctype="multipart/form-data">
                           <div class="form-group mb-25">
                             <label for="name1">Họ và tên</label>
                             <input type="text" class="form-control" name='username' value="{{$showUpdate->name}}"  id="name1"
@@ -80,15 +80,6 @@
                             <label for="name2">Địa chỉ</label>
                             <input type="text" class="form-control"  name='address'  value="{{$showUpdate->address}}" id="name2"
                                    placeholder="Địa chỉ">
-                          </div>
-                          <div class="form-group mb-25">
-                            <label for="name2">Role_id</label>
-                            <div class="dm-select ">
-                              <select name="role_id" class="select-search form-control ">
-                                <option value="0" <?php echo $showUpdate->role_id == 0 ? 'selected' : ''?>>Người dùng</option>
-                                <option value="1" <?php echo $showUpdate->role_id == 1 ? 'selected' : ''?>>Quản trị</option>
-                              </select>
-                            </div>
                           </div>
                           <div
                             class="button-group d-flex pt-sm-25 justify-content-md-end justify-content-start ">
@@ -126,7 +117,7 @@
         unset( $_SESSION['success']);
       @endphp
       window.setTimeout(function(){
-        window.location.href = '{{ route('user') }}';
+        window.location.href = '{{ route('admin') }}';
       },1500)
     </script>
   @endif
