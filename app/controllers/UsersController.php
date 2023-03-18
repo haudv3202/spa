@@ -99,8 +99,6 @@ class UsersController extends BaseController
         $this->render('users.updateusers', compact('showUpdate'));
     }
     public function updateProfile($id){
-
-
         if(isset($_POST["btn-updateuser"])){
             $errors = [] ;
             if (empty($_POST['username'])) {
@@ -115,9 +113,6 @@ class UsersController extends BaseController
             if (empty($_POST['email'])) {
                 $errors[]  = "Bạn chưa nhập email";
             }
-//            if (empty($_POST['role_id'])) {
-//                $errors[]  = "Bạn chưa nhập role";
-//            }
             if ($_FILES['image']['name'] != ''){
                 $target_dir = "./public/upload/user/";
                 $name = time().$_FILES["image"]["name"];
