@@ -19,18 +19,16 @@ class NewlettersController extends BaseController
     public function addNewlettersPost()
     {
         if (isset($_POST['sp-newletters'])) {
+            $meta = $_POST['meta'];
             $content = $_POST['content'];
-            $meta = $_POST['desribi'];
-            $create_date = $_POST['create_date'];
-
+            $create_date = date('Y-m-d H:i a');
             $statuts = $_POST['select-search'];
             $errors = [];
-
+            if (empty($_POST['meta'])) {
+                $errors[] = 'Bạn cần nhập tên mô tả';
+            }
             if (empty($_POST['content'])) {
                 $errors[] = 'Bạn cần nhập tên nội dung';
-            }
-            if (empty($_POST['desribi'])) {
-                $errors[] = 'Bạn cần nhập tên mô tả';
             }
             if (isset($_FILES['logo']['name'])) {
                 $target_dir = "./public/upload/insta/";
@@ -53,15 +51,14 @@ class NewlettersController extends BaseController
                 if (count($errors) > 0) {
                     redirect('errors', $errors, 'add-newletters');
                 } else {
-
                     if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-                        $create_date = date('Y-m-d H:i a');
+//                        $create_date = ;
                         $result = newLetters::addItems(
                             [
                                 "id" => NULL,
                                 "logo" => $name,
-                                "content" => $content,
                                 "meta" => $meta,
+                                "content" => $content,
                                 "statuts " => $statuts,
                                 "create_date" => $create_date
                             ]
@@ -75,7 +72,6 @@ class NewlettersController extends BaseController
         }
     }
 
-
     public function edit($id)
     {
         $oneData = newLetters::findOne($id);
@@ -85,9 +81,8 @@ class NewlettersController extends BaseController
     public function update($id)
     {
         if (isset($_POST['sb-newletters'])) {
-
+            $meta = $_POST['meta'];
             $content = $_POST['content'];
-            $meta = $_POST['desribi'];
             $create_date = $_POST['create_date'];
             $allData = newLetters::GetAll();
             $errors = [];
@@ -104,11 +99,11 @@ class NewlettersController extends BaseController
             if (empty($_FILES['logo'])) {
                 $errors[] = 'Bạn cần nhập logo';
             }
+            if (empty($_POST['meta'])) {
+                $errors[] = 'Bạn cần nhập tên mô tả';
+            }
             if (empty($_POST['content'])) {
                 $errors[] = 'Bạn cần nhập tên nội dung';
-            }
-            if (empty($_POST['desribi'])) {
-                $errors[] = 'Bạn cần nhập tên mô tả';
             }
             if ($_FILES['logo']['name'] != '') {
                 $target_dir = "./public/upload/insta/";
@@ -140,7 +135,9 @@ class NewlettersController extends BaseController
                             "statuts " => $statuts,
                             "create_date" => $create_date
                         ]);
-
+                        if (file_exists('./public/upload/insta/'.$image_old)) {
+                            unlink('./public/upload/insta/'.$image_old);
+                        }
                         if ($result) {
                             redirect('success', "Cập nhật thành công!", 'edit-newletters/' . $id);
                         }
@@ -152,8 +149,8 @@ class NewlettersController extends BaseController
                 } else {
                     $create_date = date('Y-m-d H:i a');
                     $result = newLetters::updatefind($id, [
-                            "content" => $content,
                             "meta" => $meta,
+                            "content" => $content,
                             "statuts " => $statuts,
                             "create_date" => $create_date
                         ]);
@@ -170,5 +167,6 @@ class NewlettersController extends BaseController
         $_SESSION['success'] = "Xóa thành công!";
         header('location: '.route('newletters'));
     }
+
 }
 ?>

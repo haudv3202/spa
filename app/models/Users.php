@@ -26,10 +26,9 @@ class Users extends boostrap {
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
-    public function addUser($name,$password,$sdt,$email,$image,$total_price,$role_id,$create_date,$update_date){
-        $create_date=date('Y-m-d H:i a');
-        $update_date=date('Y-m-d H:i a');
-        $sql="INSERT INTO $this->table VALUES('','$name','$password','$sdt','$email','$image','$total_price','1','$create_date','$update_date')";
+    public function addUser($name,$password,$sdt,$email,$image,$address,$role_id){
+        $sql="INSERT INTO $this->table VALUES(NULL,'$name','$password','$sdt','$email','$image',0,'$address','$role_id',current_timestamp(),current_timestamp())";
+        echo $sql;
         $this->setQuery($sql);
         return $this->execute();
     }
@@ -50,6 +49,7 @@ class Users extends boostrap {
         $this->setQuery($sql);
         return $this->loadRow();
     }
+
 }
 
 ?>
