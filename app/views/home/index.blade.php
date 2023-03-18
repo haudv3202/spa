@@ -49,7 +49,7 @@
             <div class="box-fs-account box-fs-account-home position-absolute">
               <ul >
                 <li><a href="">Xem thông tin</a></li>
-                <li><a href="">Sửa thông tin</a></li>
+                <li><a href="{{route('update-profile/'.$_SESSION['account'] ->id )}}">Sửa thông tin</a></li>
                 <li><a href="">Đăng Xuất</a></li>
               </ul>
             </div>
@@ -58,7 +58,6 @@
       </div>
       <div class=" banner-page position-absolute top-0"></div>
     </div>
-
 
     <div class="container">
       <div class="row img-banner-homePage ">
