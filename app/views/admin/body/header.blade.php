@@ -55,7 +55,7 @@
                         <i class="uil uil-bell"></i> Help</a>
                     </li>
                   </ul>
-                  <a href="#" class="nav-author__signout">
+                  <a href="{{route('sign-out')}}" class="nav-author__signout">
                     <i class="uil uil-sign-out-alt"></i> Sign Out</a>
                 </div>
               </div>

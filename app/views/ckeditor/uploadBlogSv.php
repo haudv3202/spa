@@ -17,11 +17,11 @@ if(isset($_FILES['upload']['name'])){
     $funcNum = $_GET['CKEditorFuncNum'] ;
     $CKEditor = $_GET['CKEditor'] ;
     $langCode = $_GET['langCode'] ;
-    $url= route('').'public/upload/blogSv/'.$name;
+    $url= route('public/upload/blogSv/').$name;
     $message = '';
     echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '$url', '$message');</script>";
     echo "<script>
-        alert('upload thành công')
+        alert('Upload thành công')
     </script>";
   }
 

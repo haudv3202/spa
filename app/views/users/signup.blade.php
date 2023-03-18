@@ -4,7 +4,7 @@
     <form action="" method="POST" class="sign__form">
 
       <div class="sign__group">
-        <input type="text" name="username" class="sign__input" placeholder="Name">
+        <input type="text" name="username" class="sign__input" placeholder="Full Name">
       </div>
 
       <div class="sign__group">

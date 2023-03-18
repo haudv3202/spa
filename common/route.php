@@ -126,6 +126,7 @@ $router->post('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->get('sign-out',[App\Controllers\UsersController::class,'signout']);
+$router->get('forgot',[App\Controllers\UsersController::class,'forgot']);
 //update profile admin
 $router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
 $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);

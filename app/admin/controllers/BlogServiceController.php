@@ -66,6 +66,9 @@ class BlogServiceController extends BaseController
             if (empty($_POST['contentbl'])) {
                 $errors[] = "Bạn cần nhập content";
             }
+            if (empty($_POST['titlebl'])) {
+                $errors[] = "Bạn cần nhập mô tả";
+            }
             if (isset($_FILES['upload']['name'])) {
                 $target_dir = "./public/upload/blogSv/";
                 $name = time() . $_FILES["upload"]["name"];
@@ -123,6 +126,9 @@ class BlogServiceController extends BaseController
             }
             if (empty($_POST['contentbl'])) {
                 $errors[] = "Bạn cần nhập content";
+            }
+            if (empty($_POST['titlebl'])) {
+                $errors[] = "Bạn cần nhập mô tả";
             }
             if ($_FILES['upload']['name'] != '') {
                 $target_dir = "./public/upload/blogSv/";
