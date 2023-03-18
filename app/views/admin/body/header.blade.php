@@ -14,9 +14,6 @@
     <div class="navbar-right">
       <ul class="navbar-right__menu">
 
-
-
-
         <li class="nav-author">
           <div class="dropdown-custom">
             <a href="javascript:;" class="nav-item-toggle"><img src="{{route(''.'public/upload/users/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
