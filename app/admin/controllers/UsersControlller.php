@@ -289,5 +289,96 @@ class UsersControlller extends BaseController{
         $_SESSION['success'] = "Xóa thành công!";
         header('location: '.route('chi-tiet-nguoi-dung?id=' .$backpage ));
     }
+    public function editProfile($id){
+        $showUpdate = Users::findOne($id);
+        $this->render('users.updateusers', compact('showUpdate'));
+    }
+    public function updateProfile($id){
+
+
+
+
+        if(isset($_POST["btn-updateuser"])){
+            $errors = [] ;
+            if (empty($_POST['username'])) {
+                $errors[]  = "Bạn chưa nhập họ và tên";
+            }
+            if (empty($_POST['password'])) {
+                $errors[]  = "Bạn chưa nhập mật khẩu";
+            }
+            if (empty($_POST['sdt'])) {
+                $errors[]  = "Bạn chưa nhập số điện thoại";
+            }
+            if (empty($_POST['email'])) {
+                $errors[]  = "Bạn chưa nhập email";
+            }
+//            if (empty($_POST['role_id'])) {
+//                $errors[]  = "Bạn chưa nhập role";
+//            }
+            if ($_FILES['image']['name'] != ''){
+                $target_dir = "./public/upload/user/";
+                $name = time().$_FILES["image"]["name"];
+                $target_file = $target_dir . $name;
+                $image_old = Users::findOne($id)->image;
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                if (file_exists($target_file)) {
+                    $errors[] = "Sorry, file already exists.";
+                }
+// Check file size
+                if ($_FILES["image"]["size"] > 500000) {
+                    $errors[] = "Sorry, your file is too large.";
+                }
+// Allow certain file formats
+                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                    && $imageFileType != "gif") {
+                    $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                }
+
+                if (count($errors) > 0) {
+                    redirect('errors', $errors, 'edit-profile/' . $id);
+                }else {
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                        date_default_timezone_set("Asia/Ho_Chi_Minh");
+                        $date = date("Y-m-d");
+                        $result = Users::updatefind($id,[
+                            'name' => $_POST['username'],
+                            'password' => $_POST['password'],
+                            'sdt' => $_POST['sdt'],
+                            'email' => $_POST['email'],
+                            'image' => $name,
+                            'address' => $_POST['address'],
+//                            'role_id' => $_POST['role_id'],
+                            'update_date' => $date
+                        ]);
+                        if (file_exists('./public/upload/user/'.$image_old)) {
+                            unlink('./public/upload/user/'.$image_old);
+                        }
+                        if ($result) {
+                            unset($_SESSION['account']);
+                            $_SESSION['account'] = Users::findOne($id);
+                            redirect('success', "Cập nhật thành công!", 'edit-profile/'. $id);
+                        }
+                    }
+                }
+            }else{
+                date_default_timezone_set("Asia/Ho_Chi_Minh");
+                $date = date("Y-m-d");
+                $result = Users::updatefind($id,[
+                    'name' => $_POST['username'],
+                    'password' => $_POST['password'],
+                    'sdt' => $_POST['sdt'],
+                    'email' => $_POST['email'],
+                    'address' => $_POST['address'],
+//                    'role_id' => $_POST['role_id'],
+                    'update_date' => $date
+                ]);
+                if ($result) {
+                    unset($_SESSION['account']);
+                    $_SESSION['account'] = Users::findOne($id);
+                    redirect('success', "Cập nhật thành công!", 'edit-profile/' . $id);
+                }
+            }
+        }
+    }
 }
 ?>

@@ -49,7 +49,7 @@
                         </div>
                       </div>
                       <div class="edit-profile__body">
-                        <form action="{{route('update-profile/'.$showUpdate->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('update-profile-post/'.$showUpdate->id)}}" method="post" enctype="multipart/form-data">
                           <div class="form-group mb-25">
                             <label for="name1">Họ và tên</label>
                             <input type="text" class="form-control" name='username' value="{{$showUpdate->name}}"  id="name1"

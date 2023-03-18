@@ -107,7 +107,7 @@ $router->post('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::
 $router->get('delete-user/{id}', [App\admin\controllers\UsersControlller::class, 'deleteUser']);
 $router->get('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
 $router->post('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
-$router->get('list-user', [App\Controllers\UsersController::class, 'index']);
+//$router->get('list-user', [App\Controllers\UsersController::class, 'index']);
 $router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfile']);
 $router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
 //xóa chi tiết chi tiết thanh toán
@@ -125,8 +125,9 @@ $router->get('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->post('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
-$router->get('edit-profile/{id}',[App\Controllers\UsersController::class,'editProfile']);
-$router->post('update-profile/{id}',[App\Controllers\UsersController::class,'updateProfile']);
+//update profile admin
+$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
+$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
 
 //Client
 //Home Monospa
