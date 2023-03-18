@@ -19,20 +19,33 @@ class HomeController extends BaseController{
     }
     public function mockupPost(){
         if (isset($_POST['btn-sm'])){
-            date_default_timezone_set("Asia/Ho_Chi_Minh");
-            $date = date("Y-m-d");
-            $result = Endow::addItems([
-                'id' => NULL,
-                'name' => $_POST['fullname'],
-                'email' => $_POST['email'],
-                'phone' => $_POST['phone'],
-                'create_time' => $date,
-            ]);
-            if ($result){
-                redirect('success', "Thêm thành công!", '/');
+            $errors = [];
+            if (empty($_POST['fullname'])){
+                $errors[] = 'Không được bỏ trống tên';
+            }
+            if (empty($_POST['email'])){
+                $errors[] = 'Không được bỏ trống email';
+            }
+            if (empty($_POST['phone'])){
+                $errors[] = 'Không được bỏ trống số điện thoại';
+            }
+            if (count($errors) > 0){
+                redirect('errors', $errors, '');
+            }else{
+                date_default_timezone_set("Asia/Ho_Chi_Minh");
+                $date = date("Y-m-d");
+                $result = Endow::addItems([
+                    'id' => NULL,
+                    'name' => $_POST['fullname'],
+                    'email' => $_POST['email'],
+                    'phone' => $_POST['phone'],
+                    'create_time' => $date,
+                ]);
+                if ($result){
+                    redirect('success', "Thêm thành công!", '');
+                }
             }
         }
-
     }
 
 }
