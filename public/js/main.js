@@ -60,14 +60,14 @@ textQuestion.forEach((btnClick) => {
         if (replyQuestion.classList.contains("show-question")) {
             replyQuestion.classList.remove("show-question");
             btnClick.classList.remove("add-background-question");
-            iconQuestion.classList.remove("bx-plus");
-            iconQuestion.classList.add("bx-x");
-
+            iconQuestion.classList.add("bx-plus");
+            iconQuestion.classList.remove("bx-x");
         } else {
             replyQuestion.classList.add("show-question");
             btnClick.classList.add("add-background-question");
-            iconQuestion.classList.add("bx-plus");
-            iconQuestion.classList.remove("bx-x");
+            iconQuestion.classList.remove("bx-plus");
+            iconQuestion.classList.add("bx-x");
+
         }
     });
 });
@@ -204,10 +204,7 @@ function isPhoneValid(phone) {
 //    pocup===============
 function test() {
     // document.querySelector('.content-modal-mockup').style.display = 'none';
-
     document.querySelector(".modal-mockup").style.display = 'block';
-
-
 }
 const modal = setTimeout(test, 1000);
 function myStopFunction() {
@@ -253,7 +250,7 @@ if (form_contact) {
             document.getElementById("subject-contact-error").textContent = "";
         }
 
-        // Validate message
+// Validate message
         if (messageInput.value === "") {
             document.getElementById("form-contact-error").textContent =
                 "Please enter a message";
@@ -747,4 +744,174 @@ function setSuccessFor(input) {
     const formControl = input.parentElement;
     formControl.className = "box-form success";
 }
+
+// vaidate mokup
+
+const formMokup = document.getElementById("form-modal-t");
+const nameMokup = document.getElementById("name-mokup");
+const phoneMokup = document.getElementById("phone-mokup");
+const emailMokup = document.getElementById("email-mokup");
+
+if (formMokup) {
+    formMokup.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const nameValue = nameMokup.value.trim();
+        const phoneValue = phoneMokup.value.trim();
+        const emailValue = emailMokup.value.trim();
+        const regEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const regPhone = /^\d{10}$/;
+
+        let isNameValid = true;
+        let isPhoneValid = true;
+        let isEmailValid = true;
+
+        if (nameValue === "") {
+            alert("Name cannot be blank");
+            isNameValid = false;
+        }
+        if (phoneValue === "") {
+            alert("Phone number is empty");
+            isPhoneValid = false;
+        } else if (!regPhone.test(phoneValue)) {
+            alert("Invalid phone number");
+            isPhoneValid = false;
+        }
+        if (emailValue === "") {
+            alert("Email cannot be blank");
+            isEmailValid = false;
+        } else if (!regEmail.test(emailValue)) {
+            alert("Invalid email");
+            isEmailValid = false;
+        }
+
+        if (isNameValid && isPhoneValid && isEmailValid) {
+            formMokup.submit();
+        }
+    });
+}
+
+// vali date editUser
+const formEditUser = document.querySelector(".formEditUser");
+const nameInput = document.getElementById("name-edit-user");
+const emailInput = document.getElementById("email-edit-user");
+const imageInput = document.getElementById("file-upload");
+const phoneInput = document.getElementById("phone-edit-user");
+const addressInput = document.getElementById("address-edit-user");
+const oldPasswordInput = document.getElementById("oldPass-edit-user");
+const newPasswordInput = document.getElementById("newPass-edit-user");
+const confirmPasswordInput = document.getElementById("confirmPass-edit-user");
+const submitButton = document.getElementById("btn-edit-image-submit");
+
+if (formEditUser) {
+    formEditUser.addEventListener("submit", (e) => {
+        e.preventDefault();
+        checkEditUser();
+    });
+}
+
+function checkEditUser() {
+    const nameValue = nameInput.value.trim();
+    const emailValue = emailInput.value.trim();
+    const phoneValue = phoneInput.value.trim();
+    const imageValue = imageInput.value.trim();
+    const oldPasswordValue = oldPasswordInput.value.trim();
+    const newPasswordValue = emailInput.value.trim();
+    const repassValue = confirmPasswordInput.value.trim();
+    const addressValue = addressInput.value.trim();
+    if (nameValue === "") {
+        setErrorFor(nameInput, "Name cannot be blank");
+    } else {
+        setSuccessFor(nameInput);
+        removeErrorFor(nameInput);
+    }
+    if (addressValue === "") {
+        setErrorFor(addressInput, "Name cannot be blank");
+    } else {
+        setSuccessFor(addressInput);
+        removeErrorFor(addressInput);
+    }
+    if (!isImage(imageValue)) {
+        setErrorFor(imageInput, "Image is not JPG, JPEG, PNG or GIF");
+    } else {
+        setSuccessFor(imageInput);
+        removeErrorFor(imageInput);
+    }
+    if (emailValue === "") {
+        setErrorFor(emailInput, "Email cannot be blank");
+    } else if (!isEmail(emailValue)) {
+        setErrorFor(emailInput, "Email is not valid");
+    } else {
+        setSuccessFor(emailInput);
+        removeErrorFor(emailInput);
+    }
+    if (phoneValue === "") {
+        setErrorFor(phoneInput, "Password number is empty");
+    } else if (!isPhoneValid(passValue)) {
+        setErrorFor(phoneInput, "Invalid password number");
+    } else {
+        setSuccessFor(phoneInput);
+        removeErrorFor(phoneInput);
+    }
+    if (oldPasswordValue === "") {
+        setErrorFor(oldPasswordInput, "Password number is empty");
+    } else {
+        setSuccessFor(oldPasswordInput);
+        removeErrorFor(oldPasswordInput);
+    }
+    if (newPasswordValue === "") {
+        setErrorFor(newPasswordInput, "Password number is empty");
+    } else if (!isPassValid(newPasswordValue)) {
+        setErrorFor(newPasswordInput, "Invalid password number");
+    } else {
+        setSuccessFor(newPasswordInput);
+        removeErrorFor(newPasswordInput);
+    }
+    if (repassValue === "") {
+        setErrorFor(confirmPasswordInput, "Password number is empty");
+    } else if (repassValue != repassValue) {
+        setErrorFor(confirmPasswordInput, "Invalid password");
+    } else {
+        setSuccessFor(confirmPasswordInput);
+        removeErrorFor(confirmPasswordInput);
+    }
+}
+
+function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    console.log(formControl);
+    const small = formControl.querySelector("small");
+    console.log(small);
+    formControl.className = "box-form error";
+    small.innerText = message;
+    small.style.display = "block";
+}
+
+function removeErrorFor(input) {
+    const formGroup = input.parentElement;
+    formGroup.classList.remove("error-message");
+    const small = formGroup.querySelector("small");
+    small.style.display = "none";
+}
+
+function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = "box-form success";
+}
+
+function isEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+function isPassValid(phone) {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+        phone
+    );
+}
+function isPhoneValid(phone) {
+    return /^\d{10}$/.test(phone);
+}
+function isImage(image) {
+    return /(\.jpg|\.jpeg|\.png|\.gif)$/i.exec(image);
+}
+
 /* end the validate form */

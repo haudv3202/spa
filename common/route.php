@@ -125,8 +125,8 @@ $router->get('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->post('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
-
-
+$router->get('edit-profile/{id}',[App\Controllers\UsersController::class,'editProfile']);
+$router->post('update-profile/{id}',[App\Controllers\UsersController::class,'updateProfile']);
 
 //Client
 //Home Monospa
