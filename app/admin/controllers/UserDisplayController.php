@@ -19,30 +19,63 @@ class UserDisplayController extends BaseController
 
     public function update($id){
         if(isset($_POST['sb-contact'])){
-            $logo = $_POST['logo'];
-            $content = $_POST['content'];
-            $meta = $_POST['desribi'];
+            $maxsize = 5000000;
+            $allowType = ['jpg', 'png', 'jpeg', 'gif', 'JPG', 'PNG', 'JPEG'];
+            $target_dir = './public/upload/contact_us/';
+            $name = time() .$_FILES['logo']["name"];
+            $target_file = $target_dir . $name;
             $errors = [];
-            if(empty($_POST['logo'])){
-                $errors[] = 'Bạn cần nhập logo';
-            }
+
             if(empty($_POST['content'])){
                 $errors[] = 'Bạn cần nhập tên nội dung';
             }
             if(empty($_POST['desribi'])){
                 $errors[] = 'Bạn cần nhập tên mô tả';
             }
+
+            $content = $_POST['content'];
+            $meta = $_POST['desribi'];
+            $img_old = contactUs::findOne($id)->logo;
+
             if(count($errors) > 0){
                 redirect('errors', $errors, 'edit-contact/'.$id);
             }else {
-                $result = contactUs::updatefind($id,[
-                    "logo" => $logo,
-                    "content" => $content,
-                    "meta" => $meta
-                ]);
+                if(!($_FILES['logo']['name'] == "")) {
+                    if (empty($_FILES['logo']['name'])) {
+                        $errors[] = "Image không được bỏ trống";
+                    }
+                    if ($_FILES['logo']['size'] > $maxsize) {
+                        $errors[] = " Ảnh của bạn có dung lượng quá lớn không thể upload";
+                    }
+                    if (in_array($target_file, $allowType)) {
+                        $errors[] = 'Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+                    }
 
-                if ($result){
-                    redirect('success', "Cập nhật thành công!", 'edit-contact/'.$id);
+                    if(count($errors) > 0) {
+                        redirect('errors', $errors, 'edit-contact/'.$id );
+                    }else {
+                        move_uploaded_file($_FILES['logo']['tmp_name'], $target_file);
+                         contactUs::updatefind($id,[
+                            "logo" => $name,
+                            "content" => $content,
+                            "meta" => $meta
+                        ]);
+                        if (file_exists('./public/upload/contact_us/'.$img_old)) {
+                            unlink('./public/upload/contact_us/'.$img_old);
+                        }
+
+                        redirect("success","Cập nhật thành công!",'edit-contact/'.$id);
+                    }
+                }else {
+                    $result = contactUs::updatefind($id,[
+                        "logo" => $img_old,
+                        "content" => $content,
+                        "meta" => $meta
+                    ]);
+
+                    if ($result){
+                        redirect("success","Cập nhật thành công!",'edit-contact/'.$id);
+                    }
                 }
             }
         }

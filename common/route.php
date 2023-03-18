@@ -21,7 +21,7 @@ $router->filter('auth', function(){
 //$router->get('/', function(){
 //    return "trang chủ";
 //});
-$router->get('admin', [App\Controllers\UsersController::class, 'dashboard']);
+$router->get('admin', [App\Controllers\UsersController::class, 'showUser']);
 //Category
 $router->get('add-category', [App\admin\controllers\CategoryController::class, 'addCategory']);
 $router->post('add-category-post', [App\admin\controllers\CategoryController::class, 'addCategoryPost']);
