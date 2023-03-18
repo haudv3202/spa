@@ -19,14 +19,14 @@
 
         <li class="nav-author">
           <div class="dropdown-custom">
-            <a href="javascript:;" class="nav-item-toggle"><img src="{{route(''.'public/upload/user/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
+            <a href="javascript:;" class="nav-item-toggle"><img src="{{route(''.'public/upload/users/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
               <span class="nav-item__title">{{$_SESSION['account']->name}}<i class="las la-angle-down nav-item__arrow"></i></span>
             </a>
             <div class="dropdown-parent-wrapper">
               <div class="dropdown-wrapper">
                 <div class="nav-author__info">
                   <div class="author-img">
-                    <img src="{{route(''.'public/upload/user/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
+                    <img src="{{route(''.'public/upload/users/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
                   </div>
                   <div>
                     <h6>{{$_SESSION['account']->name}}</h6>
