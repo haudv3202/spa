@@ -53,7 +53,7 @@ class UsersControlller extends BaseController{
     public function addUser(){
         $roles = role::GetAll();
         if(isset($_POST["btn-adduser"])){
-            $maxsize = 2000000;
+            $maxsize = 5000000;
             $allowType = ['jpg', 'png', 'jpeg', 'gif', 'JPG', 'PNG', 'JPEG'];
             $target_dir = './public/upload/avatar/';
             $name = time() .$_FILES['fileUpload']["name"];
