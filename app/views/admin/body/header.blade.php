@@ -16,7 +16,8 @@
 
         <li class="nav-author">
           <div class="dropdown-custom">
-            <a href="javascript:;" class="nav-item-toggle"><img src="{{route(''.'public/upload/users/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
+            <a href="javascript:;" class="nav-item-toggle">
+              <img src="{{route(''.'public/upload/users/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
               <span class="nav-item__title">{{$_SESSION['account']->name}}<i class="las la-angle-down nav-item__arrow"></i></span>
             </a>
             <div class="dropdown-parent-wrapper">

@@ -50,7 +50,7 @@
               <ul >
                 <li><a href="">Xem thông tin</a></li>
                 <li><a href="">Sửa thông tin</a></li>
-                <li><a href="">Đăng Xuất</a></li>
+                <li><a href="{{route('sign-out')}}">Đăng Xuất</a></li>
               </ul>
             </div>
           </div>

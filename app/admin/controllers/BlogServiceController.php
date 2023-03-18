@@ -97,6 +97,7 @@ class BlogServiceController extends BaseController
                             "content" => $_POST['contentbl'],
                             "image" => $name,
                             "title" => $_POST['titlebl'],
+                            "description" => $_POST['descbl'],
                             "create_date" => $date,
                             "create_update" => NULL
                         ]);
@@ -153,6 +154,7 @@ class BlogServiceController extends BaseController
                             "content" => $_POST['contentbl'],
                             "image" => $name,
                             "title" => $_POST['titlebl'],
+                            "description" => $_POST['descbl'],
                             "create_update" => $date
                         ]);
                         if (file_exists('./public/upload/blogSv/'.$image_old)) {
@@ -173,6 +175,7 @@ class BlogServiceController extends BaseController
                         "id_service" => $_POST['serbl'],
                         "content" => $_POST['contentbl'],
                         "title" => $_POST['titlebl'],
+                        "description" => $_POST['descbl'],
                         "create_update" => $date
                     ]);
                     if ($result) {

@@ -37,6 +37,10 @@ class UsersController extends BaseController
         }
         $this->render('users.signup', compact('err'));
     }
+    public function signout(){
+        session_unset();
+        header('location: '.route('/'));
+    }
 
     public function index()
     {

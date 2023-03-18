@@ -21,7 +21,7 @@ $router->filter('auth', function(){
 //$router->get('/', function(){
 //    return "trang chủ";
 //});
-$router->get('admin', [App\Controllers\UsersController::class, 'showUser']);
+$router->get('admin', [App\Controllers\UsersController::class, 'dashboard']);
 //Category
 $router->get('add-category', [App\admin\controllers\CategoryController::class, 'addCategory']);
 $router->post('add-category-post', [App\admin\controllers\CategoryController::class, 'addCategoryPost']);
@@ -125,6 +125,7 @@ $router->get('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->post('sign-in', [App\Controllers\UsersController::class, 'index']);
 $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
+$router->get('sign-out',[App\Controllers\UsersController::class,'signout']);
 //update profile admin
 $router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
 $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
