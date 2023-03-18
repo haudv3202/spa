@@ -24,47 +24,6 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-5 mb-5">
-          <div class="card">
-            <div class="card-header color-dark fw-500">
-              Bảng xếp hạng
-            </div>
-            <div class="card-body p-0">
-              <div class="table4 p-25 mb-30">
-                <div class="table-responsive">
-                  <table class="table mb-0">
-                    <thead>
-                    <tr class="userDatatable-header">
-                      <th>
-                        <span class="userDatatable-title">Tên hạng</span>
-                      </th>
-                      <th>
-                        <span class="userDatatable-title">Mức chi tiêu</span>
-                      </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($ranks as $value)
-                    <tr>
-                      <td>
-                        <div class="userDatatable-content">
-                          {{ $value->name }}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="userDatatable-content">
-                          {{ number_format($value->total) }}
-                        </div>
-                      </td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="col-12 mb-30">
           <div class="support-ticket-system support-ticket-system--search">
             <div
@@ -155,9 +114,9 @@
                     </td>
                     <td>
                       <div class="d-flex justify-content-between">
-                        <button class="btn btn-primary btn-default btn-squared btn-shadow-primary " onclick="location.href='{{ route('chi-tiet-nguoi-dung?id='.$value->id)  }}'">chi tiết
+                        <button class="btn btn-primary btn-default btn-squared btn-shadow-primary " onclick="location.href='{{ route('chi-tiet-nguoi-dung?id='.$value->id)  }}'">Chi tiết
                         </button>
-                        <button class="btn btn-secondary btn-default btn-squared btn-shadow-secondary " onclick="location.href='{{ route('update-user/'.$value->id) }}'">sửa
+                        <button class="btn btn-secondary btn-default btn-squared btn-shadow-secondary " onclick="location.href='{{ route('update-user/'.$value->id) }}'">Sửa
                         </button>
                         <button onclick="deletItem({{ $value->id }})" class="btn btn-danger btn-default btn-squared btn-shadow-danger ">Xóa
                         </button>

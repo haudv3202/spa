@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   @include('admin.body.css');
   @stack('styles');
+  @stack('head-script');
 </head>
 <body class="layout-light side-menu">
 <div class="mobile-search">

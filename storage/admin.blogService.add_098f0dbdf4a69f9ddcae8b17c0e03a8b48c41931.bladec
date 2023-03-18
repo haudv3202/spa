@@ -144,7 +144,7 @@
 <?php $this->stopSection(); ?>
 
 <?php $this->startPush('scripts'); ?>
- <script >
+ <script type="text/javascript" >
  CKEDITOR.replace( 'content-blog', {
  filebrowserUploadUrl: './app/views/ckeditor/uploadBlogSv.php'
  } );
