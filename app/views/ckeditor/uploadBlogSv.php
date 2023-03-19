@@ -21,7 +21,7 @@ if(isset($_FILES['upload']['name'])){
     $message = '';
     echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '$url', '$message');</script>";
     echo "<script>
-        alert('upload thành công')
+        alert('Upload thành công')
     </script>";
   }
 

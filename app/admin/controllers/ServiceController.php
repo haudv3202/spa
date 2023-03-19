@@ -1,7 +1,7 @@
 <?php
 namespace App\admin\controllers;
 use App\Controllers\BaseController;
-use App\Models\Category;
+use App\models\BlogService;use App\Models\Category;
 use App\Models\Service;
 
 class ServiceController extends BaseController{
@@ -53,10 +53,33 @@ class ServiceController extends BaseController{
             if (empty($_POST['don_gia'])){
                 $errors[] = 'Bạn cần nhập đơn giá';
             }
+            if (empty($_POST['desc'])){
+                $errors[] = 'Bạn cần nhập mô tả';
+            }
+            if (isset($_FILES['upload']['name'])) {
+                $target_dir = "./public/upload/service/";
+                $name = time() . $_FILES["upload"]["name"];
+                $target_file = $target_dir . $name;
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                if (file_exists($target_file)) {
+                    $errors[] = "Sorry, file already exists.";
+                }
+// Check file size
+                if ($_FILES["upload"]["size"] > 500000) {
+                    $errors[] = "Sorry, your file is too large.";
+                }
+// Allow certain file formats
+                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                    && $imageFileType != "gif") {
+                    $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                }
+            }
             if (count($errors) > 0){
                 redirect('errors', $errors, 'service-list');
             }else{
-                $result = $this->service->addService(NULL, $_POST['catesv'], $_POST['namesv'],$_POST['don_gia']);
+                if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
+                    $result = $this->service->addService(NULL, $_POST['catesv'], $_POST['namesv'],$_POST['don_gia'], $name, $_POST['desc']);
+                }
                 if ($result){
                     redirect('success', 'Thêm mới thành công', 'service-list');
                 }
@@ -74,12 +97,53 @@ class ServiceController extends BaseController{
             if (empty($_POST['namesv'])){
                 $errors[] = 'Bạn cần nhập tên dịch vụ';
             }
-            if (count($errors) > 0){
-                redirect('errors', $errors, 'edit-service/'.$id);
-            }else{
-                $result = $this->service->updateService($id, $_POST['catesv'], $_POST['namesv']);
-                if ($result){
-                    redirect('success', 'Cập nhật thành công', 'edit-service/'.$id);
+            if (empty($_POST['don_gia'])){
+                $errors[] = 'Bạn cần nhập đơn giá';
+            }
+            if (empty($_POST['desc'])){
+                $errors[] = 'Bạn cần nhập mô tả';
+            }
+            if ($_FILES['upload']['name'] != '') {
+                $target_dir = "./public/upload/service/";
+                $name =  time().$_FILES["upload"]["name"];
+                $image_old = $this->service->getDetailService($id)->image;
+                $target_file = $target_dir . $name;
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                if (file_exists($target_file)) {
+                    $errors[] = "Sorry, file already exists.";
+                }
+// Check file size
+                if ($_FILES["upload"]["size"] > 500000) {
+                    $errors[] = "Sorry, your file is too large.";
+                }
+// Allow certain file formats
+                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                    && $imageFileType != "gif") {
+                    $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                }
+                if (count($errors) > 0){
+                    redirect('errors', $errors, 'edit-service/' . $id);
+                }else{
+                    if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
+                        $result = $this->service->updateService($id, $_POST['catesv'], $_POST['namesv'],$_POST['don_gia'], $name, $_POST['desc']);
+                    }
+                    if (file_exists('./public/upload/service/'.$image_old)) {
+                        unlink('./public/upload/service/'.$image_old);
+                    }
+                    if ($result){
+//                        var_dump($result);
+                        redirect('success', 'Thêm mới thành công', 'service-list');
+                    }
+                }
+            }else {
+                if (count($errors) > 0) {
+                    redirect('errors', $errors, 'edit-service/' . $id);
+                } else {
+                    $result = $this->service->updateServiceNoIm($id, $_POST['catesv'], $_POST['namesv'], $_POST['don_gia'], '', $_POST['desc']);
+                    if ($result) {
+//                        var_dump($result);
+                        redirect('success', 'Cập nhật thành công', 'edit-service/' . $id);
+                    }
                 }
             }
         }

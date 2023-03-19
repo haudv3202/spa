@@ -163,12 +163,12 @@
                       </td>
                       <td>
                         <div class="userDatatable-content--subject">
-                          {{$bl->create_date}}
+                          {{date("j F,Y", strtotime($bl->create_date))}}
                         </div>
                       </td>
                       <td>
                         <div class="userDatatable-content--subject">
-                          {{$bl->create_update}}
+                          {{date("j F,Y", strtotime($bl->create_update))}}
                         </div>
                       </td>
                       <td>

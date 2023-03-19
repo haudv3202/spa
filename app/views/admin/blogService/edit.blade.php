@@ -90,6 +90,21 @@
                           value="{{$blog->title}}"
                         />
                       </div>
+                      <div class="form-group">
+                        <label
+                          for="a9"
+                          class="il-gray fs-14 fw-500 align-center mb-10"
+                        >Mô tả bài viết</label
+                        >
+                        <input
+                          name="descbl"
+                          type="text"
+                          class="form-control ih-medium ip-light radius-xs b-light px-15"
+                          id="a9"
+                          placeholder="Nhập mô tả"
+                          value="{{$blog->description}}"
+                        />
+                      </div>
                       <div class="col-lg-6">
                         <div class="card card-default card-md mb-4">
                           <div class="card-header  py-20">
@@ -150,12 +165,10 @@
 @endsection
 
 @push('scripts')
-  <script type="text/javascript">
+  <script type="text/javascript" >
     CKEDITOR.replace( 'content-blog', {
-      filebrowserUploadUrl: './app/views/ckeditor/uploadBlogSv.php',
-
+      filebrowserUploadUrl: './app/views/ckeditor/uploadBlogSv.php'
     } );
-
   </script>
 
   @if(isset($_SESSION['success']) && isset($_GET['msg']))

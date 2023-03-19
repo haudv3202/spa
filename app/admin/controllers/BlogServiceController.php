@@ -66,6 +66,9 @@ class BlogServiceController extends BaseController
             if (empty($_POST['contentbl'])) {
                 $errors[] = "Bạn cần nhập content";
             }
+            if (empty($_POST['titlebl'])) {
+                $errors[] = "Bạn cần nhập mô tả";
+            }
             if (isset($_FILES['upload']['name'])) {
                 $target_dir = "./public/upload/blogSv/";
                 $name = time() . $_FILES["upload"]["name"];
@@ -97,6 +100,7 @@ class BlogServiceController extends BaseController
                             "content" => $_POST['contentbl'],
                             "image" => $name,
                             "title" => $_POST['titlebl'],
+                            "description" => $_POST['descbl'],
                             "create_date" => $date,
                             "create_update" => NULL
                         ]);
@@ -122,6 +126,9 @@ class BlogServiceController extends BaseController
             }
             if (empty($_POST['contentbl'])) {
                 $errors[] = "Bạn cần nhập content";
+            }
+            if (empty($_POST['titlebl'])) {
+                $errors[] = "Bạn cần nhập mô tả";
             }
             if ($_FILES['upload']['name'] != '') {
                 $target_dir = "./public/upload/blogSv/";
@@ -153,6 +160,7 @@ class BlogServiceController extends BaseController
                             "content" => $_POST['contentbl'],
                             "image" => $name,
                             "title" => $_POST['titlebl'],
+                            "description" => $_POST['descbl'],
                             "create_update" => $date
                         ]);
                         if (file_exists('./public/upload/blogSv/'.$image_old)) {
@@ -173,6 +181,7 @@ class BlogServiceController extends BaseController
                         "id_service" => $_POST['serbl'],
                         "content" => $_POST['contentbl'],
                         "title" => $_POST['titlebl'],
+                        "description" => $_POST['descbl'],
                         "create_update" => $date
                     ]);
                     if ($result) {

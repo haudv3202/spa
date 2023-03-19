@@ -37,6 +37,11 @@ class Users extends boostrap {
         $this->setQuery($sql);
         return $this->loadRow();
     }
+    public function checkAccount($email, $pass){
+        $sql = "SELECT * FROM $this->table WHERE email = '$email' AND password = '$pass'";
+        $this->setQuery($sql);
+        return $this->loadRow();
+    }
     public function updateUser($id,$name,$password,$sdt,$email,$image,$total_price,$role_id,$create_date,$update_date){
 //        $create_date=date('Y-m-d H:i a');
 //        $update_date=date('Y-m-d H:i a');
@@ -48,6 +53,11 @@ class Users extends boostrap {
         $sql="SELECT * FROM $this->table WHERE id='$id'";
         $this->setQuery($sql);
         return $this->loadRow();
+    }
+    public function checkEmail($email){
+        $sql = "SELECT * FROM $this->table WHERE email = ?";
+        $this->setQuery($sql);
+        return $this->loadRow([$email]);
     }
 
 }

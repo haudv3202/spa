@@ -43,7 +43,7 @@
                       </div>
                       <div class="modal-body">
                         <div class="new-member-modal">
-                          <form action="{{route('add-service-post')}}" method="post">
+                          <form action="{{route('add-service-post')}}" method="post" enctype="multipart/form-data">
                             <div class="form-group mb-20">
                               <label>Tên dịch vụ</label>
                               <input type="text" name="namesv" class="form-control" placeholder="Tên dịch vụ">
@@ -61,6 +61,23 @@
                                   @endforeach
                                 </select>
                               </div>
+                            </div>
+                            <div class="form-group mb-20">
+                              <label>Ảnh dịch vụ</label>
+                              <div class="dm-upload">
+                                <div class="dm-upload__button">
+                                  <a href="javascript:void(0)" class="btn btn-lg btn-outline-lighten btn-upload" onclick="$('#upload-1').click()"> <img class="svg" src="{{route(''.'app/views/admin/public/assets/img/svg/upload.svg')}}" alt="upload"> Click to Upload</a>
+                                  <input name="upload" type="file"  class="upload-one" id="upload-1">
+                                </div>
+                                <div class="dm-upload__file">
+                                  <ul>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group mb-20">
+                              <label>Mô tả dịch vụ</label>
+                              <input type="text" name="desc" class="form-control" placeholder="Mô tả dịch vụ">
                             </div>
                             <div class="button-group d-flex pt-25">
                               <input type="submit" name="add-new" class="btn btn-primary btn-default btn-squared text-capitalize" value="Add New">

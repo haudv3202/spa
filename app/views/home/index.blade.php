@@ -15,23 +15,23 @@
         <div class="menu-oppentime d-flex gap-5">
           <div class="menu">
             <ul class="d-flex gap-5">
-              <li><a href="headerHomePage.html">HOME</a></li>
-              <li><a href="About.html">ABOUT US</a></li>
-              <li><a href="ourService.html">SERVICES</a></li>
+              <li><a href="{{route('')}}">HOME</a></li>
+              <li><a href="{{route('about-us')}}">ABOUT US</a></li>
+              <li><a href="{{route('service')}}">SERVICES</a></li>
               <li class="menu-sub-page">
                     <span class="d-flex align-items-center"
                     >PAGE <i class="bx bx-chevron-down"></i
                       ></span>
                 <ul class="menu-mini menu-mini-home">
-                  <li><a href="{{ route('ourTeam') }}">Our Team</a></li>
-                  <li><a href="{{route('blog-questions/.')}}">FAQ</a></li>
-                  <li><a href="Booking.html">Booking</a></li>
-                  <li><a href="">404 Page</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="single-blog.html">Single Blog</a></li>
+                  <li><a href="{{route('our-team')}}">Our Team</a></li>
+                  <li><a href="{{route('faq')}}">FAQ</a></li>
+                  <li><a href="{{route('booking')}}">Booking</a></li>
+                  <li><a href="{{route('404-page')}}">404 Page</a></li>
+                  <li><a href="{{route('blog')}}">Blog</a></li>
+                  <li><a href="{{route('single-blog')}}">Single Blog</a></li>
                 </ul>
               </li>
-              <li><a href="{{ route("contact") }}">CONTACT US</a></li>
+              <li><a href="{{route('contact-us')}}">CONTACT US</a></li>
             </ul>
           </div>
           <div class="oppentime-icon">
@@ -41,7 +41,7 @@
               <i class="bx bx-align-right open-Time"></i>
             </button>
             <button type="button" onclick="" class="user-login">
-              <a href="login.html" class="text-black"><i class='bx bx-user-circle'></i></a>
+              <a href="{{route('sign-in')}}" class="text-black"><i class='bx bx-user-circle'></i></a>
             </button>
             <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
               <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
