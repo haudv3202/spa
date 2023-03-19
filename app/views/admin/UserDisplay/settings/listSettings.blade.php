@@ -14,8 +14,6 @@
                 <div class="table-responsive">
                   <div class="adv-table-table__header mb-3">
                     <h4>Cài đặt chỉnh sửa</h4>
-                    <button class="btn btn-success btn-default btn-rounded bg-success text-white" onclick="location.href='{{ route('add-rank') }}'"><i class='bx bxs-file-plus'></i>Thêm
-                    </button>
                   </div>
                   <table
                     class="table mb-0 table-borderless"
