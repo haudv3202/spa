@@ -48,9 +48,9 @@
             </button>
             <div class="box-fs-account box-fs-account-home position-absolute">
               <ul >
-                <li><a href="{{route('')}}">Xem thông tin</a></li>
-                <li><a href="{{route('')}}">Sửa thông tin</a></li>
-                <li><a href="{{route('sign-out')}}">Đăng Xuất</a></li>
+                <li><a href="">Xem thông tin</a></li>
+                <li><a href="{{route('update-profile/'.$_SESSION['account'] ->id )}}">Sửa thông tin</a></li>
+                <li><a href="">Đăng Xuất</a></li>
               </ul>
             </div>
           </div>
@@ -58,7 +58,6 @@
       </div>
       <div class=" banner-page position-absolute top-0"></div>
     </div>
-
 
     <div class="container">
       <div class="row img-banner-homePage ">
@@ -75,10 +74,10 @@
 
         <div data-aos="fade-up" data-aos-duration="1500" class="right-banner-Homepage col-md-6">
           <div class="image1-banner-homePage">
-            <img width="90%" src="{{route('public/image/banner-Hompage.jpg')}}" alt="">
+            <img width="70%" src="{{route('public/image/banner-Hompage.jpg')}}" alt="">
           </div>
           <div class="image2-banner-HomePage">
-            <img width="50%" src="{{route('public/image/banner-homepage2.jpg')}}" alt="">
+            <img width="40%" src="{{route('public/image/banner-homepage2.jpg')}}" alt="">
           </div>
         </div>
       </div>
@@ -436,3 +435,56 @@
     </div>
   </main>
 @endsection
+
+@push("mockup")
+  <div class="modal-mockup">
+
+    <div class="content-modal-mockup">
+      <div class="oidoioi">
+        <div class="item-modal-mockup">
+          <div class="row">
+            <div class="col-sm-6 col-md-12">
+              <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" width="100px" alt="">
+              <h5 class="h5-item-modal-mockup">"Mono Bovis Spa - Chạm đến làn da không tuổi"</h5>
+              <p><i class='bx bxs-star' style='color:#e8880a'></i>
+                <i class='bx bxs-star' style='color:#e8880a'></i>
+                <i class='bx bxs-star' style='color:#e8880a'></i>
+                <i class='bx bxs-star' style='color:#e8880a'></i>
+                <i class='bx bxs-star' style='color:#e8880a'></i>
+              </p>
+              <h3 class="h3-item-modal-mockup">Ưu đãi khách hàng</h3>
+              <p>Nâng tầm sắc đẹp Việt</p>
+              <p class="title-give"> * Nhận món quà siêu khủng từ MonoSpa chỉ với 1 phút cập nhật đầy đủ *
+              </p>
+              <div class="form-modal text-center">
+
+                <form action="mockup-post" method="post">
+                  <div class="value-form-modal">
+                    <label>Họ và tên </label>
+                    : <input type="text" name="fullname" placeholder="Nhập tên anh/chị">
+                  </div>
+                  <div class="value-form-modal">
+                    <label>Số điện thoại :</label>
+                    <input type="text" name="phone" placeholder="Nhập SĐT anh/chị">
+                  </div>
+                  <div class="value-form-modal">
+                    <label>Email</label>
+                    : <input type="email" name="email" placeholder="Nhập email anh/chị">
+                  </div>
+                  <input name="btn-sm" type="submit" class="btn submit-form-modal" value="GỬI THÔNG TIN">
+                </form>
+
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-12 img-modal">
+              <img src="{{route('public/image/Screenshot 2023-03-12 160307.png')}}" width="100%" alt="">
+
+            </div>
+          </div>
+          <button class="close-modal btn" onclick="myStopFunction()"><i class='bx bx-x'
+                                                                        style='color:#a47b60'></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+@endpush

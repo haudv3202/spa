@@ -13,6 +13,11 @@ class Category extends BaseModel{
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+    public function getLimit(){
+        $sql = "SELECT * FROM $this->table LIMIT 3";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
     public function getOneCategory($id){
         $sql = "SELECT * FROM $this->table WHERE id = ?";
         $this->setQuery($sql);

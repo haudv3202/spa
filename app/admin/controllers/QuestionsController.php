@@ -86,4 +86,9 @@ class QuestionsController extends BaseController
         $question = questions::findOne($id);
         $this->render('admin.UserDisplay.questions.blogQuestion',compact('question'));
     }
+    // giao diện
+    public function blogQuestions(){
+        $question = questions::GetAll();
+        $this->render('question.blogQuestion',compact('question'));
+    }
 }

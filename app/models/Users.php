@@ -16,7 +16,7 @@ class Users extends boostrap {
     public function signup($name,$password,$sdt,$email){
         $create_date=date('Y-m-d H:i a');
         $update_date=date('Y-m-d H:i a');
-        $sql="INSERT INTO $this->table VALUES (null,'$name','$password','$sdt','$email',NULL,NULL,'1')";
+        $sql="INSERT INTO $this->table (name,password,sdt,email,role_id) VALUES ('$name','$password','$sdt','$email',1)";
         $this->setQuery($sql);
         return $this->execute();
 

@@ -81,10 +81,7 @@ class UsersController extends BaseController
     public function index()
     {
         $err = [];
-//        echo 123;
         if (isset($_POST["btn-signin"])) {
-            echo 123;
-//            $email = $this->user->index();
             if (empty($_POST['email'])) {
                 $err["email"] = "Bạn chưa nhập Email";
             }
@@ -99,6 +96,7 @@ class UsersController extends BaseController
                         header('location: '.route('admin'));
                     }else{
                         header('location: '.route(''));
+          
                     }
                 }else{
                     redirect('errors', 'Tài khoản không tồn tại','sign-in');
@@ -124,23 +122,27 @@ class UsersController extends BaseController
     }
     public function updateProfile($id)
     {
-        $oneData = Users::findOne($id);
-        $this->render('users.updateProfile', compact('oneData'));
+        $oneAll = Users::findOne($id);
+        $this->render('users.updateProfile', compact('oneAll'));
     }
-    public function updateProfilepost($id)
-    {
-        if (isset($_POST['btn-profile'])) {
-            $name =  $_POST['username'];
-            $password = $_POST['password'];
-            $sdt = $_POST['sdt'];
-            $email = $_POST['email'];
-            $address= $_POST['address'];
+    public function updateProfilepost($id){
+
+        if(isset($_POST["btn-profile"])){
             $errors = [];
             if (empty($_POST['username'])) {
-                $errors[] = 'Bạn cần nhập name';
+                $errors[]  = "Bạn chưa nhập họ và tên";
             }
             if (empty($_POST['password'])) {
-                $errors[] = 'Bạn cần nhập tên password';
+                $errors[]  = "Bạn chưa nhập mật khẩu";
+            }
+            if(empty($_POST['newpassword'])){
+                $errors[]  = "Bạn chưa nhập mật khẩu mới";
+            }
+            if (empty($_POST['sdt'])) {
+                $errors[]  = "Bạn chưa nhập số điện thoại";
+            }
+            if (empty($_POST['email'])) {
+                $errors[]  = "Bạn chưa nhập email";
             }
             if (empty($_POST['sdt'])) {
                 $errors[] = 'Bạn cần nhập tên số điẹn thoại';
@@ -184,35 +186,32 @@ class UsersController extends BaseController
                             "address " => $address,
                             "create_date" => $create_date,
                             "update_date" => $create_date,
-
                         ]);
                         if (file_exists('./public/upload/users/'.$image_old)) {
                             unlink('./public/upload/users/'.$image_old);
                         }
                         if ($result) {
-                            redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
+                            unset($_SESSION['account']);
+                            $_SESSION['account'] = Users::findOne($id);
+                            redirect('success', "Cập nhật thành công!", 'update-profile/'. $id);
                         }
                     }
                 }
             }else{
-                if (count($errors) > 0) {
-                    redirect('errors', $errors, 'update-profile/' . $id);
-                } else {
-                    $create_date = date('Y-m-d H:i a');
-                    $result = Users::updatefind($id, [
-                        "username" =>$name,
-                        "password" => $password,
-                        "sdt" => $sdt,
-                        "email" => $email,
-                        "image " => $_FILES['image']['name'] != '',
-                        "address " => $address,
-                        "create_date" => $create_date,
-                        "update_date" => $create_date
-                    ]);
-
-                    if ($result) {
-                        redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
-                    }
+                date_default_timezone_set("Asia/Ho_Chi_Minh");
+                $date = date("Y-m-d");
+                $result = Users::updatefind($id,[
+                    'name' => $_POST['username'],
+                    'password' => $_POST['newpassword'],
+                    'sdt' => $_POST['sdt'],
+                    'email' => $_POST['email'],
+                    'address' => $_POST['address'],
+                    'update_date' => $date
+                ]);
+                if ($result) {
+                    unset($_SESSION['account']);
+                    $_SESSION['account'] = Users::findOne($id);
+                    redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
                 }
             }
         }

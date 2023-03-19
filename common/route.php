@@ -5,6 +5,8 @@ use App\Controllers\AuthController;
 use App\admin\controllers\UserDisplayController;
 use App\admin\controllers\QuestionsController;
 use App\admin\controllers\rankMemberController;
+use App\admin\controllers\SettingController;
+use App\admin\controllers\socialController;
 $url = !isset($_GET['url']) ? "/" : $_GET['url'];
 
 $router = new RouteCollector();
@@ -72,7 +74,15 @@ $router->get('edit-contact/{id}', [UserDisplayController::class, 'edit']);
 $router->get('edit-insta/{id}', [UserDisplayController::class, 'editInsta']);
 $router->post('update-contact/{id}', [UserDisplayController::class, 'update']);
 $router->post('update-insta/{id}', [UserDisplayController::class, 'updateInsta']);
+$router->get('social', [socialController::class, 'index']);
+$router->get('social-edit/{id}', [socialController::class, 'edit']);
+$router->post('social-edit/{id}', [socialController::class, 'edit']);
 $router->get('questions', [QuestionsController::class, 'index']);
+$router->get('setings', [SettingController::class, 'index']);
+$router->get('setings-edit/{id}', [SettingController::class, 'edit']);
+$router->post('setings-edit/{id}', [SettingController::class, 'edit']);
+$router->get('setings-edit-image/{id}', [SettingController::class, 'edit_image']);
+$router->post('setings-edit-image/{id}', [SettingController::class, 'edit_image']);
 //newletters
 $router->get('newletters',[App\controllers\NewlettersController::class ,'index']);
 $router->get('add-newletters', [App\controllers\NewlettersController::class, 'addNewletters']);
@@ -131,13 +141,24 @@ $router->get('sign-out',[App\Controllers\UsersController::class,'signout']);
 $router->get('forgot',[App\Controllers\UsersController::class,'forgot']);
 $router->post('forgot',[App\Controllers\UsersController::class,'forgot']);
 
+
+$router->get('ourTeam',[App\Controllers\UsersController::class,'ourTeam']);
+$router->get('detail/{id}',[App\Controllers\UsersController::class,'detailBlog']);
+$router->get('contact',[App\Controllers\UsersController::class,'contact']);
+
+//update profile admin
+$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
+$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
+
+
 //Client
 //Home Monospa
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
 $router->get('service',[App\Controllers\HomeController::class,'serviceList']);
 
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
-
+//FQA
+$router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
