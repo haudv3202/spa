@@ -24,7 +24,7 @@
                       ></span>
                 <ul class="menu-mini menu-mini-home">
                   <li><a href="ourTeamPage.html">Our Team</a></li>
-                  <li><a href="FaqPage.html">FAQ</a></li>
+                  <li><a href="{{route('blog-questions/.')}}">FAQ</a></li>
                   <li><a href="Booking.html">Booking</a></li>
                   <li><a href="">404 Page</a></li>
                   <li><a href="blog.html">Blog</a></li>

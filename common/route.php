@@ -134,7 +134,8 @@ $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
 
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
-
+//FQA
+$router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
