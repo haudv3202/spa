@@ -296,10 +296,6 @@ class UsersControlller extends BaseController{
         $this->render('users.updateusers', compact('showUpdate'));
     }
     public function updateProfile($id){
-
-
-
-
         if(isset($_POST["btn-updateuser"])){
             $errors = [] ;
             if (empty($_POST['username'])) {
@@ -318,7 +314,7 @@ class UsersControlller extends BaseController{
 //                $errors[]  = "Bạn chưa nhập role";
 //            }
             if ($_FILES['image']['name'] != ''){
-                $target_dir = "./public/upload/user/";
+                $target_dir = "./public/upload/users/";
                 $name = time().$_FILES["image"]["name"];
                 $target_file = $target_dir . $name;
                 $image_old = Users::findOne($id)->image;
@@ -349,7 +345,6 @@ class UsersControlller extends BaseController{
                             'email' => $_POST['email'],
                             'image' => $name,
                             'address' => $_POST['address'],
-//                            'role_id' => $_POST['role_id'],
                             'update_date' => $date
                         ]);
                         if (file_exists('./public/upload/user/'.$image_old)) {
@@ -371,7 +366,6 @@ class UsersControlller extends BaseController{
                     'sdt' => $_POST['sdt'],
                     'email' => $_POST['email'],
                     'address' => $_POST['address'],
-//                    'role_id' => $_POST['role_id'],
                     'update_date' => $date
                 ]);
                 if ($result) {

@@ -57,7 +57,7 @@
               @endif
 
               <div class="card-body pb-md-50">
-                <form action="{{route('update-service/'.$service->id)}}" method="post">
+                <form action="{{route('update-service/'.$service->id)}}" method="post" enctype="multipart/form-data">
                   <div class="row mx-n15">
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault01" class="il-gray fs-14 fw-500 align-center mb-10">ID
@@ -68,6 +68,10 @@
                       <label for="validationDefault02"  class="il-gray fs-14 fw-500 align-center mb-10">Tên dịch vụ</label>
                       <input type="text" name="namesv" class="form-control  ih-medium ip-light radius-xs b-light" id="validationDefault02" value="{{$service->name}}" required>
                     </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02"  class="il-gray fs-14 fw-500 align-center mb-10">Đơn giá</label>
+                      <input type="text" name="don_gia" class="form-control  ih-medium ip-light radius-xs b-light" id="validationDefault02" value="{{$service->price}}" required>
+                    </div>
                     <div class="support-form__input-id col-md-4 mb-20 px-15">
                       <label>Cate:</label>
                       <div class="dm-select ">
@@ -77,6 +81,27 @@
                           @endforeach
                         </select>
                       </div>
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02"  class="il-gray fs-14 fw-500 align-center mb-10">Ảnh cũ </label>
+                      <img src="{{route('public/upload/service/'.$service->image)}}" style="width: 300px">
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02"  class="il-gray fs-14 fw-500 align-center mb-10">Ảnh dịch vụ</label>
+                      <div class="dm-upload">
+                        <div class="dm-upload__button">
+                          <a href="javascript:void(0)" class="btn btn-lg btn-outline-lighten btn-upload" onclick="$('#upload-1').click()"> <img class="svg" src="{{route(''.'app/views/admin/public/assets/img/svg/upload.svg')}}" alt="upload"> Click to Upload</a>
+                          <input name="upload" type="file"  class="upload-one" id="upload-1">
+                        </div>
+                        <div class="dm-upload__file">
+                          <ul>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02"  class="il-gray fs-14 fw-500 align-center mb-10">Mô tả</label>
+                      <input type="text" name="desc" class="form-control  ih-medium ip-light radius-xs b-light" value="{{$service->description}}" placeholder="Mô tả dịch vụ">
                     </div>
                   </div>
                   <input class="btn btn-primary px-30" type="submit" value="Submit" name="btn-sm">

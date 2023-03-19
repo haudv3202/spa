@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-class Service extends BaseModel{
+class Service extends BaseModel {
     protected $table = 'service';
     public function getAllService(){
         $sql = "SELECT * FROM $this->table";
@@ -39,15 +39,22 @@ class Service extends BaseModel{
         $this->setQuery($sql);
         return $this->loadRow([$id]);
     }
-    public function addService($id, $id_cate, $name,$price){
-        $sql = "INSERT INTO $this->table VALUES (?, ?, ?,?)";
+    public function addService($id, $id_cate, $name,$price, $image, $desc){
+        $sql = "INSERT INTO $this->table VALUES (?, ?, ?, ?, ?, ?)";
         $this->setQuery($sql);
-        return $this->execute([$id, $id_cate, $name,$price]);
+        return $this->execute([$id, $id_cate, $name,$price,  $image, $desc]);
     }
-    public function updateService($id, $id_cate, $name){
-        $sql = "UPDATE $this->table SET id_cate = ?, name = ? WHERE id = ?";
+    public function updateService($id, $id_cate, $name, $price, $image, $desc){
+            $sql = "UPDATE $this->table SET id_cate = '$id_cate', name = '$name', price = '$price', image = '$image', description = '$desc'  WHERE id = '$id'";
+            $this->setQuery($sql);
+//            return $sql;
+            return $this->execute();
+    }
+    public function updateServiceNoIm($id, $id_cate, $name, $price, $desc){
+        $sql = "UPDATE $this->table SET id_cate = '$id_cate', name = '$name', price = '$price', description = ' $desc'  WHERE id = '$id'";
         $this->setQuery($sql);
-        return $this->execute([$id_cate, $name, $id]);
+//        return $sql;
+        return $this->execute();
     }
     public function deleteService($id){
         $sql = "DELETE FROM $this->table WHERE id = ?";
