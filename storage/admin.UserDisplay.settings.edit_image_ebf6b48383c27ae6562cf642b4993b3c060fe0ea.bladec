@@ -1,0 +1,118 @@
+<?php $_shouldextend[1]=1; ?>;
+
+<?php $this->startSection('content'); ?>
+ <div class="contents">
+ <div class="container-fluid">
+ <div class="row">
+ <div class="col-lg-12">
+ <div
+ class="d-flex align-items-center user-member__title mb-30 mt-30"
+ >
+ <h4 class="text-capitalize">Sửa nội dung</h4>
+ </div>
+ </div>
+ </div>
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <div class="alert">
+ <?php $__currentLoopData = $_SESSION['errors']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $er): $loop = $this->incrementLoopIndices();  ?>
+ <div
+ class="alert alert-warning alert-dismissible fade show"
+ role="alert"
+ >
+ <div class="alert-content">
+ <p>
+ <?php echo \htmlentities($er??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </p>
+ <button
+ type="button"
+ class="btn-close text-capitalize"
+ data-bs-dismiss="alert"
+ aria-label="Close"
+ >
+ <img
+ src="<?php echo \htmlentities(route(''.'app/views/admin/public/assets/img/svg/x.svg')??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ alt="x"
+ class="svg"
+ aria-hidden="true"
+ />
+ </button>
+ </div>
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+ <?php endif; ?>
+ <div class="card mb-50">
+ <div class="row justify-content-center">
+ <div class="col-md-10 col-10">
+ <div class="mt-40 mb-50">
+ <div class="edit-profile__body">
+ <form action="" method="post" enctype="multipart/form-data">
+ <div class="form-group mb-25">
+ <label for="name1">nội dung mục <?php echo \htmlentities($data->review??'', ENT_QUOTES, 'UTF-8', false); ?></label>
+ <div class="dm-tag-wrap">
+ <div class="dm-upload">
+ <div class="dm-upload__button">
+ <a href="javascript:void(0)" class="btn btn-lg btn-outline-lighten btn-upload" onclick="$('#upload-1').click()"> <img class="svg" src="<?php echo \htmlentities(route("app/views/admin/public/assets/img/svg/upload.svg")??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="upload"> Click to Upload</a>
+ <input type="file" name="upload-settings" class="upload-one" id="upload-1">
+ </div>
+ <div class="dm-upload__file">
+ <ul>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="form-group mb-25">
+ <label for="name1">Miêu tả</label>
+ <input
+ type="text"
+ class="form-control"
+ id="name1"
+ disabled
+ placeholder="<?php echo \htmlentities($data->comment??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ />
+ </div>
+ <div
+ class="button-group d-flex pt-25 justify-content-md-end justify-content-start"
+ >
+ <button
+ class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm"
+ type="submit" name="sb-setting-image"
+ >
+ Cập nhật
+ </button>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+
+<?php $this->startPush('scripts'); ?>
+ <script type="text/javascript">
+ CKEDITOR.replace( 'reply', {
+ filebrowserUploadUrl: './app/views/ckeditor/upload.php'
+ } );
+ </script>
+
+ <?php if(isset($_SESSION['success']) && isset($_GET['msg'])): ?>
+ <script>
+ Swal.fire(
+ 'Thêm mới!',
+ '<?php echo \htmlentities($_SESSION['success']??'', ENT_QUOTES, 'UTF-8', false); ?>',
+ 'success'
+ )
+ window.setTimeout(function(){
+ window.location.href = '<?php echo \htmlentities(route('setings')??'', ENT_QUOTES, 'UTF-8', false); ?>';
+ },1000)
+ </script>
+ <?php endif; ?>
+<?php $this->stopPush(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin.index_master_admin'); } ?>

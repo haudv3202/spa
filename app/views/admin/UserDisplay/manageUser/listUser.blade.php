@@ -157,6 +157,7 @@
     function datasearch(value){
       $.get("search/"+value, function(data, status){
         data = JSON.parse(data);
+        console.log(data);
         var searchResults = document.querySelector("#bodyuser");
         var html = "";
 
@@ -167,7 +168,7 @@
           html += "<td>" + data[i].rank + "</td>";
           html += "<td>" + data[i].email + "</td>";
           html += "<td>" + data[i].sdt + "</td>";
-          html += "<td>" + data[i].total_price + "</td>";
+          html += "<td>" + data[i].total_price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) + "</td>";
           html += '<td>  <div class="d-flex justify-content-between"><a href="{{ route('chi-tiet-nguoi-dung?id='.$value->id)  }}" class="btn btn-primary btn-default btn-squared btn-shadow-primary ">Chi tiết</a>';
           html += '<a href="{{ route('update-user/'.$value->id) }}" class="btn btn-secondary btn-default btn-squared btn-shadow-secondary">Sửa</a>';
           html += '<button onclick="deletItem({{ $value->id }})" class="btn btn-danger btn-default btn-squared btn-shadow-danger">Xóa</button></div></td>';

@@ -39,6 +39,12 @@
             <li class="">
               <a href="{{route('newletters')}}">Newletters</a>
             </li>
+            <li class="">
+              <a href="{{route('social')}}">Mạng xã hội</a>
+            </li>
+            <li class="">
+              <a href="{{route('setings')}}">settings</a>
+            </li>
           </ul>
         </li>
         <li class="has-child">
