@@ -22,12 +22,14 @@ class UsersControlller extends BaseController{
     public function search($value){
         $users = $this->user->search($value);
         $ranks = rankmember::GetAll();
-        foreach ($users as $value){
-            foreach ($ranks as $data){
-                if($value->total_price >= $data->total ){
-                    $value->rank = $data->name;
+        foreach($users as $customer) {
+            $rank_name = "vô hạng";
+            foreach($ranks as $group) {
+                if($customer->total_price >= $group->total) {
+                    $rank_name = $group->name;
                 }
             }
+            $customer->rank = $rank_name;
         }
 
         $data = json_encode($users);

@@ -2,15 +2,24 @@
 namespace App\Controllers;
 
 use App\Models\Users;
-
-
+use App\models\Staff;
+use App\models\BlogService;
+use App\Models\Service;
+use App\models\insta;
+use App\Models\Category;
+use App\models\contactUs;
 class UsersController extends BaseController
 {
     protected $user;
-
+    protected $blog;
+    protected $service;
+    protected $category;
     public function __construct()
     {
         $this->user = new Users;
+        $this->blog = new BlogService();
+        $this->service = new Service();
+        $this->category = new Category();
     }
     public function signup()
     {
@@ -67,7 +76,7 @@ class UsersController extends BaseController
                             setcookie("pass", $_POST["password"], time() + 86400, '/');
                         }
                         if($value->role_id==0){
-                            header('location:./admin');
+                            header('location:./user');
                             redirect('success','Đăng nhập thành công','admin');
                         }
                         else{
@@ -85,13 +94,35 @@ class UsersController extends BaseController
         $this->render("users.signin", compact("err"));
     }
 
+    public function ourTeam(){
+        $dataAll = Staff::GetAll();
+        $instagram = insta::GetAll();
+        $posts = $this->blog->getPostslimit(3);
+        foreach ($posts as $value){
+            $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
+        }
+        $this->render('home.ourteam',compact("dataAll","posts","instagram"));
+    }
+
+    public function detailBlog($id){
+        $detailPost = BlogService::findOne($id);
+        $newBlog = $this->blog->getPostslimit(2);
+        $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
+        $category = $this->category->getLimit();
+        $this->render('home.detail',compact("detailPost","newBlog","category"));
+    }
+
+    public function contact(){
+        $allcontact = contactUs::GetAll();
+        $this->render('home.contactus',compact("allcontact"));
+    }
     public function dashboard()
 
     {
         if ($_SESSION["login"] == false) {
             route("");
         }
-        return $this->render('admin.home.adminIndex');
+        $this->render('admin.home.adminIndex');
     }
     public function updateProfile($id)
     {

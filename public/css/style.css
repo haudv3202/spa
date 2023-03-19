@@ -231,6 +231,9 @@ li {
 .left-banner-Homepage{
     padding: 20px;
 }
+.left-banner-Homepage>p{
+    width: 70%;
+}
 .h2-text-banner-header {
     font-size: 58px;
     color: #053543;
@@ -981,7 +984,7 @@ footer .box-input-email button{
 .image2-banner-HomePage {
     position: absolute;
     bottom: 80px;
-    left: -80px;
+    left: 0;
 }
 /* ==========about-us============== */
 .About-Us {
