@@ -1,5 +1,9 @@
 <?php
 namespace App\Controllers;
+use App\models\BlogService;
+use App\models\contactUs;
+use App\models\insta;
+use App\models\Staff;
 use App\Models\Users;
 require_once 'vendor/phpmailer/sendmail.php';
 
@@ -215,5 +219,28 @@ class UsersController extends BaseController
                 }
             }
         }
+    }
+
+    public function ourTeam(){
+        $dataAll = Staff::GetAll();
+        $instagram = insta::GetAll();
+        $posts = $this->blog->getPostslimit(3);
+        foreach ($posts as $value){
+            $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
+        }
+        $this->render('home.ourteam',compact("dataAll","posts","instagram"));
+    }
+
+    public function detailBlog($id){
+        $detailPost = BlogService::findOne($id);
+        $newBlog = $this->blog->getPostslimit(2);
+        $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
+        $category = $this->category->getLimit();
+        $this->render('home.detail',compact("detailPost","newBlog","category"));
+    }
+
+    public function contact(){
+        $allcontact = contactUs::GetAll();
+        $this->render('home.contactus',compact("allcontact"));
     }
 }
