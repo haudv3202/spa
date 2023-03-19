@@ -16,7 +16,7 @@
           <div class="menu">
             <ul class="d-flex gap-5">
               <li><a href="{{route('')}}">HOME</a></li>
-              <li><a href="{{route('about-us')}}">ABOUT US</a></li>
+              <li><a href="{{route('ourTeam')}}">ABOUT US</a></li>
               <li><a href="{{route('service')}}">SERVICES</a></li>
               <li class="menu-sub-page">
                     <span class="d-flex align-items-center"
@@ -31,7 +31,7 @@
                   <li><a href="{{route('single-blog')}}">Single Blog</a></li>
                 </ul>
               </li>
-              <li><a href="{{route('contact-us')}}">CONTACT US</a></li>
+              <li><a href="{{route('contact')}}">CONTACT US</a></li>
             </ul>
           </div>
           <div class="oppentime-icon">
