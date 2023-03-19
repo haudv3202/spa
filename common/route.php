@@ -146,10 +146,6 @@ $router->get('ourTeam',[App\Controllers\UsersController::class,'ourTeam']);
 $router->get('detail/{id}',[App\Controllers\UsersController::class,'detailBlog']);
 $router->get('contact',[App\Controllers\UsersController::class,'contact']);
 
-//update profile admin
-$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
-$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
-
 
 //Client
 //Home Monospa

@@ -93,7 +93,7 @@ class UsersController extends BaseController
                 if (is_object($checkAcc)){
                     $_SESSION['account'] = $checkAcc;
                     if ($checkAcc->role_id == 2){
-                        header('location: '.route('admin'));
+                        header('location: '.route('user'));
                     }else{
                         header('location: '.route(''));
           

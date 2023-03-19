@@ -2,6 +2,24 @@
   <div class="sidebar sidebar-collapse" id="sidebar">
     <div class="sidebar__menu-group">
       <ul class="sidebar_nav">
+        <li class="has-child">
+          <a href="#" class="">
+            <span class="nav-icon uil uil-table"></span>
+            <span class="menu-text">Quản lí người dùng</span>
+            <span class="toggle-icon"></span>
+          </a>
+          <ul>
+            <li class="">
+              <a href="{{route('user')}}">Người Dùng</a>
+            </li>
+            <li class="">
+              <a href="{{route('add_user')}}">Tạo tài khoản quản trị</a>
+            </li>
+            <li class="">
+              <a href="{{route('list-rank')}}">Danh mục khách hàng</a>
+            </li>
+          </ul>
+        </li>
          <li class="has-child">
           <a href="#" class="">
             <span class="nav-icon uil uil-table"></span>
@@ -47,24 +65,7 @@
             </li>
           </ul>
         </li>
-        <li class="has-child">
-          <a href="#" class="">
-            <span class="nav-icon uil uil-table"></span>
-            <span class="menu-text">Quản lí người dùng</span>
-            <span class="toggle-icon"></span>
-          </a>
-          <ul>
-            <li class="">
-              <a href="{{route('user')}}">Người Dùng</a>
-            </li>
-            <li class="">
-              <a href="{{route('add_user')}}">Tạo tài khoản quản trị</a>
-            </li>
-            <li class="">
-              <a href="{{route('list-rank')}}">Danh mục khách hàng</a>
-            </li>
-          </ul>
-        </li>
+
         <li class="">
           <a href="{{route('reply-list')}}">
             <span class="nav-icon uil uil-clipboard-notes"></span>

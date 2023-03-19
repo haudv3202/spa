@@ -100,40 +100,40 @@
     </div>
   </div>
 
-  <!-- ==================testimonial================= -->
-  <div class="bg-testminal">
-    <div class="container">
-      <div class="text-infor-testminal text-center"data-aos="zoom-in-down">
-        <h4 class="text-under-h4-HomePage update-h4-testmional">Phản ánh từ khách hàng</h4>
-        <h2 class="text-title-HomePage">
-          Khách hàng của chúng tôi nói gì
-        </h2>
-        <p>Khách hàng của chúng tôi thường đánh giá cao dịch vụ của chúng tôi với những lời khen ngợi về không gian sang trọng, sạch sẽ và tinh tế cùng với sự tận tâm, chuyên nghiệp của nhân viên. Họ thường cảm thấy thư giãn và thoải mái khi được trải nghiệm các liệu trình chăm sóc sức khỏe và làm đẹp tại spa của chúng tôi, và cho rằng dịch vụ của chúng tôi đáng giá với mức giá hợp lý.</p>
-      </div>
-      <div class="testimonial-row row">
-        <div class="left-testimonial col-md-6"  data-aos="zoom-in-right">
-          <img src="{{route('public/image/treatment.jpg')}}" width="100%" alt="">
-        </div>
-        <div class="right-testimonial col-md-6" ata-aos="zoom-in-left">
-          <p>Khách hàng của chúng tôi cũng rất đa dạng về độ tuổi và giới tính, từ những người trẻ tuổi muốn chăm sóc và làm đẹp cho bản thân đến những người lớn tuổi cần thư giãn và giảm đau nhức cơ thể. Với mục tiêu mang lại trải nghiệm spa tuyệt vời nhất cho mọi khách hàng, chúng tôi luôn cập nhật và đa dạng hóa các liệu trình chăm sóc sức khỏe và làm đẹp của mình để đáp ứng nhu cầu của tất cả các khách hàng của mình.</p>
-          <div class="start-testimonal">
-            <i class='bx bxs-star'>
-            </i><i class='bx bxs-star'>
-            </i><i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-          </div>
-          <div class="user-vote-treatmen" >
-            <img src="{{route('public/image/about-us1.jpg')}}" alt="">
-            <div class="text-user-vote">
-              <p>Manh Cuong</p>
-              <p>Khách hàng</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+{{--  <!-- ==================testimonial================= -->--}}
+{{--  <div class="bg-testminal">--}}
+{{--    <div class="container">--}}
+{{--      <div class="text-infor-testminal text-center"data-aos="zoom-in-down">--}}
+{{--        <h4 class="text-under-h4-HomePage update-h4-testmional">Phản ánh từ khách hàng</h4>--}}
+{{--        <h2 class="text-title-HomePage">--}}
+{{--          Khách hàng của chúng tôi nói gì--}}
+{{--        </h2>--}}
+{{--        <p>Khách hàng của chúng tôi thường đánh giá cao dịch vụ của chúng tôi với những lời khen ngợi về không gian sang trọng, sạch sẽ và tinh tế cùng với sự tận tâm, chuyên nghiệp của nhân viên. Họ thường cảm thấy thư giãn và thoải mái khi được trải nghiệm các liệu trình chăm sóc sức khỏe và làm đẹp tại spa của chúng tôi, và cho rằng dịch vụ của chúng tôi đáng giá với mức giá hợp lý.</p>--}}
+{{--      </div>--}}
+{{--      <div class="testimonial-row row">--}}
+{{--        <div class="left-testimonial col-md-6"  data-aos="zoom-in-right">--}}
+{{--          <img src="{{route('public/image/treatment.jpg')}}" width="100%" alt="">--}}
+{{--        </div>--}}
+{{--        <div class="right-testimonial col-md-6" ata-aos="zoom-in-left">--}}
+{{--          <p>Khách hàng của chúng tôi cũng rất đa dạng về độ tuổi và giới tính, từ những người trẻ tuổi muốn chăm sóc và làm đẹp cho bản thân đến những người lớn tuổi cần thư giãn và giảm đau nhức cơ thể. Với mục tiêu mang lại trải nghiệm spa tuyệt vời nhất cho mọi khách hàng, chúng tôi luôn cập nhật và đa dạng hóa các liệu trình chăm sóc sức khỏe và làm đẹp của mình để đáp ứng nhu cầu của tất cả các khách hàng của mình.</p>--}}
+{{--          <div class="start-testimonal">--}}
+{{--            <i class='bx bxs-star'>--}}
+{{--            </i><i class='bx bxs-star'>--}}
+{{--            </i><i class='bx bxs-star'></i>--}}
+{{--            <i class='bx bxs-star'></i>--}}
+{{--            <i class='bx bxs-star'></i>--}}
+{{--          </div>--}}
+{{--          <div class="user-vote-treatmen" >--}}
+{{--            <img src="{{route('public/image/about-us1.jpg')}}" alt="">--}}
+{{--            <div class="text-user-vote">--}}
+{{--              <p>Manh Cuong</p>--}}
+{{--              <p>Khách hàng</p>--}}
+{{--            </div>--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
+{{--  </div>--}}
 
 
   <!-- =============treatment & price =========== -->
