@@ -54,6 +54,11 @@ class Users extends boostrap {
         $this->setQuery($sql);
         return $this->loadRow();
     }
+    public function checkEmail($email){
+        $sql = "SELECT * FROM $this->table WHERE email = ?";
+        $this->setQuery($sql);
+        return $this->loadRow([$email]);
+    }
 
 }
 

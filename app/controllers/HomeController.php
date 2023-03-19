@@ -3,13 +3,19 @@ namespace App\Controllers;
 use App\Models\Account;
 use App\models\Endow;
 use App\Models\Product;
+use App\Models\Service;
+use App\models\Staff;
+
 class HomeController extends BaseController{
     protected $product;
     protected $account;
+    protected $service;
+
     public function __construct()
     {
 //        $this->product = new Product();
 //        $this->account = new Account();
+        $this->service = new Service();
     }
     public function index(){
         $this->render('users.signin');
@@ -46,6 +52,11 @@ class HomeController extends BaseController{
                 }
             }
         }
+    }
+    public function serviceList(){
+        $service = $this->service->getAllService();
+        $staff = Staff::GetAll();
+        $this->render('home.service', compact('service', 'staff'));
     }
 
 }

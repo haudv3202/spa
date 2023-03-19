@@ -1,8 +1,7 @@
 <?php
 namespace App\Controllers;
-use App\Email;
 use App\Models\Users;
-
+require_once 'vendor/phpmailer/sendmail.php';
 
 class UsersController extends BaseController
 {
@@ -28,8 +27,11 @@ class UsersController extends BaseController
             if (empty($_POST['email'])) {
                 $err[] = "Bạn chưa nhập email";
             }
+            if ($_POST['repass'] != $_POST['password']){
+                $err[] = "Mật khẩu không trùng khớp";
+            }
             if (count($err) > 0) {
-                $err[] = 'Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
+                redirect('errors', $err, 'sign-up');
             } else {
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $date = date("Y-m-d");
@@ -49,11 +51,27 @@ class UsersController extends BaseController
                 redirect('success', 'Đăng ký thành công', '');
             }
         }
-        $this->render('users.signup', compact('err'));
+        $this->render('auth.sign-up');
     }
     public function forgot(){
-
-        Email\Send_email('test', 'test php mailer', 'thanhnvph22301@gmail.com');
+        if (isset($_POST['btn-forgot'])){
+            $errors = [];
+            if (empty($_POST['email'])){
+                $errors[] = "Bạn cần nhập email";
+            }
+            if (count($errors) > 0){
+                redirect('errors', $errors, 'forgot');
+            }else{
+                $result = $this->user->checkEmail($_POST['email']);
+                if ($result == true){
+                    echo "<script>alert('Vui lòng kiểm tra lại hộp thư email')</script>";
+                    Send_email('FORGOT PASSWORD', 'Mật khẩu cũ của bạn là: '.$result->password, $result->email);
+                }else{
+                    echo "<script>alert('Email không tồn tại trên hệ thống vui lòng kiểm tra lại')</script>";
+                }
+            }
+        }
+        $this->render('auth.forgot');
     }
     public function signout(){
         session_unset();
@@ -63,8 +81,10 @@ class UsersController extends BaseController
     public function index()
     {
         $err = [];
-        if (isset($_POST["btn-login"])) {
-            $email = $this->user->index();
+//        echo 123;
+        if (isset($_POST["btn-signin"])) {
+            echo 123;
+//            $email = $this->user->index();
             if (empty($_POST['email'])) {
                 $err["email"] = "Bạn chưa nhập Email";
             }
@@ -86,9 +106,8 @@ class UsersController extends BaseController
             }else{
                 redirect('errors', $err, 'sign-in');
             }
-
         }
-        $this->render("users.signin", compact("err"));
+        $this->render("auth.sign-in");
     }
 
     public function dashboard()

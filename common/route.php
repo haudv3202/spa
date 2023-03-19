@@ -22,6 +22,8 @@ $router->filter('auth', function(){
 //    return "trang chủ";
 //});
 $router->get('admin', [App\Controllers\UsersController::class, 'dashboard']);
+if (isset($_SESSION['account'])){
+    if ($_SESSION['account']->role_id == 2){
 //Category
 $router->get('add-category', [App\admin\controllers\CategoryController::class, 'addCategory']);
 $router->post('add-category-post', [App\admin\controllers\CategoryController::class, 'addCategoryPost']);
@@ -36,12 +38,6 @@ $router->post('add-service-post', [App\admin\controllers\ServiceController::clas
 //$router->get('edit-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'editService']);
 //$router->post('update-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'updateServicePost']);
 //$router->get('delete-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'deteleService']);
-$router->get('/log-out', function () {
-    $_SESSION["login"] = false;
-    setcookie("email",$_POST["email"],time()-86401,'/');
-    setcookie("pass",$_POST["password"],time()-86401,'/');
-    header("location:./");
-});
 $router->get('edit-service/{id}', [App\admin\controllers\ServiceController::class, 'editService']);
 $router->post('update-service/{id}', [App\admin\controllers\ServiceController::class, 'updateServicePost']);
 $router->get('delete-service/{id}', [App\admin\controllers\ServiceController::class, 'deteleService']);
@@ -119,6 +115,12 @@ $router->get('add-rank', [App\admin\controllers\rankMemberController::class, 'ad
 $router->post('add-rank', [App\admin\controllers\rankMemberController::class, 'addRank']);
 $router->get('edit-rank/{id}', [App\admin\controllers\rankMemberController::class, 'editRank']);
 $router->post('edit-rank/{id}', [App\admin\controllers\rankMemberController::class, 'editRank']);
+//update profile admin
+$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
+$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
+    }
+}
+
 //login -register
 $router->get('home', [App\Controllers\HomeController::class, 'index']);
 $router->get('sign-in', [App\Controllers\UsersController::class, 'index']);
@@ -127,13 +129,12 @@ $router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->get('sign-out',[App\Controllers\UsersController::class,'signout']);
 $router->get('forgot',[App\Controllers\UsersController::class,'forgot']);
-//update profile admin
-$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
-$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
+$router->post('forgot',[App\Controllers\UsersController::class,'forgot']);
 
 //Client
 //Home Monospa
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
+$router->get('service',[App\Controllers\HomeController::class,'serviceList']);
 
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
 
