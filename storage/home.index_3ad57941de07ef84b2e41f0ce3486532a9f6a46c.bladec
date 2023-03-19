@@ -23,8 +23,9 @@
  >PAGE <i class="bx bx-chevron-down"></i
  ></span>
  <ul class="menu-mini menu-mini-home">
- <li><a href="<?php echo \htmlentities(route('ourTeam')??'', ENT_QUOTES, 'UTF-8', false); ?>">Our Team</a></li>
- <li><a href="FaqPage.html">FAQ</a></li>
+ <li><a href="ourTeamPage.html">Our Team</a></li>
+ <li><a href="<?php echo \htmlentities(route('blog-questions/.')??'', ENT_QUOTES, 'UTF-8', false); ?>">FAQ</a></li>
+
  <li><a href="Booking.html">Booking</a></li>
  <li><a href="">404 Page</a></li>
  <li><a href="blog.html">Blog</a></li>
@@ -49,7 +50,7 @@
  <div class="box-fs-account box-fs-account-home position-absolute">
  <ul >
  <li><a href="">Xem thông tin</a></li>
- <li><a href="">Sửa thông tin</a></li>
+ <li><a href="<?php echo \htmlentities(route('update-profile/'.$_SESSION['account'] ->id )??'', ENT_QUOTES, 'UTF-8', false); ?>">Sửa thông tin</a></li>
  <li><a href="">Đăng Xuất</a></li>
  </ul>
  </div>
@@ -58,7 +59,6 @@
  </div>
  <div class=" banner-page position-absolute top-0"></div>
  </div>
-
 
  <div class="container">
  <div class="row img-banner-homePage ">

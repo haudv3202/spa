@@ -2,24 +2,15 @@
 namespace App\Controllers;
 
 use App\Models\Users;
-use App\models\Staff;
-use App\models\BlogService;
-use App\Models\Service;
-use App\models\insta;
-use App\Models\Category;
-use App\models\contactUs;
+
+
 class UsersController extends BaseController
 {
     protected $user;
-    protected $blog;
-    protected $service;
-    protected $category;
+
     public function __construct()
     {
         $this->user = new Users;
-        $this->blog = new BlogService();
-        $this->service = new Service();
-        $this->category = new Category();
     }
     public function signup()
     {
@@ -94,55 +85,38 @@ class UsersController extends BaseController
         $this->render("users.signin", compact("err"));
     }
 
-    public function ourTeam(){
-        $dataAll = Staff::GetAll();
-        $instagram = insta::GetAll();
-        $posts = $this->blog->getPostslimit(3);
-        foreach ($posts as $value){
-            $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
-        }
-        $this->render('home.ourteam',compact("dataAll","posts","instagram"));
-    }
 
-    public function detailBlog($id){
-        $detailPost = BlogService::findOne($id);
-        $newBlog = $this->blog->getPostslimit(2);
-        $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
-        $category = $this->category->getLimit();
-        $this->render('home.detail',compact("detailPost","newBlog","category"));
-    }
-
-    public function contact(){
-        $allcontact = contactUs::GetAll();
-        $this->render('home.contactus',compact("allcontact"));
-    }
     public function dashboard()
 
     {
         if ($_SESSION["login"] == false) {
             route("");
         }
-        $this->render('admin.home.adminIndex');
+        return $this->render('admin.home.adminIndex');
     }
     public function updateProfile($id)
     {
-        $oneData = Users::findOne($id);
-        $this->render('users.updateProfile', compact('oneData'));
+        $oneAll = Users::findOne($id);
+        $this->render('users.updateProfile', compact('oneAll'));
     }
-    public function updateProfilepost($id)
-    {
-        if (isset($_POST['btn-profile'])) {
-            $name =  $_POST['username'];
-            $password = $_POST['password'];
-            $sdt = $_POST['sdt'];
-            $email = $_POST['email'];
-            $address= $_POST['address'];
+    public function updateProfilepost($id){
+
+        if(isset($_POST["btn-profile"])){
             $errors = [];
             if (empty($_POST['username'])) {
-                $errors[] = 'Bạn cần nhập name';
+                $errors[]  = "Bạn chưa nhập họ và tên";
             }
             if (empty($_POST['password'])) {
-                $errors[] = 'Bạn cần nhập tên password';
+                $errors[]  = "Bạn chưa nhập mật khẩu";
+            }
+            if(empty($_POST['newpassword'])){
+                $errors[]  = "Bạn chưa nhập mật khẩu mới";
+            }
+            if (empty($_POST['sdt'])) {
+                $errors[]  = "Bạn chưa nhập số điện thoại";
+            }
+            if (empty($_POST['email'])) {
+                $errors[]  = "Bạn chưa nhập email";
             }
             if (empty($_POST['sdt'])) {
                 $errors[] = 'Bạn cần nhập tên số điẹn thoại';
@@ -186,35 +160,32 @@ class UsersController extends BaseController
                             "address " => $address,
                             "create_date" => $create_date,
                             "update_date" => $create_date,
-
                         ]);
                         if (file_exists('./public/upload/users/'.$image_old)) {
                             unlink('./public/upload/users/'.$image_old);
                         }
                         if ($result) {
-                            redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
+                            unset($_SESSION['account']);
+                            $_SESSION['account'] = Users::findOne($id);
+                            redirect('success', "Cập nhật thành công!", 'update-profile/'. $id);
                         }
                     }
                 }
             }else{
-                if (count($errors) > 0) {
-                    redirect('errors', $errors, 'update-profile/' . $id);
-                } else {
-                    $create_date = date('Y-m-d H:i a');
-                    $result = Users::updatefind($id, [
-                        "username" =>$name,
-                        "password" => $password,
-                        "sdt" => $sdt,
-                        "email" => $email,
-                        "image " => $_FILES['image']['name'] != '',
-                        "address " => $address,
-                        "create_date" => $create_date,
-                        "update_date" => $create_date
-                    ]);
-
-                    if ($result) {
-                        redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
-                    }
+                date_default_timezone_set("Asia/Ho_Chi_Minh");
+                $date = date("Y-m-d");
+                $result = Users::updatefind($id,[
+                    'name' => $_POST['username'],
+                    'password' => $_POST['newpassword'],
+                    'sdt' => $_POST['sdt'],
+                    'email' => $_POST['email'],
+                    'address' => $_POST['address'],
+                    'update_date' => $date
+                ]);
+                if ($result) {
+                    unset($_SESSION['account']);
+                    $_SESSION['account'] = Users::findOne($id);
+                    redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
                 }
             }
         }

@@ -138,6 +138,7 @@ $router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
 $router->get('ourTeam',[App\Controllers\UsersController::class,'ourTeam']);
 $router->get('detail/{id}',[App\Controllers\UsersController::class,'detailBlog']);
 $router->get('contact',[App\Controllers\UsersController::class,'contact']);
+
 //update profile admin
 $router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
 $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
@@ -147,7 +148,8 @@ $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
 
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
-
+//FQA
+$router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
