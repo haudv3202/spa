@@ -3,6 +3,11 @@ namespace App\Models;
 
 class Service extends BaseModel {
     protected $table = 'service';
+    public function getPostslimit($total){
+        $sql = "SELECT * FROM $this->table ORDER BY RAND() LIMIT $total";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
     public function getAllService(){
         $sql = "SELECT * FROM $this->table";
         $this->setQuery($sql);

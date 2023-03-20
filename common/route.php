@@ -151,6 +151,8 @@ $router->get('contact',[App\Controllers\UsersController::class,'contact']);
 //Home Monospa
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
 $router->get('service',[App\Controllers\HomeController::class,'serviceList']);
+$router->get('about',[App\Controllers\HomeController::class,'about']);
+$router->get('booking',[App\Controllers\HomeController::class,'booking']);
 
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
 //FQA

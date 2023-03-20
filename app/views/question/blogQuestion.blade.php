@@ -8,7 +8,7 @@
           class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
         >
           <div class="logo">
-            <img src="../src/Image/photo_2023-03-10_10-33-00.png" alt="" />
+            <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
           </div>
           <div class="icon-menu-sub-responsive">
             <button type="button" onclick="iconOpenMenuSubClick()">
@@ -72,7 +72,7 @@
     <main>
       <div class="client-question">
         <div class="title-question text-center">
-          <h1>Client Question</h1>
+          <h1>Câu hỏi của khách hàng</h1>
         </div>
         <div class="question-click-box container mt-5">
           <div class="row">
@@ -101,78 +101,20 @@
         </div>
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-            >
-              <div class="box-insta-bottom">
-                <div class="img">
-                  <img src="../src/Image/close-up-view-of-female-hand-holding-bottle-of-nai-2021-08-29-12-15-36-utc-e1643346825119.jpg" alt="">
-                  <div class="backgrond-hover-image-insta"></div>
-                  <div class="icon-insta-follow">
-                    <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
+            @foreach($instagram as $value)
+              <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
+              >
+                <div class="box-insta-bottom">
+                  <div class="img">
+                    <img src="{{route('public/upload/insta/'.$value->link)}}" alt="">
+                    <div class="backgrond-hover-image-insta"></div>
+                    <div class="icon-insta-follow">
+                      <a class="text-white" href="{{ $value->	link_insta }}"> <i class='bx bxl-instagram fs-1'></i> </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-            >
-              <div class="box-insta-bottom">
-                <div class="img">
-                  <img src="../src/Image/hands-of-a-woman-with-dark-red-manicure-and-nail-p-2021-08-26-18-28-16-utc-e1643346806313.jpg" alt="">
-                  <div class="backgrond-hover-image-insta"></div>
-                  <div class="icon-insta-follow">
-                    <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-            >
-              <div class="box-insta-bottom">
-                <div class="img">
-                  <img src="../src/Image/fashion-nails-2021-08-30-08-40-30-utc-e1643346587414.jpg" alt="">
-                  <div class="backgrond-hover-image-insta"></div>
-                  <div class="icon-insta-follow">
-                    <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-            >
-              <div class="box-insta-bottom">
-                <div class="img">
-                  <img src="../src/Image/beautiful-manicure-on-the-nails-of-a-woman-color-2021-12-09-06-01-35-utc-e1643346615824.jpg" alt="">
-                  <div class="backgrond-hover-image-insta"></div>
-                  <div class="icon-insta-follow">
-                    <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-            >
-              <div class="box-insta-bottom">
-                <div class="img">
-                  <img src="../src/Image/pastel-nails-2021-08-29-00-59-25-utc-e1643346635604.jpg" alt="">
-                  <div class="backgrond-hover-image-insta"></div>
-                  <div class="icon-insta-follow">
-                    <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-            >
-              <div class="box-insta-bottom">
-                <div class="img">
-                  <img src="../src/Image/beautiful-manicure-on-color-palette-background-e1643346460858.jpg" alt="">
-                  <div class="backgrond-hover-image-insta"></div>
-                  <div class="icon-insta-follow">
-                    <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
 

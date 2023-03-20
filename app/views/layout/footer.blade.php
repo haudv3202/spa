@@ -19,10 +19,10 @@
         <h4  class="pb-3">Support</h4>
         <div class="list-support">
           <ul class="list-unstyled">
-            <li><a href="">FAQ's</a></li>
+            <li><a href="{{route('blog-questions')}}">FAQ's</a></li>
             <li><a href="">Privacy Policy</a></li>
             <li><a href="">Term & Conditions</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="{{route('contact')}}">Contact</a></li>
           </ul>
         </div>
       </div>

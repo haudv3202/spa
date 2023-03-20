@@ -5,15 +5,21 @@ use App\models\contactUs;
 use App\models\insta;
 use App\models\Staff;
 use App\Models\Users;
+use App\Models\Service;
+use App\Models\Category;
 require_once 'vendor/phpmailer/sendmail.php';
 
 class UsersController extends BaseController
 {
     protected $user;
-
+    protected $blog;
+    protected $category;
     public function __construct()
     {
         $this->user = new Users;
+        $this->blog = new BlogService();
+        $this->service = new Service();
+        $this->category =  new Category();
     }
     public function signup()
     {

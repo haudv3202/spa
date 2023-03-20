@@ -4,6 +4,7 @@ namespace App\admin\controllers;
 
 use App\Controllers\BaseController;
 use App\models\contactUs;
+use App\models\insta;
 use App\models\questions;
 
 class QuestionsController extends BaseController
@@ -89,6 +90,7 @@ class QuestionsController extends BaseController
     // giao diện
     public function blogQuestions(){
         $question = questions::GetAll();
-        $this->render('question.blogQuestion',compact('question'));
+        $instagram = insta::GetAll();
+        $this->render('question.blogQuestion',compact('question','instagram'));
     }
 }
