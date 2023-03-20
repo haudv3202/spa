@@ -78,6 +78,9 @@ class HomeController extends BaseController{
         $staff = Staff::GetAll();
         $this->render('home.service', compact('service', 'staff'));
     }
+    public function aboutList(){
+        $this->render('home.about');
+    }
 
     public function booking(){
         $servic3 = $this->service->getPostslimit(3);

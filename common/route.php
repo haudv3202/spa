@@ -128,6 +128,10 @@ $router->post('edit-rank/{id}', [App\admin\controllers\rankMemberController::cla
 //update profile admin
 $router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
 $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
+//update profile admin
+//$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
+//$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
+
     }
 }
 
@@ -147,16 +151,17 @@ $router->get('detail/{id}',[App\Controllers\UsersController::class,'detailBlog']
 $router->get('contact',[App\Controllers\UsersController::class,'contact']);
 
 
+
 //Client
 //Home Monospa
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
 $router->get('service',[App\Controllers\HomeController::class,'serviceList']);
-$router->get('about',[App\Controllers\HomeController::class,'about']);
-$router->get('booking',[App\Controllers\HomeController::class,'booking']);
-
+$router->get('about',[App\Controllers\HomeController::class,'aboutList']);
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
 //FQA
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
+//Blog
+$router->get('blog',[App\admin\controllers\BlogServiceController::class, 'blogService']);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
