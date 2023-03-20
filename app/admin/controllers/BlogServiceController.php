@@ -2,6 +2,7 @@
 namespace App\admin\controllers;
 use App\Controllers\BaseController;
 use App\Models\BlogService;
+use App\Models\Category;
 use App\models\insta;
 use App\Models\Service;
 
@@ -9,11 +10,13 @@ class BlogServiceController extends BaseController
 {
     protected $blogService;
     protected $service;
+    protected $category;
 
     public function __construct()
     {
         $this->blogService = new BlogService();
         $this->service = new Service();
+        $this->category = new Category();
     }
 
     public function listBlogSv()
@@ -198,6 +201,20 @@ class BlogServiceController extends BaseController
     public function detailBlogSv($id){
         $blog = BlogService::findOne($id);
         $this->render('admin.blogService.detail', compact('blog'));
+    }
+
+    //giao diện
+    public function blogService(){
+        $service = $this->service->getAllService();
+        $category = $this->category->getAllCategory();
+        $blog = BlogService::GetAll();
+        $index = 0;
+        if (count($blog) < 6){
+            $index = count($blog);
+        }else{
+            $index = 6;
+        }
+        $this->render('blog.blogClient', compact('blog','index', 'service', 'category'));
     }
 }
 ?>

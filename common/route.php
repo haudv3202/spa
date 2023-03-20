@@ -156,10 +156,12 @@ $router->get('contact',[App\Controllers\UsersController::class,'contact']);
 //Home Monospa
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
 $router->get('service',[App\Controllers\HomeController::class,'serviceList']);
-
+$router->get('about',[App\Controllers\HomeController::class,'aboutList']);
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
 //FQA
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
+//Blog
+$router->get('blog',[App\admin\controllers\BlogServiceController::class, 'blogService']);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
