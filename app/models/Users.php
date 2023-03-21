@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace App\models;
 class Users extends boostrap {
     protected $table = 'users';
     public function index(){

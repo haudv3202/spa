@@ -3,6 +3,7 @@ namespace App\controllers;
 use App\models\BlogService;
 use App\models\contactUs;
 use App\models\insta;
+use App\models\rankmember;
 use App\models\Staff;
 use App\Models\Users;
 use App\Models\Service;
@@ -138,6 +139,15 @@ class UsersController extends BaseController
     }
     public function updateProfilepost($id){
         $oneAll = Users::findOne($id);
+        $ranks =  rankmember::GetAll();
+            $rank_name = "vô hạng";
+            foreach($ranks as $group) {
+                if($oneAll->total_price >= $group->total) {
+                    $rank_name = $group->name;
+                }
+            }
+        $oneAll->rank = $rank_name;
+
         if(isset($_POST["btn-profile"])){
             $target_dir = "./public/upload/avatar/";
             $name = time() . $_FILES["image"]["name"];

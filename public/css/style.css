@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
 @import url('https://fonts.cdnfonts.com/css/roboto');
+@import url('https://fonts.cdnfonts.com/css/lato');
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     /* font-family: "Roboto Slab", serif; */
     /*font-family: 'Cardo', serif;*/
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 /* Menu sub reposive  */
@@ -28,11 +29,18 @@
 .icon-menu-sub-responsive button {
     font-size: 23px;
 }
-
+.form-data{
+   border-radius: 20px;
+    box-shadow: 0 0 4px 0.1px;
+    padding: 0 40px 40px 40px;
+}
 /*.user-login {*/
 /*    display: none !important;*/
 /*}*/
-
+.form-control-lg {
+    height: 40px !important;
+    min-height: 0px !important;
+}
 .user-login-responsive {
     background-color: #a47b60;
     color: white;
@@ -239,6 +247,7 @@
 
 .menu-oppentime .menu ul li {
     transition: 0.3s;
+    border-bottom: 1px solid transparent;
 }
 
 .menu-oppentime .menu>ul>li:hover {
@@ -999,6 +1008,7 @@ hr.dotted {
         margin-top: 10%;
         width: 100%;
     }
+    .form-data { box-shadow: none;}
 }
 
 @media (max-width: 765px) {
@@ -1210,7 +1220,7 @@ footer .box-input-email button {
 
 .item-absol-about-us {
     position: absolute;
-    bottom: -52px;
+    bottom: 16em;
     left: 93px;
 }
 
@@ -1657,18 +1667,29 @@ footer .box-input-email button {
     .h-custom {
         height: 100%;
     }
+/*.img-logo{*/
+/*    flex-direction: column-reverse;*/
+/*    height: 40px;*/
+/*    position: absolute*/
+/*}*/
+    .login {
+        margin-top: 0!important;
+    }
 }
 
 .bg-login {
-    background-color: #f1e7d3;
+    background-color: #fff;
     width: 100%;
     background-image: url(https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/bg-3.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
-}
 
+}
+.bg-login input::placeholder {
+    font: 13px sans-serif;
+}
 /*BLOG---------------*/
 .blog-page-box {
     margin-top: 20%;
@@ -1848,7 +1869,7 @@ span {
 }
 
 .box-right .have-any-question-box {
-    background-color: rgba(35, 75, 88, 0.878);
+    background-color: rgb(164 123 96);
 }
 
 .box-right .have-any-question-box h3 {
@@ -2288,7 +2309,7 @@ footer .coppyright {
 /* responsive  */
 @media (max-width: 2410px) {
     footer .background-image-footer {
-        height: 350px;
+        height: 25em;
     }
 }
 
