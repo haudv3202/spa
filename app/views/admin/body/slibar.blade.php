@@ -61,7 +61,10 @@
               <a href="{{route('social')}}">Mạng xã hội</a>
             </li>
             <li class="">
-              <a href="{{route('setings')}}">settings</a>
+              <a href="{{route('setings')}}">Settings</a>
+            </li>
+            <li class="">
+              <a href="{{route('manage-banner')}}">Banner</a>
             </li>
           </ul>
         </li>

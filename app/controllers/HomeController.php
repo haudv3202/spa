@@ -1,5 +1,7 @@
 <?php
 namespace App\controllers;
+use App\models\Account;
+use App\models\Banner;
 use App\models\BlogService;
 use App\models\Endow;
 use App\models\questions;
@@ -26,6 +28,9 @@ class HomeController extends BaseController{
         $this->render('home.about');
     }
     public function homeList(){
+        $banner = Banner::GetAll();
+//        var_dump($banner);
+//        die();
         $datasocial = $this->socialPage();
         $service = $this->service->getPostslimit(6);
         $service3 = $this->service->getPostslimit(3);
@@ -39,9 +44,7 @@ class HomeController extends BaseController{
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
         }
-
-
-        $this->render('home.index',compact("service","service3","content","posts","datasocial"));
+        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner'));
     }
     public function mockupPost(){
         if (isset($_POST['btn-sm'])){
