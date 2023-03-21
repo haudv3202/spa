@@ -1,6 +1,6 @@
 <?php
 namespace App\controllers;
-use App\Models\Auth;
+use App\models\Auth;
 
 class AuthController extends BaseController{
     protected $auth;

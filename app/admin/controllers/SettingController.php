@@ -2,7 +2,7 @@
 
 namespace App\admin\controllers;
 
-use App\Controllers\BaseController;
+use App\controllers\BaseController;
 use App\models\settings;
 class SettingController extends BaseController
 {

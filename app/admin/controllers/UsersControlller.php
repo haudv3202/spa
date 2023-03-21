@@ -1,11 +1,11 @@
 <?php
 namespace App\admin\controllers;
-use App\Controllers\BaseController;
+use App\controllers\BaseController;
 use App\models\BlogService;
-use App\Models\Service;
-use App\Models\Users;
+use App\models\Service;
+use App\models\Users;
 use App\models\detailUser;
-use App\Models\Category;
+use App\models\Category;
 use App\models\rankmember;
 use App\models\role;
 class UsersControlller extends BaseController{

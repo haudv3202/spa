@@ -1,6 +1,6 @@
 <?php
 namespace App\controllers;
-use App\Models\Account;
+use App\models\Account;
 
 class AccountController extends BaseController{
     protected $account;

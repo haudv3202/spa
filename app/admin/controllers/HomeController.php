@@ -1,7 +1,7 @@
 <?php
 
 namespace App\admin\controllers;
-use App\Controllers\BaseController;
+use App\controllers\BaseController;
 
 class HomeController extends BaseController  {
     public function index(){

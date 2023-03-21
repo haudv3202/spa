@@ -1,10 +1,10 @@
 <?php
 namespace App\admin\controllers;
-use App\Controllers\BaseController;
-use App\Models\BlogService;
-use App\Models\Category;
+use App\controllers\BaseController;
+use App\models\BlogService;
+use App\models\Category;
 use App\models\insta;
-use App\Models\Service;
+use App\models\Service;
 use App\models\social;
 
 class BlogServiceController extends BaseController
