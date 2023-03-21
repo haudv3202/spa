@@ -20,7 +20,7 @@
  <img src="<?php echo \htmlentities(route('public/image/about-us1.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="100%" alt="">
  </div>
  <div class="item-absol-about-us">
- <img src="<?php echo \htmlentities(route('public/image/about-us3.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="40%" alt="">
+ <img src="<?php echo \htmlentities(route('public/image/about-us3.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="50%" alt="">
  </div>
  </div>
  <div data-aos="fade-down" data-aos-duration="1500" class="right-about-us col-md-6">
@@ -61,14 +61,19 @@
  <h4 class="text-under-h4-HomePage">
  GIÁ TRỊ CỐT LÕI</h4>
  <h2 class="text-title-HomePage">"Mono Bovis Spa trung thành với 4 giá trị cốt lõi chính: TÂM - TÍN - THIỆN - TRÍ</h2>
+ <ul class="list-group" style="border:none;">
+ <li class="list-group-item" style="background: oldlace;">Tâm: Mono Bovis Spa đặt chữ "Tâm" lên hàng đầu, là gốc rễ cho sự phát triển của công ty.  Chúng tôi duy trì đạo đức nghề nghiệp và xã hội ở tiêu chuẩn cao nhất, đảm bảo mang đến những trải nghiệm dịch vụ hoàn hảo nhất. Lòng trung thành của khách hàng chính là kết quả cuối cùng mà Bovis Spa muốn hướng đến.</li>
+ <li class="list-group-item" style="background: oldlace;">Tín: Cung cấp dịch vụ thẩm mỹ tiên tiến nhất, nỗ lực hết mình trong việc thực hiện hiệu quả những cam kết về chất lượng sản phẩm và dịch vụ. Hơn hết, Bovis Spa hướng đến mục tiêu trở thành nơi khách hàng gửi gắm niềm tin trên con đường chinh phục sắc đẹp của chính mình.</li>
+ <li class="list-group-item" style="background: oldlace;">Thiện: Nỗ lực xây dựng các mối quan hệ với khách hàng, đối tác và đồng nghiệp bằng sự tận tâm, chu đáo và tinh thần nhân văn.  Tích cực đẩy mạnh công tác hỗ trợ khách hàng, xây dựng môi trường làm việc công tâm, thái độ thiện chí trong hợp tác với đối tác.</li>
+ <li class="list-group-item" style="background: oldlace;">Trí: Tích cực đổi mới, sáng tạo, chủ động trong công việc là tinh thần làm việc mà Mono Bovis Spa đề cao hướng đến sự chuyên nghiệp và thành thạo tay nghề ở mọi vị trí công việc.</li>
+ </ul>
+ <p>
 
- Tâm: Mono Bovis Spa đặt chữ "Tâm" lên hàng đầu, là gốc rễ cho sự phát triển của công ty.  Chúng tôi duy trì đạo đức nghề nghiệp và xã hội ở tiêu chuẩn cao nhất, đảm bảo mang đến những trải nghiệm dịch vụ hoàn hảo nhất. Lòng trung thành của khách hàng chính là kết quả cuối cùng mà Bovis Spa muốn hướng đến.
 
- Tín: Cung cấp dịch vụ thẩm mỹ tiên tiến nhất, nỗ lực hết mình trong việc thực hiện hiệu quả những cam kết về chất lượng sản phẩm và dịch vụ. Hơn hết, Bovis Spa hướng đến mục tiêu trở thành nơi khách hàng gửi gắm niềm tin trên con đường chinh phục sắc đẹp của chính mình.
 
- Thiện: Nỗ lực xây dựng các mối quan hệ với khách hàng, đối tác và đồng nghiệp bằng sự tận tâm, chu đáo và tinh thần nhân văn.  Tích cực đẩy mạnh công tác hỗ trợ khách hàng, xây dựng môi trường làm việc công tâm, thái độ thiện chí trong hợp tác với đối tác.
 
- Trí: Tích cực đổi mới, sáng tạo, chủ động trong công việc là tinh thần làm việc mà Mono Bovis Spa đề cao hướng đến sự chuyên nghiệp và thành thạo tay nghề ở mọi vị trí công việc.</p>
+
+ </p>
  <div class="item-right-about-us experience-about-us">
  <div class="content-item-right">
  <img src="<?php echo \htmlentities(route('public/image/like-about-us.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="50px" alt="">
@@ -130,8 +135,8 @@
 
  </div>
  <div class="right-working col-md-6">
- <h4 class="text-under-h4-HomePage">Về chúng tôi</h4>
- <h2 class="text-title-HomePage">Thời gian hoạt động</h2>
+ <h4 class="text-under-h4-HomePage">Thời gian hoạt động</h4>
+<?php /*          <h2 class="text-title-HomePage">Thời gian hoạt động</h2>*/ ?>
  <div class="hour-right-working">
  <p>Thứ Hai – Thứ Sáu</p>
  <div class="style-hour-woking"></div>

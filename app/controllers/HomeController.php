@@ -1,10 +1,9 @@
 <?php
-namespace App\Controllers;
-use App\Models\Account;
+namespace App\controllers;
+use App\models\Account;
 use App\models\Banner;
 use App\models\BlogService;
 use App\models\Endow;
-use App\Models\Product;
 use App\models\questions;
 use App\Models\Service;
 use App\models\social;
@@ -12,14 +11,12 @@ use App\models\Staff;
 use App\models\settings;
 
 class HomeController extends BaseController{
-    protected $product;
-    protected $account;
+
     protected $service;
 
     public function __construct()
     {
-//        $this->product = new Product();
-//        $this->account = new Account();
+
         $this->blog = new BlogService();
         $this->service = new Service();
     }
@@ -61,6 +58,7 @@ class HomeController extends BaseController{
             if (empty($_POST['phone'])){
                 $errors[] = 'Không được bỏ trống số điện thoại';
             }
+
             if (count($errors) > 0){
                 redirect('errors', $errors, '');
             }else{

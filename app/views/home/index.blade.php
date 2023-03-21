@@ -100,7 +100,7 @@
         </div>
         <div class="menu-oppentime d-flex gap-5">
           <div class="menu">
-            <ul class="d-flex gap-5">
+            <ul class="d-flex gap-4 fs-5">
               <li><a href="{{route('')}}">Trang chủ</a></li>
               <li><a href="{{route('about')}}">Giới thiệu</a></li>
               <li><a href="{{route('service')}}">Dịch vụ</a></li>
@@ -110,19 +110,21 @@
               <li><a href="{{route('contact')}}">Liên hệ</a></li>
             </ul>
           </div>
-          <div class="oppentime-icon">
-            <i class="bx bxl-facebook"></i>
-            <i class="bx bxl-instagram"></i>
-            <button type="button" onclick="iconOpenBoxClick()">
+          <div class="oppentime-icon d-flex align-items-center justify-content-between">
+{{--            <i class="bx bxl-facebook"></i>--}}
+{{--            <i class="bx bxl-instagram"></i>--}}
+            <button type="button"onclick="iconOpenBoxClick()">
               <i class="bx bx-align-right open-Time"></i>
             </button>
             @if(!isset($_SESSION['account']))
-            <button type="button" onclick="" class="user-login">
+            <button type="button" onclick="" class="user-login ms-2">
               <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>
             </button>
             @else
-            <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
-              <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
+            <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">
+              <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
+
+              <p class="mb-0 ms-2 fs-5">{{ $_SESSION['account']->name }} </p>
             </button>
             <div class="box-fs-account box-fs-account-home position-absolute">
                             <ul >
@@ -130,6 +132,7 @@
                               <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
                             </ul>
             </div>
+
             @endif
           </div>
         </div>

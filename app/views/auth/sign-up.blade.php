@@ -19,11 +19,13 @@
 
 
 <div class="bg-login">
-  <section class="vh-100 login">
+  <section class=" login my-5">
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
-
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div class="col-md-9 col-lg-6 col-xl-5 d-block d-xl-none ">
+          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" width="20%" alt="" />
+        </div>
+         
           @if(isset($_SESSION['errors']) && isset($_GET['msg']))
             <ul>
               @foreach($_SESSION['errors'] as $er)
@@ -31,53 +33,45 @@
               @endforeach
             </ul>
           @endif
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form action="{{route('sign-up')}}" method="post" >
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0">Đăng Kí Thành Viên</p>
             </div>
             <!-- Name input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example3">Tên Tài Khoản</label>
+            <div class="form-outline ">
+              <label class="form-label m-0 mt-2" for="form3Example3">Tên Tài Khoản</label>
               <input type="text" name="username" class="form-control form-control-lg input-login email-login" id="name-signup"
                      placeholder="Nhập tên đăng nhập" />
               <span class="error-message"></span>
             </div>
             <!-- Email input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example3">Email</label>
+            <div class="form-outline ">
+              <label class="form-label m-0 mt-2" for="form3Example3">Email</label>
               <input type="email" name="email" class="form-control form-control-lg input-login email-login" id="email-signup"
                      placeholder="Nhập Email" />
               <small class="error-message"></small>
             </div>
             <!-- SĐT input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example3">SĐT</label>
+            <div class="form-outline ">
+              <label class="form-label m-0 mt-2" for="form3Example3">SĐT</label>
               <input type="text" name="sdt" class="form-control form-control-lg input-login email-login" id="phone-signup"
                      placeholder="Nhập Số điện thoại" />
               <small class="error-message"></small>
             </div>
             <!-- Password input -->
             <div class="form-outline mb-3">
-              <label class="form-label" for="form3Example4">Mật khẩu mới</label>
+              <label class="form-label m-0 mt-2" for="form3Example4">Mật khẩu mới</label>
               <input type="password" name="password" class="form-control form-control-lg input-login pass-login" id="pass-signup"
                      placeholder="Nhập mật khẩu của bạn" />
               <small class="error-message"></small>
             </div>
             <!-- REPassword input -->
             <div class="form-outline mb-3">
-              <label class="form-label" for="form3Example4">Nhập lại mật khẩu</label>
+              <label class="form-label m-0 mt-2" for="form3Example4">Nhập lại mật khẩu</label>
               <input type="password" name="repass" class="form-control form-control-lg input-login pass-login" id="repass-signup"
                      placeholder="Nhập lại mật khẩu của bạn" />
               <small class="error-message"></small>
-            </div>
-            <div class="d-flex justify-content-between align-items-center">
-              <!-- Checkbox -->
-              <div class="form-check mb-0">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label class="form-check-label" for="form2Example3">
-                  Nhớ lần tới
-                </label>
-              </div>
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
@@ -89,10 +83,8 @@
 
           </form>
         </div>
-        <div class="col-md-9 col-lg-6 col-xl-5 ">
-
-          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
-
+        <div class="col-md-9 col-lg-6 col-xl-5 d-xl-block d-none ">
+          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" width="80%" alt="" />
         </div>
       </div>
     </div>
