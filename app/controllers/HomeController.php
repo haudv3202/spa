@@ -3,10 +3,11 @@ namespace App\controllers;
 use App\models\BlogService;
 use App\models\Endow;
 use App\models\questions;
-use App\Models\Service;
+use App\models\Service;
 use App\models\social;
 use App\models\Staff;
 use App\models\settings;
+use App\models\insta;
 
 class HomeController extends BaseController{
 
@@ -23,12 +24,14 @@ class HomeController extends BaseController{
     }
 
     public function about(){
+
         $this->render('home.about');
     }
     public function homeList(){
         $datasocial = $this->socialPage();
         $service = $this->service->getPostslimit(6);
         $service3 = $this->service->getPostslimit(3);
+        $instagram = insta::GetAll();
         $content = [];
         $content["title-about"] = settings::findString("review","title-about")->titler;
         $content["desribe-about"] = settings::findString("review","desribe-about")->titler;
@@ -41,7 +44,7 @@ class HomeController extends BaseController{
         }
 
 
-        $this->render('home.index',compact("service","service3","content","posts","datasocial"));
+        $this->render('home.index',compact("service","service3","content","posts","datasocial","instagram"));
     }
     public function mockupPost(){
         if (isset($_POST['btn-sm'])){
@@ -82,7 +85,8 @@ class HomeController extends BaseController{
     }
     public function aboutList(){
         $datasocial = $this->socialPage();
-        $this->render('home.about',compact("datasocial"));
+        $instagram = insta::GetAll();
+        $this->render('home.about',compact("datasocial","instagram"));
     }
 
     public function booking(){

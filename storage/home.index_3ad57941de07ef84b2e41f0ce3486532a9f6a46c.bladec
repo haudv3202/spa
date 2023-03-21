@@ -1,91 +1,5 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $this->startSection('content'); ?>
-<?php /*  <header class="header-homePage container-fluid">*/ ?>
-<?php /*    <div class="header-menutop-banner">*/ ?>
-<?php /*      <div*/ ?>
-<?php /*        class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"*/ ?>
-<?php /*      >*/ ?>
-<?php /*        <div class="logo">*/ ?>
-<?php /*          <img src="<?php echo \htmlentities(route('public/image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" />*/ ?>
-<?php /*        </div>*/ ?>
-<?php /*        <div class="icon-menu-sub-responsive">*/ ?>
-<?php /*          <button type="button" onclick="iconOpenMenuSubClick()">*/ ?>
-<?php /*            <i class='bx bx-menu'></i>*/ ?>
-<?php /*        </div>*/ ?>
-<?php /*        <div class="menu-oppentime d-flex gap-5">*/ ?>
-<?php /*          <div class="menu">*/ ?>
-<?php /*            <ul class="d-flex gap-5">*/ ?>
-<?php /*              <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">HOME</a></li>*/ ?>
-<?php /*              <li><a href="<?php echo \htmlentities(route('about')??'', ENT_QUOTES, 'UTF-8', false); ?>">ABOUT US</a></li>*/ ?>
-<?php /*              <li><a href="<?php echo \htmlentities(route('service')??'', ENT_QUOTES, 'UTF-8', false); ?>">SERVICES</a></li>*/ ?>
-<?php /*              <li class="menu-sub-page">*/ ?>
-<?php /*                    <span class="d-flex align-items-center"*/ ?>
-<?php /*                    >PAGE <i class="bx bx-chevron-down"></i*/ ?>
-<?php /*                      ></span>*/ ?>
-<?php /*                <ul class="menu-mini menu-mini-home">*/ ?>
-<?php /*                  <li><a href="<?php echo \htmlentities(route('ourTeam')??'', ENT_QUOTES, 'UTF-8', false); ?>">Our Team</a></li>*/ ?>
-<?php /*                  <li><a href="<?php echo \htmlentities(route('blog-questions')??'', ENT_QUOTES, 'UTF-8', false); ?>">FAQ</a></li>*/ ?>
-<?php /*                  <li><a href="<?php echo \htmlentities(route('booking')??'', ENT_QUOTES, 'UTF-8', false); ?>">Booking</a></li>*/ ?>
-<?php /*                  <li><a href="<?php echo \htmlentities(route('404-page')??'', ENT_QUOTES, 'UTF-8', false); ?>">404 Page</a></li>*/ ?>
-<?php /*                  <li><a href="<?php echo \htmlentities(route('blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Blog</a></li>*/ ?>
-<?php /*                  <li><a href="<?php echo \htmlentities(route('single-blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Single Blog</a></li>*/ ?>
-<?php /*                </ul>*/ ?>
-<?php /*              </li>*/ ?>
-<?php /*              <li><a href="<?php echo \htmlentities(route('contact')??'', ENT_QUOTES, 'UTF-8', false); ?>">CONTACT US</a></li>*/ ?>
-<?php /*            </ul>*/ ?>
-<?php /*          </div>*/ ?>
-<?php /*          <div class="oppentime-icon">*/ ?>
-<?php /*            <i class="bx bxl-facebook"></i>*/ ?>
-<?php /*            <i class="bx bxl-instagram"></i>*/ ?>
-<?php /*            <button type="button" onclick="iconOpenBoxClick()">*/ ?>
-<?php /*              <i class="bx bx-align-right open-Time"></i>*/ ?>
-<?php /*            </button>*/ ?>
-<?php /*            <?php if(!isset($_SESSION['account'])): ?>*/ ?>
-<?php /*            <button type="button" onclick="" class="user-login">*/ ?>
-<?php /*              <a href="<?php echo \htmlentities(route('sign-in')??'', ENT_QUOTES, 'UTF-8', false); ?>" class="text-black"><i class='bx bx-user-circle'></i></a>*/ ?>
-<?php /*            </button>*/ ?>
-<?php /*            <?php else: ?>*/ ?>
-<?php /*            <button type="button"  class="user-account position-relative" onclick="iconOpenBoxClick()">*/ ?>
-<?php /*              <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">*/ ?>
-<?php /*            </button>*/ ?>
-<?php /*            <div class="box-fs-account box-fs-account-home position-absolute">*/ ?>
-<?php /*              <ul >*/ ?>
-<?php /*                <li><a href="">Xem thông tin</a></li>*/ ?>
-<?php /*                <li><a href="<?php echo \htmlentities(route('update-profile/'.$_SESSION['account']->id)??'', ENT_QUOTES, 'UTF-8', false); ?>">Sửa thông tin</a></li>*/ ?>
-<?php /*                <li><a href="<?php echo \htmlentities(route('sign-out')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đăng Xuất</a></li>*/ ?>
-<?php /*              </ul>*/ ?>
-<?php /*            </div>*/ ?>
-<?php /*            <?php endif; ?>*/ ?>
-<?php /*          </div>*/ ?>
-<?php /*        </div>*/ ?>
-<?php /*      </div>*/ ?>
-<?php /*      <div class=" banner-page position-absolute top-0"></div>*/ ?>
-<?php /*    </div>*/ ?>
-
-<?php /*    <div class="container">*/ ?>
-<?php /*      <div class="row img-banner-homePage ">*/ ?>
-<?php /*        <div data-aos="fade-right" data-aos-duration="1500" class="left-banner-Homepage col-md-6">*/ ?>
-<?php /*          <h2>Give Your Nails Sweet Treat</h2>*/ ?>
-<?php /*          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec*/ ?>
-<?php /*            ullamcorper mattis, pulvinar dapibus leo.</p>*/ ?>
-<?php /*          <div class="link-left-banner-homePage">*/ ?>
-<?php /*            <a href=""><button class="btn">Book Appointment</button></a>*/ ?>
-<?php /*            <a href=""><button class="btn">Our Service</button></a>*/ ?>
-<?php /*          </div>*/ ?>
-<?php /*        </div>*/ ?>
-
-
-<?php /*        <div data-aos="fade-up" data-aos-duration="1500" class="right-banner-Homepage col-md-6">*/ ?>
-<?php /*          <div class="image1-banner-homePage">*/ ?>
-<?php /*            <img width="70%" src="<?php echo \htmlentities(route('public/image/banner-Hompage.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">*/ ?>
-<?php /*          </div>*/ ?>
-<?php /*          <div class="image2-banner-HomePage">*/ ?>
-<?php /*            <img width="40%" src="<?php echo \htmlentities(route('public/image/banner-homepage2.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">*/ ?>
-<?php /*          </div>*/ ?>
-<?php /*        </div>*/ ?>
-<?php /*      </div>*/ ?>
-<?php /*    </div>*/ ?>
-<?php /*  </header>*/ ?>
  <header class="header-homePage container-fluid">
  <div class="header-menutop-banner">
  <div
@@ -369,78 +283,21 @@
  </div>
  <div class="container-fluid">
  <div class="row">
+ <?php $__currentLoopData = $instagram; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>
  <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
  >
  <div class="box-insta-bottom">
  <div class="img">
- <img src="<?php echo \htmlentities(route('public/image/close-up-view-of-female-hand-holding-bottle-of-nai-2021-08-29-12-15-36-utc-e1643346825119.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
+ <img src="<?php echo \htmlentities(route('public/upload/insta/'.$value->link)??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
  <div class="backgrond-hover-image-insta"></div>
  <div class="icon-insta-follow">
- <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
+ <a class="text-white" href="<?php echo \htmlentities($value->	link_insta??'', ENT_QUOTES, 'UTF-8', false); ?>"> <i class='bx bxl-instagram fs-1'></i> </a>
  </div>
  </div>
  </div>
  </div>
- <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
- >
- <div class="box-insta-bottom">
- <div class="img">
- <img src="<?php echo \htmlentities(route('public/image/hands-of-a-woman-with-dark-red-manicure-and-nail-p-2021-08-26-18-28-16-utc-e1643346806313.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
- <div class="backgrond-hover-image-insta"></div>
- <div class="icon-insta-follow">
- <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
- >
- <div class="box-insta-bottom">
- <div class="img">
- <img src="<?php echo \htmlentities(route('public/image/fashion-nails-2021-08-30-08-40-30-utc-e1643346587414.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
- <div class="backgrond-hover-image-insta"></div>
- <div class="icon-insta-follow">
- <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
- >
- <div class="box-insta-bottom">
- <div class="img">
- <img src="<?php echo \htmlentities(route('public/image/beautiful-manicure-on-the-nails-of-a-woman-color-2021-12-09-06-01-35-utc-e1643346615824.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
- <div class="backgrond-hover-image-insta"></div>
- <div class="icon-insta-follow">
- <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
- >
- <div class="box-insta-bottom">
- <div class="img">
- <img src="<?php echo \htmlentities(route('public/image/pastel-nails-2021-08-29-00-59-25-utc-e1643346635604.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
- <div class="backgrond-hover-image-insta"></div>
- <div class="icon-insta-follow">
- <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
- >
- <div class="box-insta-bottom">
- <div class="img">
- <img src="<?php echo \htmlentities(route('public/image/beautiful-manicure-on-color-palette-background-e1643346460858.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
- <div class="backgrond-hover-image-insta"></div>
- <div class="icon-insta-follow">
- <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
- </div>
- </div>
- </div>
- </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </div>
  </div>
 
@@ -493,7 +350,7 @@
  </div>
  </div>
  <div class="col-sm-6 col-md-12 img-modal">
- <img src="<?php echo \htmlentities(route('public/image/Screenshot 2023-03-12 160307.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="100%" alt="">
+ <img src="<?php echo \htmlentities(route('public/Image/Screenshot 2023-03-12 160307.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="100%" alt="">
 
  </div>
  </div>

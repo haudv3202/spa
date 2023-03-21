@@ -7,6 +7,8 @@ use App\admin\controllers\QuestionsController;
 use App\admin\controllers\rankMemberController;
 use App\admin\controllers\SettingController;
 use App\admin\controllers\socialController;
+use App\Controllers\HomeController as HomeUser;
+use App\controllers\UsersController;
 $url = !isset($_GET['url']) ? "/" : $_GET['url'];
 
 $router = new RouteCollector();
@@ -157,11 +159,12 @@ $router->get('contact',[App\Controllers\UsersController::class,'contact']);
 
 //Client
 //Home Monospa
-$router->get('/',[App\Controllers\HomeController::class,'homeList']);
-$router->get('service',[App\Controllers\HomeController::class,'serviceList']);
-$router->get('about',[App\Controllers\HomeController::class,'aboutList']);
-$router->get('booking',[App\Controllers\HomeController::class,'booking']);
-$router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
+$router->get('/',[HomeUser::class,'homeList']);
+$router->get('Home',[HomeUser::class,'homeList']);
+$router->get('service',[HomeUser::class,'serviceList']);
+$router->get('about',[HomeUser::class,'aboutList']);
+$router->get('booking',[HomeUser::class,'booking']);
+$router->post('mockup-post',[HomeUser::class,'mockupPost']);
 //FQA
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
 //Blog

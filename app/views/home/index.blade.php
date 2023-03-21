@@ -1,91 +1,5 @@
 @extends('layout.index')
 @section('content')
-{{--  <header class="header-homePage container-fluid">--}}
-{{--    <div class="header-menutop-banner">--}}
-{{--      <div--}}
-{{--        class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"--}}
-{{--      >--}}
-{{--        <div class="logo">--}}
-{{--          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />--}}
-{{--        </div>--}}
-{{--        <div class="icon-menu-sub-responsive">--}}
-{{--          <button type="button" onclick="iconOpenMenuSubClick()">--}}
-{{--            <i class='bx bx-menu'></i>--}}
-{{--        </div>--}}
-{{--        <div class="menu-oppentime d-flex gap-5">--}}
-{{--          <div class="menu">--}}
-{{--            <ul class="d-flex gap-5">--}}
-{{--              <li><a href="{{route('')}}">HOME</a></li>--}}
-{{--              <li><a href="{{route('about')}}">ABOUT US</a></li>--}}
-{{--              <li><a href="{{route('service')}}">SERVICES</a></li>--}}
-{{--              <li class="menu-sub-page">--}}
-{{--                    <span class="d-flex align-items-center"--}}
-{{--                    >PAGE <i class="bx bx-chevron-down"></i--}}
-{{--                      ></span>--}}
-{{--                <ul class="menu-mini menu-mini-home">--}}
-{{--                  <li><a href="{{route('ourTeam')}}">Our Team</a></li>--}}
-{{--                  <li><a href="{{route('blog-questions')}}">FAQ</a></li>--}}
-{{--                  <li><a href="{{route('booking')}}">Booking</a></li>--}}
-{{--                  <li><a href="{{route('404-page')}}">404 Page</a></li>--}}
-{{--                  <li><a href="{{route('blog')}}">Blog</a></li>--}}
-{{--                  <li><a href="{{route('single-blog')}}">Single Blog</a></li>--}}
-{{--                </ul>--}}
-{{--              </li>--}}
-{{--              <li><a href="{{route('contact')}}">CONTACT US</a></li>--}}
-{{--            </ul>--}}
-{{--          </div>--}}
-{{--          <div class="oppentime-icon">--}}
-{{--            <i class="bx bxl-facebook"></i>--}}
-{{--            <i class="bx bxl-instagram"></i>--}}
-{{--            <button type="button" onclick="iconOpenBoxClick()">--}}
-{{--              <i class="bx bx-align-right open-Time"></i>--}}
-{{--            </button>--}}
-{{--            @if(!isset($_SESSION['account']))--}}
-{{--            <button type="button" onclick="" class="user-login">--}}
-{{--              <a href="{{route('sign-in')}}" class="text-black"><i class='bx bx-user-circle'></i></a>--}}
-{{--            </button>--}}
-{{--            @else--}}
-{{--            <button type="button"  class="user-account position-relative" onclick="iconOpenBoxClick()">--}}
-{{--              <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">--}}
-{{--            </button>--}}
-{{--            <div class="box-fs-account box-fs-account-home position-absolute">--}}
-{{--              <ul >--}}
-{{--                <li><a href="">Xem thông tin</a></li>--}}
-{{--                <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Sửa thông tin</a></li>--}}
-{{--                <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>--}}
-{{--              </ul>--}}
-{{--            </div>--}}
-{{--            @endif--}}
-{{--          </div>--}}
-{{--        </div>--}}
-{{--      </div>--}}
-{{--      <div class=" banner-page position-absolute top-0"></div>--}}
-{{--    </div>--}}
-
-{{--    <div class="container">--}}
-{{--      <div class="row img-banner-homePage ">--}}
-{{--        <div data-aos="fade-right" data-aos-duration="1500" class="left-banner-Homepage col-md-6">--}}
-{{--          <h2>Give Your Nails Sweet Treat</h2>--}}
-{{--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec--}}
-{{--            ullamcorper mattis, pulvinar dapibus leo.</p>--}}
-{{--          <div class="link-left-banner-homePage">--}}
-{{--            <a href=""><button class="btn">Book Appointment</button></a>--}}
-{{--            <a href=""><button class="btn">Our Service</button></a>--}}
-{{--          </div>--}}
-{{--        </div>--}}
-
-
-{{--        <div data-aos="fade-up" data-aos-duration="1500" class="right-banner-Homepage col-md-6">--}}
-{{--          <div class="image1-banner-homePage">--}}
-{{--            <img width="70%" src="{{route('public/image/banner-Hompage.jpg')}}" alt="">--}}
-{{--          </div>--}}
-{{--          <div class="image2-banner-HomePage">--}}
-{{--            <img width="40%" src="{{route('public/image/banner-homepage2.jpg')}}" alt="">--}}
-{{--          </div>--}}
-{{--        </div>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-{{--  </header>--}}
   <header class="header-homePage container-fluid">
     <div class="header-menutop-banner">
       <div
@@ -365,78 +279,20 @@
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-          >
-            <div class="box-insta-bottom">
-              <div class="img">
-                <img src="{{route('public/image/close-up-view-of-female-hand-holding-bottle-of-nai-2021-08-29-12-15-36-utc-e1643346825119.jpg')}}" alt="">
-                <div class="backgrond-hover-image-insta"></div>
-                <div class="icon-insta-follow">
-                  <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
+          @foreach($instagram as $value)
+            <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
+            >
+              <div class="box-insta-bottom">
+                <div class="img">
+                  <img src="{{route('public/upload/insta/'.$value->link)}}" alt="">
+                  <div class="backgrond-hover-image-insta"></div>
+                  <div class="icon-insta-follow">
+                    <a class="text-white" href="{{ $value->	link_insta }}"> <i class='bx bxl-instagram fs-1'></i> </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-          >
-            <div class="box-insta-bottom">
-              <div class="img">
-                <img src="{{route('public/image/hands-of-a-woman-with-dark-red-manicure-and-nail-p-2021-08-26-18-28-16-utc-e1643346806313.jpg')}}" alt="">
-                <div class="backgrond-hover-image-insta"></div>
-                <div class="icon-insta-follow">
-                  <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-          >
-            <div class="box-insta-bottom">
-              <div class="img">
-                <img src="{{route('public/image/fashion-nails-2021-08-30-08-40-30-utc-e1643346587414.jpg')}}" alt="">
-                <div class="backgrond-hover-image-insta"></div>
-                <div class="icon-insta-follow">
-                  <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-          >
-            <div class="box-insta-bottom">
-              <div class="img">
-                <img src="{{route('public/image/beautiful-manicure-on-the-nails-of-a-woman-color-2021-12-09-06-01-35-utc-e1643346615824.jpg')}}" alt="">
-                <div class="backgrond-hover-image-insta"></div>
-                <div class="icon-insta-follow">
-                  <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-          >
-            <div class="box-insta-bottom">
-              <div class="img">
-                <img src="{{route('public/image/pastel-nails-2021-08-29-00-59-25-utc-e1643346635604.jpg')}}" alt="">
-                <div class="backgrond-hover-image-insta"></div>
-                <div class="icon-insta-follow">
-                  <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-          >
-            <div class="box-insta-bottom">
-              <div class="img">
-                <img src="{{route('public/image/beautiful-manicure-on-color-palette-background-e1643346460858.jpg')}}" alt="">
-                <div class="backgrond-hover-image-insta"></div>
-                <div class="icon-insta-follow">
-                  <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
 
@@ -489,7 +345,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-12 img-modal">
-              <img src="{{route('public/image/Screenshot 2023-03-12 160307.png')}}" width="100%" alt="">
+              <img src="{{route('public/Image/Screenshot 2023-03-12 160307.png')}}" width="100%" alt="">
 
             </div>
           </div>

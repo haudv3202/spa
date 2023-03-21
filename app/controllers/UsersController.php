@@ -9,8 +9,7 @@ use App\Models\Users;
 use App\Models\Service;
 use App\Models\Category;
 use App\models\social;
-require_once 'vendor/phpmailer/sendmail.php';
-
+//require_once 'vendor/phpmailer/sendmail.php';
 class UsersController extends BaseController
 {
     protected $user;
@@ -18,7 +17,7 @@ class UsersController extends BaseController
     protected $category;
     public function __construct()
     {
-        $this->user = new Users;
+        $this->user = new Users();
         $this->blog = new BlogService();
         $this->service = new Service();
         $this->category =  new Category();
