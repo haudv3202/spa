@@ -96,17 +96,17 @@
         },
         {
             "name": "eftec/bladeone",
-            "version": "4.8",
-            "version_normalized": "4.8.0.0",
+            "version": "4.8.2",
+            "version_normalized": "4.8.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EFTEC/BladeOne.git",
-                "reference": "26b79fc337a7c584c7d222dc1dbc6d34771d0394"
+                "reference": "20e2b1c14b74a3b84b8a3cebb653f8a0d8b1ee84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/26b79fc337a7c584c7d222dc1dbc6d34771d0394",
-                "reference": "26b79fc337a7c584c7d222dc1dbc6d34771d0394",
+                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/20e2b1c14b74a3b84b8a3cebb653f8a0d8b1ee84",
+                "reference": "20e2b1c14b74a3b84b8a3cebb653f8a0d8b1ee84",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 "eftec/bladeonehtml": "Extension to create forms",
                 "ext-mbstring": "This extension is used if it's active"
             },
-            "time": "2023-01-12T01:22:51+00:00",
+            "time": "2023-03-19T11:08:35+00:00",
             "bin": [
                 "lib/bladeonecli"
             ],
@@ -152,23 +152,23 @@
             ],
             "support": {
                 "issues": "https://github.com/EFTEC/BladeOne/issues",
-                "source": "https://github.com/EFTEC/BladeOne/tree/4.8"
+                "source": "https://github.com/EFTEC/BladeOne/tree/4.8.2"
             },
             "install-path": "../eftec/bladeone"
         },
         {
             "name": "illuminate/bus",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
-                "reference": "e5dcbd15256362c28f9003d5be6221ed32bc2a72"
+                "reference": "0110e6b824693381a18374b9fe87da03cc433628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/bus/zipball/e5dcbd15256362c28f9003d5be6221ed32bc2a72",
-                "reference": "e5dcbd15256362c28f9003d5be6221ed32bc2a72",
+                "url": "https://api.github.com/repos/illuminate/bus/zipball/0110e6b824693381a18374b9fe87da03cc433628",
+                "reference": "0110e6b824693381a18374b9fe87da03cc433628",
                 "shasum": ""
             },
             "require": {
@@ -181,7 +181,7 @@
             "suggest": {
                 "illuminate/queue": "Required to use closures when chaining jobs (^7.0)."
             },
-            "time": "2023-03-02T14:44:34+00:00",
+            "time": "2023-03-13T01:22:02+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -214,8 +214,8 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -272,8 +272,8 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -321,8 +321,8 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -375,8 +375,8 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -426,8 +426,8 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -484,23 +484,23 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
-                "reference": "7686fe9dba1e236e6f695a148b551264b9fd479e"
+                "reference": "6b80109438161d45a5f2bdf7ecdd56cbd0096c3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/macroable/zipball/7686fe9dba1e236e6f695a148b551264b9fd479e",
-                "reference": "7686fe9dba1e236e6f695a148b551264b9fd479e",
+                "url": "https://api.github.com/repos/illuminate/macroable/zipball/6b80109438161d45a5f2bdf7ecdd56cbd0096c3d",
+                "reference": "6b80109438161d45a5f2bdf7ecdd56cbd0096c3d",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1"
             },
-            "time": "2023-01-30T23:18:36+00:00",
+            "time": "2023-03-17T13:33:11+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -533,8 +533,8 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -584,17 +584,17 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v10.3.2",
-            "version_normalized": "10.3.2.0",
+            "version": "v10.4.1",
+            "version_normalized": "10.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "d64c44a2960742ddff150f9a8b22dd64236bc057"
+                "reference": "45d61b01af6fcc417e00a4edece72fdc9a5bb658"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/d64c44a2960742ddff150f9a8b22dd64236bc057",
-                "reference": "d64c44a2960742ddff150f9a8b22dd64236bc057",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/45d61b01af6fcc417e00a4edece72fdc9a5bb658",
+                "reference": "45d61b01af6fcc417e00a4edece72fdc9a5bb658",
                 "shasum": ""
             },
             "require": {
@@ -622,7 +622,7 @@
                 "symfony/var-dumper": "Required to use the dd function (^6.2).",
                 "vlucas/phpdotenv": "Required to use the Env class and env helper (^5.4.1)."
             },
-            "time": "2023-03-06T01:15:38+00:00",
+            "time": "2023-03-16T03:38:41+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {

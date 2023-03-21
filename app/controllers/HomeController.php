@@ -47,7 +47,7 @@ class HomeController extends BaseController{
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
         }
-        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram));
+        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram'));
 
     }
     public function mockupPost(){

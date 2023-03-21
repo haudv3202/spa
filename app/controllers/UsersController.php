@@ -15,12 +15,14 @@ class UsersController extends BaseController
     protected $user;
     protected $blog;
     protected $category;
+    protected $email;
     public function __construct()
     {
         $this->user = new Users();
         $this->blog = new BlogService();
         $this->service = new Service();
         $this->category =  new Category();
+        $this->email = new sendmail();
     }
     public function signup()
     {
@@ -75,8 +77,8 @@ class UsersController extends BaseController
             }else{
                 $result = $this->user->checkEmail($_POST['email']);
                 if ($result == true){
+                    echo $this->email->Send_email('FORGOT PASSWORD', 'Mật khẩu cũ của bạn là: '.$result->password, $result->email);
                     echo "<script>alert('Vui lòng kiểm tra lại hộp thư email')</script>";
-                    Send_email('FORGOT PASSWORD', 'Mật khẩu cũ của bạn là: '.$result->password, $result->email);
                 }else{
                     echo "<script>alert('Email không tồn tại trên hệ thống vui lòng kiểm tra lại')</script>";
                 }
