@@ -45,6 +45,7 @@
                           <img
                             src="{{route(''.'app/views/admin/public/assets/img/svg/x.svg')}}"
                             alt="x"
+                            width="50"
                             class="svg"
                             aria-hidden="true"
                           />
@@ -61,7 +62,7 @@
                       <label for="validationDefault01" class="il-gray fs-14 fw-500 align-center mb-10">logo
                       </label>
                       <input type="file" name="logo" class="form-control ih-medium ip-light radius-xs b-light"  >
-                      <img src="{{route('public/upload/insta/'.$oneData->logo)}}" alt="" >
+                      <img src="{{route('public/upload/insta/'.$oneData->logo)}}" width="200" alt="" >
                     </div>
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Nội dung

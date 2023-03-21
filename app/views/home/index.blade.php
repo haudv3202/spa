@@ -1,5 +1,91 @@
 @extends('layout.index')
 @section('content')
+{{--  <header class="header-homePage container-fluid">--}}
+{{--    <div class="header-menutop-banner">--}}
+{{--      <div--}}
+{{--        class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"--}}
+{{--      >--}}
+{{--        <div class="logo">--}}
+{{--          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />--}}
+{{--        </div>--}}
+{{--        <div class="icon-menu-sub-responsive">--}}
+{{--          <button type="button" onclick="iconOpenMenuSubClick()">--}}
+{{--            <i class='bx bx-menu'></i>--}}
+{{--        </div>--}}
+{{--        <div class="menu-oppentime d-flex gap-5">--}}
+{{--          <div class="menu">--}}
+{{--            <ul class="d-flex gap-5">--}}
+{{--              <li><a href="{{route('')}}">HOME</a></li>--}}
+{{--              <li><a href="{{route('about')}}">ABOUT US</a></li>--}}
+{{--              <li><a href="{{route('service')}}">SERVICES</a></li>--}}
+{{--              <li class="menu-sub-page">--}}
+{{--                    <span class="d-flex align-items-center"--}}
+{{--                    >PAGE <i class="bx bx-chevron-down"></i--}}
+{{--                      ></span>--}}
+{{--                <ul class="menu-mini menu-mini-home">--}}
+{{--                  <li><a href="{{route('ourTeam')}}">Our Team</a></li>--}}
+{{--                  <li><a href="{{route('blog-questions')}}">FAQ</a></li>--}}
+{{--                  <li><a href="{{route('booking')}}">Booking</a></li>--}}
+{{--                  <li><a href="{{route('404-page')}}">404 Page</a></li>--}}
+{{--                  <li><a href="{{route('blog')}}">Blog</a></li>--}}
+{{--                  <li><a href="{{route('single-blog')}}">Single Blog</a></li>--}}
+{{--                </ul>--}}
+{{--              </li>--}}
+{{--              <li><a href="{{route('contact')}}">CONTACT US</a></li>--}}
+{{--            </ul>--}}
+{{--          </div>--}}
+{{--          <div class="oppentime-icon">--}}
+{{--            <i class="bx bxl-facebook"></i>--}}
+{{--            <i class="bx bxl-instagram"></i>--}}
+{{--            <button type="button" onclick="iconOpenBoxClick()">--}}
+{{--              <i class="bx bx-align-right open-Time"></i>--}}
+{{--            </button>--}}
+{{--            @if(!isset($_SESSION['account']))--}}
+{{--            <button type="button" onclick="" class="user-login">--}}
+{{--              <a href="{{route('sign-in')}}" class="text-black"><i class='bx bx-user-circle'></i></a>--}}
+{{--            </button>--}}
+{{--            @else--}}
+{{--            <button type="button"  class="user-account position-relative" onclick="iconOpenBoxClick()">--}}
+{{--              <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">--}}
+{{--            </button>--}}
+{{--            <div class="box-fs-account box-fs-account-home position-absolute">--}}
+{{--              <ul >--}}
+{{--                <li><a href="">Xem thông tin</a></li>--}}
+{{--                <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Sửa thông tin</a></li>--}}
+{{--                <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>--}}
+{{--              </ul>--}}
+{{--            </div>--}}
+{{--            @endif--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+{{--      <div class=" banner-page position-absolute top-0"></div>--}}
+{{--    </div>--}}
+
+{{--    <div class="container">--}}
+{{--      <div class="row img-banner-homePage ">--}}
+{{--        <div data-aos="fade-right" data-aos-duration="1500" class="left-banner-Homepage col-md-6">--}}
+{{--          <h2>Give Your Nails Sweet Treat</h2>--}}
+{{--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec--}}
+{{--            ullamcorper mattis, pulvinar dapibus leo.</p>--}}
+{{--          <div class="link-left-banner-homePage">--}}
+{{--            <a href=""><button class="btn">Book Appointment</button></a>--}}
+{{--            <a href=""><button class="btn">Our Service</button></a>--}}
+{{--          </div>--}}
+{{--        </div>--}}
+
+
+{{--        <div data-aos="fade-up" data-aos-duration="1500" class="right-banner-Homepage col-md-6">--}}
+{{--          <div class="image1-banner-homePage">--}}
+{{--            <img width="70%" src="{{route('public/image/banner-Hompage.jpg')}}" alt="">--}}
+{{--          </div>--}}
+{{--          <div class="image2-banner-HomePage">--}}
+{{--            <img width="40%" src="{{route('public/image/banner-homepage2.jpg')}}" alt="">--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
+{{--  </header>--}}
   <header class="header-homePage container-fluid">
     <div class="header-menutop-banner">
       <div
@@ -15,23 +101,13 @@
         <div class="menu-oppentime d-flex gap-5">
           <div class="menu">
             <ul class="d-flex gap-5">
-              <li><a href="{{route('')}}">HOME</a></li>
-              <li><a href="{{route('about-us')}}">ABOUT US</a></li>
-              <li><a href="{{route('service')}}">SERVICES</a></li>
-              <li class="menu-sub-page">
-                    <span class="d-flex align-items-center"
-                    >PAGE <i class="bx bx-chevron-down"></i
-                      ></span>
-                <ul class="menu-mini menu-mini-home">
-                  <li><a href="{{route('our-team')}}">Our Team</a></li>
-                  <li><a href="{{route('faq')}}">FAQ</a></li>
-                  <li><a href="{{route('booking')}}">Booking</a></li>
-                  <li><a href="{{route('404-page')}}">404 Page</a></li>
-                  <li><a href="{{route('blog')}}">Blog</a></li>
-                  <li><a href="{{route('single-blog')}}">Single Blog</a></li>
-                </ul>
-              </li>
-              <li><a href="{{route('contact-us')}}">CONTACT US</a></li>
+              <li><a href="{{route('')}}">Trang chủ</a></li>
+              <li><a href="{{route('about')}}">Giới thiệu</a></li>
+              <li><a href="{{route('service')}}">Dịch vụ</a></li>
+              <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>
+              <li><a href="{{route('booking')}}">Đặt lịch</a></li>
+              <li><a href="{{route('blog')}}">Bài viết</a></li>
+              <li><a href="{{route('contact')}}">Liên hệ</a></li>
             </ul>
           </div>
           <div class="oppentime-icon">
@@ -40,30 +116,33 @@
             <button type="button" onclick="iconOpenBoxClick()">
               <i class="bx bx-align-right open-Time"></i>
             </button>
+            @if(!isset($_SESSION['account']))
             <button type="button" onclick="" class="user-login">
-              <a href="{{route('sign-in')}}" class="text-black"><i class='bx bx-user-circle'></i></a>
+              <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>
             </button>
+            @else
             <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
               <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
             </button>
             <div class="box-fs-account box-fs-account-home position-absolute">
-              <ul >
-                <li><a href="">Xem thông tin</a></li>
-                <li><a href="{{route('update-profile/'.$_SESSION['account'] ->id )}}">Sửa thông tin</a></li>
-                <li><a href="">Đăng Xuất</a></li>
-              </ul>
+                            <ul >
+                              <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+                              <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
+                            </ul>
             </div>
+            @endif
           </div>
         </div>
       </div>
       <div class=" banner-page position-absolute top-0"></div>
     </div>
 
+
     <div class="container">
       <div class="row img-banner-homePage ">
         <div data-aos="fade-right" data-aos-duration="1500" class="left-banner-Homepage col-md-6">
           <h2>Give Your Nails Sweet Treat</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+          <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
             ullamcorper mattis, pulvinar dapibus leo.</p>
           <div class="link-left-banner-homePage">
             <a href=""><button class="btn">Book Appointment</button></a>
@@ -74,10 +153,10 @@
 
         <div data-aos="fade-up" data-aos-duration="1500" class="right-banner-Homepage col-md-6">
           <div class="image1-banner-homePage">
-            <img width="70%" src="{{route('public/image/banner-Hompage.jpg')}}" alt="">
+            <img src="{{ route('./public/Image/about-us1.jpg') }}" alt="">
           </div>
           <div class="image2-banner-HomePage">
-            <img width="40%" src="{{route('public/image/banner-homepage2.jpg')}}" alt="">
+            <img src="./public/Image/set-of-manicure-tools-and-accessories-for-hardware-manicure-nail-polish-and-design-on-a-pink.jpg" alt="">
           </div>
         </div>
       </div>
@@ -90,39 +169,37 @@
       <div class="About-Us row">
         <div data-aos="fade-up" data-aos-duration="1500" class="left-about-us col-md-6">
           <div class="item-left-about-us">
-            <img src="{{route('public/image/about-us2.jpg')}}" width="100%" alt="">
+            <img src="{{route('public/upload/setting/'.$content['image-abouts'][0]->titler)}}" width="100%" alt="">
           </div>
           <div class="item-left-about-us">
-            <img src="{{route('public/image/about-us1.jpg')}}" width="100%" alt="">
+            <img src="{{route('public/upload/setting/'.$content['image-abouts'][1]->titler)}}" width="100%" alt="">
           </div>
           <div class="item-absol-about-us">
-            <img src="{{route('public/image/about-us3.jpg')}}" width="40%" alt="">
+            <img src="{{route('public/upload/setting/'.$content['image-abouts'][2]->titler)}}" width="40%" alt="">
           </div>
         </div>
         <div data-aos="fade-down" data-aos-duration="1500" class="right-about-us col-md-6">
-          <h4 class="text-under-h4-HomePage">About Us</h4>
-          <h2 class="text-title-HomePage">We Have the Nail Knowledge</h2>
-          <p class="p-title-Hompage">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque.
+          <h4 class="text-under-h4-HomePage">Về chúng tôi</h4>
+          <h2 class="text-title-HomePage">{{ $content['title-about'] }}</h2>
+          <p class="p-title-Hompage">{{ $content['desribe-about'] }}
           </p>
-          <div class="item-right-about-us">
-            <div class="content-item-right">
-              <img src="{{route('public/image/like-about-us.png')}}" width="50px" alt="">
-              <div class="text-content-item-right-about-us">
-                <p>24<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>
-                <p>Year Experience</p>
-              </div>
-            </div>
-            <div class="content-item-right">
-              <img src="{{route('public/image/scrum-about-us.png')}}" width="50px" alt="">
-              <div class="text-content-item-right-about-us">
-                <p>850<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>
-                <p>Happy Client</p>
-              </div>
-            </div>
-          </div>
-          <a href=""><button class="btn btn-about-us">About Us</button></a>
+{{--          <div class="item-right-about-us">--}}
+{{--            <div class="content-item-right">--}}
+{{--              <img src="{{route('public/image/like-about-us.png')}}" width="50px" alt="">--}}
+{{--              <div class="text-content-item-right-about-us">--}}
+{{--                <p>24<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>--}}
+{{--                <p>Year Experience</p>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--            <div class="content-item-right">--}}
+{{--              <img src="{{route('public/image/scrum-about-us.png')}}" width="50px" alt="">--}}
+{{--              <div class="text-content-item-right-about-us">--}}
+{{--                <p>850<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>--}}
+{{--                <p>Happy Client</p>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--          </div>--}}
+          <a href="{{route('about')}}"><button class="btn btn-about-us">Về chúng tôi</button></a>
         </div>
       </div>
     </div>
@@ -131,50 +208,30 @@
       <!-- =========text==== -->
       <div class="our-service row">
         <div class="left-our-service col-md-6" data-aos="fade-up">
-          <h4 class="text-under-h4-HomePage">Our Service</h4>
-          <h2 class="text-title-HomePage">Make Gorgeous Nails A Part of Your Life.</h2>
+          <h4 class="text-under-h4-HomePage">Dịch vụ của chúng tôi</h4>
+
         </div>
         <div class="right-our-service col-md-6" data-aos="fade-down">
-          <p class="p-title-Hompage">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris</p>
-          <a href=""><button class="btn btn-about-us">All Service</button></a>
+          <p class="p-title-Hompage">{{ $content['desribe-service'] }}</p>
+          <a href=""><button class="btn btn-about-us">Xem thêm</button></a>
         </div>
       </div>
       <!-- ===========Image========== -->
       <div class="image-service row" data-aos="fade-up" >
-        <div class="col-md-4 item-image-service">
-          <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
-               width="95%" alt="">
+        @foreach($service3 as $key => $value)
+          <div class="col-md-4 item-image-service">
+            <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
+                 width="95%" alt="">
 
-          <div class="text-item-image-service">
-            <h4>Manicure</h4>
-            <p>Lorem ipsum dolor sit amet, consectet adipiscing elit.</p>
-            <a href=""><button class="btn btn-book-service">Book Now <i class='bx bx-right-arrow-alt'
-                                                                        undefined></i></button></a>
-          </div>
+            <div class="text-item-image-service">
+              <h4>{{$value->name}}</h4>
+              <p>{{$value->description}}</p>
+              <a href="https://www.facebook.com/haudn02"><button class="btn btn-book-service">Book Now <i class='bx bx-right-arrow-alt'
+                                                                                                          undefined></i></button></a>
+            </div>
 
-        </div>
-        <div class="col-md-4 item-image-service">
-          <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/nail-polish.jpg"
-               width="95%" alt="">
-          <div class="text-item-image-service">
-            <h4>Manicure</h4>
-            <p>Lorem ipsum dolor sit amet, consectet adipiscing elit.</p>
-            <a href=""><button class="btn btn-book-service">Book Now <i class='bx bx-right-arrow-alt'
-                                                                        undefined></i></button></a>
           </div>
-        </div>
-        <div class="col-md-4 item-image-service">
-          <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/pedicure.jpg"
-               width="95%" alt="">
-          <div class="text-item-image-service">
-            <h4>Manicure</h4>
-            <p>Lorem ipsum dolor sit amet, consectet adipiscing elit.</p>
-            <a href=""><button class="btn btn-book-service">Book Now <i class='bx bx-right-arrow-alt'
-                                                                        undefined></i></button></a>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
 
@@ -185,53 +242,19 @@
         <div class="content-treatment-price container">
           <div class="grid-treatment-price row">
             <div class="left-treatment-price col-md-6" data-aos="zoom-in-down">
-              <h4 class="text-under-h4-HomePage">Treatments & Prices</h4>
-              <h2 class="text-title-HomePage">It’s Time to Get Trimmed.</h2>
-              <div class="title-lefy-streatment">
-                <div class="option-and-price">
-                  <p style="font-weight: bolder;">Manicure</p>
-                  <div class="style-option"></div>
-                  <p>$12.00</p>
+              <h4 class="text-under-h4-HomePage">Phương pháp điều trị & Giá cả</h4>
+              <h2 class="text-title-HomePage">Bảng giá dịch vụ.</h2>
+              @foreach($service as $key => $value)
+                <div class="title-lefy-streatment">
+                  <div class="option-and-price">
+                    <p style="font-weight: bolder;">{{$value->name}}</p>
+                    <div class="style-option"></div>
+                    <p>{{number_format($value->price)}}đ</p>
 
+                  </div>
+                  <p>{{$value->description}}</p>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
-              <div class="title-lefy-streatment">
-                <div class="option-and-price">
-                  <p style="font-weight: bolder;">Manicure</p>
-                  <div class="style-option"></div>
-                  <p>$12.00</p>
-
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
-              <div class="title-lefy-streatment">
-                <div class="option-and-price">
-                  <p style="font-weight: bolder;">Manicure</p>
-                  <div class="style-option"></div>
-                  <p>$12.00</p>
-
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
-              <div class="title-lefy-streatment">
-                <div class="option-and-price">
-                  <p style="font-weight: bolder;">Manicure</p>
-                  <div class="style-option"></div>
-                  <p>$12.00</p>
-
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
-              <div class="title-lefy-streatment">
-                <div class="option-and-price">
-                  <p style="font-weight: bolder;">Manicure</p>
-                  <div class="style-option"></div>
-                  <p>$12.00</p>
-
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
+              @endforeach
             </div>
             <div class="right-treatment-price col-md-6" data-aos="zoom-in-down">
               <img src="{{route('public/image/right-nails.jpg')}}" width="100%" alt="">
@@ -242,40 +265,40 @@
     </div>
 
     <!-- ==================testimonial================= -->
-    <div class="bg-testminal">
-      <div class="container">
-        <div class="text-infor-testminal text-center"data-aos="zoom-in-down">
-          <h4 class="text-under-h4-HomePage update-h4-testmional">Testimonial</h4>
-          <h2 class="text-title-HomePage">What Our Costumer Say</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.</p>
-        </div>
-        <div class="testimonial-row row">
-          <div class="left-testimonial col-md-6"  data-aos="zoom-in-right">
-            <img src="{{route('public/image/treatment.jpg')}}" width="100%" alt="">
-          </div>
-          <div class="right-testimonial col-md-6" ata-aos="zoom-in-left">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris. </p>
-            <div class="start-testimonal">
-              <i class='bx bxs-star'>
-              </i><i class='bx bxs-star'>
-              </i><i class='bx bxs-star'></i>
-              <i class='bx bxs-star'></i>
-              <i class='bx bxs-star'></i>
-            </div>
-            <div class="user-vote-treatmen" >
-              <img src="{{route('public/image/about-us1.jpg')}}" alt="">
-              <div class="text-user-vote">
-                <p>Manh Cuong</p>
-                <p>Developer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+{{--    <div class="bg-testminal">--}}
+{{--      <div class="container">--}}
+{{--        <div class="text-infor-testminal text-center"data-aos="zoom-in-down">--}}
+{{--          <h4 class="text-under-h4-HomePage update-h4-testmional">Testimonial</h4>--}}
+{{--          <h2 class="text-title-HomePage">What Our Costumer Say</h2>--}}
+{{--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut--}}
+{{--            labore et dolore magna aliqua.</p>--}}
+{{--        </div>--}}
+{{--        <div class="testimonial-row row">--}}
+{{--          <div class="left-testimonial col-md-6"  data-aos="zoom-in-right">--}}
+{{--            <img src="{{route('public/image/treatment.jpg')}}" width="100%" alt="">--}}
+{{--          </div>--}}
+{{--          <div class="right-testimonial col-md-6" ata-aos="zoom-in-left">--}}
+{{--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut--}}
+{{--              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco--}}
+{{--              laboris. </p>--}}
+{{--            <div class="start-testimonal">--}}
+{{--              <i class='bx bxs-star'>--}}
+{{--              </i><i class='bx bxs-star'>--}}
+{{--              </i><i class='bx bxs-star'></i>--}}
+{{--              <i class='bx bxs-star'></i>--}}
+{{--              <i class='bx bxs-star'></i>--}}
+{{--            </div>--}}
+{{--            <div class="user-vote-treatmen" >--}}
+{{--              <img src="{{route('public/image/about-us1.jpg')}}" alt="">--}}
+{{--              <div class="text-user-vote">--}}
+{{--                <p>Manh Cuong</p>--}}
+{{--                <p>Developer</p>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
 
     <!-- ==================working hour=================== -->
     <div class="working-hour" data-aos="fade-up">
@@ -309,43 +332,25 @@
     </div>
     <!-- =============latest blog============== -->
     <div class="latest-blog container">
-      <h2 class="text-title-HomePage text-center" data-aos="fade-up">Latest Blog</h2>
-      <p class="text-center" data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2 class="text-title-HomePage text-center" data-aos="fade-up">Blog mới nhất</h2>
+      <p class="text-center" data-aos="fade-up">{{ $content["desribe-blog"] }}</p>
 
       <div class="row row-lastest" data-aos="fade-down">
-
-        <div class="item-lastest-blog col-md-4 column-gap-2">
-          <img width="100%" src="{{route('public/image/nail-tips1.jpg')}}" alt="">
-          <h3>Essential Manicure And Pedicure Tools At Home</h3>
-          <div class="time-lastest-blog">
-            <i class='bx bxs-time' ></i>
-            <p>January 26, 2022</p>
+        @foreach($posts as $value)
+          <div class="item-lastest-blog col-md-4 column-gap-2">
+            <img width="100%" src="{{route('public/upload/blogSv/'.$value->image)}}" alt="">
+            <h3>{{ $value->name_service }}</h3>
+            <div class="time-lastest-blog">
+              <i class='bx bxs-time' ></i>
+              <p>{{ date('j F, Y', strtotime($value->create_date))  }}</p>
+            </div>
+            <p>{{ $value->description }}</p>
+            <a href="{{ route("detail/".$value->id) }}"><button class="btn btn-read-more">Read More <i class='bx bx-right-arrow-alt' ></i></button></a>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-          <a href=""><button class="btn btn-read-more">Read More <i class='bx bx-right-arrow-alt' ></i></button></a>
-        </div>
+        @endforeach
 
-        <div class="item-lastest-blog col-md-4">
-          <img width="100%" src="{{route('public/image/nail-tips1.jpg')}}" alt="">
-          <h3>Essential Manicure And Pedicure Tools At Home</h3>
-          <div class="time-lastest-blog">
-            <i class='bx bxs-time' ></i>
-            <p>January 26, 2022</p>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-          <a href=""><button class="btn  btn-read-more">Read More <i class='bx bx-right-arrow-alt' ></i></button></a>
-        </div>
 
-        <div class="item-lastest-blog col-md-4">
-          <img width="100%" src="{{route('public/image/nail-tips1.jpg')}}" alt="">
-          <h3>Essential Manicure And Pedicure Tools At Home</h3>
-          <div class="time-lastest-blog">
-            <i class='bx bxs-time' ></i>
-            <p>January 26, 2022</p>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-          <a href=""><button class="btn  btn-read-more">Read More <i class='bx bx-right-arrow-alt' ></i></button></a>
-        </div>
+
       </div>
     </div>
     <!-- =======follow our ig============= -->
@@ -433,6 +438,7 @@
       </div>
 
     </div>
+    @include("components.socialcontact")
   </main>
 @endsection
 
@@ -442,7 +448,7 @@
     <div class="content-modal-mockup">
       <div class="oidoioi">
         <div class="item-modal-mockup">
-          <div class="row">
+          <div class="row row-mokup">
             <div class="col-sm-6 col-md-12">
               <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" width="100px" alt="">
               <h5 class="h5-item-modal-mockup">"Mono Bovis Spa - Chạm đến làn da không tuổi"</h5>
@@ -458,20 +464,23 @@
               </p>
               <div class="form-modal text-center">
 
-                <form action="mockup-post" method="post">
-                  <div class="value-form-modal">
-                    <label>Họ và tên </label>
-                    : <input type="text" name="fullname" placeholder="Nhập tên anh/chị">
+                <form id="form-modal-t">
+                  <div class="value-form-modal mb-2">
+                    <label class="label-model">Họ và tên </label>
+                    : <input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
+                    <small class="error-message m-auto pt-3"></small>
                   </div>
                   <div class="value-form-modal">
-                    <label>Số điện thoại :</label>
-                    <input type="text" name="phone" placeholder="Nhập SĐT anh/chị">
+                    <label class="label-model">Số điện thoại :</label>
+                    <input type="text" name="phone" placeholder="Nhập SĐT anh/chị" class="input-model" id="phone-mokup">
+                    <small class="error-message m-auto pt-3"></small>
                   </div>
                   <div class="value-form-modal">
-                    <label>Email</label>
-                    : <input type="email" name="email" placeholder="Nhập email anh/chị">
+                    <label class="label-model">Email</label>
+                    : <input type="text" name="email" placeholder="Nhập email anh/chị" class="input-model" id="email-mokup">
+                    <small class="error-message m-auto pt-3"></small>
                   </div>
-                  <input name="btn-sm" type="submit" class="btn submit-form-modal" value="GỬI THÔNG TIN">
+                  <button class="btn submit-form-modal" name="btn-sm">GỬI THÔNG TIN</button>
                 </form>
 
               </div>

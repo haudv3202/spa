@@ -5,6 +5,7 @@ use App\Models\BlogService;
 use App\Models\Category;
 use App\models\insta;
 use App\Models\Service;
+use App\models\social;
 
 class BlogServiceController extends BaseController
 {
@@ -205,6 +206,7 @@ class BlogServiceController extends BaseController
 
     //giao diện
     public function blogService(){
+        $datasocial = social::GetAll();
         $service = $this->service->getAllService();
         $category = $this->category->getAllCategory();
         $blog = BlogService::GetAll();
@@ -214,7 +216,7 @@ class BlogServiceController extends BaseController
         }else{
             $index = 6;
         }
-        $this->render('blog.blogClient', compact('blog','index', 'service', 'category'));
+        $this->render('blog.blogClient', compact('blog','index', 'service', 'category',"datasocial"));
     }
 }
 ?>

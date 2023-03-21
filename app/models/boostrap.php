@@ -34,6 +34,18 @@ class boostrap extends BaseModel
         $model->setQuery($sql);
         return $model->loadRow([$id]);
     }
+    public static function findString($search = "id",$value){
+        $model = new static;
+        $sql = "SELECT * FROM $model->table WHERE $search = '$value'";
+        $model->setQuery($sql);
+        return $model->loadRow();
+    }
+    public static function findStrings($search = "id",$value,$record = "*"){
+        $model = new static;
+        $sql = "SELECT $record FROM $model->table WHERE $search = '$value'";
+        $model->setQuery($sql);
+        return $model->loadAllRows();
+    }
     public static function findAllColumn($id, $column){
         $model = new static;
         $sql = "SELECT * FROM $model->table WHERE $column = ?";
