@@ -45,11 +45,13 @@
     background-color: #a47b60;
     color: white;
     border: none;
-    display: none;
+    /*display: none;*/
 }
+
 
 .user-login-responsive a {
     font-size: 20px;
+    text-decoration: none;
 }
 
 .user-login-responsive a i {
