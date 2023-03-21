@@ -1,8 +1,8 @@
 <?php
 namespace App\admin\controllers;
-use App\Controllers\BaseController;
-use App\models\BlogService;use App\Models\Category;
-use App\Models\Service;
+use App\controllers\BaseController;
+use App\models\BlogService;use App\models\Category;
+use App\models\Service;
 
 class ServiceController extends BaseController{
     protected $service;

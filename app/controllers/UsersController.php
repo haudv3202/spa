@@ -6,8 +6,8 @@ use App\models\insta;
 use App\models\rankmember;
 use App\models\Staff;
 use App\models\Users;
-use App\Models\Service;
-use App\Models\Category;
+use App\models\Service;
+use App\models\Category;
 use App\models\social;
 //require_once 'vendor/phpmailer/sendmail.php';
 class UsersController extends BaseController
