@@ -23,7 +23,7 @@ $router->filter('auth', function(){
 //$router->get('/', function(){
 //    return "trang chủ";
 //});
-$router->get('admin', [App\Controllers\UsersController::class, 'dashboard']);
+//$router->get('admin', [App\Controllers\UsersController::class, 'dashboard']);
 if (isset($_SESSION['account'])){
     if ($_SESSION['account']->role_id == 2){
 //Category
@@ -114,8 +114,7 @@ $router->get('delete-user/{id}', [App\admin\controllers\UsersControlller::class,
 $router->get('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
 $router->post('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
 //$router->get('list-user', [App\Controllers\UsersController::class, 'index']);
-$router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfile']);
-$router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
+
 //xóa chi tiết chi tiết thanh toán
 $router->get('delete-detail-user/{id}/{backpage}', [App\admin\controllers\UsersControlller::class, 'deleteServiceUser']);
 //quản lí loại khách
@@ -130,8 +129,12 @@ $router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,
 $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
 //update profile admin
 //$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
-//$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
-
+//$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);\
+        $router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
+        $router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
+    }else {
+        $router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
+        $router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
     }
 }
 
@@ -157,6 +160,7 @@ $router->get('contact',[App\Controllers\UsersController::class,'contact']);
 $router->get('/',[App\Controllers\HomeController::class,'homeList']);
 $router->get('service',[App\Controllers\HomeController::class,'serviceList']);
 $router->get('about',[App\Controllers\HomeController::class,'aboutList']);
+$router->get('booking',[App\Controllers\HomeController::class,'booking']);
 $router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
 //FQA
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);

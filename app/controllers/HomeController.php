@@ -6,6 +6,7 @@ use App\models\Endow;
 use App\Models\Product;
 use App\models\questions;
 use App\Models\Service;
+use App\models\social;
 use App\models\Staff;
 use App\models\settings;
 
@@ -29,6 +30,7 @@ class HomeController extends BaseController{
         $this->render('home.about');
     }
     public function homeList(){
+        $datasocial = $this->socialPage();
         $service = $this->service->getPostslimit(6);
         $service3 = $this->service->getPostslimit(3);
         $content = [];
@@ -41,7 +43,7 @@ class HomeController extends BaseController{
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
         }
-        $this->render('home.index',compact("service","service3","content","posts"));
+        $this->render('home.index',compact("service","service3","content","posts","datasocial"));
     }
     public function mockupPost(){
         if (isset($_POST['btn-sm'])){
@@ -74,19 +76,25 @@ class HomeController extends BaseController{
         }
     }
     public function serviceList(){
+        $datasocial = $this->socialPage();
         $service = $this->service->getAllService();
         $staff = Staff::GetAll();
-        $this->render('home.service', compact('service', 'staff'));
+        $this->render('home.service', compact('service', 'staff',"datasocial"));
     }
     public function aboutList(){
-        $this->render('home.about');
+        $datasocial = $this->socialPage();
+        $this->render('home.about',compact("datasocial"));
     }
 
     public function booking(){
+        $datasocial = $this->socialPage();
         $servic3 = $this->service->getPostslimit(3);
         $service3s = $this->service->getPostslimit(3);
         $questions = questions::GetAll();
-        $this->render('home.booking',compact("servic3","questions","service3s"));
+        $this->render('home.booking',compact("servic3","questions","service3s","datasocial"));
+    }
+    public function socialPage(){
+        return social::GetAll();
     }
 
 }

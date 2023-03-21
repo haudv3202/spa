@@ -1,71 +1,12 @@
 @extends('layout.index')
-@section('content')
-  <header>
-    <div class="header-menutop-banner">
-      <div class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative">
-        <div class="logo">
-          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
-        </div>
-        <div class="icon-menu-sub-responsive">
-          <button type="button" onclick="iconOpenMenuSubClick()">
-            <i class='bx bx-menu'></i>
-        </div>
-        <div class="menu-oppentime d-flex gap-5">
-          <div class="menu">
-            <ul class="d-flex gap-3">
-              <li><a href="headerHomePage.html">HOME</a></li>
-              <li><a href="About.html">ABOUT US</a></li>
-              <li><a href="ourService.html">SERVICES</a></li>
-              <li class="menu-sub-page">
-                <span class="d-flex align-items-center">PAGE <i class="bx bx-chevron-down"></i></span>
-                <ul class="menu-mini">
-                  <li><a href="ourTeamPage.html">Our Team</a></li>
-                  <li><a href="FaqPage.html">FAQ</a></li>
-                  <li><a href="Booking.html">Booking</a></li>
-                  <li><a href="">404 Page</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="single-blog.html">Single Blog</a></li>
-                </ul>
-              </li>
-              <li><a href="contact.html">CONTACT US</a></li>
-            </ul>
-          </div>
-          <div class="oppentime-icon">
-            <i class="bx bxl-facebook"></i>
-            <i class="bx bxl-instagram"></i>
-            <button type="button" onclick="iconOpenBoxClick()">
-              <i class="bx bx-align-right open-Time"></i>
-            </button>
-            <button type="button" onclick="" class="user-login">
-              <a href="login.html" class="text-black"><i class='bx bx-user-circle'></i></a>
-            </button>
-            <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
-              <img
-                src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80"
-                alt="">
+@section('TitlePage')
+  Đặt lịch
+@endsection
+@section('desribePage')
 
-            </button>
-            <div class="box-fs-account position-absolute">
-              <ul>
-                <li><a href="">Xem thông tin</a></li>
-                <li><a href="">Sửa thông tin</a></li>
-                <li><a href="">Đăng Xuất</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="banner-text-page">
-        <div class="banner-page position-absolute top-0">
-        </div>
-        <div class="text-center-banner">
-          <h1>Booking</h1>
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua</span>
-        </div>
-      </div>
-    </div>
-  </header>
+@endsection
+@section('content')
+  @include("components.header2")
   <main>
     <div class="service-menu">
       <div class="title-service-menu text-center mb-5">
@@ -204,7 +145,7 @@
       </div>
 
     </div>
-
+    @include("components.socialcontact")
   </main>
 @endsection
 

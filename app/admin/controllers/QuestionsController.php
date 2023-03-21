@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\models\contactUs;
 use App\models\insta;
 use App\models\questions;
+use App\models\social;
 
 class QuestionsController extends BaseController
 {
@@ -89,8 +90,9 @@ class QuestionsController extends BaseController
     }
     // giao diện
     public function blogQuestions(){
+        $datasocial = social::GetAll();
         $question = questions::GetAll();
         $instagram = insta::GetAll();
-        $this->render('question.blogQuestion',compact('question','instagram'));
+        $this->render('question.blogQuestion',compact('question','instagram',"datasocial"));
     }
 }

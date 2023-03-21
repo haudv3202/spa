@@ -16,20 +16,20 @@
         </div>
       </div>
       <div class="col"  >
-        <h4  class="pb-3">Support</h4>
+        <h4  class="pb-3">Hỗ trợ</h4>
         <div class="list-support">
           <ul class="list-unstyled">
-            <li><a href="{{route('blog-questions')}}">FAQ's</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Term & Conditions</a></li>
-            <li><a href="{{route('contact')}}">Contact</a></li>
+            <li><a href="{{route('blog-questions')}}">Câu hỏi thường gặp</a></li>
+            <li><a href="">Chính sách bảo mật</a></li>
+            <li><a href="">Điều khoản & dịch vụ</a></li>
+            <li><a href="{{route('contact')}}">Liên hệ với chúng tôi</a></li>
           </ul>
         </div>
       </div>
       <div class="col contact"  >
-        <h4 class="pb-3">Kết nối</h4>
-        <p>Can lộc hà tĩnh</p>
-        <p>Phone : (+62)81 234 567</p>
+        <h4 class="pb-3">Holine</h4>
+        <p>monobovis@gmail.com</p>
+        <p>Email : 090 220 82 16</p>
 
       </div>
       <div class="col" >

@@ -1,72 +1,13 @@
 @extends('layout.index')
-@section('content')
-<header>
-  <div class="header-menutop-banner">
-    <div
-      class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
-    >
-      <div class="logo">
-        <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
-      </div>
-      <div class="icon-menu-sub-responsive">
-        <button type="button" onclick="iconOpenMenuSubClick()">
-          <i class='bx bx-menu'></i>
-      </div>
-      <div class="menu-oppentime d-flex gap-5">
-        <div class="menu">
-          <ul class="d-flex gap-3">
-            <li><a href="{{route('')}}">HOME</a></li>
-            <li><a href="{{route('about-us')}}">ABOUT US</a></li>
-            <li><a href="{{route('service')}}">SERVICES</a></li>
-            <li class="menu-sub-page">
-                    <span class="d-flex align-items-center"
-                    >PAGE <i class="bx bx-chevron-down"></i
-                      ></span>
-              <ul class="menu-mini">
-                <li><a href="{{route('our-team')}}">Our Team</a></li>
-                <li><a href="{{route('faq')}}">FAQ</a></li>
-                <li><a href="{{route('booking')}}">Booking</a></li>
-                <li><a href="{{route('404-page')}}">404 Page</a></li>
-                <li><a href="{{route('blog')}}">Blog</a></li>
-                <li><a href="{{route('single-blog')}}">Single Blog</a></li>
-              </ul>
-            </li>
-            <li><a href="{{route('contact-us')}}">CONTACT US</a></li>
-          </ul>
-        </div>
-        <div class="oppentime-icon">
-          <i class="bx bxl-facebook"></i>
-          <i class="bx bxl-instagram"></i>
-          <button type="button" onclick="iconOpenBoxClick()">
-            <i class="bx bx-align-right open-Time"></i>
-          </button>
-          <button type="button" onclick="" class="user-login">
-            <a href="login.html" class="text-black"><i class='bx bx-user-circle'></i></a>
-          </button>
-          <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
-            <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80" alt="">
+@section('TitlePage')
+  Về chúng tôi
+@endsection
+@section('desribePage')
 
-          </button>
-          <div class="box-fs-account position-absolute">
-            <ul >
-              <li><a href="">Xem thông tin</a></li>
-              <li><a href="">Sửa thông tin</a></li>
-              <li><a href="{{'sign-out'}}">Đăng Xuất</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="banner-text-page">
-      <div class="banner-page position-absolute top-0">
-      </div>
-      <div class="text-center-banner">
-        <h1>Về chúng tôi</h1>
-        <span>Chúng tôi là một thương hiệu spa uy tín với hơn 10 năm kinh nghiệm trong ngành spa và là địa chỉ tin cậy của hàng ngàn khách hàng. Với đội ngũ chuyên viên lành nghề và tâm huyết, chúng tôi cam kết mang đến cho khách hàng những trải nghiệm thư giãn tuyệt vời và giúp họ cải thiện sức khỏe và tinh thần.</span>
-      </div>
-    </div>
-  </div>
-</header>
+@endsection
+
+@section('content')
+  @include("components.header2")
 <main>
   <!-- ==========about us============= -->
   <div class="container ">
@@ -83,9 +24,13 @@
         </div>
       </div>
       <div data-aos="fade-down" data-aos-duration="1500" class="right-about-us col-md-6">
-        <h4 class="text-under-h4-HomePage">Kiến thức</h4>
-        <h2 class="text-title-HomePage">Chúng tôi có kiến thức về Spa</h2>
-        <p class="p-title-Hompage">Chúng tôi là một đội ngũ chuyên viên chăm sóc sức khỏe và làm đẹp chuyên nghiệp với kiến thức sâu sắc và kinh nghiệm trong lĩnh vực spa. Chúng tôi luôn cập nhật kiến thức mới nhất và sử dụng các phương pháp chăm sóc da và làm đẹp tiên tiến nhất để đảm bảo khách hàng của chúng tôi luôn được tận hưởng những dịch vụ spa tốt nhất.
+        <h4 class="text-under-h4-HomePage">SỨ MỆNH</h4>
+        <h2 class="text-title-HomePage">Sứ mệnh của chúng tôi là đánh thức "nét đẹp không cần son phấn" và "cùng bạn xây dựng tương lai"</h2>
+        <p class="p-title-Hompage">"Khách hàng: BOVIS SPA mang đến trải nghiệm dịch vụ thẩm mỹ tiên tiến nhất, đánh thức nét đẹp tiềm ẩn, nhắn nhủ khách hàng hãy yêu thương chính mình bởi vì ""Your beauty is the one - Vẻ đẹp của bạn là duy nhất""
+
+          Nhân viên: BOVIS SPA cam kết đạt được sự tăng trưởng bền vững trong kinh doanh thông qua đội ngũ nhân viên được giao quyền, hành động với tinh thần trách nhiệm và xây dựng lòng tin. Đầu tư vào phát triển kỹ năng chuyên môn và tinh thần nhân viên thông qua việc đào tạo, phát triển từng cá nhân trong công ty.
+
+          Xã hội: BOVIS SPA ra đời và phát triển với sứ mệnh đóng góp cho xã hội bằng cách tạo công ăn việc làm cho những người lao động trong môi trường làm việc lành mạnh, cạnh tranh công bằng và phát triển. Thông qua đó góp phần khích lệ, thúc đẩy phong trào khởi nghiệp cho người trẻ. Hoạt động của tổ chức hướng tới việc cung cấp những sản phẩm, dịch vụ uy tín, chất lượng đến người tiêu dùng."
         </p>
         <div class="item-right-about-us">
           <div class="content-item-right">
@@ -103,7 +48,7 @@
             </div>
           </div>
         </div>
-        <a href="https://www.facebook.com/haudn02"><button class="btn btn-about-us">Tìm hiểu thêm</button></a>
+        <a href="https://www.facebook.com/BovisspaandacademyDN"><button class="btn btn-about-us">Tìm hiểu thêm</button></a>
       </div>
     </div>
   </div>
@@ -114,9 +59,16 @@
         <div class="grid-treatment-price row">
           <div class="left-treatment-price col-md-6" data-aos="fade-up">
             <h4 class="text-under-h4-HomePage">
-              Tại sao lại chọn chúng tôi</h4>
-            <h2 class="text-title-HomePage">Nâng tầm trải nghiệm</h2>
-            <p>Chúng tôi hiểu rõ về cấu trúc và chức năng của da, cũng như các vấn đề liên quan đến da, như mụn, tàn nhang, sẹo và lão hóa. Chúng tôi sử dụng các phương pháp chăm sóc da hiệu quả như liệu pháp oxy hóa, tẩy tế bào chết, massage và thải độc để giúp da khách hàng của chúng tôi trở nên khỏe mạnh và trẻ trung hơn.</p>
+              GIÁ TRỊ CỐT LÕI</h4>
+            <h2 class="text-title-HomePage">"Mono Bovis Spa trung thành với 4 giá trị cốt lõi chính: TÂM - TÍN - THIỆN - TRÍ</h2>
+
+              Tâm: Mono Bovis Spa đặt chữ "Tâm" lên hàng đầu, là gốc rễ cho sự phát triển của công ty.  Chúng tôi duy trì đạo đức nghề nghiệp và xã hội ở tiêu chuẩn cao nhất, đảm bảo mang đến những trải nghiệm dịch vụ hoàn hảo nhất. Lòng trung thành của khách hàng chính là kết quả cuối cùng mà Bovis Spa muốn hướng đến.
+
+              Tín: Cung cấp dịch vụ thẩm mỹ tiên tiến nhất, nỗ lực hết mình trong việc thực hiện hiệu quả những cam kết về chất lượng sản phẩm và dịch vụ. Hơn hết, Bovis Spa hướng đến mục tiêu trở thành nơi khách hàng gửi gắm niềm tin trên con đường chinh phục sắc đẹp của chính mình.
+
+              Thiện: Nỗ lực xây dựng các mối quan hệ với khách hàng, đối tác và đồng nghiệp bằng sự tận tâm, chu đáo và tinh thần nhân văn.  Tích cực đẩy mạnh công tác hỗ trợ khách hàng, xây dựng môi trường làm việc công tâm, thái độ thiện chí trong hợp tác với đối tác.
+
+              Trí: Tích cực đổi mới, sáng tạo, chủ động trong công việc là tinh thần làm việc mà Mono Bovis Spa đề cao hướng đến sự chuyên nghiệp và thành thạo tay nghề ở mọi vị trí công việc.</p>
             <div class="item-right-about-us experience-about-us">
               <div class="content-item-right">
                 <img src="{{route('public/image/like-about-us.png')}}" width="50px" alt="">
@@ -149,7 +101,7 @@
   <div class="container">
     <div class="our-service row">
       <div class="left-our-service col-md-6" data-aos="fade-down">
-        <h4 class="text-under-h4-HomePage">Đội ngũ của chúng tôi</h4>
+        <h4 class="text-under-h4-HomePage">ĐỘI NGŨ NHÂN SỰ</h4>
         <h2 class="text-title-HomePage">Hãy đến để trải nghiệm</h2>
         <p class="p-title-Hompage p-title-about-us">Ngoài ra, chúng tôi cũng rất am hiểu về các dòng sản phẩm và công nghệ chăm sóc da mới nhất trên thị trường. Chúng tôi sử dụng các sản phẩm chăm sóc da chất lượng cao và an toàn để đảm bảo hiệu quả và độ an toàn của các liệu trình spa.</p>
         <a href=""><button class="btn btn-about-us">Tìm hiểu thêm</button></a>
@@ -285,6 +237,7 @@
     </div>
 
   </div>
+  @include("components.socialcontact")
 </main>
 @endsection
 

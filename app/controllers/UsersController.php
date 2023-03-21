@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers;
+namespace App\controllers;
 use App\models\BlogService;
 use App\models\contactUs;
 use App\models\insta;
@@ -7,6 +7,7 @@ use App\models\Staff;
 use App\Models\Users;
 use App\Models\Service;
 use App\Models\Category;
+use App\models\social;
 require_once 'vendor/phpmailer/sendmail.php';
 
 class UsersController extends BaseController
@@ -130,23 +131,22 @@ class UsersController extends BaseController
             header('location:'.route(''));
         }
     }
-    public function updateProfile($id)
-    {
-        $oneAll = Users::findOne($id);
-        $this->render('users.updateProfile', compact('oneAll'));
+
+
+    public function updateProfiles(){
+        $this->render('users.updateProfile');
     }
     public function updateProfilepost($id){
-
+        $oneAll = Users::findOne($id);
         if(isset($_POST["btn-profile"])){
+            $target_dir = "./public/upload/avatar/";
+            $name = time() . $_FILES["image"]["name"];
+            $target_file = $target_dir . $name;
+            $image_old = Users::findOne($id)->image;
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
             $errors = [];
             if (empty($_POST['username'])) {
                 $errors[]  = "Bạn chưa nhập họ và tên";
-            }
-            if (empty($_POST['password'])) {
-                $errors[]  = "Bạn chưa nhập mật khẩu";
-            }
-            if(empty($_POST['newpassword'])){
-                $errors[]  = "Bạn chưa nhập mật khẩu mới";
             }
             if (empty($_POST['sdt'])) {
                 $errors[]  = "Bạn chưa nhập số điện thoại";
@@ -163,90 +163,153 @@ class UsersController extends BaseController
             if (empty($_POST['address'])) {
                 $errors[] = 'Bạn cần nhập tên địa chỉ';
             }
-            if ($_FILES['image']['name'] != '') {
-                $target_dir = "./public/upload/users/";
-                $name = time() . $_FILES["image"]["name"];
-                $target_file = $target_dir . $name;
-                $image_old = Users::findOne($id)->image;
-                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                if (file_exists($target_file)) {
-                    $errors[] = "Sorry, file already exists.";
-                }
+            if(!empty($_POST['password'])){
+                if ($_FILES['image']['name'] != '') {
+                    if (file_exists($target_file)) {
+                        $errors[] = "Sorry, file already exists.";
+                    }
 // Check file size
-                if ($_FILES["image"]["size"] > 500000) {
-                    $errors[] = "Sorry, your file is too large.";
-                }
+                    if ($_FILES["image"]["size"] > 500000) {
+                        $errors[] = "Sorry, your file is too large.";
+                    }
 // Allow certain file formats
-                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                    && $imageFileType != "gif") {
-                    $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                }
-                if (count($errors) > 0) {
-                    redirect('errors', $errors, 'update-profile/' . $id);
-                } else {
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))  {
-                        $create_date = date('Y-m-d H:i a');
-                        $update_date = date('Y-m-d H:i a');
-                        $result = newLetters::updatefind($id, [
-                            "username" => $name,
-                            "password" => $password,
-                            "sdt" => $sdt,
-                            "email" => $email,
-                            "image " => $_FILES['image']['name'] != '',
-                            "address " => $address,
-                            "create_date" => $create_date,
-                            "update_date" => $create_date,
-                        ]);
-                        if (file_exists('./public/upload/users/'.$image_old)) {
-                            unlink('./public/upload/users/'.$image_old);
-                        }
-                        if ($result) {
-                            unset($_SESSION['account']);
-                            $_SESSION['account'] = Users::findOne($id);
-                            redirect('success', "Cập nhật thành công!", 'update-profile/'. $id);
+                    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                        && $imageFileType != "gif") {
+                        $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    }
+                    if (count($errors) > 0) {
+                        redirect('errors', $errors, 'update-profile/' . $id);
+                    } else {
+                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))  {
+                            $create_date = date('Y-m-d H:i a');
+                            $update_date = date('Y-m-d H:i a');
+                            $result = Users::updatefind($id, [
+                                "name" => $_POST['username'],
+                                "password" => $_POST['newpassword'],
+                                "sdt" => $_POST['sdt'],
+                                "email" => $_POST['email'],
+                                "image " => $name,
+                                "address " => $_POST['address'],
+                                "update_date" => $create_date
+                            ]);
+                            if (file_exists('./public/upload/users/'.$image_old)) {
+                                unlink('./public/upload/users/'.$image_old);
+                            }
+                            if ($result) {
+                                unset($_SESSION['account']);
+                                $_SESSION['account'] = Users::findOne($id);
+                                redirect('success', "Cập nhật thành công!", 'update-profile/'. $id);
+                            }
                         }
                     }
+                }else{
+                    date_default_timezone_set("Asia/Ho_Chi_Minh");
+                    $date = date("Y-m-d");
+                    $result = Users::updatefind($id,[
+                        'name' => $_POST['username'],
+                        'password' => $_POST['newpassword'],
+                        'sdt' => $_POST['sdt'],
+                        'email' => $_POST['email'],
+                        'address' => $_POST['address'],
+                        'update_date' => $date
+                    ]);
+                    if ($result) {
+                        unset($_SESSION['account']);
+                        $_SESSION['account'] = Users::findOne($id);
+                        redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
+                    }
                 }
-            }else{
-                date_default_timezone_set("Asia/Ho_Chi_Minh");
-                $date = date("Y-m-d");
-                $result = Users::updatefind($id,[
-                    'name' => $_POST['username'],
-                    'password' => $_POST['newpassword'],
-                    'sdt' => $_POST['sdt'],
-                    'email' => $_POST['email'],
-                    'address' => $_POST['address'],
-                    'update_date' => $date
-                ]);
-                if ($result) {
-                    unset($_SESSION['account']);
-                    $_SESSION['account'] = Users::findOne($id);
-                    redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
+            }else {
+                if ($_FILES['image']['name'] != '') {
+                    if (file_exists($target_file)) {
+                        $errors[] = "Sorry, file already exists.";
+                    }
+// Check file size
+                    if ($_FILES["image"]["size"] > 500000) {
+                        $errors[] = "Sorry, your file is too large.";
+                    }
+// Allow certain file formats
+                    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                        && $imageFileType != "gif") {
+                        $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    }
+                    if (count($errors) > 0) {
+                        redirect('errors', $errors, 'update-profile/' . $id);
+                    } else {
+
+                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))  {
+                            $create_date = date('Y-m-d H:i a');
+                            $update_date = date('Y-m-d H:i a');
+                            $result = Users::updatefind($id, [
+                                "name" => $_POST['username'],
+                                "password" => $oneAll->password,
+                                "sdt" => $_POST['sdt'],
+                                "email" => $_POST['email'],
+                                "image " => $name,
+                                "address " => $_POST['address'],
+                                "update_date" => $create_date
+                            ]);
+                            if (file_exists('./public/upload/users/'.$image_old)) {
+                                unlink('./public/upload/users/'.$image_old);
+                            }
+                            if ($result) {
+                                unset($_SESSION['account']);
+                                $_SESSION['account'] = Users::findOne($id);
+                                redirect('success', "Cập nhật thành công!", 'update-profile/'. $id);
+                            }
+                        }
+                    }
+                }else{
+                    date_default_timezone_set("Asia/Ho_Chi_Minh");
+                    $date = date("Y-m-d");
+                    $result = Users::updatefind($id,[
+                        'name' => $_POST['username'],
+                        'password' =>  $oneAll->password,
+                        'sdt' => $_POST['sdt'],
+                        'email' => $_POST['email'],
+                        'address' => $_POST['address'],
+                        'update_date' => $date
+                    ]);
+                    if ($result) {
+                        unset($_SESSION['account']);
+                        $_SESSION['account'] = Users::findOne($id);
+                        redirect('success', "Cập nhật thành công!", 'update-profile/' . $id);
+                    }
                 }
             }
+
         }
+        $this->render('users.updateProfile',compact("oneAll"));
     }
 
     public function ourTeam(){
+        $datasocial = $this->socialPage();
         $dataAll = Staff::GetAll();
         $instagram = insta::GetAll();
         $posts = $this->blog->getPostslimit(3);
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
         }
-        $this->render('home.ourteam',compact("dataAll","posts","instagram"));
+        $this->render('home.ourteam',compact("dataAll","posts","instagram","datasocial"));
     }
 
     public function detailBlog($id){
+        $datasocial = $this->socialPage();
         $detailPost = BlogService::findOne($id);
         $newBlog = $this->blog->getPostslimit(2);
         $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
         $category = $this->category->getLimit();
-        $this->render('home.detail',compact("detailPost","newBlog","category"));
+        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial"));
     }
 
     public function contact(){
+        $datasocial = $this->socialPage();
         $allcontact = contactUs::GetAll();
-        $this->render('home.contactus',compact("allcontact"));
+        $this->render('home.contactus',compact("allcontact","datasocial"));
+    }
+
+    public function socialPage(){
+        return social::GetAll();
+
     }
 }

@@ -1,77 +1,17 @@
 @extends('layout.index')
-@section('content')
-<header>
-  <div class="header-menutop-banner">
-    <div
-      class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
-    >
-      <div class="logo">
-        <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
-      </div>
-      <div class="icon-menu-sub-responsive">
-        <button type="button" onclick="iconOpenMenuSubClick()">
-          <i class='bx bx-menu'></i>
-      </div>
-      <div class="menu-oppentime d-flex gap-5">
-        <div class="menu">
-          <ul class="d-flex gap-3">
-            <li><a href="{{route('')}}">HOME</a></li>
-            <li><a href="{{route('about-us')}}">ABOUT US</a></li>
-            <li><a href="{{route('service')}}">SERVICES</a></li>
-            <li class="menu-sub-page">
-                    <span class="d-flex align-items-center"
-                    >PAGE <i class="bx bx-chevron-down"></i
-                      ></span>
-              <ul class="menu-mini">
-                <li><a href="{{route('our-team')}}">Our Team</a></li>
-                <li><a href="{{route('faq')}}">FAQ</a></li>
-                <li><a href="{{route('booking')}}">Booking</a></li>
-                <li><a href="{{route('404-page')}}">404 Page</a></li>
-                <li><a href="{{route('blog')}}">Blog</a></li>
-                <li><a href="{{route('single-blog')}}">Single Blog</a></li>
-              </ul>
-            </li>
-            <li><a href="{{route('contact-us')}}">CONTACT US</a></li>
-          </ul>
-        </div>
-        <div class="oppentime-icon">
-          <i class="bx bxl-facebook"></i>
-          <i class="bx bxl-instagram"></i>
-          <button type="button" onclick="iconOpenBoxClick()">
-            <i class="bx bx-align-right open-Time"></i>
-          </button>
-          <button type="button" onclick="" class="user-login">
-            <a href="{{route('sign-in')}}" class="text-black"><i class='bx bx-user-circle'></i></a>
-          </button>
-          <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
-            <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80" alt="">
+@section('TitlePage')
+  Sản phẩm và dịch vụ
+@endsection
+@section('desribePage')
 
-          </button>
-          <div class="box-fs-account position-absolute">
-            <ul >
-              <li><a href="">Xem thông tin</a></li>
-              <li><a href="">Sửa thông tin</a></li>
-              <li><a href="{{route('log-out')}}">Đăng Xuất</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="banner-text-page">
-      <div class="banner-page position-absolute top-0">
-      </div>
-      <div class="text-center-banner">
-        <h1>Dịch vụ</h1>
-        <span>Chúng tôi cung cấp các liệu trình chăm sóc sức khỏe và làm đẹp chuyên nghiệp, được thiết kế để giúp bạn thư giãn và tái tạo năng lượng sau một ngày làm việc mệt nhọc. Với đội ngũ nhân viên có kinh nghiệm và trang thiết bị hiện đại, chúng tôi cam kết mang lại cho bạn một trải nghiệm spa tuyệt vời và đáng nhớ. </span>
-      </div>
-    </div>
-  </div>
-</header>
+@endsection
+@section('content')
+  @include("components.header2")
 <main>
   <!-- ==============Our Service========= -->
   <div class="container">
     <!-- =========text==== -->
-    <div class="our-service row">
+    <div class="our-service row py-5">
       <div class="left-our-service col-md-6" data-aos="fade-down">
         <h4 class="text-under-h4-HomePage">Dịch vụ của chúng tôi</h4>
         <h2 class="text-title-HomePage">Thưởng thức những phút giây thư giãn đích thực!</h2>
@@ -194,5 +134,6 @@
       </div>
     </div>
   </div>
+  @include("components.socialcontact")
 </main>
 @endsection
