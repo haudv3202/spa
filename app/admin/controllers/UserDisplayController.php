@@ -2,7 +2,7 @@
 
 namespace App\admin\controllers;
 
-use App\Controllers\BaseController;
+use App\controllers\BaseController;
 use App\models\contactUs;
 use App\models\insta;
 class UserDisplayController extends BaseController

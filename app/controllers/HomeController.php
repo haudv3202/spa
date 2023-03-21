@@ -3,7 +3,7 @@ namespace App\controllers;
 use App\models\BlogService;
 use App\models\Endow;
 use App\models\questions;
-use App\Models\Service;
+use App\models\Service;
 use App\models\social;
 use App\models\Staff;
 use App\models\settings;

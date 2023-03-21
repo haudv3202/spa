@@ -1,6 +1,6 @@
 <?php
 namespace App\controllers;
-use App\Models\Category;
+use App\models\Category;
 
 class CategoryController extends BaseController{
     protected $category;
