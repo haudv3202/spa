@@ -58,9 +58,8 @@
     <div class="container">
       <div class="row img-banner-homePage ">
         <div data-aos="fade-right" data-aos-duration="1500" class="left-banner-Homepage col-md-6">
-          <h2>Give Your Nails Sweet Treat</h2>
-          <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-            ullamcorper mattis, pulvinar dapibus leo.</p>
+          <h2>{{$banner[0]->title}}</h2>
+          <p>{{$banner[0]->description}}</p>
           <div class="link-left-banner-homePage">
             <a href=""><button class="btn">Book Appointment</button></a>
             <a href=""><button class="btn">Our Service</button></a>
@@ -70,10 +69,10 @@
 
         <div data-aos="fade-up" data-aos-duration="1500" class="right-banner-Homepage col-md-6">
           <div class="image1-banner-homePage">
-            <img src="{{ route('./public/Image/about-us1.jpg') }}" alt="">
+            <img src="{{ route('public/upload/banner/'.$banner[0]->image_1) }}" alt="">
           </div>
           <div class="image2-banner-HomePage">
-            <img src="./public/Image/set-of-manicure-tools-and-accessories-for-hardware-manicure-nail-polish-and-design-on-a-pink.jpg" alt="">
+            <img src="{{route('public/upload/banner/'.$banner[0]->image_2)}}" alt="">
           </div>
         </div>
       </div>
@@ -323,7 +322,7 @@
               </p>
               <div class="form-modal text-center">
 
-                <form id="form-modal-t">
+                <form action="{{route('mockup-post')}}" method="post">
                   <div class="value-form-modal mb-2">
                     <label class="label-model">Họ và tên </label>
                     : <input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
@@ -339,7 +338,7 @@
                     : <input type="text" name="email" placeholder="Nhập email anh/chị" class="input-model" id="email-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
-                  <button class="btn submit-form-modal" name="btn-sm">GỬI THÔNG TIN</button>
+                  <input type="submit" class="btn submit-form-modal" name="btn-sm" value="GỬI THÔNG TIN">
                 </form>
 
               </div>
