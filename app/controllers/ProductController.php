@@ -1,14 +1,12 @@
 <?php
-namespace App\Controllers;
+namespace App\controllers;
 use App\Models\Category;
-use App\Models\Product;
+
 class ProductController extends BaseController
 {
-    protected $product;
     protected $category;
     public function __construct()
     {
-        $this->product = new Product();
         $this->category = new Category();
     }
     public function listProduct()

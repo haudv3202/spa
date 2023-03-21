@@ -1,6 +1,6 @@
 @extends('layout.index')
 @section('TitlePage')
-  Bài viết chi tiết
+  {{ $detailPost->title}}
 @endsection
 @section('desribePage')
 

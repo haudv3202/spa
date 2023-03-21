@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace App\models;
 
 class Category extends BaseModel{
     protected $table = 'categorys';
