@@ -10,5 +10,7 @@
         "illuminate/events": "^10.0",
         "eftec/bladeone": "^4.8",
         "phpmailer/phpmailer": "^6.7"
-    }
+    },
+    "config": {
+        "platform-check": false }
 }

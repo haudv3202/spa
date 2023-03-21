@@ -166,78 +166,20 @@
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-        >
-          <div class="box-insta-bottom">
-            <div class="img">
-              <img src="{{route('public/image/close-up-view-of-female-hand-holding-bottle-of-nai-2021-08-29-12-15-36-utc-e1643346825119.jpg')}}" alt="">
-              <div class="backgrond-hover-image-insta"></div>
-              <div class="icon-insta-follow">
-                <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
+        @foreach($instagram as $value)
+          <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
+          >
+            <div class="box-insta-bottom">
+              <div class="img">
+                <img src="{{route('public/upload/insta/'.$value->link)}}" alt="">
+                <div class="backgrond-hover-image-insta"></div>
+                <div class="icon-insta-follow">
+                  <a class="text-white" href="{{ $value->	link_insta }}"> <i class='bx bxl-instagram fs-1'></i> </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-        >
-          <div class="box-insta-bottom">
-            <div class="img">
-              <img src="{{route('public/image/hands-of-a-woman-with-dark-red-manicure-and-nail-p-2021-08-26-18-28-16-utc-e1643346806313.jpg')}}" alt="">
-              <div class="backgrond-hover-image-insta"></div>
-              <div class="icon-insta-follow">
-                <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-        >
-          <div class="box-insta-bottom">
-            <div class="img">
-              <img src="{{route('public/image/fashion-nails-2021-08-30-08-40-30-utc-e1643346587414.jpg')}}" alt="">
-              <div class="backgrond-hover-image-insta"></div>
-              <div class="icon-insta-follow">
-                <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-        >
-          <div class="box-insta-bottom">
-            <div class="img">
-              <img src="{{route('public/image/beautiful-manicure-on-the-nails-of-a-woman-color-2021-12-09-06-01-35-utc-e1643346615824.jpg')}}" alt="">
-              <div class="backgrond-hover-image-insta"></div>
-              <div class="icon-insta-follow">
-                <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-        >
-          <div class="box-insta-bottom">
-            <div class="img">
-              <img src="{{route('public/image/pastel-nails-2021-08-29-00-59-25-utc-e1643346635604.jpg')}}" alt="">
-              <div class="backgrond-hover-image-insta"></div>
-              <div class="icon-insta-follow">
-                <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
-        >
-          <div class="box-insta-bottom">
-            <div class="img">
-              <img src="{{route('public/image/beautiful-manicure-on-color-palette-background-e1643346460858.jpg')}}" alt="">
-              <div class="backgrond-hover-image-insta"></div>
-              <div class="icon-insta-follow">
-                <a class="text-white" href=""> <i class='bx bxl-instagram fs-1'></i> </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
 
