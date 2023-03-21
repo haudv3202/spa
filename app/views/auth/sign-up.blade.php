@@ -24,6 +24,13 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
 
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          @if(isset($_SESSION['errors']) && isset($_GET['msg']))
+            <ul>
+              @foreach($_SESSION['errors'] as $er)
+                <li style="color: red">{{$er}}</li>
+              @endforeach
+            </ul>
+          @endif
           <form action="{{route('sign-up')}}" method="post" >
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0">Đăng Kí Thành Viên</p>
@@ -33,7 +40,7 @@
               <label class="form-label" for="form3Example3">Tên Tài Khoản</label>
               <input type="text" name="username" class="form-control form-control-lg input-login email-login" id="name-signup"
                      placeholder="Nhập tên đăng nhập" />
-              <small class="error-message"></small>
+              <span class="error-message"></span>
             </div>
             <!-- Email input -->
             <div class="form-outline mb-4">

@@ -132,6 +132,11 @@ $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller
 //$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);\
         $router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
         $router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
+//Banner
+$router->get('manage-banner', [App\admin\controllers\BannerController::class, 'banner']);
+$router->get('edit-banner/{id}', [App\admin\controllers\BannerController::class, 'editBanner']);
+$router->post('edit-banner-post/{id}', [App\admin\controllers\BannerController::class, 'editBannerPost']);
+
     }else {
         $router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
         $router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
