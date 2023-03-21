@@ -33,7 +33,7 @@ class UsersController extends BaseController
                 $err[] = "Bạn chưa nhập password";
             }
             if (empty($_POST['sdt'])) {
-                $err[] = "Bạn chưa nhập sdt";
+                $err[] = "Bạn chưa nhập số điện thoại";
             }
             if (empty($_POST['email'])) {
                 $err[] = "Bạn chưa nhập email";
@@ -110,7 +110,8 @@ class UsersController extends BaseController
           
                     }
                 }else{
-                    redirect('errors', 'Tài khoản không tồn tại','sign-in');
+                    $err[] = 'Tài khoản không tồn tại';
+                    redirect('errors',$err ,'sign-in');
                 }
             }else{
                 redirect('errors', $err, 'sign-in');
