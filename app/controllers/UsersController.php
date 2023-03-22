@@ -29,19 +29,19 @@ class UsersController extends BaseController
         $err = [];
         if (isset($_POST['btn-signup'])) {
             if (empty($_POST['username'])) {
-                $err[] = "Bạn chưa nhập username";
+                $err['user'] = "Bạn chưa nhập username";
             }
             if (empty($_POST['password'])) {
-                $err[] = "Bạn chưa nhập password";
+                $err['pass'] = "Bạn chưa nhập password";
             }
             if (empty($_POST['sdt'])) {
-                $err[] = "Bạn chưa nhập số điện thoại";
+                $err['sdt'] = "Bạn chưa nhập số điện thoại";
             }
             if (empty($_POST['email'])) {
-                $err[] = "Bạn chưa nhập email";
+                $err['email'] = "Bạn chưa nhập email";
             }
             if ($_POST['repass'] != $_POST['password']){
-                $err[] = "Mật khẩu không trùng khớp";
+                $err['repass'] = "Mật khẩu không trùng khớp";
             }
             if (count($err) > 0) {
                 redirect('errors', $err, 'sign-up');
@@ -70,7 +70,7 @@ class UsersController extends BaseController
         if (isset($_POST['btn-forgot'])){
             $errors = [];
             if (empty($_POST['email'])){
-                $errors[] = "Bạn cần nhập email";
+                $errors['email'] = "Bạn cần nhập email";
             }
             if (count($errors) > 0){
                 redirect('errors', $errors, 'forgot');
@@ -112,7 +112,7 @@ class UsersController extends BaseController
           
                     }
                 }else{
-                    $err[] = 'Tài khoản không tồn tại';
+                    $err['account'] = 'Tài khoản không tồn tại';
                     redirect('errors',$err ,'sign-in');
                 }
             }else{
