@@ -1,63 +1,127 @@
 @extends('layout.index')
 @section('content')
-  <header class="header-homePage container-fluid">
-    <div class="header-menutop-banner">
-      <div
-        class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
-      >
-        <div class="logo">
-          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
-        </div>
-        <div class="icon-menu-sub-responsive">
-          <button type="button" onclick="iconOpenMenuSubClick()">
-            <i class='bx bx-menu'></i>
-        </div>
-        <div class="menu-oppentime d-flex gap-5">
-          <div class="menu">
-            <ul class="d-flex gap-4 fs-5">
-              <li><a href="{{route('')}}">Trang chủ</a></li>
-              <li><a href="{{route('about')}}">Giới thiệu</a></li>
-              <li><a href="{{route('service')}}">Dịch vụ</a></li>
-              <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>
-              <li><a href="{{route('booking')}}">Đặt lịch</a></li>
-              <li><a href="{{route('blog')}}">Bài viết</a></li>
-              <li><a href="{{route('contact')}}">Liên hệ</a></li>
-            </ul>
-          </div>
-          <div class="oppentime-icon d-flex align-items-center justify-content-between">
+{{--  <header class="header-homePage container-fluid">--}}
+{{--    <div class="header-menutop-banner">--}}
+{{--      <div--}}
+{{--        class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"--}}
+{{--      >--}}
+{{--        <div class="logo">--}}
+{{--          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />--}}
+{{--        </div>--}}
+{{--        <div class="icon-menu-sub-responsive">--}}
+{{--          <button type="button" onclick="iconOpenMenuSubClick()">--}}
+{{--            <i class='bx bx-menu'></i>--}}
+{{--        </div>--}}
+{{--        <div class="menu-oppentime d-flex gap-5">--}}
+{{--          <div class="menu">--}}
+{{--            <ul class="d-flex gap-4 fs-5">--}}
+{{--              <li><a href="{{route('')}}">Trang chủ</a></li>--}}
+{{--              <li><a href="{{route('about')}}">Giới thiệu</a></li>--}}
+{{--              <li><a href="{{route('service')}}">Dịch vụ</a></li>--}}
+{{--              <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>--}}
+{{--              <li><a href="{{route('booking')}}">Đặt lịch</a></li>--}}
+{{--              <li><a href="{{route('blog')}}">Bài viết</a></li>--}}
+{{--              <li><a href="{{route('contact')}}">Liên hệ</a></li>--}}
+{{--            </ul>--}}
+{{--          </div>--}}
+{{--          <div class="oppentime-icon d-flex align-items-center justify-content-between">--}}
 {{--            <i class="bx bxl-facebook"></i>--}}
 {{--            <i class="bx bxl-instagram"></i>--}}
-            <button type="button"onclick="iconOpenBoxClick()">
-              <i class="bx bx-align-right open-Time"></i>
-            </button>
-            @if(!isset($_SESSION['account']))
-            <button type="button" onclick="" class="user-login ms-2">
-              <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>
-            </button>
-            @else
-              @if($_SESSION['account']->role_id == 1)
-            <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">
-              <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
+{{--            <button type="button"onclick="iconOpenBoxClick()">--}}
+{{--              <i class="bx bx-align-right open-Time"></i>--}}
+{{--            </button>--}}
+{{--            @if(!isset($_SESSION['account']))--}}
+{{--            <button type="button" onclick="" class="user-login ms-2">--}}
+{{--              <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>--}}
+{{--            </button>--}}
+{{--            @else--}}
+{{--              @if($_SESSION['account']->role_id == 1)--}}
+{{--            <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">--}}
+{{--              <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">--}}
+{{--        <div class="header-menutop-banner">--}}
+{{--          <div--}}
+{{--            class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"--}}
+{{--          >--}}
+{{--            <div class="oppentime-icon">--}}
+{{--              <button type="button" class="user-login p-2">--}}
+{{--                <a href="{{route('sign-in')}}" class="text-white text-decoration-none d-flex align-items-center gap-2"><i class='bx bx-user-circle'></i>Đăng Nhập</a>--}}
+{{--              </button>--}}
+{{--              <button type="button" onclick="" class="user-account position-relative d-none" >--}}
+{{--                <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">--}}
+{{--              </button>--}}
+{{--              <div class="box-fs-account box-fs-account-home position-absolute">--}}
+{{--                <ul >--}}
+{{--                  <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>--}}
+{{--                  <li><a href="{{route('sign-out')}}">Đăng Xuất</a></li>--}}
+{{--                </ul>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--            <div class="logo">--}}
+{{--              <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" alt="" />--}}
+{{--            </div>--}}
+{{--            <div class="email-sdt">--}}
+{{--              <div class="email">--}}
+{{--                <p><i class='bx bxs-envelope' ></i>Email: monobovis@gmail.com</p>--}}
+{{--              </div>--}}
+{{--              <div class="sdt">--}}
+{{--                <p><i class='bx bxs-phone'></i>Host line: 090.220.8216</p>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--            <div class="icon-menu-sub-responsive">--}}
+{{--              <button type="button" onclick="iconOpenMenuSubClick()">--}}
+{{--                <i class='bx bx-menu'></i>--}}
+{{--            </div>--}}
+{{--              @else--}}
+{{--                <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">--}}
+{{--                  <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">--}}
+
+{{--                  <p class="mb-0 ms-2 fs-5">{{ $_SESSION['account']->name }} </p>--}}
+{{--                </button>--}}
+{{--                <div class="box-fs-account box-fs-account-home position-absolute">--}}
+{{--                  <ul >--}}
+{{--                    <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>--}}
+{{--                    <li><a href="{{route('user')}}">Vào trang quản trị</a></li>--}}
+{{--                    <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>--}}
+{{--                  </ul>--}}
+{{--                </div>--}}
+{{--              @endif--}}
+{{--            @endif--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
+
+{{--    <div class="">--}}
+{{--      <div class="img-banner-homePage">--}}
+{{--        <img src="{{route('public/Image/banner-Hompage-new.png')}}" width="100%" alt="">--}}
+{{--      </div>--}}
+{{--    </div>--}}
+{{--  </header>--}}
+  <header class="header-homePage container-fluid">
+    <div class="box-header-form">
+      <div class="box-navbar-top">
+
         <div class="header-menutop-banner">
           <div
             class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
           >
             <div class="oppentime-icon">
               <button type="button" class="user-login p-2">
-                <a href="{{route('sign-in')}}" class="text-white text-decoration-none d-flex align-items-center gap-2"><i class='bx bx-user-circle'></i>Đăng Nhập</a>
+                <a href="login.html" class="text-white text-decoration-none d-flex align-items-center gap-2"><i class='bx bx-user-circle'></i>Đăng Nhập</a>
               </button>
               <button type="button" onclick="" class="user-account position-relative d-none" >
                 <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
               </button>
               <div class="box-fs-account box-fs-account-home position-absolute">
                 <ul >
-                  <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
-                  <li><a href="{{route('sign-out')}}">Đăng Xuất</a></li>
+                  <li><a href="">Xem thông tin</a></li>
+                  <li><a href="editUser.html">Sửa thông tin</a></li>
+                  <li><a href="">Đăng Xuất</a></li>
                 </ul>
               </div>
             </div>
             <div class="logo">
-              <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" alt="" />
+              <img src="{{route('./public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
             </div>
             <div class="email-sdt">
               <div class="email">
@@ -71,28 +135,13 @@
               <button type="button" onclick="iconOpenMenuSubClick()">
                 <i class='bx bx-menu'></i>
             </div>
-              @else
-                <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">
-                  <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
-
-                  <p class="mb-0 ms-2 fs-5">{{ $_SESSION['account']->name }} </p>
-                </button>
-                <div class="box-fs-account box-fs-account-home position-absolute">
-                  <ul >
-                    <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
-                    <li><a href="{{route('user')}}">Vào trang quản trị</a></li>
-                    <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
-                  </ul>
-                </div>
-              @endif
-            @endif
           </div>
         </div>
         <div class="menu-oppentime ">
           <div class="menu container pb-3">
             <ul class="d-flex gap-2 d-flex gap-3 align-items-center justify-content-around ">
-              <li><a href="{{route('')}}">Trang Chủ</a></li>
-              <li><a href="{{route('about')}}">Về Chúng Tôi</a></li>
+              <li><a href="headerHomePage.html">Trang Chủ</a></li>
+              <li><a href="About.html">Về Chúng Tôi</a></li>
               <li class="categosies-dv position-relative"><span>Dịch Vụ</span>
                 <ul class="position-absolute ul-box-categories-service row">
                   <div class="box-ul col">
@@ -143,9 +192,9 @@
                 </ul>
               </li>
               <li class="menu-sub-page">Cẩm nang bổ ích</li>
-              <li><a href="{{route('')}}">Trải Nghiệm khách hàng</a></li>
-              <li><a href="{{route('')}}">Chính sách</a></li>
-              <li><a href="{{route('')}}">Liên Hệ</a></li>
+              <li><a href="contact.html">Trải Nghiệm khách hàng</a></li>
+              <li><a href="contact.html">Chính sách</a></li>
+              <li><a href="contact.html">Liên Hệ</a></li>
             </ul>
           </div>
 
@@ -155,7 +204,7 @@
 
     <div class="">
       <div class="img-banner-homePage">
-        <img src="{{route('public/Image/banner-Hompage-new.png')}}" width="100%" alt="">
+        <img src="../src/Image/banner-Hompage-new.png" width="100%" alt="">
       </div>
     </div>
   </header>
