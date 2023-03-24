@@ -85,6 +85,8 @@ class boostrap extends BaseModel
         }
         $data[] = $id;
         $sql .= "WHERE $namekey = ?";
+//        var_dump($datas);
+//        die();
         $model->setQuery($sql);
         return $model->execute($data);
     }
