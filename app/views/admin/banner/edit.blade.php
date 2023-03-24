@@ -89,22 +89,6 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-6">
-                      <div class="card card-default card-md mb-4">
-                        <div class="card-header  py-20">
-                          <h6>Image</h6>
-                        </div>
-                        <div class="card-body">
-                          <div class="dm-tag-wrap">
-                            <div class="dm-upload">
-                              <div class="dm-upload__button">
-                                <input name="upload2" type="file" >
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <div class="form-group">
                       <label
                         for="a9"

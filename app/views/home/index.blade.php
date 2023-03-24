@@ -144,8 +144,8 @@
               </li>
               <li class="menu-sub-page">Cẩm nang bổ ích</li>
               <li><a href="{{route('')}}">Trải Nghiệm khách hàng</a></li>
-              <li><a href="{{route('')}}">Chính sách</a></li>
-              <li><a href="{{route('')}}">Liên Hệ</a></li>
+              <li><a href="{{route('policy')}}">Chính sách</a></li>
+              <li><a href="{{route('contact')}}">Liên Hệ</a></li>
             </ul>
           </div>
 
@@ -155,7 +155,7 @@
 
     <div class="">
       <div class="img-banner-homePage">
-        <img src="{{route('public/Image/banner-Hompage-new.png')}}" width="100%" alt="">
+        <img src="{{route('public/upload/banner/'.$banner[0]->image)}}" width="100%" alt="">
       </div>
     </div>
   </header>
@@ -432,10 +432,10 @@
               </p>
               <div class="form-modal text-center">
 
-                <form id="form-modal-t">
+                <form action="{{route('mockup-post')}}" method="post">
                   <div class="value-form-modal mb-2">
                     <label class="label-model">Họ và tên </label>
-                    : <input type="text" name="name" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
+                    : <input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
                   <div class="value-form-modal">
@@ -444,7 +444,7 @@
                     <small class="error-message m-auto pt-3"></small>
                   </div>
 
-                  <button class="btn submit-form-modal">GỬI THÔNG TIN</button>
+                  <input type="submit" name="btn-sm" class="btn submit-form-modal" value="GỬI THÔNG TIN">
                 </form>
 
               </div>
