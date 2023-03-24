@@ -59,9 +59,6 @@ class HomeController extends BaseController{
             if (empty($_POST['fullname'])){
                 $errors[] = 'Không được bỏ trống tên';
             }
-            if (empty($_POST['email'])){
-                $errors[] = 'Không được bỏ trống email';
-            }
             if (empty($_POST['phone'])){
                 $errors[] = 'Không được bỏ trống số điện thoại';
             }
@@ -74,7 +71,6 @@ class HomeController extends BaseController{
                 $result = Endow::addItems([
                     'id' => NULL,
                     'name' => $_POST['fullname'],
-                    'email' => $_POST['email'],
                     'phone' => $_POST['phone'],
                     'create_time' => $date,
                 ]);
@@ -105,6 +101,12 @@ class HomeController extends BaseController{
     }
     public function socialPage(){
         return social::GetAll();
+    }
+    public function policy(){
+        $this->render('home.policy');
+    }
+    public function terms(){
+        $this->render('home.terms');
     }
 
     public function serviceHeader(){

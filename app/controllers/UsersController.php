@@ -1,5 +1,6 @@
 <?php
 namespace App\controllers;
+use App\models\Banner;
 use App\models\BlogService;
 use App\models\contactUs;
 use App\models\insta;
@@ -110,7 +111,7 @@ class UsersController extends BaseController
                         header('location: '.route('user'));
                     }else{
                         header('location: '.route(''));
-          
+
                     }
                 }else{
                     $err[] = 'Tài khoản không tồn tại';
@@ -143,13 +144,14 @@ class UsersController extends BaseController
     public function updateProfilepost($id){
         $oneAll = Users::findOne($id);
         $ranks =  rankmember::GetAll();
-            $rank_name = "vô hạng";
-            foreach($ranks as $group) {
-                if($oneAll->total_price >= $group->total) {
-                    $rank_name = $group->name;
-                }
+        $rank_name = "vô hạng";
+        foreach($ranks as $group) {
+            if($oneAll->total_price >= $group->total) {
+                $rank_name = $group->name;
             }
+        }
         $oneAll->rank = $rank_name;
+
 
         if(isset($_POST["btn-profile"])){
             $target_dir = "./public/upload/avatar/";
@@ -166,9 +168,6 @@ class UsersController extends BaseController
             }
             if (empty($_POST['email'])) {
                 $errors[]  = "Bạn chưa nhập email";
-            }
-            if (empty($_POST['sdt'])) {
-                $errors[] = 'Bạn cần nhập tên số điẹn thoại';
             }
             if (empty($_POST['email'])) {
                 $errors[] = 'Bạn cần nhập tên email';
@@ -194,7 +193,6 @@ class UsersController extends BaseController
                         redirect('errors', $errors, 'update-profile/' . $id);
                     } else {
                         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))  {
-                            $create_date = date('Y-m-d H:i a');
                             $update_date = date('Y-m-d H:i a');
                             $result = Users::updatefind($id, [
                                 "name" => $_POST['username'],
@@ -203,10 +201,10 @@ class UsersController extends BaseController
                                 "email" => $_POST['email'],
                                 "image " => $name,
                                 "address " => $_POST['address'],
-                                "update_date" => $create_date
+                                "update_date" => $update_date
                             ]);
-                            if (file_exists('./public/upload/users/'.$image_old)) {
-                                unlink('./public/upload/users/'.$image_old);
+                            if (file_exists('./public/upload/avatar/'.$image_old)) {
+                                unlink('./public/upload/avatar/'.$image_old);
                             }
                             if ($result) {
                                 unset($_SESSION['account']);
@@ -251,8 +249,7 @@ class UsersController extends BaseController
                     } else {
 
                         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))  {
-                            $create_date = date('Y-m-d H:i a');
-                            $update_date = date('Y-m-d H:i a');
+                            $update_date = date('Y-m-d');
                             $result = Users::updatefind($id, [
                                 "name" => $_POST['username'],
                                 "password" => $oneAll->password,
@@ -260,10 +257,10 @@ class UsersController extends BaseController
                                 "email" => $_POST['email'],
                                 "image " => $name,
                                 "address " => $_POST['address'],
-                                "update_date" => $create_date
+                                "update_date" => $update_date
                             ]);
-                            if (file_exists('./public/upload/users/'.$image_old)) {
-                                unlink('./public/upload/users/'.$image_old);
+                            if (file_exists('./public/upload/avatar/'.$image_old)) {
+                                unlink('./public/upload/avatar/'.$image_old);
                             }
                             if ($result) {
                                 unset($_SESSION['account']);

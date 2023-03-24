@@ -31,10 +31,7 @@
                         <span class="userDatatable-title">Tiêu đề</span>
                       </th>
                       <th>
-                        <span class="userDatatable-title">Ảnh 1</span>
-                      </th>
-                      <th>
-                        <span class="userDatatable-title">Ảnh 2</span>
+                        <span class="userDatatable-title">Ảnh</span>
                       </th>
                       <th>
                         <span class="userDatatable-title">Mô tả</span>
@@ -59,13 +56,10 @@
                         </td>
                         <td>
                           <div class="userDatatable-content">
-                            <img src="{{route('public/upload/banner/'.$value->image_1)}}" alt="" class="rounded" width="50">
+                            <img src="{{route('public/upload/banner/'.$value->image)}}" alt="" class="rounded" width="50">
                           </div>
                         </td>
                         <td>
-                          <div class="userDatatable-content">
-                            <img src="{{route('public/upload/banner/'.$value->image_2)}}" alt="" class="rounded" width="50">
-                          </div>
                         </td>
                         <td>
                           <div class="userDatatable-content">

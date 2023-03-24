@@ -4,7 +4,7 @@
     <div class="row pt-4 row-footer" >
 
       <div class="col" >
-        <img src="{{ route('/public/Image/photo_2023-03-10_10-33-00.png') }}" alt="" >
+        <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" alt="" >
         <p> Mono Bovis luôn đồng hành <br>cùng vẻ đẹp của bạn</p>
         <div class="link-icon">
           <ul class="list-unstyled d-flex">
@@ -19,10 +19,10 @@
         <h4  class="pb-3">Hỗ trợ</h4>
         <div class="list-support">
           <ul class="list-unstyled">
-            <li><a href="">Hỏi đáp</a></li>
-            <li><a href="">Chính sách bảo mật</a></li>
-            <li><a href="">Điều khoản & Điều kiện</a></li>
-            <li><a href="">Liên hệ</a></li>
+            <li><a href="{{route('')}}">Hỏi đáp</a></li>
+            <li><a href="{{route('policy')}}">Chính sách bảo mật</a></li>
+            <li><a href="{{route('terms')}}">Điều khoản & Điều kiện</a></li>
+            <li><a href="{{route('')}}">Liên hệ</a></li>
           </ul>
         </div>
       </div>
