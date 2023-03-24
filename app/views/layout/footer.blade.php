@@ -4,8 +4,8 @@
     <div class="row pt-4 row-footer" >
 
       <div class="col" >
-        <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" >
-        <p style="font-style: italic;"> Trải nghiệm tinh hoa làm đẹp từ MONO BOVIS SPA - Chăm sóc cho vẻ đẹp tỏa sáng</p>
+        <img src="../src/Image/photo_2023-03-10_10-33-00.png" alt="" >
+        <p> Mono Bovis luôn đồng hành <br>cùng vẻ đẹp của bạn</p>
         <div class="link-icon">
           <ul class="list-unstyled d-flex">
             <li><a href=""><i class='bx bxl-facebook'></i></a></li>
@@ -19,25 +19,25 @@
         <h4  class="pb-3">Hỗ trợ</h4>
         <div class="list-support">
           <ul class="list-unstyled">
-            <li><a href="{{route('blog-questions')}}">Câu hỏi thường gặp</a></li>
+            <li><a href="">Hỏi đáp</a></li>
             <li><a href="">Chính sách bảo mật</a></li>
-            <li><a href="">Điều khoản & dịch vụ</a></li>
-            <li><a href="{{route('contact')}}">Liên hệ với chúng tôi</a></li>
+            <li><a href="">Điều khoản & Điều kiện</a></li>
+            <li><a href="">Liên hệ</a></li>
           </ul>
         </div>
       </div>
       <div class="col contact"  >
-        <h4 class="pb-3">Holine</h4>
-        <p>monobovis@gmail.com</p>
-        <p>Email : 090 220 82 16</p>
+        <h4 class="pb-3">Liên hệ</h4>
+        <p>Trịnh Văn Bô - Nam Từ Liêm - Hà nội</p>
+        <p>Phone : (+62)81 234 567</p>
 
       </div>
       <div class="col" >
         <!-- form subcribe -->
         <form action="">
-          <h4  class="pb-3">Theo dõi bản tin</h4>
+          <h4  class="pb-3">Theo dõi tin tức mới nhất</h4>
           <div class="box-input-email d-flex">
-            <input type="text" placeholder="Your email"><button>Đăng kí</button>
+            <input type="text" placeholder="Your email"><button>Subscribe</button>
           </div>
         </form>
 
@@ -49,15 +49,11 @@
   </div>
   <div class="coppyright   container" >
     <div class="text-left">
-      <p>&copy;Copyright 2023 © Monobovis. All Rights Reserved.
+      <p>Thư giãn tuyệt đỉnh cùng dịch vụ Spa chất lượng cao
       </p>
-      <div class="d-flex justify-content-center">
-        <img src="./public/Image/logoBoCongThuong.png" width="150" alt="">
-      </div>
     </div>
     <div class="text-right">
       <p> &copy; Đội ngũ hỗ trợ <a href="https://www.facebook.com/haudn02" class="text-decoration-none text-black">CodeCrafters</a> </p>
     </div>
-
   </div>
 </footer>

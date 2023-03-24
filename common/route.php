@@ -132,7 +132,7 @@ if (isset($_SESSION['account'])){
 //$router->get('list-user', [App\Controllers\UsersController::class, 'index']);
 
 //xóa chi tiết chi tiết thanh toán
-        $router->get('delete-detail-user/{id}/{backpage}', [App\admin\controllers\UsersControlller::class, 'deleteServiceUser']);
+        $router->get('delete-detail-user/{id}/{backpage}', [UsersControlller::class, 'deleteServiceUser']);
 //quản lí loại khách
         $router->get('list-rank', [rankMemberController::class, 'index']);
         $router->get('delete-rank/{id}', [rankMemberController::class, 'deleteRank']);
@@ -141,8 +141,8 @@ if (isset($_SESSION['account'])){
         $router->get('edit-rank/{id}', [rankMemberController::class, 'editRank']);
         $router->post('edit-rank/{id}', [rankMemberController::class, 'editRank']);
 //update profile admin
-        $router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
-        $router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
+        $router->get('edit-profile/{id}',[UsersControlller::class,'editProfile']);
+        $router->post('update-profile-post/{id}',[UsersControlller::class,'updateProfile']);
 //update profile admin
 //$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
 //$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);\

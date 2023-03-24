@@ -1,10 +1,8 @@
 <header>
   <div class="header-menutop-banner">
-    <div
-      class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
-    >
+    <div class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative">
       <div class="logo">
-        <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
+        <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" alt="" />
       </div>
       <div class="icon-menu-sub-responsive">
         <button type="button" onclick="iconOpenMenuSubClick()">
@@ -12,13 +10,21 @@
       </div>
       <div class="menu-oppentime d-flex gap-5">
         <div class="menu">
-          <ul class="d-flex gap-5">
-            <li><a href="{{route('')}}">Trang chủ</a></li>
-            <li><a href="{{route('about')}}">Giới thiệu</a></li>
-            <li><a href="{{route('service')}}">Dịch vụ</a></li>
-            <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>
-            <li><a href="{{route('booking')}}">Đặt lịch</a></li>
-            <li><a href="{{route('blog')}}">Bài viết</a></li>
+          <ul class="d-flex gap-3">
+            <li><a href="{{route('')}}">Trang Chủ</a></li>
+            <li><a href="{{route('about')}}">Về Chúng Tôi</a></li>
+            <li><a href="{{route('service')}}">Dịch Vụ</a></li>
+            <li class="menu-sub-page">
+              <span class="d-flex align-items-center">Trang <i class="bx bx-chevron-down"></i></span>
+              <ul class="menu-mini">
+                <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>
+                <li><a href="{{route('')}}">Câu hỏi thường gặp</a></li>
+                <li><a href="{{route('booking')}}">Lịch hẹn</a></li>
+                <li><a href="{{route('')}}">404 Page</a></li>
+                <li><a href="{{route('blog')}}">Tin tức</a></li>
+                <li><a href="{{route('')}}">Tin tức chi tiết </a></li>
+              </ul>
+            </li>
             <li><a href="{{route('contact')}}">Liên hệ</a></li>
           </ul>
         </div>
@@ -64,8 +70,9 @@
       <div class="banner-page position-absolute top-0">
       </div>
       <div class="text-center-banner">
-        <h1>@yield('TitlePage')</h1>
-        <span>@yield('desribePage')</span>
+        <h1>Về Chúng Tôi</h1>
+        <span>Các dịch vụ Spa cao cấp để giúp bạn thư giãn và tìm lại sự cân bằng trong cuộc sống, dịch vụ của chúng
+              tôi sẽ có ích với bạn .</span>
       </div>
     </div>
   </div>

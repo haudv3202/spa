@@ -1,10 +1,8 @@
 <header>
  <div class="header-menutop-banner">
- <div
- class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
- >
+ <div class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative">
  <div class="logo">
- <img src="<?php echo \htmlentities(route('public/image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" />
+ <img src="<?php echo \htmlentities(route('public/Image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" />
  </div>
  <div class="icon-menu-sub-responsive">
  <button type="button" onclick="iconOpenMenuSubClick()">
@@ -12,13 +10,21 @@
  </div>
  <div class="menu-oppentime d-flex gap-5">
  <div class="menu">
- <ul class="d-flex gap-5">
- <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">Trang chủ</a></li>
- <li><a href="<?php echo \htmlentities(route('about')??'', ENT_QUOTES, 'UTF-8', false); ?>">Giới thiệu</a></li>
- <li><a href="<?php echo \htmlentities(route('service')??'', ENT_QUOTES, 'UTF-8', false); ?>">Dịch vụ</a></li>
+ <ul class="d-flex gap-3">
+ <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">Trang Chủ</a></li>
+ <li><a href="<?php echo \htmlentities(route('about')??'', ENT_QUOTES, 'UTF-8', false); ?>">Về Chúng Tôi</a></li>
+ <li><a href="<?php echo \htmlentities(route('service')??'', ENT_QUOTES, 'UTF-8', false); ?>">Dịch Vụ</a></li>
+ <li class="menu-sub-page">
+ <span class="d-flex align-items-center">Trang <i class="bx bx-chevron-down"></i></span>
+ <ul class="menu-mini">
  <li><a href="<?php echo \htmlentities(route('ourTeam')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đội ngũ</a></li>
- <li><a href="<?php echo \htmlentities(route('booking')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đặt lịch</a></li>
- <li><a href="<?php echo \htmlentities(route('blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Bài viết</a></li>
+ <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">Câu hỏi thường gặp</a></li>
+ <li><a href="<?php echo \htmlentities(route('booking')??'', ENT_QUOTES, 'UTF-8', false); ?>">Lịch hẹn</a></li>
+ <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">404 Page</a></li>
+ <li><a href="<?php echo \htmlentities(route('blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Tin tức</a></li>
+ <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">Tin tức chi tiết </a></li>
+ </ul>
+ </li>
  <li><a href="<?php echo \htmlentities(route('contact')??'', ENT_QUOTES, 'UTF-8', false); ?>">Liên hệ</a></li>
  </ul>
  </div>
@@ -28,20 +34,23 @@
  <button type="button" onclick="iconOpenBoxClick()">
  <i class="bx bx-align-right open-Time"></i>
  </button>
- <?php if(!isset($_SESSION['account'])): ?>
  <button type="button" onclick="" class="user-login">
- <a href="<?php echo \htmlentities(route("sign-in")??'', ENT_QUOTES, 'UTF-8', false); ?>" class="text-black"><i class='bx bx-user-circle'></i></a>
+ <a href="login.html" class="text-black"><i class='bx bx-user-circle'></i></a>
  </button>
  <?php else: ?>
 
  <?php if($_SESSION['account']->role_id == 1): ?>
  <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
- <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
+ <img
+ src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80"
+ alt="">
+
  </button>
- <div class="box-fs-account box-fs-account-home position-absolute">
- <ul >
- <li><a href="<?php echo \htmlentities(route('update-profile/'.$_SESSION['account']->id)??'', ENT_QUOTES, 'UTF-8', false); ?>">Xem thông tin</a></li>
- <li><a href="<?php echo \htmlentities(route('sign-out')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đăng Xuất</a></li>
+ <div class="box-fs-account position-absolute">
+ <ul>
+ <li><a href="">Xem thông tin</a></li>
+ <li><a href="">Sửa thông tin</a></li>
+ <li><a href="">Đăng Xuất</a></li>
  </ul>
  </div>
  <?php else: ?>
@@ -56,7 +65,6 @@
  </ul>
  </div>
  <?php endif; ?>
- <?php endif; ?>
  </div>
  </div>
  </div>
@@ -64,8 +72,9 @@
  <div class="banner-page position-absolute top-0">
  </div>
  <div class="text-center-banner">
- <h1><?php echo $this->yieldContent('TitlePage'); ?></h1>
- <span><?php echo $this->yieldContent('desribePage'); ?></span>
+ <h1>Về Chúng Tôi</h1>
+ <span>Các dịch vụ Spa cao cấp để giúp bạn thư giãn và tìm lại sự cân bằng trong cuộc sống, dịch vụ của chúng
+ tôi sẽ có ích với bạn .</span>
  </div>
  </div>
  </div>

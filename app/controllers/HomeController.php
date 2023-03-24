@@ -38,11 +38,11 @@ class HomeController extends BaseController{
         $service3 = $this->service->getPostslimit(3);
         $instagram = insta::GetAll();
         $content = [];
-        $content["title-about"] = settings::findString("review","title-about")->titler;
-        $content["desribe-about"] = settings::findString("review","desribe-about")->titler;
-        $content["desribe-service"] = settings::findString("review","desribe-service")->titler;
-        $content["desribe-blog"] = settings::findString("review","desribe-blog")->titler;
-        $content["image-abouts"] = settings::findStrings("review","image-about","titler");
+//        $content["title-about"] = settings::findString("review","title-about")->titler;
+////        $content["desribe-about"] = settings::findString("review","desribe-about")->titler;
+////        $content["desribe-service"] = settings::findString("review","desribe-service")->titler;
+////        $content["desribe-blog"] = settings::findString("review","desribe-blog")->titler;
+////        $content["image-abouts"] = settings::findStrings("review","image-about","titler");
         $posts = $this->blog->getPostslimit(3);
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
