@@ -1,5 +1,6 @@
 <?php
 use Phroute\Phroute\RouteCollector;
+use Phroute\Phroute\Dispatcher;
 use App\admin\controllers\HomeController;
 use App\Controllers\AuthController;
 use App\admin\controllers\UserDisplayController;
@@ -21,7 +22,6 @@ use App\admin\controllers\UsersControlller;
 use App\controllers\UsersController as user;
 use App\controllers\NewlettersController;
 use App\controllers\HomeController as homeuser;
-
 //use App\controllers\homeController;
 $url = !isset($_GET['url']) ? "/" : $_GET['url'];
 
@@ -160,7 +160,7 @@ if (isset($_SESSION['account'])){
 }
 
 //login -register
-$router->get('home', [homeuser::class, 'index']);
+//$router->get('home', [homeuser::class, 'index']);
 $router->get('sign-in', [user::class, 'index']);
 $router->post('sign-in', [user::class, 'index']);
 $router->get('sign-up',[user::class,'signup']);
@@ -179,6 +179,7 @@ $router->get('contact',[user::class,'contact']);
 //Client
 //Home Monospa
 $router->get('/',[homeuser::class,'homeList']);
+$router->get('home',[homeuser::class,'homeList']);
 $router->get('service',[homeuser::class,'serviceList']);
 $router->get('about',[homeuser::class,'aboutList']);
 $router->get('booking',[homeuser::class,'booking']);

@@ -86,37 +86,44 @@
   </div>
   <div class="menu menu-responsive">
     <ul>
-      <li><a href="headerHomePage.html">HOME</a></li>
-      <li><a href="About.html">ABOUT US</a></li>
-      <li><a href="ourService.html">SERVICES</a></li>
-      <li class="menu-sub-page-respon">
-                    <span class="d-flex align-items-center justify-content-between pe-1 mb-1"
-                    >PAGE <i class="bx bx-chevron-down"></i
-                      ></span>
-        <ul class="menu-mini-respon">
-          <li><a href="ourTeamPage.html">Our Team</a></li>
-          <li><a href="FaqPage.html">FAQ</a></li>
-          <li><a href="Booking.html">Booking</a></li>
-          <li><a href="">404 Page</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="single-blog.html">Single Blog</a></li>
+      <li><a href="{{route('')}}">Trang chủ</a></li>
+      <li><a href="{{route('about')}}">Giới thiệu</a></li>
+      <li><a href="{{route('service')}}">Dịch vụ</a></li>
+      <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>
+      <li><a href="{{route('booking')}}">Đặt lịch</a></li>
+      <li><a href="{{route('blog')}}">Bài viết</a></li>
+      <li><a href="{{route('contact')}}">Liên hệ</a></li>
         </ul>
-      </li>
-      <li><a href="contact.html">CONTACT US</a></li>
-      <li class="pe-3">  <button type="button" onclick="" class="user-login-responsive w-100">
-          <a href="login.html" class="text-white border-0 d-flex align-items-center gap-3 p-2"><i class='bx bx-user-circle'></i> Đăng Nhập</a>
+    @if(!isset($_SESSION['account']))
+      <li class="pe-3" style="list-style:none;">  <button type="button" onclick="" class="user-login-responsive w-100">
+          <a href="{{ route("sign-in") }}" class="text-white border-0 d-flex align-items-center gap-3 p-2"><i class='bx bx-user-circle'></i> Đăng Nhập</a>
         </button></li>
-      <li class="user-account pe-3">
+    @else
+      @if($_SESSION['account']->role_id == 1)
+      <li class="user-account pe-3 " style="list-style: none;">
         <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">
-          <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80" alt="">
-          <span class="fs-5">Lê Sỹ Hải</span>
+          <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
+          <span class="fs-5">{{ $_SESSION['account']->name }}</span>
         </button>
         <ul class="box-fs-account-responsive">
-          <li><a href="">Xem thông tin</a></li>
-          <li><a href="">Sửa thông tin</a></li>
-          <li><a href="">Đăng Xuất</a></li>
+          <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">{{ $_SESSION['account']->role_id }}</a></li>
+          <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+          <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
         </ul></li>
-    </ul>
+      @else
+        <li class="user-account pe-3 " style="list-style: none;">
+          <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">
+            <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
+            <span class="fs-5">{{ $_SESSION['account']->name }}</span>
+          </button>
+          <ul class="box-fs-account-responsive">
+            <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+            <li><a href="{{route('user')}}">Vào trang quản trị</a></li>
+            <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
+          </ul></li>
+      @endif
+    @endif
+
   </div>
 </div>
 @stack("mockup")

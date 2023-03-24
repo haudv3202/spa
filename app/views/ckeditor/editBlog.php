@@ -1,7 +1,9 @@
 <?php
 require_once '../../../env.php';
+require_once '../../../vendor/autoload.php';
+use App\models\questions;
 if(isset($_FILES['upload']['name'])){
-  $target_dir = "../../../public/upload/questions/";
+  $target_dir = "../../../public/upload/blogSv/";
   $name = time() .$_FILES["upload"]["name"];
   $target_file = $target_dir . $name;
   $uploadOk = 1;
@@ -14,14 +16,18 @@ if(isset($_FILES['upload']['name'])){
     $uploadOk = 0;
   }else {
     move_uploaded_file($_FILES["upload"]["tmp_name"],$target_file);
+    $img_old = questions::findOne($id)->image;
+    if(file_exists('./public/upload/blogSv/' .$img_old)){
+      unlink('./public/upload/blogSv/' .$img_old);
+    }
     $funcNum = $_GET['CKEditorFuncNum'] ;
     $CKEditor = $_GET['CKEditor'] ;
     $langCode = $_GET['langCode'] ;
-    $url = 'public/upload/questions/'.$name;
+    $url= '../public/upload/blogSv/' .$name;
     $message = '';
-    echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '$url', '$message');</script>";
+    echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('$funcNum', '$url', '$message');</script>";
     echo "<script>
-        alert('upload thành công')
+        alert('Upload thành công')
     </script>";
   }
 

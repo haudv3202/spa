@@ -172,16 +172,16 @@
                         </div>
                       </td>
                       <td>
-                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                          <li>
+                        <ul class="orderDatatable_actions mb-0 d-flex justify-content-between">
+                          <li class="me-2">
                             <button class="btn btn-info btn-default btn-squared" onclick="location.href='{{route('detail-blog-service/'.$bl->id)}}'">Detail
                             </button>
                           </li>
-                          <li>
+                          <li class="me-2">
                             <button class="btn btn-warning btn-default btn-squared" onclick="location.href='{{route('edit-blog-service/'.$bl->id)}}'">Edit
                             </button>
                           </li>
-                          <li>
+                          <li class="me-2">
                             <button onclick="deletItem({{ $bl->id}})" class="btn btn-danger btn-default btn-squared" >Delete
                             </button>
                           </li>
