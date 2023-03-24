@@ -210,13 +210,42 @@ class BlogServiceController extends BaseController
         $service = $this->service->getAllService();
         $category = $this->category->getAllCategory();
         $blog = BlogService::GetAll();
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
         $index = 0;
         if (count($blog) < 6){
             $index = count($blog);
         }else{
             $index = 6;
         }
-        $this->render('blog.blogClient', compact('blog','index', 'service', 'category',"datasocial"));
+        $this->render('blog.blogClient', compact('blog','index', 'service', 'category',"datasocial","allService","allServiceEnd"));
+    }
+
+    public function blogServiceDetail($id){
+        $datasocial = social::GetAll();
+        $service = $this->service->getAllService();
+        $category = $this->category->getAllCategory();
+        $blogs = BlogService::findAllColumn($id,"id_service");
+        foreach($blogs as $value){
+            $value->name_service =  $this->service->getDetailService($id)->name;
+        }
+
+        $nameservice = $this->service->getDetailService($id)->name;
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('home.blogService', compact('blogs','nameservice', 'service', 'category',"datasocial","allService","allServiceEnd"));
     }
 }
 ?>

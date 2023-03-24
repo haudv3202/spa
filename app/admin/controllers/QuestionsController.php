@@ -3,13 +3,21 @@
 namespace App\admin\controllers;
 
 use App\controllers\BaseController;
+use App\models\Category;
 use App\models\contactUs;
 use App\models\insta;
 use App\models\questions;
+use App\models\Service;
 use App\models\social;
 
 class QuestionsController extends BaseController
 {
+    protected $service;
+    protected $category;
+    public function __construct() {
+        $this->service = new Service();
+        $this->category = new Category();
+    }
     public function index(){
         $questions = questions::GetAll();
         $this->render('admin.UserDisplay.questions.listQuestions',compact('questions'));
@@ -93,6 +101,14 @@ class QuestionsController extends BaseController
         $datasocial = social::GetAll();
         $question = questions::GetAll();
         $instagram = insta::GetAll();
-        $this->render('question.blogQuestion',compact('question','instagram',"datasocial"));
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('question.blogQuestion',compact('question','instagram',"datasocial","allService","allServiceEnd"));
     }
 }

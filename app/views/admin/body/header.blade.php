@@ -3,8 +3,8 @@
     <div class="navbar-left">
       <div class="logo-area">
         <a class="navbar-brand" href="index.html">
-          <img class="dark" src="{{route(''.'app/views/admin/public/assets/img/logo-dark.png')}}" alt="logo">
-          <img class="light" src="{{route(''.'app/views/admin/public/assets/img/logo-white.png')}}" alt="logo">
+          <img class="dark" src="{{route('./public/Image/photo_2023-03-10_10-33-00.png')}}" style="width: 100px;height: 100px;object-fit: contain;" alt="logo">
+          <img class="light" src="{{route('./public/Image/photo_2023-03-10_10-33-00.png')}}" alt="logo">
         </a>
         <a href="#" class="sidebar-toggle">
           <img class="svg" src="{{route(''.'app/views/admin/public/assets/img/svg/align-center-alt.svg')}}" alt="img"></a>

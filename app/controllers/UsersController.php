@@ -17,6 +17,7 @@ class UsersController extends BaseController
     protected $blog;
     protected $category;
     protected $email;
+    protected $service;
     public function __construct()
     {
         $this->user = new Users();
@@ -307,15 +308,31 @@ class UsersController extends BaseController
         $datasocial = $this->socialPage();
         $detailPost = BlogService::findOne($id);
         $newBlog = $this->blog->getPostslimit(2);
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
         $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
         $category = $this->category->getLimit();
-        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial"));
+        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial","allService","allServiceEnd"));
     }
 
     public function contact(){
         $datasocial = $this->socialPage();
         $allcontact = contactUs::GetAll();
-        $this->render('home.contactus',compact("allcontact","datasocial"));
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('home.contactus',compact("allcontact","datasocial","allService","allServiceEnd"));
     }
 
     public function socialPage(){

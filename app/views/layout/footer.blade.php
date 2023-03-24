@@ -22,7 +22,7 @@
             <li><a href="{{route('')}}">Hỏi đáp</a></li>
             <li><a href="{{route('policy')}}">Chính sách bảo mật</a></li>
             <li><a href="{{route('terms')}}">Điều khoản & Điều kiện</a></li>
-            <li><a href="{{route('')}}">Liên hệ</a></li>
+            <li><a href="{{route('contact')}}">Liên hệ</a></li>
           </ul>
         </div>
       </div>
