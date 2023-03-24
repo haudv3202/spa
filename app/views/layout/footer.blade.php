@@ -4,7 +4,7 @@
     <div class="row pt-4 row-footer" >
 
       <div class="col" >
-        <img src="../src/Image/photo_2023-03-10_10-33-00.png" alt="" >
+        <img src="{{ route('/public/Image/photo_2023-03-10_10-33-00.png') }}" alt="" >
         <p> Mono Bovis luôn đồng hành <br>cùng vẻ đẹp của bạn</p>
         <div class="link-icon">
           <ul class="list-unstyled d-flex">

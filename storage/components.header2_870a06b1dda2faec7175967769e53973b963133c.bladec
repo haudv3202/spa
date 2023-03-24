@@ -37,7 +37,6 @@
  <button type="button" onclick="" class="user-login">
  <a href="login.html" class="text-black"><i class='bx bx-user-circle'></i></a>
  </button>
- <?php else: ?>
 
  <?php if($_SESSION['account']->role_id == 1): ?>
  <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">

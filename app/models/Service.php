@@ -8,6 +8,11 @@ class Service extends BaseModel {
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+    public function getAllServicename($id){
+        $sql = "SELECT name FROM $this->table WHERE id_cate = '$id'";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
     public function getAllService(){
         $sql = "SELECT * FROM $this->table";
         $this->setQuery($sql);

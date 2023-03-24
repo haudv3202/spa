@@ -56,22 +56,23 @@
 .user-account {
     bottom: 10% !important;
     padding: 0 !important;
+    border: none;
+    border-radius:50%;
 }
 
 .user-account>img,
 .user-account button>img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     padding-top: 0 !important;
 }
 
 .box-fs-account {
-    right: 1%;
-    top: 70%;
+    left: 0;
+    top: 80%;
     overflow: hidden;
     height: 0;
-    transition: 0.3s;
 }
 
 .box-fs-account-home {
@@ -79,8 +80,8 @@
 }
 
 .click-box-fs-account {
-    height: 200px !important;
-    transition: 0.3s;
+    height: auto !important;
+    border-radius: 10px;
 }
 
 .box-fs-account ul {
@@ -88,13 +89,12 @@
     background-color: rgba(248, 248, 230, 0.888);
     background-color: white;
     padding: 5px 10px;
-    border-radius: 10px;
 }
 
 .box-fs-account ul li {
     transition: 0.4s;
-    border-radius: 5px;
     padding: 10px;
+    border-radius:10px;
 }
 
 .box-fs-account ul li:hover {
