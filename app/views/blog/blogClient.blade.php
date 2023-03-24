@@ -27,7 +27,7 @@ Bài viết
 
               </div>
               <div class="box-text py-4">
-                <a href="{{route('blog-detail/'.$blog[$i]->id)}}"><h3>{{$blog[$i]->title}}</h3></a>
+                <a href="{{route('detail/'.$blog[$i]->id)}}"><h3>{{$blog[$i]->title}}</h3></a>
                 <p>{{$blog[$i]->description}}
                 </p>
               </div>

@@ -1,9 +1,43 @@
 @extends('layout.index')
 @section('content')
   <header class="header-homePage container-fluid">
-    <div class="box-header-form">
-      <div class="box-navbar-top">
-
+    <div class="header-menutop-banner">
+      <div
+        class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
+      >
+        <div class="logo">
+          <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" alt="" />
+        </div>
+        <div class="icon-menu-sub-responsive">
+          <button type="button" onclick="iconOpenMenuSubClick()">
+            <i class='bx bx-menu'></i>
+        </div>
+        <div class="menu-oppentime d-flex gap-5">
+          <div class="menu">
+            <ul class="d-flex gap-4 fs-5">
+              <li><a href="{{route('')}}">Trang chủ</a></li>
+              <li><a href="{{route('about')}}">Giới thiệu</a></li>
+              <li><a href="{{route('service')}}">Dịch vụ</a></li>
+              <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>
+              <li><a href="{{route('booking')}}">Đặt lịch</a></li>
+              <li><a href="{{route('blog')}}">Bài viết</a></li>
+              <li><a href="{{route('contact')}}">Liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="oppentime-icon d-flex align-items-center justify-content-between">
+{{--            <i class="bx bxl-facebook"></i>--}}
+{{--            <i class="bx bxl-instagram"></i>--}}
+            <button type="button"onclick="iconOpenBoxClick()">
+              <i class="bx bx-align-right open-Time"></i>
+            </button>
+            @if(!isset($_SESSION['account']))
+            <button type="button" onclick="" class="user-login ms-2">
+              <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>
+            </button>
+            @else
+              @if($_SESSION['account']->role_id == 1)
+            <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">
+              <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
         <div class="header-menutop-banner">
           <div
             class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
@@ -37,6 +71,21 @@
               <button type="button" onclick="iconOpenMenuSubClick()">
                 <i class='bx bx-menu'></i>
             </div>
+              @else
+                <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">
+                  <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
+
+                  <p class="mb-0 ms-2 fs-5">{{ $_SESSION['account']->name }} </p>
+                </button>
+                <div class="box-fs-account box-fs-account-home position-absolute">
+                  <ul >
+                    <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+                    <li><a href="{{route('user')}}">Vào trang quản trị</a></li>
+                    <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
+                  </ul>
+                </div>
+              @endif
+            @endif
           </div>
         </div>
         <div class="menu-oppentime ">
