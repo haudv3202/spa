@@ -35,6 +35,7 @@
               <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>
             </button>
             @else
+              @if($_SESSION['account']->role_id == 1)
             <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">
               <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
 
@@ -46,7 +47,20 @@
                               <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
                             </ul>
             </div>
+              @else
+                <button type="button" onclick="" class="user-account ms-2 position-relative d-flex align-items-center justify-content-between" onclick="iconOpenBoxClick()">
+                  <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
 
+                  <p class="mb-0 ms-2 fs-5">{{ $_SESSION['account']->name }} </p>
+                </button>
+                <div class="box-fs-account box-fs-account-home position-absolute">
+                  <ul >
+                    <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+                    <li><a href="{{route('user')}}">Vào trang quản trị</a></li>
+                    <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
+                  </ul>
+                </div>
+              @endif
             @endif
           </div>
         </div>

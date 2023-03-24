@@ -99,15 +99,29 @@
           <a href="{{ route("sign-in") }}" class="text-white border-0 d-flex align-items-center gap-3 p-2"><i class='bx bx-user-circle'></i> Đăng Nhập</a>
         </button></li>
     @else
+      @if($_SESSION['account']->role_id == 1)
       <li class="user-account pe-3 " style="list-style: none;">
         <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">
-          <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80" alt="">
+          <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
           <span class="fs-5">{{ $_SESSION['account']->name }}</span>
         </button>
         <ul class="box-fs-account-responsive">
+          <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">{{ $_SESSION['account']->role_id }}</a></li>
           <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
           <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
         </ul></li>
+      @else
+        <li class="user-account pe-3 " style="list-style: none;">
+          <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">
+            <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
+            <span class="fs-5">{{ $_SESSION['account']->name }}</span>
+          </button>
+          <ul class="box-fs-account-responsive">
+            <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+            <li><a href="{{route('user')}}">Vào trang quản trị</a></li>
+            <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
+          </ul></li>
+      @endif
     @endif
 
   </div>

@@ -18,7 +18,7 @@
                 <li class="nav-item">
                   <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
                      href="#v-pills-home" role="tab" aria-selected="true">
-                    <img src="{{route('app/views/admin/public/assets/img/svg/user.svg')}}" alt="user" class="svg">personal info</a>
+                    <img src="{{route('./public/upload/avatar/avatar_default.jpg')}}" alt="user" class="svg">personal info</a>
                 </li>
 
               </ul>

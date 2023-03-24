@@ -17,7 +17,7 @@ if(isset($_FILES['upload']['name'])){
     $funcNum = $_GET['CKEditorFuncNum'] ;
     $CKEditor = $_GET['CKEditor'] ;
     $langCode = $_GET['langCode'] ;
-    $url = 'public/upload/questions/'.$name;
+    $url = '../public/upload/questions/'.$name;
     $message = '';
     echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '$url', '$message');</script>";
     echo "<script>

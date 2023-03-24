@@ -1,18 +1,16 @@
 <!doctype html>
-<html lang="en" dir="ltr">
-
-<!-- Mirrored from demo.dashboardmarket.com/hexadash-html/ltr/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2023 10:47:07 GMT -->
+<html lang="vi" dir="ltr">
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>HexaDash</title>
+ <title>Quản trị</title>
  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
  <?php echo $this->runChild('admin.body.css'); ?>;
  <?php echo $this->yieldPushContent('styles'); ?>;
  <?php echo $this->yieldPushContent('head-script'); ?>;
 </head>
-<body class="layout-light side-menu">
+<body class="layout-light side-menu ">
 <div class="mobile-search">
  <form action="https://demo.dashboardmarket.com/" class="search-form">
  <img src="<?php echo \htmlentities(route(''.'app/views/admin/public/assets/img/svg/search.svg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="search" class="svg">
@@ -20,11 +18,11 @@
  </form>
 </div>
 <div class="mobile-author-actions"></div>
-<?php echo $this->runChild('admin.body.header'); ?>;
+<?php echo $this->runChild('admin.body.header'); ?>
 <main class="main-content">
- <?php echo $this->runChild('admin.body.slibar'); ?>;
+ <?php echo $this->runChild('admin.body.slibar'); ?>
  <?php echo $this->yieldContent('content'); ?>;
- <?php echo $this->runChild('admin.body.footer'); ?>;
+ <?php echo $this->runChild('admin.body.footer'); ?>
 </main>
 <div id="overlayer">
  <div class="loader-overlay">
@@ -108,8 +106,8 @@
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgYKHZB_QKKLWfIRaYPCadza3nhTAbv7c"></script>
 
-<?php echo $this->runChild('admin.body.js'); ?>;
-<?php echo $this->yieldPushContent('scripts'); ?>;
+<?php echo $this->runChild('admin.body.js'); ?>
+<?php echo $this->yieldPushContent('scripts'); ?>
 </body>
 
 <!-- Mirrored from demo.dashboardmarket.com/hexadash-html/ltr/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2023 10:48:03 GMT -->

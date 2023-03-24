@@ -33,15 +33,29 @@
               <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>
             </button>
           @else
-            <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
-              <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
-            </button>
-            <div class="box-fs-account box-fs-account-home position-absolute">
-              <ul >
-                <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
-                <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
-              </ul>
-            </div>
+
+            @if($_SESSION['account']->role_id == 1)
+              <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
+                <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
+              </button>
+              <div class="box-fs-account box-fs-account-home position-absolute">
+                <ul >
+                  <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+                  <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
+                </ul>
+              </div>
+            @else
+              <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
+                <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
+              </button>
+              <div class="box-fs-account box-fs-account-home position-absolute">
+                <ul >
+                  <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
+                  <li><a href="{{route('user')}}">Vào trang quản trị</a></li>
+                  <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
+                </ul>
+              </div>
+            @endif
           @endif
         </div>
       </div>

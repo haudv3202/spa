@@ -27,7 +27,7 @@ class Users extends boostrap {
         return $this->loadAllRows();
     }
     public function addUser($name,$password,$sdt,$email,$image,$address,$role_id){
-        $sql="INSERT INTO $this->table VALUES(NULL,'$name','$password','$sdt','$email','$image',0,'$address','$role_id',current_timestamp(),current_timestamp())";
+        $sql="INSERT INTO $this->table VALUES(NULL,'$name','$password','$sdt','$email','$image',0,'$address','$role_id',current_timestamp())";
         echo $sql;
         $this->setQuery($sql);
         return $this->execute();
