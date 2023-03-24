@@ -13,7 +13,7 @@
       <!-- =========text==== -->
       <div class="our-service row">
         <div class="left-our-service col-md-6" data-aos="fade-down">
-          <h4 class="text-under-h4-HomePage">Our Service</h4>
+          <h4 class="text-under-h4-HomePage">Dịch vụ của chúng tôi</h4>
           <h2 class="text-title-HomePage">Make Gorgeous Nails A Part of Your Life.</h2>
         </div>
         <div class="right-our-service col-md-6 margin-our-service" data-aos="fade-up">
@@ -95,20 +95,21 @@
         <div class="col-md-8 right-row-form-service">
           <h3 class="text-center">ĐĂNG KÝ NGAY NHẬN QUÀ LIỀN TAY</h3>
           <p class="text-center">Để lại thông tin Mono Bovis Spa sẽ gửi ngay quà cho bạn</p>
+          <form action="{{route('mockup-post')}}" method="post">
           <table>
             <tr>
               <th>Họ và tên:</th>
-              <td><input type="text"></td>
+              <td><input type="text" name="fullname"></td>
             </tr>
             <tr>
               <th>Số điện thoại </th>
-              <td><input type="text"></td>
+              <td><input type="text" name="phone"></td>
             </tr>
             <tr>
-              <th>Email</th>
-              <td><input type="text"></td>
+              <th><input type="submit" name="btn-sm" class="btn btn-ourSerVice" value="Đăng Ký Ngay"></th>
             </tr>
           </table>
+          </form>
         </div>
       </div>
     </div>
