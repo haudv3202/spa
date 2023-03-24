@@ -16,6 +16,13 @@
     font-family: "Cardo", serif;
 }
 
+.icon-contact .call-icon {
+    background: #fff;
+    box-shadow: 0 0 5px 0;
+    border-radius: 50%;
+    margin: 10px 0;
+    padding: 8px;
+}
 /* Menu sub reposive  */
 .menu-sub-responsive {
     background-color: #f7f5f2;
@@ -1570,7 +1577,7 @@ footer .box-input-email button {
 }
 
 .text-item-image-service {
-    width: 50%;
+    width: 80%;
     right: 0;
     left: 0;
     margin: 0 auto;
@@ -1580,6 +1587,7 @@ footer .box-input-email button {
     bottom: -80px;
     text-align: center;
     transition: 0.2s linear;
+    border-radius: 5px;
 }
 
 .text-item-image-service:hover {
@@ -1736,12 +1744,14 @@ footer .box-input-email button {
     line-height: 60px;
     border-radius: 50%;
     margin: 0 20px 0 0;
+    object-fit: cover;
 }
 
 .text-user-vote p:nth-child(1) {
     color: #f7730f;
     font-weight: bold;
     font-size: 20px;
+    margin-bottom: 5px;
 }
 
 /* ============working-hour======= */
@@ -1997,7 +2007,7 @@ footer .box-input-email button {
 
 /*BLOG---------------*/
 .blog-page-box {
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 /*
@@ -2146,7 +2156,7 @@ span {
 /* categories */
 .box-right .categories-list a {
     text-decoration: none;
-    color: rgb(11, 18, 72);
+    color: #000;
     font-weight: bold;
     font-size: 20px;
 }
@@ -2173,7 +2183,7 @@ span {
     color: brown;
 }
 .categories-list {
-    max-height: 0;
+    max-height: auto;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
 }
@@ -2761,21 +2771,17 @@ main {
 .instagram-icon-contact img,
 .bxs-phone-call {
     width: 50px;
-    animation: icon 0.5s infinite;
+    animation: icon 1.2s infinite;
     cursor: pointer;
 }
 
 @keyframes icon {
     0% {
-        transform: rotate(-20deg);
-    }
-
-    50% {
-        transform: rotate(20deg);
+        transform: scale(0.8);
     }
 
     100% {
-        transform: rotate(-20deg);
+        transform: scale(1.2);
     }
 }
 

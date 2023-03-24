@@ -8,10 +8,16 @@
 @section('content')
   @include("components.header2")
   <main>
+
     <div class="blog-page-box ">
 
       <!-- contact -->
       <div class="contact-information container pt-3">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-center my-5">LIÊN HỆ VỚI CHÚNG TÔI</h2>
+          </div>
+        </div>
         <div class="row d-flex">
           <div class="col-md-4 pt-3">
             <div class="contact-information-text p-5 text-center">
@@ -42,6 +48,7 @@
 
       </div>
     </div>
+    @include("components.socialcontact")
   </main>
 
   <div class="make-appointment-contact mt-5">

@@ -10,12 +10,12 @@ class Category extends BaseModel{
     }
 
     public function getAllCategoryName(){
-        $sql = "SELECT id,name FROM $this->table LIMIT 4";
+        $sql = "SELECT id,name FROM $this->table LIMIT 3";
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
     public function getAllCategoryNameEnd(){
-        $sql = "SELECT id,name FROM $this->table ORDER BY id LIMIT 20 OFFSET 4; ";
+        $sql = "SELECT id,name FROM $this->table ORDER BY id LIMIT 20 OFFSET 3; ";
         $this->setQuery($sql);
         return $this->loadAllRows();
     }

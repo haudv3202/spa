@@ -1,8 +1,8 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $this->startSection('content'); ?>
-<header class="header-homePage container-fluid">
+ <header class="header-homePage container-fluid">
  <div class="box-header-form">
- <div class="box-navbar-top">
+ <div class="box-navbar-top shadow">
 
  <div class="header-menutop-banner">
  <div
@@ -14,19 +14,29 @@
  <a href="<?php echo \htmlentities(route('sign-in')??'', ENT_QUOTES, 'UTF-8', false); ?>" class="text-white text-decoration-none d-flex align-items-center gap-2"><i class='bx bx-user-circle'></i>Đăng Nhập</a>
  </button>
  <?php else: ?>
- <button type="button" onclick="" class="user-account position-relative" >
+ <button type="button" onclick="" class="user-account position-relative " >
  <img src="./public/upload/avatar/<?php echo \htmlentities($_SESSION['account']->image??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
  </button>
+ <?php if($_SESSION['account']->role_id == 1): ?>
  <div class="box-fs-account box-fs-account-home position-absolute shadow-lg">
  <ul class="mb-0">
  <li><a href="<?php echo \htmlentities(route('update-profile/'.$_SESSION['account']->id)??'', ENT_QUOTES, 'UTF-8', false); ?>">Xem thông tin</a></li>
  <li><a href="<?php echo \htmlentities(route('sign-out')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đăng Xuất</a></li>
  </ul>
  </div>
+ <?php else: ?>
+ <div class="box-fs-account box-fs-account-home position-absolute shadow-lg">
+ <ul class="mb-0">
+ <li><a href="<?php echo \htmlentities(route('user')??'', ENT_QUOTES, 'UTF-8', false); ?>">Vào trang Quản trị</a></li>
+ <li><a href="<?php echo \htmlentities(route('update-profile/'.$_SESSION['account']->id)??'', ENT_QUOTES, 'UTF-8', false); ?>">Xem thông tin</a></li>
+ <li><a href="<?php echo \htmlentities(route('sign-out')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đăng Xuất</a></li>
+ </ul>
+ </div>
+ <?php endif; ?>
  <?php endif; ?>
  </div>
- <div class="logo">
- <img src="<?php echo \htmlentities(route('public/Image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" />
+ <div class="logo" style="transform: translateX(30%);">
+ <a href="<?php echo \htmlentities(route('home')??'', ENT_QUOTES, 'UTF-8', false); ?>"> <img src="<?php echo \htmlentities(route('public/Image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" /></a>
  </div>
  <div class="email-sdt">
  <div class="email">
@@ -49,19 +59,18 @@
  <li><a href="<?php echo \htmlentities(route('about')??'', ENT_QUOTES, 'UTF-8', false); ?>">Về Chúng Tôi</a></li>
  <li class="categosies-dv position-relative"><span>Dịch Vụ</span>
  <ul class="position-absolute ul-box-categories-service row">
- <div class="box-ul col">
+ <div class="box-ul col ">
  <?php $__currentLoopData = $allService; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>
  <li class="text-title-li" ><span class="d-flex align-items-center gap-2"><i class='bx bxs-checkbox'></i><a href=""><?php echo \htmlentities($value->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></span>
  <ul>
  <?php $__currentLoopData = $value->service; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $valueService): $loop = $this->incrementLoopIndices();  ?>
- <li><a href=""><?php echo \htmlentities($valueService->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></li>
+ <li><a href="<?php echo \htmlentities(route('serviceDetail/' . $value->id)??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($valueService->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></li>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </ul>
  </li>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
-
  </div>
  <div class="box-ul col">
  <?php $__currentLoopData = $allServiceEnd; $this->addLoop($__currentLoopData);$this->getFirstLoop();
@@ -70,16 +79,17 @@
  <ul>
  <?php $__currentLoopData = $value->service; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $valueService): $loop = $this->incrementLoopIndices();  ?>
- <li><a href=""><?php echo \htmlentities($valueService->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></li>
+ <li><a href="<?php echo \htmlentities(route('serviceDetail/' . $value->id)??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($valueService->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></li>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </ul>
  </li>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </div>
+
  </ul>
  </li>
- <li class="menu-sub-page">Cẩm nang bổ ích</li>
- <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">Trải Nghiệm khách hàng</a></li>
+ <li class="menu-sub-page"><a href="<?php echo \htmlentities(route('blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Cẩm nang bổ ích</a></li>
+ <li><a href="<?php echo \htmlentities(route('blog-questions')??'', ENT_QUOTES, 'UTF-8', false); ?>">Trải Nghiệm khách hàng</a></li>
  <li><a href="<?php echo \htmlentities(route('policy')??'', ENT_QUOTES, 'UTF-8', false); ?>">Chính sách</a></li>
  <li><a href="<?php echo \htmlentities(route('contact')??'', ENT_QUOTES, 'UTF-8', false); ?>">Liên Hệ</a></li>
  </ul>
@@ -91,10 +101,10 @@
 
  <div class="">
  <div class="img-banner-homePage">
- <img src="<?php echo \htmlentities(route('public/upload/banner/'.$banner[0]->image)??'', ENT_QUOTES, 'UTF-8', false); ?>" width="100%" alt="">
+ <img src="<?php echo \htmlentities(route('public/Image/banner-Hompage-new.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="100%" alt="">
  </div>
  </div>
-</header>
+ </header>
  <main>
 
  <!-- =======About Us=========== -->
@@ -157,10 +167,10 @@
  <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
  width="95%" alt="">
 
- <div class="text-item-image-service">
+ <div class="text-item-image-service shadow-lg">
  <h4><?php echo \htmlentities($value->name??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
  <p><?php echo \htmlentities($value->description??'', ENT_QUOTES, 'UTF-8', false); ?></p>
- <a href="https://www.facebook.com/haudn02"><button class="btn btn-book-service">Xem thêm <i class='bx bx-right-arrow-alt'
+ <a href="<?php echo \htmlentities(route("service")??'', ENT_QUOTES, 'UTF-8', false); ?>"><button class="btn btn-book-service">Xem thêm <i class='bx bx-right-arrow-alt'
  undefined></i></button></a>
  </div>
 
@@ -168,7 +178,7 @@
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </div>
  <div class="container text-read-more">
- <a href="<?php echo \htmlentities(route('blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">  <h5 class="text-center">Xem Thêm ></h5></a>
+ <a href="<?php echo \htmlentities(route('service')??'', ENT_QUOTES, 'UTF-8', false); ?>">  <h5 class="text-center">Xem Thêm ></h5></a>
  </div>
  </div>
 
@@ -177,7 +187,7 @@
  <div class="reason" data-aos="fade-up">
  <div class="container-fluid">
  <div class="container" >
- <h4 class="text-under-h4-HomePage update-h4-testmional h4-reason">LÝ DO BẠN NÊN LỰA CHỌN CHÚNG TA</h4>
+ <h4 class="text-under-h4-HomePage update-h4-testmional h4-reason">LÝ DO BẠN NÊN LỰA CHỌN CHÚNG TÔI</h4>
  <p class="text-p-Homepage p-reason">Đến với BOVIS SPA, khách hàng sẽ được trải ngiệm dịch vụ hoàn hảo và đội ngũ chăm sóc khách hàng tận tình. Cam kết giúp bạn thực hiện ước mơ tìm đến vẻ đẹp hoàn mỹ</P>
  <div class="option-reason row">
  <div class=" col-md-4">
@@ -228,8 +238,7 @@
  <div class="text-infor-testminal text-center" data-aos="zoom-in-down">
  <h4 class="text-under-h4-HomePage update-h4-testmional">PHẢN HỒI</h4>
  <h2 class="text-title-HomePage">Khách hàng nói gì?</h2>
- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
- labore et dolore magna aliqua.</p>
+ <p>Hãy cùng nghe khách hàng nói gì khi đến hệ thống của chúng tôi </p>
  </div>
  <div class="testimonial-row row">
  <div class="left-testimonial col-md-6" data-aos="zoom-in-right">
@@ -248,7 +257,7 @@
  <img src="<?php echo \htmlentities(route('public/Image/about-us1.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
  <div class="text-user-vote">
  <p>Chị Mạnh Cường</p>
- <p>40 tuổi</p>
+ <p style="margin-left: 10px;">40 tuổi</p>
  </div>
  </div>
  </div>
@@ -312,24 +321,27 @@
  <!-- =======follow our ig============= -->
  <div class="follow-our-instagram">
  <div class="title-follow-our-instagram text-center mt-5 mb-5 container">
- <span>Theo dõi tại Instagram</span>
+ <span>HÌNH ẢNH THỰC TẾ</span>
  <p class="hr-insta"></p>
- <h2>@naylish.insta</h2>
  </div>
  <div class="container-fluid">
  <div class="row">
  <?php $__currentLoopData = $instagram; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>
- <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up">
+ <div class="col-md-4 col-sm-4 col-6 mb-4" data-aos="fade-up">
  <div class="box-insta-bottom">
  <div class="img">
  <img src="<?php echo \htmlentities(route('public/upload/insta/'.$value->link)??'', ENT_QUOTES, 'UTF-8', false); ?>"
  alt="">
  <div class="backgrond-hover-image-insta"></div>
- <div class="icon-insta-follow">
- <a class="text-white" href="<?php echo \htmlentities($value->	link_insta??'', ENT_QUOTES, 'UTF-8', false); ?>"> <i class='bx bxl-instagram fs-1'></i> </a>
+ <div class="icon-insta-follow" style="margin-left: 1.1em;">
+ <a class="text-white" href="<?php echo \htmlentities($value->	link_insta??'', ENT_QUOTES, 'UTF-8', false); ?>"> <i class='bx bx-show fs-1'></i></a>
+ </div>
+ <div class="item__title p-3">
+ <p>Chị V.Anh (27 tuổi – Nội trợ) Đã tìm lại làn da mịn màng sau liệu trình trị mụn chuyên sâu tại spa</p>
  </div>
  </div>
+
  </div>
  </div>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
@@ -337,21 +349,7 @@
  </div>
 
  </div>
- <div class="container-fluid">
- <div class="icon-contact">
- <div class="call-icon-contact">
- <a href="tel:0775.292.262"> <i class='bx bxs-phone-call' style='color:#056b27' ></i></a>
- </div>
- <div class="zalo-icon-contact">
- <a href="https://zalo.me/g/wvqqdq686"> <img src="https://img.icons8.com/color/256/zalo.png" alt=""></a>
- </div>
- <div class="instagram-icon-contact">
- <a href="https://www.facebook.com/messages/t/cuong.dev.8123/"> <img src="https://img.icons8.com/fluency/256/facebook-messenger--v2.png"  alt=""></a>
- </div>
- </div>
-
- </div>
-
+ <?php echo $this->runChild("components.socialcontact"); ?>
  </main>
 <?php $this->stopSection(); ?>
 
@@ -371,10 +369,10 @@
  </p>
  <div class="form-modal text-center">
 
- <form action="<?php echo \htmlentities(route('mockup-post')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="post">
+ <form id="form-modal-t">
  <div class="value-form-modal mb-2">
  <label class="label-model">Họ và tên </label>
- : <input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
+ : <input type="text" name="name" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
  <small class="error-message m-auto pt-3"></small>
  </div>
  <div class="value-form-modal">
@@ -383,7 +381,7 @@
  <small class="error-message m-auto pt-3"></small>
  </div>
 
- <input type="submit" name="btn-sm" class="btn submit-form-modal" value="GỬI THÔNG TIN">
+ <button class="btn submit-form-modal">GỬI THÔNG TIN</button>
  </form>
 
  </div>

@@ -101,7 +101,7 @@
                 <div class="box-popular-new pt-3">
                   <ul class="categories-list list-unstyled">
                     @foreach($category as $value)
-                    <li><a href="#"><span><i class='bx bx-minus'></i></span>{{ $value->name }}</a></li>
+                    <li><a href="{{ route("serviceDetail/" . $value->id) }}"><span><i class='bx bx-minus'></i></span>{{ $value->name }}</a></li>
                     @endforeach
                   </ul>
                 </div>
