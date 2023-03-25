@@ -1801,7 +1801,7 @@ footer .box-input-email button {
     color: #262626;
     font-weight: bolder;
     font-size: 32px;
-    margin: 50px 0;
+    margin: 50px 0 5px 0;
 }
 
 .item-lastest-blog h3:hover {
@@ -1812,14 +1812,15 @@ footer .box-input-email button {
 .time-lastest-blog {
     display: flex;
     color: #909497;
-    margin: 20px 0;
+    margin: 10px 0;
+    align-items: center;
 }
 
 .btn-read-more {
     background-color: #a47b60;
     padding: 15px 25px;
     color: #fff;
-    margin: 50px 0;
+    margin: 10px 0;
     transition: 0.2s linear;
     border-radius: 20px;
 }
@@ -1907,7 +1908,7 @@ footer .box-input-email button {
     margin: 0 auto;
     top: 15%;
     bottom: 5%;
-    height: 60%;
+    min-height: 60%;
     position: absolute;
     text-align: center;
     background-color: #fff;
@@ -2502,6 +2503,7 @@ main .contact {
 /* FOOTER  */
 footer {
     width: 100%;
+    background: #fbf5eb;
 }
 
 footer .background-image-footer {
@@ -2509,7 +2511,7 @@ footer .background-image-footer {
     background-position: 0 77%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #f2dfbc ;
+    /*background-color: #f2dfbc ;*/
     z-index: -1000;
     opacity: 0.3;
 }

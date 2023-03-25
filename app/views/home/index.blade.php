@@ -97,7 +97,7 @@
 
     <div class="">
       <div class="img-banner-homePage">
-        <img src="{{route('public/Image/banner-Hompage-new.png')}}" width="100%" alt="">
+        <img src="{{route('public/upload/banner/'.$banner[0]->image)}}" width="100%" alt="">
       </div>
     </div>
   </header>
@@ -159,7 +159,7 @@
       <div class="image-service row" data-aos="fade-up">
         @foreach($service3 as $key => $value)
         <div class="col-md-4 item-image-service">
-          <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
+          <img src="{{ route("/public/upload/service/".$value->image) }}"
                width="95%" alt="">
 
           <div class="text-item-image-service shadow-lg">
@@ -205,9 +205,10 @@
                 <div class="text-item-reason">
                   <h4 class="h4-item-reason">Đội ngũ bác sĩ chuyên nghiệp</h4>
                   <p class="p-item-reason">"
-
-                    Mono Bovis Spa đặc biệt chú trọng xây dựng đội ngũ bác sĩ, chuyên gia và kỹ thuật viên giỏi, tâm huyết với nghề. Thường xuyên cập nhật kiến thức chuyên môn thông qua các khóa tập huấn, hội thảo khoa học, chuyển giao công nghệ,… từ đó nâng cao trình độ chuyên môn cũng như tay nghề, kinh nghiệm trong làm đẹp. "			</p>
-
+                    Mono Bovis Spa đặc biệt chú trọng xây dựng đội ngũ bác sĩ,
+                    chuyên gia và kỹ thuật viên giỏi, tâm huyết với nghề.
+                    Thường xuyên cập nhật kiến thức chuyên môn thông qua các khóa tập huấn, hội thảo khoa học, chuyển giao công nghệ,…
+                  		</p>
                 </div>
               </div>
             </div>
@@ -251,7 +252,7 @@
             <div class="user-vote-treatmen">
               <img src="{{route('public/Image/about-us1.jpg')}}" alt="">
               <div class="text-user-vote">
-                <p>Chị Mạnh Cường</p>
+                <p>Chị hoa</p>
                 <p style="margin-left: 10px;">40 tuổi</p>
               </div>
             </div>
@@ -303,7 +304,7 @@
           <h3>{{ $value->name_service }}</h3>
           <div class="time-lastest-blog">
             <i class='bx bxs-time'></i>
-            <p>{{ date('j F, Y', strtotime($value->create_date))  }}</p>
+            <p class="mb-0">{{ date('j F, Y', strtotime($value->create_date))  }}</p>
           </div>
           <p>{{ $value->description }}</p>
           <a href="{{ route("detail/".$value->id) }}"><button class="btn btn-read-more">Xem thêm <i
@@ -331,7 +332,7 @@
                   <a class="text-white" href="{{ $value->	link_insta }}"> <i class='bx bx-show fs-1'></i></a>
                 </div>
                 <div class="item__title p-3">
-                  <p>Chị V.Anh (27 tuổi – Nội trợ) Đã tìm lại làn da mịn màng sau liệu trình trị mụn chuyên sâu tại spa</p>
+                  <p>{{ $value->meta }}</p>
                 </div>
               </div>
 
@@ -365,12 +366,12 @@
                 <form id="form-modal-t">
                   <div class="value-form-modal mb-2">
                     <label class="label-model">Họ và tên </label>
-                    : <input type="text" name="name" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
+                    <span class="me-3">:</span><input type="text" name="name" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
                   <div class="value-form-modal">
                     <label class="label-model">Số điện thoại </label>
-                    :<input type="text" name="phone" placeholder="Nhập SĐT anh/chị" class="input-model" id="phone-mokup">
+                    <span class="me-3">:</span><input type="text" name="phone" placeholder="Nhập SĐT anh/chị" class="input-model" id="phone-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
 
@@ -380,8 +381,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-12 img-modal">
-              <img src="{{route('public/Image/Screenshot 2023-03-12 160307.png')}}" width="100%" alt="">
-
+              <img src="{{route('./public/upload/insta/'.$newletter->logo)}}" width="100%" alt="">
             </div>
           </div>
           <button class="close-modal btn" onclick="myStopFunction()"><i class='bx bx-x'

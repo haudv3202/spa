@@ -10,6 +10,7 @@ use App\models\Staff;
 use App\models\settings;
 use App\models\insta;
 use App\models\Category;
+use App\models\Newletters;
 
 class HomeController extends BaseController{
 
@@ -33,6 +34,7 @@ class HomeController extends BaseController{
     }
     public function homeList(){
         $banner = Banner::GetAll();
+        $newletter = Newletters::findOne(1,"statuts");
         $datasocial = $this->socialPage();
         $service = $this->service->getPostslimit(6);
         $service3 = $this->service->getPostslimit(3);
@@ -50,7 +52,7 @@ class HomeController extends BaseController{
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
         }
-        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram','allService','allServiceEnd'));
+        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram','allService','allServiceEnd',"newletter"));
 
     }
     public function mockupPost(){
