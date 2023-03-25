@@ -1,7 +1,6 @@
 @extends('admin.index_master_admin');
 
 @section('content')
-
   <div class="contents">
     <div class="container-fluid">
       <div class="row">
@@ -166,13 +165,13 @@
 
 @push('scripts')
   <script type="text/javascript" >
-    CKEDITOR.replace( 'content-blog', {
-      filebrowserUploadUrl: './app/views/ckeditor/uploadBlogSv.php'
+    var editor = CKEDITOR.replace( 'content-blog', {
+      filebrowserUploadUrl: '../app/views/ckeditor/editBlog.php'
     } );
   </script>
 
   @if(isset($_SESSION['success']) && isset($_GET['msg']))
-    <script>
+    <script type="text/javascript">
       Swal.fire(
         'Thông báo!',
         '{{$_SESSION['success']}}',

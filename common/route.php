@@ -1,5 +1,6 @@
 <?php
 use Phroute\Phroute\RouteCollector;
+use Phroute\Phroute\Dispatcher;
 use App\admin\controllers\HomeController;
 use App\Controllers\AuthController;
 use App\admin\controllers\UserDisplayController;
@@ -7,6 +8,21 @@ use App\admin\controllers\QuestionsController;
 use App\admin\controllers\rankMemberController;
 use App\admin\controllers\SettingController;
 use App\admin\controllers\socialController;
+use App\admin\controllers\BlogServiceController;
+use App\admin\controllers\BannerController;
+use App\admin\controllers\CategoryController;
+use App\admin\controllers\ServiceController;
+use App\admin\controllers\EndowController;
+use App\admin\controllers\ReplyController;
+use App\admin\controllers\StaffController;
+use App\admin\controllers\StatisticController;
+use App\admin\controllers\UsersControlller;
+
+
+use App\controllers\UsersController as user;
+use App\controllers\NewlettersController;
+use App\controllers\HomeController as homeuser;
+//use App\controllers\homeController;
 $url = !isset($_GET['url']) ? "/" : $_GET['url'];
 
 $router = new RouteCollector();
@@ -27,145 +43,157 @@ $router->filter('auth', function(){
 if (isset($_SESSION['account'])){
     if ($_SESSION['account']->role_id == 2){
 //Category
-$router->get('add-category', [App\admin\controllers\CategoryController::class, 'addCategory']);
-$router->post('add-category-post', [App\admin\controllers\CategoryController::class, 'addCategoryPost']);
-$router->get('edit-category/{id}', [App\admin\controllers\CategoryController::class, 'editCategory']);
-$router->post('update-category/{id}', [App\admin\controllers\CategoryController::class, 'updateCategoryPost']);
-$router->get('delete-category/{id}', [App\admin\controllers\CategoryController::class, 'deteleCategory']);
-$router->get('service-category', [App\admin\controllers\CategoryController::class, 'tableCategory']);
-$router->get('detail-category/{id}', [App\admin\controllers\ServiceController::class, 'listServiceIdCate']);
+        $router->get('add-category', [CategoryController::class, 'addCategory']);
+        $router->post('add-category-post', [CategoryController::class, 'addCategoryPost']);
+        $router->get('edit-category/{id}', [CategoryController::class, 'editCategory']);
+        $router->post('update-category/{id}', [CategoryController::class, 'updateCategoryPost']);
+        $router->get('delete-category/{id}', [CategoryController::class, 'deteleCategory']);
+        $router->get('service-category', [CategoryController::class, 'tableCategory']);
+        $router->get('detail-category/{id}', [ServiceController::class, 'listServiceIdCate']);
 //Service
-$router->get('service-list', [App\admin\controllers\ServiceController::class, 'listService']);
-$router->post('add-service-post', [App\admin\controllers\ServiceController::class, 'addServicePost']);
+        $router->get('service-list', [ServiceController::class, 'listService']);
+        $router->post('add-service-post', [ServiceController::class, 'addServicePost']);
 //$router->get('edit-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'editService']);
 //$router->post('update-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'updateServicePost']);
 //$router->get('delete-service-cate/{id}', [App\admin\controllers\CategoryController::class, 'deteleService']);
-$router->get('edit-service/{id}', [App\admin\controllers\ServiceController::class, 'editService']);
-$router->post('update-service/{id}', [App\admin\controllers\ServiceController::class, 'updateServicePost']);
-$router->get('delete-service/{id}', [App\admin\controllers\ServiceController::class, 'deteleService']);
-$router->get('detail-service/{id}', [App\admin\controllers\BlogServiceController::class, 'listBlogSvIdCate']);
+        $router->get('edit-service/{id}', [ServiceController::class, 'editService']);
+        $router->post('update-service/{id}', [ServiceController::class, 'updateServicePost']);
+        $router->get('delete-service/{id}', [ServiceController::class, 'deteleService']);
+        $router->get('detail-service/{id}', [BlogServiceController::class, 'listBlogSvIdCate']);
 //Blog Service
-$router->get('service-blog', [App\admin\controllers\BlogServiceController::class, 'listBlogSv']);
-$router->get('add-blog-service', [App\admin\controllers\BlogServiceController::class, 'addBlogSv']);
-$router->post('add-blog-service-post', [App\admin\controllers\BlogServiceController::class, 'addBlogSvPost']);
-$router->get('edit-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'editBlogSv']);
-$router->post('update-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'updateBlogSvPost']);
-$router->get('delete-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'deleteBlogSv']);
-$router->get('detail-blog-service/{id}', [App\admin\controllers\BlogServiceController::class, 'detailBlogSv']);
+        $router->get('service-blog', [BlogServiceController::class, 'listBlogSv']);
+        $router->get('add-blog-service', [BlogServiceController::class, 'addBlogSv']);
+        $router->post('add-blog-service-post', [BlogServiceController::class, 'addBlogSvPost']);
+        $router->get('edit-blog-service/{id}', [BlogServiceController::class, 'editBlogSv']);
+        $router->post('update-blog-service/{id}', [BlogServiceController::class, 'updateBlogSvPost']);
+        $router->get('delete-blog-service/{id}', [BlogServiceController::class, 'deleteBlogSv']);
+        $router->get('detail-blog-service/{id}', [BlogServiceController::class, 'detailBlogSv']);
 //Staff
-$router->get('staff-list', [App\admin\controllers\StaffController::class, 'listStaff']);
-$router->get('edit-staff/{id}', [App\admin\controllers\StaffController::class, 'editStaff']);
-$router->post('update-staff-post/{id}', [App\admin\controllers\StaffController::class, 'updateStaffPost']);
+        $router->get('staff-list', [StaffController::class, 'listStaff']);
+        $router->get('edit-staff/{id}', [StaffController::class, 'editStaff']);
+        $router->post('update-staff-post/{id}', [StaffController::class, 'updateStaffPost']);
 //Reply
-$router->get('reply-list', [App\admin\controllers\ReplyController::class, 'listReply']);
-$router->get('delete-reply/{id}', [App\admin\controllers\ReplyController::class, 'deleteReply']);
+        $router->get('reply-list', [ReplyController::class, 'listReply']);
+        $router->get('delete-reply/{id}', [ReplyController::class, 'deleteReply']);
 //Endow
-$router->get('endow-list', [App\admin\controllers\EndowController::class, 'listEndow']);
-$router->get('delete-endow/{id}', [App\admin\controllers\EndowController::class, 'deleteEndow']);
+        $router->get('endow-list', [EndowController::class, 'listEndow']);
+        $router->get('delete-endow/{id}', [EndowController::class, 'deleteEndow']);
 //Statistic
-$router->get('statistic-list', [App\admin\controllers\StatisticController::class, 'listStatistic']);
+        $router->get('statistic-list', [StatisticController::class, 'listStatistic']);
 
 
 //giao-dien
-$router->get('contact-us', [UserDisplayController::class, 'index']);
-$router->get('quan-li-khach-hang', [UserDisplayController::class, 'index']);
-$router->get('instagram', [UserDisplayController::class, 'insta']);
-$router->get('edit-contact/{id}', [UserDisplayController::class, 'edit']);
-$router->get('edit-insta/{id}', [UserDisplayController::class, 'editInsta']);
-$router->post('update-contact/{id}', [UserDisplayController::class, 'update']);
-$router->post('update-insta/{id}', [UserDisplayController::class, 'updateInsta']);
-$router->get('social', [socialController::class, 'index']);
-$router->get('social-edit/{id}', [socialController::class, 'edit']);
-$router->post('social-edit/{id}', [socialController::class, 'edit']);
-$router->get('questions', [QuestionsController::class, 'index']);
-$router->get('setings', [SettingController::class, 'index']);
-$router->get('setings-edit/{id}', [SettingController::class, 'edit']);
-$router->post('setings-edit/{id}', [SettingController::class, 'edit']);
-$router->get('setings-edit-image/{id}', [SettingController::class, 'edit_image']);
-$router->post('setings-edit-image/{id}', [SettingController::class, 'edit_image']);
+        $router->get('contact-us', [UserDisplayController::class, 'index']);
+        $router->get('quan-li-khach-hang', [UserDisplayController::class, 'index']);
+        $router->get('instagram', [UserDisplayController::class, 'insta']);
+        $router->get('edit-contact/{id}', [UserDisplayController::class, 'edit']);
+        $router->get('edit-insta/{id}', [UserDisplayController::class, 'editInsta']);
+        $router->post('update-contact/{id}', [UserDisplayController::class, 'update']);
+        $router->post('update-insta/{id}', [UserDisplayController::class, 'updateInsta']);
+        $router->get('social', [socialController::class, 'index']);
+        $router->get('social-edit/{id}', [socialController::class, 'edit']);
+        $router->post('social-edit/{id}', [socialController::class, 'edit']);
+        $router->get('questions', [QuestionsController::class, 'index']);
+        $router->get('setings', [SettingController::class, 'index']);
+        $router->get('setings-edit/{id}', [SettingController::class, 'edit']);
+        $router->post('setings-edit/{id}', [SettingController::class, 'edit']);
+        $router->get('setings-edit-image/{id}', [SettingController::class, 'edit_image']);
+        $router->post('setings-edit-image/{id}', [SettingController::class, 'edit_image']);
 //newletters
-$router->get('newletters',[App\controllers\NewlettersController::class ,'index']);
-$router->get('add-newletters', [App\controllers\NewlettersController::class, 'addNewletters']);
-$router->post('add-newletters-post', [App\controllers\NewlettersController::class, 'addNewlettersPost']);
-$router->get('edit-newletters/{id}', [App\controllers\NewlettersController::class, 'edit']);
-$router->post('update-newletters/{id}', [App\controllers\NewlettersController::class, 'update']);
-$router->get('delete-newletters/{id}', [App\controllers\NewlettersController::class, 'deleteNewletters']);
+        $router->get('newletters',[NewlettersController::class ,'index']);
+        $router->get('add-newletters', [NewlettersController::class, 'addNewletters']);
+        $router->post('add-newletters-post', [NewlettersController::class, 'addNewlettersPost']);
+        $router->get('edit-newletters/{id}', [NewlettersController::class, 'edit']);
+        $router->post('update-newletters/{id}', [NewlettersController::class, 'update']);
+        $router->get('delete-newletters/{id}', [NewlettersController::class, 'deleteNewletters']);
 //question
-$router->get('add-question', [QuestionsController::class, 'addQuestion']);
-$router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
-$router->get('edit-question/{id}', [QuestionsController::class, 'editQuestion']);
-$router->post('edit-question/{id}', [QuestionsController::class, 'updateQuestion']);
-$router->get('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
-$router->get('blog-question/{id}',[QuestionsController::class, 'blogQuestion']);
+        $router->get('add-question', [QuestionsController::class, 'addQuestion']);
+        $router->post('add-question', [QuestionsController::class, 'addQuestionPost']);
+        $router->get('edit-question/{id}', [QuestionsController::class, 'editQuestion']);
+        $router->post('edit-question/{id}', [QuestionsController::class, 'updateQuestion']);
+        $router->get('delete-question/{id}', [QuestionsController::class, 'deleteQuestion']);
+        $router->get('blog-question/{id}',[QuestionsController::class, 'blogQuestion']);
 
 //ql user
-$router->get('user', [App\admin\controllers\UsersControlller::class, 'showUser']);
-$router->get('search/{value}', [App\admin\controllers\UsersControlller::class, 'search']);
+        $router->get('user', [UsersControlller::class, 'showUser']);
+        $router->get('search/{value}', [UsersControlller::class, 'search']);
 
-$router->get('add_user', [App\admin\controllers\UsersControlller::class, 'addUser']);
-$router->post('add_user', [App\admin\controllers\UsersControlller::class, 'addUser']);
+        $router->get('add_user', [UsersControlller::class, 'addUser']);
+        $router->post('add_user', [UsersControlller::class, 'addUser']);
 
-$router->get('chi-tiet-nguoi-dung', [App\admin\controllers\UsersControlller::class, 'detailUser']);
-$router->get('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
-$router->get('add-serivce-user/add-detailUser/{id}', [App\admin\controllers\UsersControlller::class, 'getservice']);
-$router->get('editServiceUser/add-detailUser/{id}', [App\admin\controllers\UsersControlller::class, 'getservice']);
-$router->post('add-serivce-user/{id}', [App\admin\controllers\UsersControlller::class, 'addServiceUser']);
-$router->get('delete-user/{id}', [App\admin\controllers\UsersControlller::class, 'deleteUser']);
-$router->get('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
-$router->post('update-user/{id}', [App\admin\controllers\UsersControlller::class, 'updateUser']);
+        $router->get('chi-tiet-nguoi-dung', [UsersControlller::class, 'detailUser']);
+        $router->get('add-serivce-user/{id}', [UsersControlller::class, 'addServiceUser']);
+        $router->get('add-serivce-user/add-detailUser/{id}', [UsersControlller::class, 'getservice']);
+        $router->get('editServiceUser/add-detailUser/{id}', [UsersControlller::class, 'getservice']);
+        $router->post('add-serivce-user/{id}', [UsersControlller::class, 'addServiceUser']);
+        $router->get('delete-user/{id}', [UsersControlller::class, 'deleteUser']);
+        $router->get('update-user/{id}', [UsersControlller::class, 'updateUser']);
+        $router->post('update-user/{id}', [UsersControlller::class, 'updateUser']);
 //$router->get('list-user', [App\Controllers\UsersController::class, 'index']);
 
 //xóa chi tiết chi tiết thanh toán
-$router->get('delete-detail-user/{id}/{backpage}', [App\admin\controllers\UsersControlller::class, 'deleteServiceUser']);
+        $router->get('delete-detail-user/{id}/{backpage}', [UsersControlller::class, 'deleteServiceUser']);
 //quản lí loại khách
-$router->get('list-rank', [App\admin\controllers\rankMemberController::class, 'index']);
-$router->get('delete-rank/{id}', [App\admin\controllers\rankMemberController::class, 'deleteRank']);
-$router->get('add-rank', [App\admin\controllers\rankMemberController::class, 'addRank']);
-$router->post('add-rank', [App\admin\controllers\rankMemberController::class, 'addRank']);
-$router->get('edit-rank/{id}', [App\admin\controllers\rankMemberController::class, 'editRank']);
-$router->post('edit-rank/{id}', [App\admin\controllers\rankMemberController::class, 'editRank']);
+        $router->get('list-rank', [rankMemberController::class, 'index']);
+        $router->get('delete-rank/{id}', [rankMemberController::class, 'deleteRank']);
+        $router->get('add-rank', [rankMemberController::class, 'addRank']);
+        $router->post('add-rank', [rankMemberController::class, 'addRank']);
+        $router->get('edit-rank/{id}', [rankMemberController::class, 'editRank']);
+        $router->post('edit-rank/{id}', [rankMemberController::class, 'editRank']);
 //update profile admin
-$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
-$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);
+        $router->get('edit-profile/{id}',[UsersControlller::class,'editProfile']);
+        $router->post('update-profile-post/{id}',[UsersControlller::class,'updateProfile']);
 //update profile admin
 //$router->get('edit-profile/{id}',[App\admin\controllers\UsersControlller::class,'editProfile']);
 //$router->post('update-profile-post/{id}',[App\admin\controllers\UsersControlller::class,'updateProfile']);\
-        $router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
-        $router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
+        $router->get('update-profile/{id}', [user::class, 'updateProfilepost']);
+        $router->post('update-profile/{id}', [user::class, 'updateProfilepost']);
+//Banner
+        $router->get('manage-banner', [BannerController::class, 'banner']);
+        $router->get('edit-banner/{id}', [BannerController::class, 'editBanner']);
+        $router->post('edit-banner-post/{id}', [BannerController::class, 'editBannerPost']);
+
     }else {
-        $router->get('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
-        $router->post('update-profile/{id}', [App\Controllers\UsersController::class, 'updateProfilepost']);
+        $router->get('update-profile/{id}', [user::class, 'updateProfilepost']);
+        $router->post('update-profile/{id}', [user::class, 'updateProfilepost']);
     }
 }
 
 //login -register
-$router->get('home', [App\Controllers\HomeController::class, 'index']);
-$router->get('sign-in', [App\Controllers\UsersController::class, 'index']);
-$router->post('sign-in', [App\Controllers\UsersController::class, 'index']);
-$router->get('sign-up',[App\Controllers\UsersController::class,'signup']);
-$router->post('sign-up',[App\Controllers\UsersController::class,'signup']);
-$router->get('sign-out',[App\Controllers\UsersController::class,'signout']);
-$router->get('forgot',[App\Controllers\UsersController::class,'forgot']);
-$router->post('forgot',[App\Controllers\UsersController::class,'forgot']);
+//$router->get('home', [homeuser::class, 'index']);
+$router->get('sign-in', [user::class, 'index']);
+$router->post('sign-in', [user::class, 'index']);
+$router->get('sign-up',[user::class,'signup']);
+$router->post('sign-up',[user::class,'signup']);
+$router->get('sign-out',[user::class,'signout']);
+$router->get('forgot',[user::class,'forgot']);
+$router->post('forgot',[user::class,'forgot']);
 
 
-$router->get('ourTeam',[App\Controllers\UsersController::class,'ourTeam']);
-$router->get('detail/{id}',[App\Controllers\UsersController::class,'detailBlog']);
-$router->get('contact',[App\Controllers\UsersController::class,'contact']);
+$router->get('ourTeam',[user::class,'ourTeam']);
+$router->get('detail/{id}',[user::class,'detailBlog']);
+$router->get('contact',[user::class,'contact']);
 
 
 
 //Client
 //Home Monospa
-$router->get('/',[App\Controllers\HomeController::class,'homeList']);
-$router->get('service',[App\Controllers\HomeController::class,'serviceList']);
-$router->get('about',[App\Controllers\HomeController::class,'aboutList']);
-$router->get('booking',[App\Controllers\HomeController::class,'booking']);
-$router->post('mockup-post',[App\Controllers\HomeController::class,'mockupPost']);
+$router->get('/',[homeuser::class,'homeList']);
+$router->get('home',[homeuser::class,'homeList']);
+$router->get('service',[homeuser::class,'serviceList']);
+$router->get('serviceDetail/{id}',[homeuser::class,'serviceListDetail']);
+$router->get('about',[homeuser::class,'aboutList']);
+$router->get('booking',[homeuser::class,'booking']);
+$router->post('mockup-post',[homeuser::class,'mockupPost']);
 //FQA
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
 //Blog
-$router->get('blog',[App\admin\controllers\BlogServiceController::class, 'blogService']);
+$router->get('blog',[BlogServiceController::class, 'blogService']);
+$router->get('blogService/{id}',[BlogServiceController::class, 'blogServiceDetail']);
+//Policy
+$router->get('policy',[homeuser::class,'policy']);
+//Terns
+$router->get('terms',[homeuser::class,'terms']);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 

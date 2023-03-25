@@ -6,6 +6,13 @@ const DBPASS = "";
 const DBCHARSET = "utf8";
 const DBHOST = "127.0.0.1";
 
+//const DBNAME = "test";
+//const DBUSER = "bzelkqknhosting_spa";
+//const DBPASS = "fqD1jGCKWmmH";
+//const DBCHARSET = "utf8";
+//const DBHOST = "localhost";
+
+
 //
 const BASE_URL = "http://localhost/spa/";
 

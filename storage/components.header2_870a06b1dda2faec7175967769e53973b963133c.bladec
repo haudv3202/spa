@@ -1,57 +1,102 @@
 <header>
  <div class="header-menutop-banner">
+ <div class="box-header-form shadow">
+ <div class="box-navbar-top shadow">
+
+ <div class="header-menutop-banner">
  <div
  class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
  >
- <div class="logo">
- <img src="<?php echo \htmlentities(route('public/image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" />
- </div>
- <div class="icon-menu-sub-responsive">
- <button type="button" onclick="iconOpenMenuSubClick()">
- <i class='bx bx-menu'></i>
- </div>
- <div class="menu-oppentime d-flex gap-5">
- <div class="menu">
- <ul class="d-flex gap-5">
- <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">Trang chủ</a></li>
- <li><a href="<?php echo \htmlentities(route('about')??'', ENT_QUOTES, 'UTF-8', false); ?>">Giới thiệu</a></li>
- <li><a href="<?php echo \htmlentities(route('service')??'', ENT_QUOTES, 'UTF-8', false); ?>">Dịch vụ</a></li>
- <li><a href="<?php echo \htmlentities(route('ourTeam')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đội ngũ</a></li>
- <li><a href="<?php echo \htmlentities(route('booking')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đặt lịch</a></li>
- <li><a href="<?php echo \htmlentities(route('blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Bài viết</a></li>
- <li><a href="<?php echo \htmlentities(route('contact')??'', ENT_QUOTES, 'UTF-8', false); ?>">Liên hệ</a></li>
- </ul>
- </div>
  <div class="oppentime-icon">
- <i class="bx bxl-facebook"></i>
- <i class="bx bxl-instagram"></i>
- <button type="button" onclick="iconOpenBoxClick()">
- <i class="bx bx-align-right open-Time"></i>
- </button>
  <?php if(!isset($_SESSION['account'])): ?>
- <button type="button" onclick="" class="user-login">
- <a href="<?php echo \htmlentities(route("sign-in")??'', ENT_QUOTES, 'UTF-8', false); ?>" class="text-black"><i class='bx bx-user-circle'></i></a>
+ <button type="button" class="user-login p-2">
+ <a href="<?php echo \htmlentities(route('sign-in')??'', ENT_QUOTES, 'UTF-8', false); ?>" class="text-white text-decoration-none d-flex align-items-center gap-2"><i class='bx bx-user-circle'></i>Đăng Nhập</a>
  </button>
  <?php else: ?>
- <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
- <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">
+ <button type="button" onclick="" class="user-account position-relative " >
+ <img src="<?php echo \htmlentities(route('./public/upload/avatar/'.$_SESSION['account']->image)??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
  </button>
- <div class="box-fs-account box-fs-account-home position-absolute">
- <ul >
+ <?php if($_SESSION['account']->role_id == 1): ?>
+ <div class="box-fs-account box-fs-account-home position-absolute shadow-lg">
+ <ul class="mb-0">
+ <li><a href="<?php echo \htmlentities(route('update-profile/'.$_SESSION['account']->id)??'', ENT_QUOTES, 'UTF-8', false); ?>">Xem thông tin</a></li>
+ <li><a href="<?php echo \htmlentities(route('sign-out')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đăng Xuất</a></li>
+ </ul>
+ </div>
+ <?php else: ?>
+ <div class="box-fs-account box-fs-account-home position-absolute shadow-lg">
+ <ul class="mb-0">
+ <li><a href="<?php echo \htmlentities(route('user')??'', ENT_QUOTES, 'UTF-8', false); ?>">Vào trang Quản trị</a></li>
  <li><a href="<?php echo \htmlentities(route('update-profile/'.$_SESSION['account']->id)??'', ENT_QUOTES, 'UTF-8', false); ?>">Xem thông tin</a></li>
  <li><a href="<?php echo \htmlentities(route('sign-out')??'', ENT_QUOTES, 'UTF-8', false); ?>">Đăng Xuất</a></li>
  </ul>
  </div>
  <?php endif; ?>
+ <?php endif; ?>
+ </div>
+ <div class="logo" style="transform: translateX(30%);">
+ <a href="<?php echo \htmlentities(route("home")??'', ENT_QUOTES, 'UTF-8', false); ?>"><img src="<?php echo \htmlentities(route('public/Image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" /></a>
+ </div>
+ <div class="email-sdt">
+ <div class="email">
+ <p><i class='bx bxs-envelope' ></i>Email: monobovis@gmail.com</p>
+ </div>
+ <div class="sdt">
+ <p><i class='bx bxs-phone'></i>Host line: 090.220.8216</p>
+ </div>
+ </div>
+ <div class="icon-menu-sub-responsive">
+ <button type="button" onclick="iconOpenMenuSubClick()">
+ <i class='bx bx-menu'></i>
  </div>
  </div>
  </div>
- <div class="banner-text-page">
- <div class="banner-page position-absolute top-0">
+ <div class="menu-oppentime ">
+ <div class="menu container pb-3">
+ <ul class="d-flex gap-2 d-flex gap-3 align-items-center justify-content-around ">
+ <li><a href="<?php echo \htmlentities(route('')??'', ENT_QUOTES, 'UTF-8', false); ?>">Trang Chủ</a></li>
+ <li><a href="<?php echo \htmlentities(route('about')??'', ENT_QUOTES, 'UTF-8', false); ?>">Về Chúng Tôi</a></li>
+ <li class="categosies-dv position-relative"><span>Dịch Vụ</span>
+ <ul class="position-absolute ul-box-categories-service row">
+ <div class="box-ul col">
+ <?php $__currentLoopData = $allService; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>
+ <li class="text-title-li" ><span class="d-flex align-items-center gap-2"><i class='bx bxs-checkbox'></i><a href=""><?php echo \htmlentities($value->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></span>
+ <ul>
+ <?php $__currentLoopData = $value->service; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $valueService): $loop = $this->incrementLoopIndices();  ?>
+ <li><a href="<?php echo \htmlentities(route('serviceDetail/' . $value->id)??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($valueService->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ </li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </div>
- <div class="text-center-banner">
- <h1><?php echo $this->yieldContent('TitlePage'); ?></h1>
- <span><?php echo $this->yieldContent('desribePage'); ?></span>
+ <div class="box-ul col">
+ <?php $__currentLoopData = $allServiceEnd; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>
+ <li class="text-title-li" ><span class="d-flex align-items-center gap-2"><i class='bx bxs-checkbox'></i><a href=""><?php echo \htmlentities($value->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></span>
+ <ul>
+ <?php $__currentLoopData = $value->service; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $valueService): $loop = $this->incrementLoopIndices();  ?>
+ <li><a href="<?php echo \htmlentities(route('serviceDetail/' . $value->id)??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($valueService->name??'', ENT_QUOTES, 'UTF-8', false); ?></a></li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ </li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+
+ </ul>
+ </li>
+ <li class="menu-sub-page"><a href="<?php echo \htmlentities(route('blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Cẩm nang bổ ích</a></li>
+ <li><a href="<?php echo \htmlentities(route('blog-questions')??'', ENT_QUOTES, 'UTF-8', false); ?>">Trải Nghiệm khách hàng</a></li>
+ <li><a href="<?php echo \htmlentities(route('policy')??'', ENT_QUOTES, 'UTF-8', false); ?>">Chính sách</a></li>
+ <li><a href="<?php echo \htmlentities(route('contact')??'', ENT_QUOTES, 'UTF-8', false); ?>">Liên Hệ</a></li>
+ </ul>
+ </div>
+
+ </div>
+
+
  </div>
  </div>
  </div>

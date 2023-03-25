@@ -1,5 +1,6 @@
 <?php
 namespace App\controllers;
+use App\models\Banner;
 use App\models\BlogService;
 use App\models\contactUs;
 use App\models\insta;
@@ -9,19 +10,21 @@ use App\models\Users;
 use App\models\Service;
 use App\models\Category;
 use App\models\social;
-require_once 'vendor/phpmailer/sendmail.php';
-
+//require_once 'vendor/phpmailer/sendmail.php';
 class UsersController extends BaseController
 {
     protected $user;
     protected $blog;
     protected $category;
+    protected $email;
+    protected $service;
     public function __construct()
     {
-        $this->user = new Users;
+        $this->user = new Users();
         $this->blog = new BlogService();
         $this->service = new Service();
         $this->category =  new Category();
+        $this->email = new sendmail();
     }
     public function signup()
     {
@@ -34,7 +37,7 @@ class UsersController extends BaseController
                 $err[] = "Bạn chưa nhập password";
             }
             if (empty($_POST['sdt'])) {
-                $err[] = "Bạn chưa nhập sdt";
+                $err[] = "Bạn chưa nhập số điện thoại";
             }
             if (empty($_POST['email'])) {
                 $err[] = "Bạn chưa nhập email";
@@ -47,19 +50,20 @@ class UsersController extends BaseController
             } else {
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $date = date("Y-m-d");
-                Users::addItems([
-                    'id' => NULL,
-                    'name' => $_POST['username'],
-                    'password' => $_POST['password'],
-                    'sdt' => $_POST['sdt'],
-                    'email' => $_POST['email'],
-                    'image' => NULL,
-                    'total_price' => NULL,
-                    'address' => NULL,
-                    'role_id' => 1,
-                    'create_date' => $date,
-                    'update_date' => NULL,
-                ]);
+                $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],'avatar_default.jpg','',1);
+//                Users::addItems([
+//                    'id' => NULL,
+//                    'name' => ,
+//                    'password' => ,
+//                    'sdt' => ,
+//                    'email' => ,
+//                    'image' => NULL,
+//                    'total_price' => NULL,
+//                    'address' => NULL,
+//                    'role_id' => 1,
+//                    'create_date' => $date,
+//                    'update_date' => NULL,
+//                ]);
                 redirect('success', 'Đăng ký thành công', '');
             }
         }
@@ -76,8 +80,8 @@ class UsersController extends BaseController
             }else{
                 $result = $this->user->checkEmail($_POST['email']);
                 if ($result == true){
+                    echo $this->email->Send_email('FORGOT PASSWORD', 'Mật khẩu cũ của bạn là: '.$result->password, $result->email);
                     echo "<script>alert('Vui lòng kiểm tra lại hộp thư email')</script>";
-                    Send_email('FORGOT PASSWORD', 'Mật khẩu cũ của bạn là: '.$result->password, $result->email);
                 }else{
                     echo "<script>alert('Email không tồn tại trên hệ thống vui lòng kiểm tra lại')</script>";
                 }
@@ -108,10 +112,11 @@ class UsersController extends BaseController
                         header('location: '.route('user'));
                     }else{
                         header('location: '.route(''));
-          
+
                     }
                 }else{
-                    redirect('errors', 'Tài khoản không tồn tại','sign-in');
+                    $err[] = 'Tài khoản không tồn tại';
+                    redirect('errors',$err ,'sign-in');
                 }
             }else{
                 redirect('errors', $err, 'sign-in');
@@ -140,13 +145,14 @@ class UsersController extends BaseController
     public function updateProfilepost($id){
         $oneAll = Users::findOne($id);
         $ranks =  rankmember::GetAll();
-            $rank_name = "vô hạng";
-            foreach($ranks as $group) {
-                if($oneAll->total_price >= $group->total) {
-                    $rank_name = $group->name;
-                }
+        $rank_name = "vô hạng";
+        foreach($ranks as $group) {
+            if($oneAll->total_price >= $group->total) {
+                $rank_name = $group->name;
             }
+        }
         $oneAll->rank = $rank_name;
+
 
         if(isset($_POST["btn-profile"])){
             $target_dir = "./public/upload/avatar/";
@@ -163,9 +169,6 @@ class UsersController extends BaseController
             }
             if (empty($_POST['email'])) {
                 $errors[]  = "Bạn chưa nhập email";
-            }
-            if (empty($_POST['sdt'])) {
-                $errors[] = 'Bạn cần nhập tên số điẹn thoại';
             }
             if (empty($_POST['email'])) {
                 $errors[] = 'Bạn cần nhập tên email';
@@ -191,7 +194,6 @@ class UsersController extends BaseController
                         redirect('errors', $errors, 'update-profile/' . $id);
                     } else {
                         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))  {
-                            $create_date = date('Y-m-d H:i a');
                             $update_date = date('Y-m-d H:i a');
                             $result = Users::updatefind($id, [
                                 "name" => $_POST['username'],
@@ -200,10 +202,10 @@ class UsersController extends BaseController
                                 "email" => $_POST['email'],
                                 "image " => $name,
                                 "address " => $_POST['address'],
-                                "update_date" => $create_date
+                                "update_date" => $update_date
                             ]);
-                            if (file_exists('./public/upload/users/'.$image_old)) {
-                                unlink('./public/upload/users/'.$image_old);
+                            if (file_exists('./public/upload/avatar/'.$image_old)) {
+                                unlink('./public/upload/avatar/'.$image_old);
                             }
                             if ($result) {
                                 unset($_SESSION['account']);
@@ -248,8 +250,7 @@ class UsersController extends BaseController
                     } else {
 
                         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))  {
-                            $create_date = date('Y-m-d H:i a');
-                            $update_date = date('Y-m-d H:i a');
+                            $update_date = date('Y-m-d');
                             $result = Users::updatefind($id, [
                                 "name" => $_POST['username'],
                                 "password" => $oneAll->password,
@@ -257,10 +258,10 @@ class UsersController extends BaseController
                                 "email" => $_POST['email'],
                                 "image " => $name,
                                 "address " => $_POST['address'],
-                                "update_date" => $create_date
+                                "update_date" => $update_date
                             ]);
-                            if (file_exists('./public/upload/users/'.$image_old)) {
-                                unlink('./public/upload/users/'.$image_old);
+                            if (file_exists('./public/upload/avatar/'.$image_old)) {
+                                unlink('./public/upload/avatar/'.$image_old);
                             }
                             if ($result) {
                                 unset($_SESSION['account']);
@@ -307,15 +308,31 @@ class UsersController extends BaseController
         $datasocial = $this->socialPage();
         $detailPost = BlogService::findOne($id);
         $newBlog = $this->blog->getPostslimit(2);
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
         $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
         $category = $this->category->getLimit();
-        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial"));
+        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial","allService","allServiceEnd"));
     }
 
     public function contact(){
         $datasocial = $this->socialPage();
         $allcontact = contactUs::GetAll();
-        $this->render('home.contactus',compact("allcontact","datasocial"));
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('home.contactus',compact("allcontact","datasocial","allService","allServiceEnd"));
     }
 
     public function socialPage(){

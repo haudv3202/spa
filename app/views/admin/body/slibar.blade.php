@@ -77,8 +77,11 @@ $_SESSION['active_menu'] == 'setings')
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'social' ? 'active' : ''; ?>">
               <a href="{{route('social')}}">Mạng xã hội</a>
             </li>
+
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'setings' ? 'active' : ''; ?>">
               <a href="{{route('setings')}}">settings</a>
+            <li class="">
+              <a href="{{route('manage-banner')}}">Banner</a>
             </li>
           </ul>
         </li>

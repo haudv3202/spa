@@ -1,16 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
-@import url('https://fonts.cdnfonts.com/css/roboto');
-@import url('https://fonts.cdnfonts.com/css/lato');
+
+@import url("https://fonts.googleapis.com/css2?family=Cardo&display=swap");
+
+/* @import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     /* font-family: "Roboto Slab", serif; */
-    /*font-family: 'Cardo', serif;*/
-    font-family: 'Lato', sans-serif;
+    font-family: "Cardo", serif;
 }
 
+.icon-contact .call-icon {
+    background: #fff;
+    box-shadow: 0 0 5px 0;
+    border-radius: 50%;
+    margin: 10px 0;
+    padding: 8px;
+}
 /* Menu sub reposive  */
 .menu-sub-responsive {
     background-color: #f7f5f2;
@@ -20,6 +32,7 @@
     left: -500px;
     transition: 0.4s;
     display: none;
+    z-index: 6;
 }
 
 .icon-menu-sub-responsive {
@@ -29,27 +42,18 @@
 .icon-menu-sub-responsive button {
     font-size: 23px;
 }
-.form-data{
-   border-radius: 20px;
-    box-shadow: 0 0 4px 0.1px;
-    padding: 0 40px 40px 40px;
-}
-/*.user-login {*/
-/*    display: none !important;*/
-/*}*/
-.form-control-lg {
-    height: 40px !important;
-    min-height: 0px !important;
-}
+
 .user-login-responsive {
     background-color: #a47b60;
     color: white;
     border: none;
-    display: none;
+    /*display: none;*/
 }
+
 
 .user-login-responsive a {
     font-size: 20px;
+    text-decoration: none;
 }
 
 .user-login-responsive a i {
@@ -59,22 +63,23 @@
 .user-account {
     bottom: 10% !important;
     padding: 0 !important;
+    border: none;
+    border-radius:50%;
 }
 
 .user-account>img,
 .user-account button>img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     padding-top: 0 !important;
 }
 
 .box-fs-account {
-    right: 1%;
-    top: 70%;
+    left: 0;
+    top: 80%;
     overflow: hidden;
     height: 0;
-    transition: 0.3s;
 }
 
 .box-fs-account-home {
@@ -82,8 +87,8 @@
 }
 
 .click-box-fs-account {
-    height: 200px !important;
-    transition: 0.3s;
+    height: auto !important;
+    border-radius: 10px;
 }
 
 .box-fs-account ul {
@@ -91,13 +96,12 @@
     background-color: rgba(248, 248, 230, 0.888);
     background-color: white;
     padding: 5px 10px;
-    border-radius: 10px;
 }
 
 .box-fs-account ul li {
     transition: 0.4s;
-    border-radius: 5px;
     padding: 10px;
+    border-radius:10px;
 }
 
 .box-fs-account ul li:hover {
@@ -201,11 +205,13 @@
 
 .menu-sub-responsive .menu ul .menu-sub-page-respon span i {
     font-size: 20px;
+    font-family: 'Philosopher', sans-serif;
 }
 
 .menu-sub-responsive .menu ul li a {
     text-decoration: none;
     color: #043542;
+    font-family: 'Philosopher', sans-serif;
 }
 
 .menu-sub-responsive .menu-responsive {
@@ -223,8 +229,8 @@
     transition: 0.4s;
 }
 
-.click-menu-responsive-page {
-    height: 350px !important;
+.click-menu-responsive-dv {
+    height: 300px !important;
     transition: 0.3s;
 }
 
@@ -240,14 +246,111 @@
 /* End Menu sub reposive  */
 
 /* Menu Home Pc  */
+.box-navbar-top{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
 
+}
+.user-login{
+    border: none;
+    background-color: #b69077;
+}
+.email-sdt div p{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ul-box-categories-service{
+    width: 700px;
+    top: 33px;
+    left: -300px;
+    height: 0 !important;
+    transition: .3s;
+    border: none;
+}
+.categosies-dv:hover .ul-box-categories-service{
+    height: 500px !important;
+    transition: .3s;
+    border: 1px solid #b69077;
+
+}
+.ul-box-categories-service{
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 500px;
+    overflow: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+.box-ul .text-title-li span,.box-ul .text-title-li span a{
+    padding: 5px;
+    transition: .3s;
+    color: #b69077 !important;
+    font-weight: bold;
+}
+.box-ul .text-title-li:hover span{
+    background-color: #a47b60;
+    color: white !important;
+    transition: .3s;
+}
+.box-ul .text-title-li:hover span a{
+    color: white !important;
+}
+.box-ul  li{
+    height: auto !important;
+    padding: 10px 0 !important;
+}
+.box-ul  li  ul  li {
+    padding: 10px 0 !important;
+}
+.box-ul  li  ul  li a{
+    font-size: 15px !important;
+    transition: .3s;
+}
+.box-ul  li  ul  li a:hover{
+    color: #a47b60;
+    transition: .3s;
+}
+.ul-box-categories-service-respon{
+    height: 0 ;
+    overflow: hidden;
+    transition: .3s;
+    margin-left: -20px;
+    padding-right: 10px;
+    overflow: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    transition: .3s;
+}
+.box-ul-respon  li {
+    padding: 10px;
+    cursor: pointer;
+}
+.box-ul-respon  li  ul{
+    height: 0;
+    overflow: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    transition: .3s;
+}
+.box-ul-respon  li  ul  li a{
+    color: black !important;
+    margin-right: 10px !important;
+}
 .menu-oppentime .menu ul {
     list-style: none;
 }
-
+.showcate-list{
+    height: 200px !important;
+    transition: .3s;
+}
 .menu-oppentime .menu ul li {
     transition: 0.3s;
-    border-bottom: 1px solid transparent;
+    height: 30px;
 }
 
 .menu-oppentime .menu>ul>li:hover {
@@ -258,26 +361,30 @@
 .menu-oppentime .menu ul li a {
     text-decoration: none;
     color: #262626;
+    font-family: 'Philosopher', sans-serif;
 }
-
+.menu-oppentime{
+    height: 40px;
+}
 .logo-menu-oppenTime .logo img {
     width: 120px;
 }
-
+.img-banner-homePage{
+    margin-top: 120px;
+}
 .banner-page {
     z-index: -1;
-}
-
-.banner-page {
-    height: 400px;
+    height: 45%;
     overflow: hidden;
     width: 100%;
     opacity: 0.3;
     background-color: #fdf5e6;
-    background-image: url(https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/woman-coming-to-nail-artist-for-manicure.jpg);
-    background-position: 0px 73%;
+    background-image: url(../Image/banner-homepage2.jpg);
+    /* background-position: 0px 73%; */
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    top: 0;
 }
 
 .left-banner-Homepage {
@@ -293,6 +400,7 @@
     color: #053543;
     font-weight: 400;
     font-family: "Roboto Slab", serif;
+    height: 00px;
 }
 
 .p-title-banner-header {
@@ -302,7 +410,7 @@
 }
 
 .header-homePage {
-    padding: 0px 0 130px;
+    padding: 0px;
     overflow: hidden;
     width: 100%;
     background-color: #fdf5e6;
@@ -310,6 +418,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+
     transition: background 0.3s, border-radius 0.3s, opacity 0.5s;
 }
 
@@ -319,8 +428,28 @@
     margin: 0 auto;
 }
 
+.span-text-center-banner {
+    font-style: italic;
+    font-family: 'Philosopher', sans-serif;
+    color: #070323;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.span-text-center-banner>span {
+    color: #a47b60;
+    font-weight: 600;
+}
+
+/* PAGE */
+
 .menu-sub-page {
     position: relative;
+
+}
+
+.menu-sub-page span {
+    font-family: 'Philosopher', sans-serif;
 }
 
 .menu-sub-page .menu-mini {
@@ -392,6 +521,13 @@
     z-index: 10;
 }
 
+.box-oppentime {
+    height: 100%;
+    overflow: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
 .oppenTime-box .information-oppenTime {
     position: absolute;
     background-color: white;
@@ -443,9 +579,48 @@
 
 /* main our team page  */
 .professional-team {
-    margin-top: 300px;
+    margin-top: 30%;
 }
+.h4-ourteam{
+    font-family: "Roboto Slab", serif;
+    margin: 50px 0;
+    font-weight: 600;
+}
+.ceo-our-team{
+    background-image: url(https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/bg-3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img-user-of-team{
+    width:100% ;
+    height: 65%;
+    padding: 15px;
+}
+.user-of-team{
+    margin-top: 50px;
+}
+.h4-doctor-our-team{
+    margin: 20px 0;
+    font-weight: 600;
 
+}
+.img-user-of-team img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+.h4-ceo-ourteam{
+    text-align: center;
+    margin: 20px 0;
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+}
+.p-ceo-ourteam{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
 .professional-team .title-professional-team {
     margin: 0 auto;
     width: 50%;
@@ -522,7 +697,7 @@
 }
 
 .box-professional-team .contact-icon i {
-    background-color: #A47B60;
+    background-color: #a47b60;
     padding: 5px;
     border-radius: 50%;
 }
@@ -532,18 +707,21 @@
     opacity: 1;
 }
 
-.box-professional-team .location {
+.box-professional-team>.location {
     position: absolute;
-    top: 50px;
-    right: -40px;
+    top: 40%;
+    right: -200px;
     font-size: 15px;
     transition: 0.5s;
     color: white;
     transform: rotate(90deg);
+    padding: 0;
+    margin: 0;
+    width: 300px;
 }
 
-.box-professional-team:hover .location {
-    right: 5px;
+.box-professional-team:hover>.location {
+    right: -100px !important;
 }
 
 .working-hour {
@@ -730,12 +908,15 @@
 }
 
 .show-question {
-    height: 120px !important;
+    height: 140px !important;
+    overflow: scroll !important;
+    overflow: -moz-scrollbars-none !important;
+    -ms-overflow-style: none !important;
     transition: 0.5s;
 }
 
 .add-background-question {
-    background-color: #A47B60;
+    background-color: #a47b60;
     color: white;
 }
 
@@ -796,7 +977,9 @@ hr.dotted {
 .service-menu .title-service-menu span {
     font-size: 20px;
 }
-
+h1,h2,h3{
+    color: #a47b60 !important;
+}
 .select-booking,
 .email-booking,
 .phone-booking,
@@ -1003,17 +1186,22 @@ hr.dotted {
     .text-question-click-left button {
         width: 30%;
     }
-
+    .user-login-responsive
     .box-question-text-booking {
         margin-top: 10%;
         width: 100%;
     }
-    .form-data { box-shadow: none;}
+    .email-sdt{
+        display: none !important;
+    }
+    .user-login{
+        display: none !important;
+    }
 }
 
 @media (max-width: 765px) {
     .box-question-text-booking {
-        margin-top: 25%;
+        margin-top: 55%;
     }
 }
 
@@ -1049,7 +1237,7 @@ footer .link-icon li {
 
 footer .link-icon a {
     font-size: 20px;
-    color: aliceblue;
+    color: #653a1d;
     transition: 1s;
 }
 
@@ -1060,7 +1248,8 @@ footer .link-icon a:hover {
 
 footer .text a {
     text-decoration: none;
-    color: #f7f5f2;
+    color: #321807;
+
 }
 
 footer .text p {
@@ -1069,7 +1258,7 @@ footer .text p {
 
 footer h4 {
     font-size: 26px;
-    font-family: "Amiri", serif;
+
 }
 
 footer .box-input-email input {
@@ -1077,7 +1266,7 @@ footer .box-input-email input {
     background-color: #043542;
     outline: none;
     border-radius: 1px;
-    color: #ffffff;
+    color: #653a1d;
     padding-left: 10px !important;
     height: 40px;
     transition: 1s;
@@ -1112,6 +1301,9 @@ footer .box-input-email button {
     .oppenTime-box {
         display: none;
     }
+    .box-navbar-top{
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
 }
 
 /* end responsive  */
@@ -1123,7 +1315,7 @@ footer .box-input-email button {
 
 .left-banner-Homepage h2 {
     font-size: 90px;
-    color: #043542;
+    color: #a47b60;
     font-weight: 400;
     font-family: "Roboto Slab", serif;
     margin: 20px 0;
@@ -1201,10 +1393,38 @@ footer .box-input-email button {
 }
 
 /* ==========about-us============== */
-.About-Us {
+.story-about {
     margin-top: 20%;
 }
+.h5-story-about{
+    margin: 50px 0;
+}
+.grid-terms-service {
+    margin: 10% 0;
+    margin-bottom: 10%;
+}
+.text-in-img-story p{
+    font-style: italic;
+    margin-top: -30px;
+}
+.h4-story{
+    margin: 50px 0 30px;
+}
+@media (max-width:890px) {
+    .grid-terms-service {
+        margin: 45% 0;
+    }
+}
 
+@media (max-width:780px) {
+    .grid-terms-service {
+        margin: 28% 0;
+    }
+}
+.doi-ngu-bac-si{
+    width: 80%;
+    margin: 100px auto;
+}
 .experience-about-us {
     margin: 60px 0;
 }
@@ -1220,7 +1440,7 @@ footer .box-input-email button {
 
 .item-absol-about-us {
     position: absolute;
-    bottom: 16em;
+    bottom: -52px;
     left: 93px;
 }
 
@@ -1232,6 +1452,7 @@ footer .box-input-email button {
     color: #262626;
     font-weight: 600;
     position: relative;
+    font-family: "Roboto Slab", serif;
 }
 
 .text-under-h4-HomePage::after {
@@ -1245,8 +1466,8 @@ footer .box-input-email button {
 }
 
 .text-title-HomePage {
-    font-size: 58px;
-    color: #043542;
+    font-size: 40px;
+    color: #a47b60;
     font-weight: 400;
     font-family: "Roboto Slab", serif;
     margin-top: 50px;
@@ -1298,6 +1519,54 @@ footer .box-input-email button {
 .our-service {
     margin-top: 180px;
 }
+.form-service{
+    margin: 150px auto;
+}
+/*  blog */
+.form-service-blog{
+    margin-top: 0px;
+}
+.left-row-form-service{
+    padding: 0px 20px;
+}
+.left-row-form-service a{
+    font-style: italic;
+    text-decoration: none;
+}
+.left-row-form-service p:nth-child(2){
+    font-size: 1.3rem;
+}
+.right-row-form-service table th,td{
+    padding: 10px 0;
+}
+.right-row-form-service table {
+    width: 60%;
+    margin: 0 auto;
+}
+/* reposnive blog  */
+@media(max-width:768px){
+    .table-blog{
+        width: auto !important;
+    }
+}
+.right-row-form-service input{
+    outline: none;
+    width:100%;
+    /* padding: 10px 0; */
+    border: none;
+    border-bottom: 1px solid #dd9002;
+    border-bottom-right-radius:10px ;
+}
+.text-read-more {
+    margin-top: 100px;
+    font-family: "Roboto Slab", serif;
+
+}
+
+.text-read-more a {
+    text-decoration: none;
+    color: #a47b60;
+}
 
 .item-image-service {
     margin-top: 100px;
@@ -1308,7 +1577,7 @@ footer .box-input-email button {
 }
 
 .text-item-image-service {
-    width: 70%;
+    width: 80%;
     right: 0;
     left: 0;
     margin: 0 auto;
@@ -1318,10 +1587,11 @@ footer .box-input-email button {
     bottom: -80px;
     text-align: center;
     transition: 0.2s linear;
+    border-radius: 5px;
 }
 
 .text-item-image-service:hover {
-    background-color: #A47B60;
+    background-color: #a47b60;
     transition: 0.2s linear;
     color: #fff;
     cursor: pointer;
@@ -1330,6 +1600,59 @@ footer .box-input-email button {
 
 .text-item-image-service:hover button {
     color: #fff;
+}
+
+/* ===========lý do nên chọn bọn dở hơi này================// */
+.reason {
+    margin-top: 100px;
+    background-image: url(../Image/beautiful-hand-of-woman-with-white-manicure--e1643347008496.jpg);
+    padding: 50px 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-p-Homepage {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+}
+.h4-reason,.p-reason{
+    margin: 0px auto !important;
+    color: #f9f9f9;
+}
+.p-reason{
+    margin: 50px auto !important;
+}
+.item-option-reason {
+    padding:15px 10px;
+    background-color: #fcf6e9a7;
+    text-align: center;
+    margin: 10px 0;
+    border: 1px solid #855a0a;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0px #855a0a;
+}
+.h4-item-reason{
+    margin: 10px 0;
+}
+.p-item-reason {
+    width: 80%;
+    margin: 10px auto;
+    height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+}
+.img-item-reason{
+    width: 180px;
+    height: 180px;
+    margin: 10px auto;
+}
+.img-item-reason img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
 
 /* ===========treatment-price========== */
@@ -1421,12 +1744,14 @@ footer .box-input-email button {
     line-height: 60px;
     border-radius: 50%;
     margin: 0 20px 0 0;
+    object-fit: cover;
 }
 
 .text-user-vote p:nth-child(1) {
     color: #f7730f;
     font-weight: bold;
     font-size: 20px;
+    margin-bottom: 5px;
 }
 
 /* ============working-hour======= */
@@ -1537,6 +1862,7 @@ footer .box-input-email button {
 .modal-mockup {
     position: relative;
     display: none;
+    z-index: 6;
 }
 
 .content-modal-mockup {
@@ -1556,8 +1882,8 @@ footer .box-input-email button {
 
 .h5-item-modal-mockup {
     /* font-family: 'Lobster', cursive; */
-    font-family: "Pacifico", cursive;
-    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: "Pacifico", cursive; */
+    font-family: 'Roboto', sans-serif;
     /* font-family: 'Roboto Slab', serif; */
 }
 
@@ -1577,11 +1903,11 @@ footer .box-input-email button {
 .item-modal-mockup {
     right: 0;
     left: 0;
-    width: 70%;
+    width: 40%;
     margin: 0 auto;
-    top: 5%;
+    top: 15%;
     bottom: 5%;
-    height: 90%;
+    height: 60%;
     position: absolute;
     text-align: center;
     background-color: #fff;
@@ -1667,32 +1993,21 @@ footer .box-input-email button {
     .h-custom {
         height: 100%;
     }
-/*.img-logo{*/
-/*    flex-direction: column-reverse;*/
-/*    height: 40px;*/
-/*    position: absolute*/
-/*}*/
-    .login {
-        margin-top: 0!important;
-    }
 }
 
 .bg-login {
-    background-color: #fff;
+    background-color: #f1e7d3;
     width: 100%;
     background-image: url(https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/bg-3.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
+}
 
-}
-.bg-login input::placeholder {
-    font: 13px sans-serif;
-}
 /*BLOG---------------*/
 .blog-page-box {
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 /*
@@ -1700,14 +2015,13 @@ footer .box-input-email button {
   margin-top: 10% !important;
 } */
 
-.blog-page h3 {
-    font-family: "Amiri", sans-serif;
+/* .blog-page h3 {
+  font-family: "Amiri", sans-serif;
 }
 
 .blog-page p {
-    font-family: "Amiri", sans-serif;
-}
-
+  font-family: "Amiri", sans-serif;
+} */
 
 .blog-page .col-md-6 {
     padding: 1.5rem;
@@ -1816,11 +2130,10 @@ footer .box-input-email button {
     width: 100px;
 }
 
-.box-right .popular-new-posts h3,
+/* .box-right .popular-new-posts h3,
 span {
-    font-family: "Amiri", sans-serif;
-}
-
+  font-family: "Amiri", sans-serif;
+} */
 
 .box-right .box-popular-new-item-title a {
     text-decoration: none;
@@ -1843,7 +2156,7 @@ span {
 /* categories */
 .box-right .categories-list a {
     text-decoration: none;
-    color: rgb(11, 18, 72);
+    color: #000;
     font-weight: bold;
     font-size: 20px;
 }
@@ -1858,45 +2171,39 @@ span {
     margin: 10px 0px;
 }
 
-/* questions */
-.box-right .have-any-question {
-    background-image: url("../src/Image/set-of-manicure-pedicure-tools-and-accessories-stone-concrete-background-e1643215490787.jpg");
-    background-position: 0 77%;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    z-index: -100;
+/* them */
+.box-right .categories-title:hover{
+    color: brown;
+    cursor: pointer;
+}
+.box-right .categories-list li {
+    margin-top: 10px;
+}
+.box-right .categories-list a:hover {
+    color: brown;
+}
+.categories-list {
+    max-height: auto;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
 }
 
-.box-right .have-any-question-box {
-    background-color: rgb(164 123 96);
+.categories-two:hover .categories-list {
+    max-height: 200px;
+    transition: max-height 0.5s ease-in;
+    animation: fadeIn 0.5s;
 }
 
-.box-right .have-any-question-box h3 {
-    color: #fdf5e6;
-}
-
-.box-right .box-question-list a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.box-right .box-question-list span i {
-    color: #fdf5e6;
-    margin: 0px 10px;
-    font-size: 19px;
-}
-
-.box-right .box-question-list li {
-    margin: 10px 0px;
-}
-
-@media (max-width: 768px) {
-    .box-right .have-any-question-box {
-        background-color: rgba(35, 75, 88, 0.878);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
+/*  them */
 /*-------------SINGLE BLOG*/
 
 main .single-blog {
@@ -1906,22 +2213,6 @@ main .single-blog {
     height: 300px;
 }
 
-/*  single blog-item */
-
-main .single-blog h1,
-main .blog p {
-    font-family: "Amiri", sans-serif;
-}
-
-.single-blog-page h3 {
-    font-family: "Amiri", sans-serif;
-}
-
-.single-blog-page p {
-    font-family: "Amiri", sans-serif;
-}
-
-
 /* content  */
 .content-single-blog-page img {
     width: 99%;
@@ -1929,7 +2220,6 @@ main .blog p {
 
 .content-single-blog-page .content p {
     color: #918b8a;
-
 }
 
 .content-single-blog-page .content i {
@@ -1972,7 +2262,6 @@ main .blog p {
 
 .form-comment label {
     font-weight: bold;
-
 }
 
 .form-comment button {
@@ -1981,14 +2270,12 @@ main .blog p {
     background-color: #a47b60;
     color: #fdf5e6;
     transition: 0.5s;
-
 }
+
 .form-comment button:hover {
     border: none;
     transition: 0.5s;
     background-color: #b8947c;
-
-
 }
 
 /* responsive  */
@@ -2031,7 +2318,6 @@ main .contact {
 }
 
 /* contact */
-
 
 .contact-information-text {
     background-color: #fdf5e6;
@@ -2081,7 +2367,6 @@ main .contact {
     font-size: 60px;
     color: #043542;
     font-weight: 400;
-
 }
 
 .make-appointment-contact .form-right-make-appointment {
@@ -2188,12 +2473,14 @@ main .contact {
     color: white;
     transition: 0.5s;
 }
+
 .make-appointment-contact .form-right-make-appointment form button:hover {
     transition: 0.5s;
     border: none;
     background-color: #af9888;
     color: white;
 }
+
 .make-appointment-contact .text-question-click-left button {
     width: 20%;
     height: 70px;
@@ -2222,8 +2509,9 @@ footer .background-image-footer {
     background-position: 0 77%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #333333;
+    background-color: #f2dfbc ;
     z-index: -1000;
+    opacity: 0.3;
 }
 
 footer .text {
@@ -2231,7 +2519,7 @@ footer .text {
 }
 
 footer .text .row-footer .col {
-    color: white !important;
+    color: #653a1d  !important;
 }
 
 footer .text .row-footer .col img {
@@ -2239,7 +2527,7 @@ footer .text .row-footer .col img {
 }
 
 footer .text .row-footer .col h4 {
-    color: white;
+    color: #653a1d;
 }
 
 footer .list-support li {
@@ -2252,7 +2540,7 @@ footer .link-icon li {
 
 footer .link-icon a {
     font-size: 20px;
-    color: white;
+    color: #653a1d;
     transition: 1s;
 }
 
@@ -2263,7 +2551,7 @@ footer .link-icon a:hover {
 
 footer .text a {
     text-decoration: none;
-    color: white;
+    color: #653a1d;
 }
 
 footer .text p {
@@ -2279,7 +2567,7 @@ footer .box-input-email input {
     background-color: transparent;
     outline: none;
     border-radius: 1px;
-    color: #043542;
+    color: #653a1d;
 
     padding: 3px;
     height: 40px;
@@ -2296,12 +2584,12 @@ footer .box-input-email button {
     border: none;
     height: 40px;
     padding: 5px;
-    color: #fff;
+    color: #ffffff;
     border: 2px solid #a47b60;
 }
 
 footer .coppyright {
-    color: aliceblue;
+    color: #653a1d;
     display: flex;
     justify-content: space-between;
 }
@@ -2309,14 +2597,14 @@ footer .coppyright {
 /* responsive  */
 @media (max-width: 2410px) {
     footer .background-image-footer {
-        height: 25em;
+        height: 350px;
     }
 }
 
 @media (max-width: 1200px) {}
 
 @media (max-width: 1000px) {
-    .logo-menu-oppenTime .menu-oppentime {
+    .menu-oppentime {
         display: none !important;
     }
 
@@ -2379,7 +2667,7 @@ footer .coppyright {
 }
 
 .btn-edit-image {
-    background-color: #A47B60 !important;
+    background-color: #a47b60 !important;
     transition: 0.3s;
     color: white;
 }
@@ -2399,12 +2687,20 @@ footer .coppyright {
     font-family: "Palanquin", sans-serif;
 }
 
+.box-mxauto .small-text {
+    font-size: 25px;
+}
+
 .box-mxauto {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     background-color: black;
     border-radius: 5px;
     overflow: hidden;
+}
+
+.box-mxauto .small-text {
+    font-size: 25px;
 }
 
 .box-mxauto img {
@@ -2433,7 +2729,7 @@ input[type="file"] {
     cursor: pointer;
     font-size: 14px;
     color: #fff;
-    background-color: #A47B60;
+    background-color: #a47b60;
     border: none;
     padding: 10px 15px;
     transition: 0.3s;
@@ -2461,31 +2757,21 @@ main {
     position: fixed;
     bottom: 50px;
     right: 20px;
-    display: grid;
-    gap: 10px;
 }
-.call-icon{
-    border-radius: 50%;
-    padding: 5px;
-    box-shadow: 0px 0px 5px 0px;
-    background-color: #fff;
-    animation: icon 2s infinite;
-    display: grid;
-    align-items: center;
 
-}
 .icon-call {
     width: 50px;
 }
 
 .bxs-phone-call {
-    font-size: 35px;
+    font-size: 50px;
 }
 
 .zalo-icon-contact img,
 .instagram-icon-contact img,
 .bxs-phone-call {
-    width: 40px;
+    width: 50px;
+    animation: icon 1.2s infinite;
     cursor: pointer;
 }
 
@@ -2495,7 +2781,146 @@ main {
     }
 
     100% {
-        transform: scale(1.1);
+        transform: scale(1.2);
+    }
+}
+
+/* ==============terms========= */
+.left-grid-terms {
+    border: 1px solid #cdcdcd;
+    padding: 10px 0px;
+    height: max-content;
+}
+
+.left-grid-terms h3 {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 3px solid #070323;
+}
+
+.list-menu-left-terms ul {
+    padding: 0;
+}
+
+.list-menu-left-terms ul li {
+    list-style: none;
+    padding: 10px 20px;
+    border-bottom: 1px solid #cdcdcd73;
+    transition: .2s linear;
+}
+
+.list-menu-left-terms li:hover {
+    background-color: #f0ebe08f;
+    transition: .2s linear;
+}
+
+.list-menu-left-terms li:hover a {
+    color: #6a4605;
+}
+
+.list-menu-left-terms a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.img-left-grid-terms {
+    margin-top: 100px;
+}
+
+.left-grid-terms h3,
+.right-grid-terms h2,
+.text-content-terms h5 {
+    font-weight: 600;
+}
+
+.right-grid-terms,
+.left-grid-terms {
+    margin-top: 2rem;
+}
+
+.text-content-terms p {
+    font-size: 1rem;
+}
+
+/* policy and privacy page  */
+.box-policy-and-privacy {
+    background-image: url(https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/bg-3.png) !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.policy-and-privacy {
+    position: unset !important;
+    margin-top: 20%;
+}
+
+.img-policy {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.policy-and-privacy .box-text-policy .text-box-policy {
+    margin: 30px 0;
+}
+
+.policy-and-privacy h3 {
+    font-weight: bold;
+}
+
+.policy-and-privacy p {
+    font-size: 20px;
+}
+
+.text-box-policy ul li {
+    margin: 20px 0;
+}
+
+@media (max-width: 950px) {
+    .policy-and-privacy {
+        margin-top: 60%;
     }
 
+    .service-menu .title-service-menu {
+        margin-top: 40%;
+    }
+
+    .box-professional-team>.location {
+        display: none !important;
+    }
+
+    .professional-team {
+        margin-top: 50%;
+    }
+}
+
+@media(min-width: 350px) and (max-width: 850px) {
+    .service-menu .title-service-menu {
+        margin-top: 60%;
+    }
+
+    .professional-team {
+        margin-top: 70%;
+    }
+    .banner-page {
+        height: 60%;
+    }
+}
+
+@media (max-width: 350px) {
+    .banner-page {
+        height: 60%;
+    }
+
+    .service-menu .title-service-menu {
+        margin-top: 60%;
+
+    }
+
+    .box-professional-team>.location {
+        display: none !important;
+    }
 }

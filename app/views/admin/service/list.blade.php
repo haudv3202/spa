@@ -224,11 +224,11 @@
                         </div>
                       </td>
                       <td class="d-flex justify-content-around">
-                            <button class="btn btn-info btn-default btn-squared" onclick="location.href='{{route('detail-service/'.$sv->id)}}'">Detail
+                            <button class="btn btn-info btn-default btn-squared me-2" onclick="location.href='{{route('detail-service/'.$sv->id)}}'">Detail
                             </button>
-                            <button class="btn btn-warning btn-default btn-squared" onclick="location.href='{{route('edit-service/'.$sv->id)}}'">Edit
+                            <button class="btn btn-warning btn-default btn-squared me-2" onclick="location.href='{{route('edit-service/'.$sv->id)}}'">Edit
                             </button>
-                            <button class="btn btn-danger btn-default btn-squared" onclick="deletItem({{$sv->id}})">Delete
+                            <button class="btn btn-danger btn-default btn-squared me-2" onclick="deletItem({{$sv->id}})">Delete
                             </button>
                       </td>
                     </tr>

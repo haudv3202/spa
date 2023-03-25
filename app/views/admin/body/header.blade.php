@@ -3,8 +3,8 @@
     <div class="navbar-left">
       <div class="logo-area">
         <a class="navbar-brand" href="index.html">
-          <img class="dark" src="{{route(''.'app/views/admin/public/assets/img/logo-dark.png')}}" alt="logo">
-          <img class="light" src="{{route(''.'app/views/admin/public/assets/img/logo-white.png')}}" alt="logo">
+          <img class="dark" src="{{route('./public/Image/photo_2023-03-10_10-33-00.png')}}" style="width: 100px;height: 100px;object-fit: contain;" alt="logo">
+          <img class="light" src="{{route('./public/Image/photo_2023-03-10_10-33-00.png')}}" alt="logo">
         </a>
         <a href="#" class="sidebar-toggle">
           <img class="svg" src="{{route(''.'app/views/admin/public/assets/img/svg/align-center-alt.svg')}}" alt="img"></a>
@@ -17,14 +17,14 @@
         <li class="nav-author">
           <div class="dropdown-custom">
             <a href="javascript:;" class="nav-item-toggle">
-              <img src="{{route(''.'public/upload/users/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
+              <img src="{{route('public/upload/avatar/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
               <span class="nav-item__title">{{$_SESSION['account']->name}}<i class="las la-angle-down nav-item__arrow"></i></span>
             </a>
             <div class="dropdown-parent-wrapper">
               <div class="dropdown-wrapper">
                 <div class="nav-author__info">
                   <div class="author-img">
-                    <img src="{{route(''.'public/upload/users/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
+                    <img src="{{route('public/upload/avatar/'.$_SESSION['account']->image)}}" alt="" class="rounded-circle">
                   </div>
                   <div>
                     <h6>{{$_SESSION['account']->name}}</h6>
@@ -35,28 +35,16 @@
                   <ul>
                     <li>
                       <a href="{{route('edit-profile/'.$_SESSION['account']->id)}}">
-                        <i class="uil uil-user"></i> Profile</a>
+                        <i class="uil uil-user"></i> Thông tin</a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{{ route('home') }}">
                         <i class="uil uil-setting"></i>
-                        Settings</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="uil uil-key-skeleton"></i> Billing</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="uil uil-users-alt"></i> Activity</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="uil uil-bell"></i> Help</a>
+                        Về trang chủ</a>
                     </li>
                   </ul>
                   <a href="{{route('sign-out')}}" class="nav-author__signout">
-                    <i class="uil uil-sign-out-alt"></i> Sign Out</a>
+                    <i class="uil uil-sign-out-alt"></i>Đăng Xuất</a>
                 </div>
               </div>
 

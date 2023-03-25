@@ -1,0 +1,63 @@
+@extends('layout.index')
+@section('TitlePage')
+  Liên hệ với chúng tôi
+@endsection
+@section('desribePage')
+
+@endsection
+@section('content')
+  @include("components.header2")
+  <div class="box-policy-and-privacy">
+
+    <div class="container ">
+      <div class="policy-and-privacy">
+        <div class="title-policy">
+          <h3 class="text-center">CHÍNH SÁCH BẢO MẬT THÔNG TIN TẠI MONOSPA</h3>
+          <p class="my-3">Cảm ơn bạn đã truy cập vào website MONOSPA. Chúng tôi tôn trọng và cam kết sẽ bảo mật những thông tin mang tính riêng tư của bạn. Xin vui lòng đọc bản chính sách bảo mật dưới đây để hiểu hơn những cam kết mà chúng tôi thực hiện nhằm tôn trọng và bảo vệ quyền lợi của người truy cập.</p>
+          <P>Bảo vệ dữ liệu cá nhân và gây dựng được niềm tin cho bạn là vấn đề rất quan trọng với chúng tôi. Vì vậy, chúng tôi sẽ dùng tên và các thông tin khác liên quan đến bạn tuân thủ theo nội dung của chính sách bảo mật. Chúng tôi chỉ thu thập những thông tin cần thiết liên quan đến giao dịch mua bán.</P>
+        </div>
+        <div class="img-policy text-center">
+          <img class="w-100" src="https://trexanhspa.vn/wp-content/uploads/2018/11/chinh-sach-bao-mat-thong-tin.jpg" alt="">
+        </div>
+        <div class="box-text-policy">
+          <div class="text-box-policy">
+            <h3>1. Thu thập thông tin cá nhân</h3>
+            <p>Chúng tôi sẽ thu thập nhiều thông tin khác nhau của bạn khi bạn muốn đặt hàng trên trang web như: Họ tên, địa chỉ, số điện thoại, thư điện tử…vv.</p>
+            <p>Chúng tôi thu thập, lưu trữ và xử lý thông tin của bạn cho quá trình mua hàng, cho những thông báo sau này và để cung cấp dịch vụ.</p>
+            <p>Chúng tôi sẽ dùng thông tin bạn đã cung cấp để xử lý đơn đặt hàng, cung cấp các dịch vụ và thông tin yêu cầu thông qua trang web và theo yêu cầu của bạn. Chúng tôi có thể chuyển tên và địa chỉ cho bên thứ ba để họ giao hàng cho bạn (ví dụ cho bên chuyển phát nhanh hoặc nhà cung cấp).</p>
+          </div>
+          <div class="text-box-policy">
+            <h3>2. Thu thập thông tin</h3>
+            <p>Việc thu thập thông tin của bạn sẽ được phục vụ các mục đích sau:</p>
+            <ul>
+
+              <li class="li">Tư vấn, giải đáp, hỗ trợ khách hàng khi lựa chọn dịch vụ.</li>
+              <li class="li">Giao hàng</li>
+              <li class="li">Cung cấp cho bạn thông tin mới nhất trên Website của chúng tôi</li>
+              <li class="li">Xem xét và nâng cấp thông tin và giao diện của Website</li>
+              <li class="li">Khảo sát, lấy ý kiếm khách hàng nhằm nâng cao chất lượng dịch vụ</li>
+              <li class="li">Thực hiện các hoạt động quảng bá liên quan đến các sản phẩm và dịch vụ của chúng tôi</li>
+            </ul>
+            <p>Chúng tôi cũng có thể thu thập thông tin về số lần viếng thăm, bao gồm số trang quý khách xem, số links (liên kết) bạn click và những thông tin khác liên quan đến việc kết nối đến MONOSPA</p>
+            <p>Chúng tôi thu thập và sử dụng thông tin cá nhân quý khách với mục đích phù hợp và hoàn toàn tuân thủ nội dung của “Chính sách bảo mật” này.</p>
+            <p>Khi cần thiết, chúng tôi có thể sử dụng những thông tin này để liên hệ trực tiếp với bạn dưới các hình thức như: gởi thư ngỏ, đơn đặt hàng, thư cảm ơn, thông tin về kỹ thuật và bảo mật, quý khách có thể nhận được thư định kỳ cung cấp thông tin sản phẩm, dịch vụ mới, thông tin về các sự kiện sắp tới hoặc thông tin tuyển dụng.</p>
+          </div>
+          <div class="text-box-policy">
+            <h3>3. Bảo mật thông tin cá nhân</h3>
+            <p>Khi bạn gửi thông tin cá nhân của bạn cho chúng tôi, bạn đã đồng ý với các điều khoản mà chúng tôi đã nêu ở trên, chúng tôi cam kết bảo mật thông tin cá nhân của quý khách bằng mọi cách thức có thể nhằm bảo vệ thông tin này không bị truy lục, sử dụng hoặc tiết lộ ngoài ý muốn.</p>
+            <p>Trong khuôn khổ chính sách bảo mật, chúng tôi không bán hay tiết lộ dữ liệu cá nhân của bạn cho bên thứ ba mà không được đồng ý trước trừ khi điều này là cần thiết cho các điều khoản trong chính sách bảo mật hoặc chúng tôi được yêu cầu phải làm như vậy theo quy định của pháp luật.</p>
+          </div>
+          <div class="text-box-policy">
+            <h3>3. Cam kết bảo mật</h3>
+            <p>MONOSPA chỉ tập hợp lại các thông tin cá nhân trong phạm vi phù hợp và cần thiết cho mục đích thương mại đúng đắn của chúng tôi. Và chúng tôi duy trì các biện pháp thích hợp nhằm bảo đảm tính an toàn, nguyên vẹn, độ chính xác, và tính bảo mật những thông tin mà Người sử dụng đã cung cấp. Ngoài ra, chúng tôi cũng có những biện pháp thích hợp để đảm bảo rằng bên thứ ba cũng sử dụng các biện pháp bảo đảm an toàn cho các thông tin mà chúng tôi cung cấp cho họ.</p>
+            <p>Thông tin cá nhân, thông tin riêng của người sử dụng được thu thập, lưu trữ và bảo vệ một các nghiêm túc, chính xác và bảo mật.</p>
+            <p>Doanh nghiệp thiết lập những phần mềm thu thập, lưu trữ thông tin riêng biệt và được thực hiện duy nhất bởi hệ thống máy chủ của doanh nghiệp và hệ thống máy chủ dự phòng. Việc bảo mật các thông tin cá nhân, thông tin riêng của người sử dụng là tuyệt đối và sẽ không bị xuất trình cho bên thứ ba bất kỳ trừ khi có yêu cầu từ phía cơ quan Nhà nước có thẩm quyền.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    @include("components.socialcontact")
+  </div>
+@endsection
