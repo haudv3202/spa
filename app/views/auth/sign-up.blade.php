@@ -26,14 +26,6 @@
         <div class="col-md-9 col-lg-6 col-xl-5 d-block d-xl-none ">
           <img src="{{route('public/image/photo_2023-03-10_10-33-00.png')}}" width="20%" alt="" />
         </div>
-
-          @if(isset($_SESSION['errors']) && isset($_GET['msg']))
-            <ul>
-              @foreach($_SESSION['errors'] as $er)
-                <li style="color: red">{{$er}}</li>
-              @endforeach
-            </ul>
-          @endif
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form action="{{route('sign-up')}}" method="post" id="form-sign-up">
             <div class="divider d-flex align-items-center my-4">
@@ -44,35 +36,45 @@
               <label class="form-label m-0 mt-2" for="form3Example3">Tên Tài Khoản</label>
               <input type="text" name="username" class="form-control form-control-lg input-login email-login" id="name-signup"
                      placeholder="Nhập tên đăng nhập" />
-              <span class="error-message"></span>
+              @if(isset($_SESSION['errors']['username']) && isset($_GET['msg']))
+                <span class="error-message">{{$_SESSION['errors']['username']}}</span>
+              @endif
             </div>
             <!-- Email input -->
             <div class="form-outline ">
               <label class="form-label m-0 mt-2" for="form3Example3">Email</label>
               <input type="email" name="email" class="form-control form-control-lg input-login email-login" id="email-signup"
                      placeholder="Nhập Email" />
-              <small class="error-message"></small>
+              @if(isset($_SESSION['errors']['email']) && isset($_GET['msg']))
+                <span class="error-message">{{$_SESSION['errors']['email']}}</span>
+              @endif
             </div>
             <!-- SĐT input -->
             <div class="form-outline ">
               <label class="form-label m-0 mt-2" for="form3Example3">SĐT</label>
               <input type="text" name="sdt" class="form-control form-control-lg input-login email-login" id="phone-signup"
                      placeholder="Nhập Số điện thoại" />
-              <small class="error-message"></small>
+              @if(isset($_SESSION['errors']['phone']) && isset($_GET['msg']))
+                <span class="error-message">{{$_SESSION['errors']['phone']}}</span>
+              @endif
             </div>
             <!-- Password input -->
             <div class="form-outline">
               <label class="form-label m-0 mt-2" for="form3Example4">Mật khẩu mới</label>
               <input type="password" name="password" class="form-control form-control-lg input-login pass-login" id="pass-signup"
                      placeholder="Nhập mật khẩu của bạn" />
-              <small class="error-message"></small>
+              @if(isset($_SESSION['errors']['password']) && isset($_GET['msg']))
+                <span class="error-message">{{$_SESSION['errors']['password']}}</span>
+              @endif
             </div>
             <!-- REPassword input -->
             <div class="form-outline ">
               <label class="form-label m-0 mt-2" for="form3Example4">Nhập lại mật khẩu</label>
               <input type="password" name="repass" class="form-control form-control-lg input-login pass-login" id="repass-signup"
                      placeholder="Nhập lại mật khẩu của bạn" />
-              <small class="error-message"></small>
+              @if(isset($_SESSION['errors']['password']) && isset($_GET['msg']))
+                <span class="error-message">{{$_SESSION['errors']['password']}}</span>
+              @endif
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">

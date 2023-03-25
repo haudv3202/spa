@@ -31,19 +31,19 @@ class UsersController extends BaseController
         $err = [];
         if (isset($_POST['btn-signup'])) {
             if (empty($_POST['username'])) {
-                $err[] = "Bạn chưa nhập username";
+                $err['username'] = "Bạn chưa nhập username";
             }
             if (empty($_POST['password'])) {
-                $err[] = "Bạn chưa nhập password";
+                $err['password'] = "Bạn chưa nhập password";
             }
             if (empty($_POST['sdt'])) {
-                $err[] = "Bạn chưa nhập số điện thoại";
+                $err['phone'] = "Bạn chưa nhập số điện thoại";
             }
             if (empty($_POST['email'])) {
-                $err[] = "Bạn chưa nhập email";
+                $err['email'] = "Bạn chưa nhập email";
             }
             if ($_POST['repass'] != $_POST['password']){
-                $err[] = "Mật khẩu không trùng khớp";
+                $err['pass'] = "Mật khẩu không trùng khớp";
             }
             if (count($err) > 0) {
                 redirect('errors', $err, 'sign-up');
