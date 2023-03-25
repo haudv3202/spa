@@ -181,7 +181,7 @@
  <!-- ==============working out============= -->
 
  <!-- =======follow our ig============= -->
- <?php echo $this->runChild("components.socialcontact"); ?>
+
  </main>
 <?php $this->stopSection(); ?>
 
