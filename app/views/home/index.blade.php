@@ -59,8 +59,9 @@
               <li><a href="{{route('about')}}">Về Chúng Tôi</a></li>
               <li class="categosies-dv position-relative"><span>Dịch Vụ</span>
                 <ul class="position-absolute ul-box-categories-service row">
-                  <div class="box-ul col ">
+
                     @foreach($allService as $value)
+                    <div class="box-ul col-6 ">
                     <li class="text-title-li" ><span class="d-flex align-items-center gap-2"><i class='bx bxs-checkbox'></i><a href="">{{ $value->name }}</a></span>
                       <ul>
                         @foreach($value->service as $valueService)
@@ -68,19 +69,9 @@
                         @endforeach
                       </ul>
                     </li>
+                    </div>
                     @endforeach
-                  </div>
-                  <div class="box-ul col">
-                    @foreach($allServiceEnd as $value)
-                      <li class="text-title-li" ><span class="d-flex align-items-center gap-2"><i class='bx bxs-checkbox'></i><a href="">{{ $value->name }}</a></span>
-                        <ul>
-                          @foreach($value->service as $valueService)
-                            <li><a href="{{ route('serviceDetail/' . $value->id) }}">{{ $valueService->name }}</a></li>
-                          @endforeach
-                        </ul>
-                      </li>
-                    @endforeach
-                  </div>
+
 
                 </ul>
               </li>
@@ -349,7 +340,6 @@
 
 @push("mockup")
   <div class="modal-mockup">
-
     <div class="content-modal-mockup">
       <div class="oidoioi">
         <div class="item-modal-mockup">

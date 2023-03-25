@@ -34,21 +34,23 @@ Câu hỏi thường gặp
 
       <div class="follow-our-instagram">
         <div class="title-follow-our-instagram text-center mt-5 mb-5 container">
-          <span>Follow Our Instagram</span>
+          <h2>Trải Nghiệm thực tế</h2>
           <p class="hr-insta"></p>
-          <h2>@naylish.insta</h2>
         </div>
         <div class="container-fluid">
           <div class="row">
             @foreach($instagram as $value)
-              <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="fade-up"
+              <div class="col-md-4 col-sm-4 col-6 mb-4" data-aos="fade-up"
               >
                 <div class="box-insta-bottom">
                   <div class="img">
                     <img src="{{route('public/upload/insta/'.$value->link)}}" alt="">
                     <div class="backgrond-hover-image-insta"></div>
                     <div class="icon-insta-follow">
-                      <a class="text-white" href="{{ $value->	link_insta }}"> <i class='bx bxl-instagram fs-1'></i> </a>
+                      <a class="text-white" href="{{ $value->	link_insta }}"><i class='bx bx-show fs-1' style="margin-left: 0.5em;"></i> </a>
+                    </div>
+                    <div class="item_title p-3">
+                      <p>{{ $value->meta }}</p>
                     </div>
                   </div>
                 </div>

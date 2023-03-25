@@ -312,13 +312,9 @@ class UsersController extends BaseController
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
         $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
         $category = $this->category->getLimit();
-        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial","allService","allServiceEnd"));
+        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial","allService"));
     }
 
     public function contact(){
@@ -328,11 +324,7 @@ class UsersController extends BaseController
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
-        $this->render('home.contactus',compact("allcontact","datasocial","allService","allServiceEnd"));
+        $this->render('home.contactus',compact("allcontact","datasocial","allService"));
     }
 
     public function socialPage(){
