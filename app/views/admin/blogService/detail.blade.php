@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="breadcrumb-main">
-            <h4 class="text-capitalize breadcrumb-title">Blog Details</h4>
+            <h4 class="text-capitalize breadcrumb-title">Blog chi tiết</h4>
             <div
               class="breadcrumb-action justify-content-center flex-wrap"
             >

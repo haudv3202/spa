@@ -1,93 +1,109 @@
+<?php
+$_SESSION['active_menu'] = $_GET['url'];
+
+?>
 <div class="sidebar-wrapper">
  <div class="sidebar sidebar-collapse" id="sidebar">
  <div class="sidebar__menu-group">
  <ul class="sidebar_nav">
- <li class="has-child">
+ <?php if($_SESSION['active_menu'] == 'user' || $_SESSION['active_menu'] == 'add_user' || $_SESSION['active_menu'] == 'list-rank'): ?>
+ <li class="has-child open" >
+ <?php else: ?> <li class="has-child " >
+ <?php endif; ?>
  <a href="#" class="">
  <span class="nav-icon uil uil-table"></span>
  <span class="menu-text">Quản lí người dùng</span>
  <span class="toggle-icon"></span>
  </a>
- <ul>
- <li class="">
- <a href="<?php echo \htmlentities(route('user')??'', ENT_QUOTES, 'UTF-8', false); ?>">Người Dùng</a>
+ <ul class="sub-menu ">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'user' ? 'active' : ''; ?>" >
+ <a href="<?php echo \htmlentities(route('user')??'', ENT_QUOTES, 'UTF-8', false); ?> " >Người Dùng</a>
  </li>
- <li class="">
- <a href="<?php echo \htmlentities(route('add_user')??'', ENT_QUOTES, 'UTF-8', false); ?>">Tạo tài khoản quản trị</a>
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'add_user' ? 'active' : ''; ?>" >
+ <a href="<?php echo \htmlentities(route('add_user')??'', ENT_QUOTES, 'UTF-8', false); ?> ">Tạo tài khoản quản trị</a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'list-rank' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('list-rank')??'', ENT_QUOTES, 'UTF-8', false); ?>">Danh mục khách hàng</a>
  </li>
  </ul>
  </li>
- <li class="has-child">
+
+ <?php if($_SESSION['active_menu'] == 'service-category' || $_SESSION['active_menu'] == 'service-list' || $_SESSION['active_menu'] == 'service-blog'): ?>
+ <li class="has-child open" >
+ <?php else: ?><li class="has-child " >
+ <?php endif; ?>
  <a href="#" class="">
  <span class="nav-icon uil uil-table"></span>
  <span class="menu-text">Quản lí dịch vụ</span>
  <span class="toggle-icon"></span>
  </a>
- <ul>
- <li class="">
+ <ul class="sub-menu">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'service-category' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('service-category')??'', ENT_QUOTES, 'UTF-8', false); ?>">Danh mục dịch vụ</a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'service-list' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('service-list')??'', ENT_QUOTES, 'UTF-8', false); ?>">Dịch vụ</a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'service-blog' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('service-blog')??'', ENT_QUOTES, 'UTF-8', false); ?>">Bài viết theo danh mục</a>
  </li>
  </ul>
  </li>
- <li class="has-child">
+
+ <?php if($_SESSION['active_menu'] == 'contact-us' || $_SESSION['active_menu'] == 'instagram' ||
+$_SESSION['active_menu'] == 'staff-list' || $_SESSION['active_menu'] == 'newletters' || $_SESSION['active_menu'] == 'social' ||
+$_SESSION['active_menu'] == 'setings'): ?>
+ <li class="has-child open" >
+ <?php else: ?><li class="has-child " >
+ <?php endif; ?>
  <a href="#" class="">
  <span class="nav-icon uil uil-table"></span>
  <span class="menu-text">Quản lí giao diện</span>
  <span class="toggle-icon"></span>
  </a>
- <ul>
- <li class="">
- <a href="<?php echo \htmlentities(route('contact-us')??'', ENT_QUOTES, 'UTF-8', false); ?>">Contact Us</a>
+ <ul class="sub-menu">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'contact-us' ? 'active' : ''; ?>">
+ <a href="<?php echo \htmlentities(route('contact-us')??'', ENT_QUOTES, 'UTF-8', false); ?> ">Contact Us</a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'instagram' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('instagram')??'', ENT_QUOTES, 'UTF-8', false); ?>">Instagram</a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'staff-list' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('staff-list')??'', ENT_QUOTES, 'UTF-8', false); ?>">Quản lý nhân viên</a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'newletters' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('newletters')??'', ENT_QUOTES, 'UTF-8', false); ?>">Newletters</a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'social' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('social')??'', ENT_QUOTES, 'UTF-8', false); ?>">Mạng xã hội</a>
  </li>
- <li class="">
- <a href="<?php echo \htmlentities(route('setings')??'', ENT_QUOTES, 'UTF-8', false); ?>">Settings</a>
- </li>
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'setings' ? 'active' : ''; ?>">
+ <a href="<?php echo \htmlentities(route('setings')??'', ENT_QUOTES, 'UTF-8', false); ?>">settings</a>
  <li class="">
  <a href="<?php echo \htmlentities(route('manage-banner')??'', ENT_QUOTES, 'UTF-8', false); ?>">Banner</a>
  </li>
  </ul>
  </li>
 
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'reply-list' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('reply-list')??'', ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav-icon uil uil-clipboard-notes"></span>
  <span class="menu-text">Quản lý phản hồi</span>
  </a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'endow-list' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('endow-list')??'', ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav-icon uil uil-clipboard-notes"></span>
  <span class="menu-text">Quản lý phản hồi ưu đãi</span>
  </a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'questions' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('questions')??'', ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav-icon uil uil-clipboard-notes"></span>
  <span class="menu-text">Câu hỏi thường gặp</span>
  </a>
  </li>
- <li class="">
+ <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'statistic-list' ? 'active' : ''; ?>">
  <a href="<?php echo \htmlentities(route('statistic-list')??'', ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav-icon uil uil-clipboard-notes"></span>
  <span class="menu-text">Thống kê</span>
@@ -97,3 +113,7 @@
  </div>
  </div>
 </div>
+
+
+
+
