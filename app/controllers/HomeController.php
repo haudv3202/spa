@@ -74,7 +74,7 @@ class HomeController extends BaseController{
                     'create_time' => $date,
                 ]);
                 if ($result){
-                    redirect('success', "Thêm thành công!", '');
+                    redirect('success', "Gửi thông tin thành công!", '');
                 }
             }
         }

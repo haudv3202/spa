@@ -87,4 +87,17 @@
       </div>
     </div>
   </div>
+  @if(isset($_SESSION['success']) && isset($_GET['msg']))
+    <script>
+      Swal.fire(
+        'Thông báo!',
+        '{{$_SESSION['success']}}',
+        'success'
+      )
+      window.setTimeout(function(){
+        window.location.href = '{{ route('') }}';
+      },1500)
+    </script>
+  @endif
 @endsection
+
