@@ -353,10 +353,10 @@
               </p>
               <div class="form-modal text-center">
 
-                <form id="form-modal-t">
+                <form action="{{route('mockup-post')}}" method="post">
                   <div class="value-form-modal mb-2">
                     <label class="label-model">Họ và tên </label>
-                    <span class="me-3">:</span><input type="text" name="name" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
+                    <span class="me-3">:</span><input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
                   <div class="value-form-modal">
@@ -365,7 +365,7 @@
                     <small class="error-message m-auto pt-3"></small>
                   </div>
 
-                  <button class="btn submit-form-modal">GỬI THÔNG TIN</button>
+                  <input type="submit" name="btn-sm" class="btn submit-form-modal" value="GỬI THÔNG TIN">
                 </form>
 
               </div>
