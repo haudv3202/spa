@@ -2060,6 +2060,7 @@ footer .box-input-email button {
 .blog-page .box-image img {
     width: 100%;
     height: 200px;
+    object-fit: cover;
 }
 
 .blog-page .box-popular-new-item img {
