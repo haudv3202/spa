@@ -94,45 +94,45 @@
   </header>
   <main>
 
-    <!-- =======About Us=========== -->
-    <div class="container">
-      <div class="About-Us row">
-        <div data-aos="fade-up" data-aos-duration="1500" class="left-about-us col-md-6">
-          <div class="item-left-about-us">
-            <img src="{{route('public/Image/about-us2.jpg')}}" width="100%" alt="">
-          </div>
-          <div class="item-left-about-us">
-            <img src="{{route('public/Image/about-us1.jpg')}}" width="100%" alt="">
-          </div>
-          <div class="item-absol-about-us">
-            <img src="{{route('public/Image/about-us3.jpg')}}" width="40%" alt="">
-          </div>
-        </div>
-        <div data-aos="fade-down" data-aos-duration="1500" class="right-about-us col-md-6">
-          <h4 class="text-under-h4-HomePage">VỀ CHÚNG TÔI</h4>
-          <h2 class="text-title-HomePage">MonoBovis mang đẳng cấp quốc tế</h2>
-          <p class="p-title-Hompage">Về MonoBovis chúng tôi khẳng định với khách hàng về những dịch vụ mà MonoBovis mang lại lợi ích cho khách hàng một tối ưu nhất
-          </p>
-          <div class="item-right-about-us">
-            <div class="content-item-right">
-              <img src="{{route('public/Image/like-about-us.png')}}" width="50px" alt="">
-              <div class="text-content-item-right-about-us">
-                <p>24<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>
-                <p>Năm kinh nghiệm</p>
-              </div>
-            </div>
-            <div class="content-item-right">
-              <img src="{{route('public/Image/scrum-about-us.png')}}" width="50px" alt="">
-              <div class="text-content-item-right-about-us">
-                <p>850<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>
-                <p>Khách hàng phản hồi</p>
-              </div>
-            </div>
-          </div>
-          <a href="{{route('')}}"><button class="btn btn-about-us">Về Chúng Tôi</button></a>
-        </div>
-      </div>
-    </div>
+{{--    <!-- =======About Us=========== -->--}}
+{{--    <div class="container">--}}
+{{--      <div class="About-Us row">--}}
+{{--        <div data-aos="fade-up" data-aos-duration="1500" class="left-about-us col-md-6">--}}
+{{--          <div class="item-left-about-us">--}}
+{{--            <img src="{{route('public/Image/about-us2.jpg')}}" width="100%" alt="">--}}
+{{--          </div>--}}
+{{--          <div class="item-left-about-us">--}}
+{{--            <img src="{{route('public/Image/about-us1.jpg')}}" width="100%" alt="">--}}
+{{--          </div>--}}
+{{--          <div class="item-absol-about-us">--}}
+{{--            <img src="{{route('public/Image/about-us3.jpg')}}" width="40%" alt="">--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--        <div data-aos="fade-down" data-aos-duration="1500" class="right-about-us col-md-6">--}}
+{{--          <h4 class="text-under-h4-HomePage">VỀ CHÚNG TÔI</h4>--}}
+{{--          <h2 class="text-title-HomePage">MonoBovis mang đẳng cấp quốc tế</h2>--}}
+{{--          <p class="p-title-Hompage">Về MonoBovis chúng tôi khẳng định với khách hàng về những dịch vụ mà MonoBovis mang lại lợi ích cho khách hàng một tối ưu nhất--}}
+{{--          </p>--}}
+{{--          <div class="item-right-about-us">--}}
+{{--            <div class="content-item-right">--}}
+{{--              <img src="{{route('public/Image/like-about-us.png')}}" width="50px" alt="">--}}
+{{--              <div class="text-content-item-right-about-us">--}}
+{{--                <p>24<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>--}}
+{{--                <p>Năm kinh nghiệm</p>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--            <div class="content-item-right">--}}
+{{--              <img src="{{route('public/Image/scrum-about-us.png')}}" width="50px" alt="">--}}
+{{--              <div class="text-content-item-right-about-us">--}}
+{{--                <p>850<i class='bx bx-plus-medical' style='color:#C6641B'></i></p>--}}
+{{--                <p>Khách hàng phản hồi</p>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--          </div>--}}
+{{--          <a href="{{route('')}}"><button class="btn btn-about-us">Về Chúng Tôi</button></a>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
     <!-- ==============Our Service========= -->
     <div class="container">
       <!-- =========text==== -->

@@ -19,7 +19,7 @@
         <h4  class="pb-3">Hỗ trợ</h4>
         <div class="list-support">
           <ul class="list-unstyled">
-            <li><a href="{{route('')}}">Hỏi đáp</a></li>
+            <li><a href="{{route('blog-questions')}}">Hỏi đáp</a></li>
             <li><a href="{{route('policy')}}">Chính sách bảo mật</a></li>
             <li><a href="{{route('terms')}}">Điều khoản & Điều kiện</a></li>
             <li><a href="{{route('contact')}}">Liên hệ</a></li>

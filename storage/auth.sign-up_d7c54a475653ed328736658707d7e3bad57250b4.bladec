@@ -12,6 +12,7 @@
 
  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
  <link rel="stylesheet" href="<?php echo \htmlentities(route('public/css/style.css')??'', ENT_QUOTES, 'UTF-8', false); ?>" />
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <title>Đăng Kí</title>
 </head>
 
@@ -19,13 +20,13 @@
 
 
 <div class="bg-login">
- <section class=" login my-5">
+ <section class=" login ">
  <div class="container-fluid h-custom">
- <div class="row d-flex justify-content-center align-items-center h-100">
+ <div class="row d-flex justify-content-center align-items-center h-100 py-3 shadow-lg">
  <div class="col-md-9 col-lg-6 col-xl-5 d-block d-xl-none ">
  <img src="<?php echo \htmlentities(route('public/image/photo_2023-03-10_10-33-00.png')??'', ENT_QUOTES, 'UTF-8', false); ?>" width="20%" alt="" />
  </div>
- 
+
  <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
  <ul>
  <?php $__currentLoopData = $_SESSION['errors']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
@@ -35,9 +36,9 @@
  </ul>
  <?php endif; ?>
  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
- <form action="<?php echo \htmlentities(route('sign-up')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="post" >
+ <form action="<?php echo \htmlentities(route('sign-up')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="post" id="form-sign-up">
  <div class="divider d-flex align-items-center my-4">
- <p class="text-center fw-bold mx-3 mb-0">Đăng Kí Thành Viên</p>
+ <p class="text-center fw-bold mx-3 h3 mb-0">ĐĂNG KÍ THÀNH VIÊN</p>
  </div>
  <!-- Name input -->
  <div class="form-outline ">
@@ -61,14 +62,14 @@
  <small class="error-message"></small>
  </div>
  <!-- Password input -->
- <div class="form-outline mb-3">
+ <div class="form-outline">
  <label class="form-label m-0 mt-2" for="form3Example4">Mật khẩu mới</label>
  <input type="password" name="password" class="form-control form-control-lg input-login pass-login" id="pass-signup"
  placeholder="Nhập mật khẩu của bạn" />
  <small class="error-message"></small>
  </div>
  <!-- REPassword input -->
- <div class="form-outline mb-3">
+ <div class="form-outline ">
  <label class="form-label m-0 mt-2" for="form3Example4">Nhập lại mật khẩu</label>
  <input type="password" name="repass" class="form-control form-control-lg input-login pass-login" id="repass-signup"
  placeholder="Nhập lại mật khẩu của bạn" />
@@ -78,7 +79,7 @@
  <div class="text-center text-lg-start mt-4 pt-2">
  <input type="submit" class="btn" name="btn-signup"
  style="padding-left: 2.5rem; padding-right: 2.5rem;background-color: #043542; color:white ;" value="Sign Up">
- <p class="small fw-bold mt-2 pt-1 mb-0">Bạn đã có tài khoản ? <a href="<?php echo \htmlentities(route('sign-in')??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ <p class="small fw-bold mt-2 pt-1 mb-2">Bạn đã có tài khoản ? <a href="<?php echo \htmlentities(route('sign-in')??'', ENT_QUOTES, 'UTF-8', false); ?>"
  class="link-danger">Đăng nhập tại đây</a></p>
  </div>
 
@@ -93,6 +94,19 @@
 
  </section>
 </div>
+
+ <?php if(isset($_SESSION['success']) && isset($_GET['msg'])): ?>
+ <script>
+ Swal.fire(
+ 'Đăng kí thành công!',
+ '<?php echo \htmlentities($_SESSION['success']??'', ENT_QUOTES, 'UTF-8', false); ?>',
+ 'success'
+ )
+ window.setTimeout(function(){
+ window.location.href = '<?php echo \htmlentities(route('sign-in')??'', ENT_QUOTES, 'UTF-8', false); ?>';
+ },2000)
+ </script>
+ <?php endif; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"

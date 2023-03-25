@@ -64,7 +64,7 @@ class UsersController extends BaseController
 //                    'create_date' => $date,
 //                    'update_date' => NULL,
 //                ]);
-                redirect('success', 'Đăng ký thành công', '');
+                redirect('success', 'Đăng ký thành công', 'sign-up');
             }
         }
         $this->render('auth.sign-up');
@@ -112,7 +112,6 @@ class UsersController extends BaseController
                         header('location: '.route('user'));
                     }else{
                         header('location: '.route(''));
-
                     }
                 }else{
                     $err[] = 'Tài khoản không tồn tại';

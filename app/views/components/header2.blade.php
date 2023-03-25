@@ -70,8 +70,6 @@
                       </li>
                   </div>
                     @endforeach
-
-
                 </ul>
               </li>
               <li class="menu-sub-page"><a href="{{route('blog')}}">Cẩm nang bổ ích</a></li>
