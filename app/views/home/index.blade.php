@@ -356,8 +356,7 @@
                 <form action="{{route('mockup-post')}}" method="post">
                   <div class="value-form-modal mb-2">
                     <label class="label-model">Họ và tên </label>
-                    : <input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
-                    <span class="me-3">:</span><input type="text" name="name" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
+                    <span class="me-3">:</span><input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
                   <div class="value-form-modal">
