@@ -6,12 +6,12 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="breadcrumb-main">
-            <h4 class="text-capitalize breadcrumb-title">Edit insta"</h4>
+            <h4 class="text-capitalize breadcrumb-title">Sửa Instagram</h4>
             <div class="breadcrumb-action justify-content-center flex-wrap">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Edit insta</li>
+                  <li class="breadcrumb-item active" aria-current="page">Sửa Instagram</li>
                 </ol>
               </nav>
             </div>
@@ -23,7 +23,7 @@
           <div class="col-lg-12">
             <div class="card card-default card-md mb-4">
               <div class="card-header">
-                <h6>Edit Contact: {{$oneData->id}}</h6>
+                <h6>Sửa Instagram: {{$oneData->id}}</h6>
               </div>
               @if(isset($_SESSION['errors']) && isset($_GET['msg']))
                 <div class="alert">
