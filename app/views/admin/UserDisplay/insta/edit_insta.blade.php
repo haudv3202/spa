@@ -71,10 +71,16 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="col-md-4 mb-20 px-15">
                       <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">link insta
                       </label>
                       <input type="text" name="link_image" class="form-control ih-medium ip-light radius-xs b-light" value="{{$oneData->link_insta}}"  required>
+                    </div>
+                    <div class="col-md-4 mb-20 px-15">
+                      <label for="validationDefault02" class="il-gray fs-14 fw-500 align-center mb-10">Nội dung
+                      </label>
+                      <textarea name="meta" id="" cols="20" class="form-control ih-medium ip-light radius-xs b-light" rows="20" required>{{$oneData->meta}}</textarea>
                     </div>
                   </div>
                   <input class="btn btn-primary px-30" name="sb-insta" type="submit" value="Save">
