@@ -8,6 +8,17 @@ class Category extends BaseModel{
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+
+    public function getAllCategoryName(){
+        $sql = "SELECT id,name FROM $this->table LIMIT 3";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
+    public function getAllCategoryNameEnd(){
+        $sql = "SELECT id,name FROM $this->table ORDER BY id LIMIT 20 OFFSET 3; ";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
     public function getAllLimit($index){
         $sql = "SELECT * FROM $this->table LIMIT $index,8";
         $this->setQuery($sql);

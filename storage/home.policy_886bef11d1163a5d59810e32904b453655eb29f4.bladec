@@ -58,6 +58,7 @@
 
  </div>
  </div>
+ <?php echo $this->runChild("components.socialcontact"); ?>
  </div>
 <?php $this->stopSection(); ?>
 

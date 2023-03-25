@@ -12,7 +12,7 @@
               >
                 <div class="table-responsive">
                   <div class="adv-table-table__header">
-                    <h4>Newletters</h4>
+                    <h4>Bản tin</h4>
 
                       <button onclick="location.href='{{route('add-newletters')}}'" class="btn btn-primary btn-default btn-rounded ">Thêm
                       </button>

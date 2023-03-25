@@ -1,16 +1,15 @@
 @extends('layout.index');
-@section('TitlePage')
-Bài viết
-@endsection
-@section('desribePage')
-
-@endsection
 @section('content')
   @include("components.header2")
 <main>
   <!-- blog -->
   <div class="container py-5 my-3 blog-page">
     <div class="blog-page-box">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center my-5">Cẩm nang bổ ích</h2>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-8">
           <div class="row">
@@ -49,7 +48,7 @@ Bài viết
                 </div>
 
                 <div class="box-popular-new-item-title flex-grow-1 ps-1">
-                  <a href=""><span>{{$blog[$i]->title}}</span></a>
+                  <a href="{{ route("detail/".$blog[$i]->id) }}"><span>{{$blog[$i]->title}}</span></a>
                 </div>
 
               </div>
@@ -65,7 +64,7 @@ Bài viết
               <div class="box-popular-new pt-3">
                 <ul class="categories-list list-unstyled">
                   @for($i = 0; $i < 3; $i++ )
-                  <li><a href="#"><span><i class='bx bx-minus'></i></span>{{$category[$i]->name}}</a></li>
+                  <li><a href="{{ route("serviceDetail/" . $category[$i]->id) }}"><span><i class='bx bx-minus'></i></span>{{$category[$i]->name}}</a></li>
                   @endfor
                 </ul>
               </div>

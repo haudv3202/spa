@@ -1,10 +1,4 @@
 @extends('layout.index')
-@section('TitlePage')
-  Sản phẩm và dịch vụ
-@endsection
-@section('desribePage')
-
-@endsection
 @section('content')
   @include("components.header2")
   <main>
@@ -13,23 +7,21 @@
       <!-- =========text==== -->
       <div class="our-service row">
         <div class="left-our-service col-md-6" data-aos="fade-down">
-          <h4 class="text-under-h4-HomePage">TẤT CẢ DANH MỤC </h4>
+          <h4 class="text-under-h4-HomePage">TẤT CẢ DỊCH VỤ</h4>
         </div>
       </div>
       <!-- ===========Image========== -->
       <div class="image-service row" data-aos="fade-down">
-        @foreach($service as $key => $value)
-        <div class="col-md-4 item-image-service">
-          <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
-               width="95%" alt="">
+        @foreach($Services as $key => $value)
+          <div class="col-md-4 item-image-service">
+            <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
+                 width="95%" alt="">
 
-          <div class="text-item-image-service shadow-lg">
-            <h4>{{$value->name}}</h4>
-            <a href="{{ route('serviceDetail/'. $value->id) }}"><button class="btn btn-book-service">Xem thêm <i class='bx bx-right-arrow-alt'
-                                                                        undefined></i></button></a>
+            <div class="text-item-image-service shadow-lg">
+              <h4>{{$value->name}}</h4>
+              <a href="{{ route("blogService/".$value->id) }}" class="btn btn-book-service">Xem thêm</a>
+            </div>
           </div>
-
-        </div>
         @endforeach
       </div>
     </div>
@@ -88,19 +80,19 @@
           <h3 class="text-center">ĐĂNG KÝ NGAY NHẬN QUÀ LIỀN TAY</h3>
           <p class="text-center">Để lại thông tin Mono Bovis Spa sẽ gửi ngay quà cho bạn</p>
           <form action="{{route('mockup-post')}}" method="post">
-          <table>
-            <tr>
-              <th>Họ và tên:</th>
-              <td><input type="text" name="fullname"></td>
-            </tr>
-            <tr>
-              <th>Số điện thoại </th>
-              <td><input type="text" name="phone"></td>
-            </tr>
-            <tr>
-              <th><input type="submit" name="btn-sm" class="btn btn-ourSerVice" value="Đăng Ký Ngay"></th>
-            </tr>
-          </table>
+            <table>
+              <tr>
+                <th>Họ và tên:</th>
+                <td><input type="text" name="fullname"></td>
+              </tr>
+              <tr>
+                <th>Số điện thoại </th>
+                <td><input type="text" name="phone"></td>
+              </tr>
+              <tr>
+                <th><input type="submit" name="btn-sm" class="btn btn-ourSerVice" value="Đăng Ký Ngay"></th>
+              </tr>
+            </table>
           </form>
         </div>
       </div>

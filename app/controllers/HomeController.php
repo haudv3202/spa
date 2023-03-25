@@ -1,6 +1,5 @@
 <?php
 namespace App\controllers;
-use App\models\Account;
 use App\models\Banner;
 use App\models\BlogService;
 use App\models\contact;
@@ -11,16 +10,19 @@ use App\models\social;
 use App\models\Staff;
 use App\models\settings;
 use App\models\insta;
+use App\models\Category;
 
 class HomeController extends BaseController{
 
     protected $service;
-
+    protected $blog;
+    protected $category;
     public function __construct()
     {
 
         $this->blog = new BlogService();
         $this->service = new Service();
+        $this->category = new Category();
     }
     public function index(){
         $this->render('users.signin');
@@ -32,23 +34,24 @@ class HomeController extends BaseController{
     }
     public function homeList(){
         $banner = Banner::GetAll();
-//        var_dump($banner);
-//        die();
         $datasocial = $this->socialPage();
         $service = $this->service->getPostslimit(6);
         $service3 = $this->service->getPostslimit(3);
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
         $instagram = insta::GetAll();
         $content = [];
-//        $content["title-about"] = settings::findString("review","title-about")->titler;
-////        $content["desribe-about"] = settings::findString("review","desribe-about")->titler;
-////        $content["desribe-service"] = settings::findString("review","desribe-service")->titler;
-////        $content["desribe-blog"] = settings::findString("review","desribe-blog")->titler;
-////        $content["image-abouts"] = settings::findStrings("review","image-about","titler");
         $posts = $this->blog->getPostslimit(3);
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
         }
-        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram'));
+        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram','allService','allServiceEnd'));
 
     }
     public function mockupPost(){
@@ -80,14 +83,47 @@ class HomeController extends BaseController{
     }
     public function serviceList(){
         $datasocial = $this->socialPage();
-        $service = $this->service->getAllService();
+        $service = $this->category->getAllCategory();
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
         $staff = Staff::GetAll();
-        $this->render('home.service', compact('service', 'staff',"datasocial"));
+        $this->render('home.service', compact('service', 'staff',"datasocial","allService","allServiceEnd"));
+    }
+
+    public function serviceListDetail($id){
+        $datasocial = $this->socialPage();
+        $Services = $this->service->getAllCateId($id);
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $staff = Staff::GetAll();
+        $this->render('home.serviceDetail', compact('Services', 'staff',"datasocial","allService","allServiceEnd"));
+
     }
     public function aboutList(){
         $datasocial = $this->socialPage();
         $instagram = insta::GetAll();
-        $this->render('home.about',compact("datasocial","instagram"));
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('home.about',compact("datasocial","instagram","allService","allServiceEnd"));
     }
 
     public function booking(){
@@ -101,7 +137,15 @@ class HomeController extends BaseController{
         return social::GetAll();
     }
     public function policy(){
-        $this->render('home.policy');
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $allServiceEnd = $this->category->getAllCategoryNameEnd();
+        foreach ($allServiceEnd as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('home.policy',compact("allService","allServiceEnd"));
     }
     public function terms(){
         $this->render('home.terms');
@@ -139,6 +183,11 @@ class HomeController extends BaseController{
                 }
             }
         }
+    }
+
+    public function serviceHeader(){
+        $allService = $this->service->getAllService();
+        $this->render('');
     }
 
 }

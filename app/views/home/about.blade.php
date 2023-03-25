@@ -12,6 +12,11 @@
     <!-- ==========Câu chuyện thương hiệu============ -->
     <div class="container">
       <div class="story-about">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-center my-5">VỀ CHÚNG TÔI</h2>
+          </div>
+        </div>
         <h4 class="text-under-h4-HomePage">CÂU CHUYỆN THƯƠNG HIỆU</h4>
         <h5 class="h5-story-about">Cảm ơn bạn đã ghé thăm nhà BOVIS SPA, nếu đã đến, bạn hãy ở lại lắng nghe câu
           chuyện hình thành nên thương hiệu BOVIS SPA. </h5>
@@ -176,7 +181,7 @@
     <!-- ==============working out============= -->
 
     <!-- =======follow our ig============= -->
-
+    @include("components.socialcontact")
   </main>
 @endsection
 

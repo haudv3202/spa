@@ -185,6 +185,7 @@ $router->get('contact',[user::class,'contact']);
 $router->get('/',[homeuser::class,'homeList']);
 $router->get('home',[homeuser::class,'homeList']);
 $router->get('service',[homeuser::class,'serviceList']);
+$router->get('serviceDetail/{id}',[homeuser::class,'serviceListDetail']);
 $router->get('about',[homeuser::class,'aboutList']);
 $router->get('booking',[homeuser::class,'booking']);
 $router->post('mockup-post',[homeuser::class,'mockupPost']);
@@ -192,6 +193,7 @@ $router->post('mockup-post',[homeuser::class,'mockupPost']);
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
 //Blog
 $router->get('blog',[BlogServiceController::class, 'blogService']);
+$router->get('blogService/{id}',[BlogServiceController::class, 'blogServiceDetail']);
 //Policy
 $router->get('policy',[homeuser::class,'policy']);
 //Terns

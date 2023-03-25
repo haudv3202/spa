@@ -58,5 +58,6 @@
 
       </div>
     </div>
+    @include("components.socialcontact")
   </div>
 @endsection
