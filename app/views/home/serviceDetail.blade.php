@@ -14,7 +14,7 @@
       <div class="image-service row" data-aos="fade-down">
         @foreach($Services as $key => $value)
           <div class="col-md-4 item-image-service">
-            <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
+            <img src="{{ route("/public/upload/service/".$value->image) }}"
                  width="95%" alt="">
 
             <div class="text-item-image-service shadow-lg">

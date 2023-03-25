@@ -12,6 +12,8 @@ const DBHOST = "127.0.0.1";
 //const DBCHARSET = "utf8";
 //const DBHOST = "localhost";
 
+//const BASE_URL = "http://efddtqxw.nethost-5011.000web.xyz/";
+
 
 //
 const BASE_URL = "http://localhost/spa/";

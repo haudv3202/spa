@@ -105,10 +105,6 @@ class QuestionsController extends BaseController
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
-        $this->render('question.blogQuestion',compact('question','instagram',"datasocial","allService","allServiceEnd"));
+        $this->render('question.blogQuestion',compact('question','instagram',"datasocial","allService"));
     }
 }

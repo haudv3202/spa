@@ -11,6 +11,7 @@ use App\models\Staff;
 use App\models\settings;
 use App\models\insta;
 use App\models\Category;
+use App\models\Newletters;
 
 class HomeController extends BaseController{
 
@@ -34,15 +35,12 @@ class HomeController extends BaseController{
     }
     public function homeList(){
         $banner = Banner::GetAll();
+        $newletter = Newletters::findOne(1,"statuts");
         $datasocial = $this->socialPage();
         $service = $this->service->getPostslimit(6);
         $service3 = $this->service->getPostslimit(3);
         $allService = $this->category->getAllCategoryName();
         foreach ($allService as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
         $instagram = insta::GetAll();
@@ -51,7 +49,7 @@ class HomeController extends BaseController{
         foreach ($posts as $value){
             $value->name_service = $this->service->getAllServiceWhere($value->id_service)->name;
         }
-        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram','allService','allServiceEnd'));
+        $this->render('home.index',compact("service","service3","content","posts","datasocial",'banner','instagram','allService',"newletter"));
 
     }
     public function mockupPost(){
@@ -88,12 +86,8 @@ class HomeController extends BaseController{
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
         $staff = Staff::GetAll();
-        $this->render('home.service', compact('service', 'staff',"datasocial","allService","allServiceEnd"));
+        $this->render('home.service', compact('service', 'staff',"datasocial","allService"));
     }
 
     public function serviceListDetail($id){
@@ -103,13 +97,8 @@ class HomeController extends BaseController{
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
         $staff = Staff::GetAll();
-        $this->render('home.serviceDetail', compact('Services', 'staff',"datasocial","allService","allServiceEnd"));
+        $this->render('home.serviceDetail', compact('Services', 'staff',"datasocial","allService"));
 
     }
     public function aboutList(){
@@ -119,11 +108,7 @@ class HomeController extends BaseController{
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
-        $this->render('home.about',compact("datasocial","instagram","allService","allServiceEnd"));
+        $this->render('home.about',compact("datasocial","instagram","allService"));
     }
 
     public function booking(){
@@ -141,11 +126,7 @@ class HomeController extends BaseController{
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
-        $this->render('home.policy',compact("allService","allServiceEnd"));
+        $this->render('home.policy',compact("allService"));
     }
     public function terms(){
         $this->render('home.terms');

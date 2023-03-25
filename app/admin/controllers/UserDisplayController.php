@@ -111,6 +111,9 @@ class UserDisplayController extends BaseController
                     if (empty($_POST['link_image'])) {
                         $errors[] = 'Không được để trống link insta';
                     }
+                    if (empty($_POST['meta'])) {
+                        $errors[] = 'Không được để trống link tiêu đề';
+                    }
 
 // Check file size
                     if ($_FILES["upload-avatar-input"]["size"] > 500000) {
@@ -125,7 +128,8 @@ class UserDisplayController extends BaseController
                     if (move_uploaded_file($_FILES["upload-avatar-input"]["tmp_name"], $target_file)) {
                         $result = insta::updatefind($id,[
                             "link" => $nameimage,
-                            "link_insta" => $link_ins
+                            "link_insta" => $link_ins,
+                            "meta" => $_POST['meta']
                         ]);
 
                         if (file_exists('./public/upload/insta/'.$image_old)) {
@@ -144,8 +148,6 @@ class UserDisplayController extends BaseController
                     redirect('success', "Cập nhật thành công!", 'edit-insta/'.$id);
 
                 }
-
-
 
             }
 

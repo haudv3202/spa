@@ -6,7 +6,7 @@
  <div class="row">
  <div class="col-lg-12">
  <div class="breadcrumb-main">
- <h4 class="text-capitalize breadcrumb-title">Edit Document</h4>
+ <h4 class="text-capitalize breadcrumb-title">Sửa bài viết</h4>
  <div class="breadcrumb-action justify-content-center flex-wrap">
  <nav aria-label="breadcrumb">
  <ol class="breadcrumb">

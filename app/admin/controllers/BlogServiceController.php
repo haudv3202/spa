@@ -214,17 +214,13 @@ class BlogServiceController extends BaseController
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
         $index = 0;
         if (count($blog) < 6){
             $index = count($blog);
         }else{
             $index = 6;
         }
-        $this->render('blog.blogClient', compact('blog','index', 'service', 'category',"datasocial","allService","allServiceEnd"));
+        $this->render('blog.blogClient', compact('blog','index', 'service', 'category',"datasocial","allService"));
     }
 
     public function blogServiceDetail($id){
@@ -241,11 +237,7 @@ class BlogServiceController extends BaseController
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
-        $this->render('home.blogService', compact('blogs','nameservice', 'service', 'category',"datasocial","allService","allServiceEnd"));
+        $this->render('home.blogService', compact('blogs','nameservice', 'service', 'category',"datasocial","allService"));
     }
 }
 ?>
