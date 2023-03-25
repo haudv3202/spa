@@ -50,7 +50,7 @@ class UsersController extends BaseController
             } else {
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $date = date("Y-m-d");
-                $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],'avatar_default.jpg','',1);
+                $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],'avatar_default.jpg',1);
 //                Users::addItems([
 //                    'id' => NULL,
 //                    'name' => ,
