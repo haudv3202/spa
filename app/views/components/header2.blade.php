@@ -39,7 +39,6 @@
               <a href="{{ route("sign-in") }}" class="text-black"><i class='bx bx-user-circle'></i></a>
             </button>
           @else
-
             @if($_SESSION['account']->role_id == 1)
               <button type="button" onclick="" class="user-account position-relative" onclick="iconOpenBoxClick()">
                 <img src="https://www.thisiscolossal.com/wp-content/uploads/2019/02/moon_crop.jpg" alt="">

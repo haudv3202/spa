@@ -17,7 +17,7 @@ use App\admin\controllers\ReplyController;
 use App\admin\controllers\StaffController;
 use App\admin\controllers\StatisticController;
 use App\admin\controllers\UsersControlller;
-
+use App\admin\controllers\ContactController;
 
 use App\controllers\UsersController as user;
 use App\controllers\NewlettersController;
@@ -152,6 +152,10 @@ if (isset($_SESSION['account'])){
         $router->get('manage-banner', [BannerController::class, 'banner']);
         $router->get('edit-banner/{id}', [BannerController::class, 'editBanner']);
         $router->post('edit-banner-post/{id}', [BannerController::class, 'editBannerPost']);
+        //contact
+        $router->get('contact-list', [ContactController::class, 'listContact']);
+        $router->get('delete-contact/{id}', [ContactController::class, 'deleteContact']);
+
 
     }else {
         $router->get('update-profile/{id}', [user::class, 'updateProfilepost']);
@@ -192,6 +196,8 @@ $router->get('blog',[BlogServiceController::class, 'blogService']);
 $router->get('policy',[homeuser::class,'policy']);
 //Terns
 $router->get('terms',[homeuser::class,'terms']);
+//contact
+$router->post('contact-post',[homeuser::class,'contactPost']);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 

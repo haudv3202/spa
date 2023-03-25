@@ -76,6 +76,12 @@
           </a>
         </li>
         <li class="">
+          <a href="{{route('contact-list')}}">
+            <span class="nav-icon uil uil-clipboard-notes"></span>
+            <span class="menu-text">Quản lý liên hệ</span>
+          </a>
+        </li>
+        <li class="">
           <a href="{{route('endow-list')}}">
             <span class="nav-icon uil uil-clipboard-notes"></span>
             <span class="menu-text">Quản lý phản hồi ưu đãi</span>
