@@ -77,25 +77,25 @@
           </div>
         </div>
         <div class="form-right-make-appointment col-12 col-md-6 col-lg-6 container" data-aos="fade-left">
-          <form action="" id="form-contact">
+          <form action="{{route('contact-post')}}" method="post">
             <div class="item pb-4 pt-4">
-              <input type="text" id="name-form-contact" class=" ps-2" placeholder="Họ tên của bạn">
+              <input type="text" name="fullname" id="name-form-contact" class=" ps-2" placeholder="Họ tên của bạn">
               <span class="text-danger" id="nameform-contact-error"></span>
             </div>
             <div class="item pb-4">
-              <input type="text" id="email-form-contact" class=" ps-2" placeholder="Email của bạn">
+              <input type="text" name="email" id="email-form-contact" class=" ps-2" placeholder="Email của bạn">
               <span class="text-danger" id="emailform-contact-error"></span>
             </div>
             <div class="item pb-4">
-              <input type="text" id="subject-form-contact" class=" ps-2" placeholder="Vấn đề thắc mắc">
+              <input type="text" name="problem" id="subject-form-contact" class=" ps-2" placeholder="Vấn đề thắc mắc">
               <span class="text-danger" id="subject-contact-error"></span>
             </div>
             <div class="item pb-4">
-                            <textarea name="form" id="form-contact" cols="110" rows="10" class=" ps-2"
+                            <textarea name="message" id="form-contact" cols="110" rows="10" class=" ps-2"
                                       placeholder="Tin nhắn của bạn về chúng tôi"></textarea>
               <span class="text-danger" id="form-contact-error"></span>
             </div>
-            <button type="submit" class="my-2">Gửi tin nhắn</button>
+            <button type="submit" name="btn-sm" class="my-2">Gửi tin nhắn</button>
           </form>
         </div>
       </div>

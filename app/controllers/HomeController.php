@@ -2,6 +2,7 @@
 namespace App\controllers;
 use App\models\Banner;
 use App\models\BlogService;
+use App\models\contact;
 use App\models\Endow;
 use App\models\questions;
 use App\models\Service;
@@ -148,6 +149,40 @@ class HomeController extends BaseController{
     }
     public function terms(){
         $this->render('home.terms');
+    }
+    public function contactPost(){
+        if (isset($_POST['btn-sm'])){
+            $errors = [];
+            if (empty($_POST['fullname'])){
+                $errors[] = 'Bạn chưa nhập tên';
+            }
+            if (empty($_POST['email'])){
+                $errors[] = 'Bạn chưa nhập email';
+            }
+            if (empty($_POST['problem'])){
+                $errors[] = 'Bạn chưa nhập vấn đề';
+            }
+            if (empty($_POST['message'])){
+                $errors[] = 'Bạn chưa nhập lời nhắn';
+            }
+            if (count($errors) > 0){
+                redirect('errors', $errors, 'contact');
+            }else{
+                date_default_timezone_set("Asia/Ho_Chi_Minh");
+                $date = date("Y-m-d");
+                $result = contact::addItems([
+                    'id' => NULL,
+                    'fullname' => $_POST['fullname'],
+                    'email' => $_POST['email'],
+                    'problem' => $_POST['problem'],
+                    'message' => $_POST['message'],
+                    'create_date' => $date,
+                ]);
+                if ($result){
+                    redirect('success', "Gửi yêu cầu thành công", 'contact');
+                }
+            }
+        }
     }
 
     public function serviceHeader(){

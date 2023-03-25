@@ -92,6 +92,12 @@ $_SESSION['active_menu'] == 'setings')
             <span class="menu-text">Quản lý phản hồi</span>
           </a>
         </li>
+        <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'contact-list' ? 'active' : ''; ?>" >
+          <a href="{{route('contact-list')}}">
+            <span class="nav-icon uil uil-clipboard-notes"></span>
+            <span class="menu-text">Quản lý liên hệ</span>
+          </a>
+        </li>
         <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'endow-list' ? 'active' : ''; ?>">
           <a href="{{route('endow-list')}}">
             <span class="nav-icon uil uil-clipboard-notes"></span>
