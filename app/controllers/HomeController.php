@@ -18,12 +18,17 @@ class HomeController extends BaseController{
     protected $service;
     protected $blog;
     protected $category;
+    protected $endow;
+    protected $contact;
     public function __construct()
     {
 
         $this->blog = new BlogService();
         $this->service = new Service();
         $this->category = new Category();
+        $this->endow = new Endow();
+        $this->contact = new contact();
+
     }
     public function index(){
         $this->render('users.signin');
@@ -67,12 +72,7 @@ class HomeController extends BaseController{
             }else{
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $date = date("Y-m-d");
-                $result = Endow::addItems([
-                    'id' => NULL,
-                    'name' => $_POST['fullname'],
-                    'phone' => $_POST['phone'],
-                    'create_time' => $date,
-                ]);
+                $result = $this->endow->addEndow($_POST['fullname'], $_POST['phone'], $date);
                 if ($result){
                     redirect('success', "Gửi thông tin thành công!", '');
                 }
@@ -151,14 +151,7 @@ class HomeController extends BaseController{
             }else{
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $date = date("Y-m-d");
-                $result = contact::addItems([
-                    'id' => NULL,
-                    'fullname' => $_POST['fullname'],
-                    'email' => $_POST['email'],
-                    'problem' => $_POST['problem'],
-                    'message' => $_POST['message'],
-                    'create_date' => $date,
-                ]);
+                $result = $this->contact->addContact($_POST['fullname'], $_POST['email'], $_POST['problem'], $_POST['message'], $date);
                 if ($result){
                     redirect('success', "Gửi yêu cầu thành công", 'contact');
                 }
