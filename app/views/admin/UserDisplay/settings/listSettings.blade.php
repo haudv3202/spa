@@ -31,9 +31,9 @@
                       <th>
                         <span class="userDatatable-title">Tên mục</span>
                       </th>
-                      <th>
-                        <span class="userDatatable-title">Nội dung</span>
-                      </th>
+{{--                      <th>--}}
+{{--                        <span class="userDatatable-title">Nội dung</span>--}}
+{{--                      </th>--}}
                       <th>
                               <span class="userDatatable-title"
                               >Chức năng </span
@@ -48,11 +48,11 @@
                           <div class="userDatatable-content">{{ $key+1 }}</div>
                         </td>
                         <td>
-                          <div class="userDatatable-content">{{ $value->review }}</div>
+                          <div class="userDatatable-content">{{ $value->comment	 }}</div>
                         </td>
-                        <td>
-                          <div class="userDatatable-content">{{ $value->titler }}</div>
-                        </td>
+{{--                        <td>--}}
+{{--                          <div class="userDatatable-content">{{ $value->titler }}</div>--}}
+{{--                        </td>--}}
                         <td class="d-flex">
                           @if($value->status == 1 )
                           <button class="btn btn-primary btn-default btn-rounded bg-primary text-white" onclick="location.href='{{ route('setings-edit/' .$value->id) }}'"> <i class='bx bx-edit-alt'></i>sửa

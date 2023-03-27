@@ -39,40 +39,6 @@
  </div>
  <!-- comment -->
  <hr class="py-4 ">
- <div class="conmment-single-blog-page">
- <h1>Leave a Reply</h1>
- <p class="text-muted">Your email address will not be published. Required fields are marked *
- </p>
-
- <form action="" class="form-comment py-2" id="form-comment">
- <div class="item py-2">
- <label for="comment">Comment *</label> <br>
- <textarea name="comment" id="comment" cols="110" rows="10" class="border"></textarea>
- <span class="text-danger" id="comment-error"></span>
- </div>
- <div class="item py-2">
- <label for="name-comment">Name *</label> <br>
- <input type="text" id="name-comment" class="border">
- <span class="text-danger" id="nameComment-error"></span>
- </div>
- <div class="item py-2">
- <label for="email-comment">Email *</label> <br>
- <input type="text" id="email-comment" class="border">
- <span class="text-danger" id="emailComment-error"></span>
- </div>
- <div class="item py-2">
- <label for="website-comment">Website </label> <br>
- <input type="text" id="website-comment" class="border">
- <span class="text-danger" id="website-error"></span>
- </div>
- <div class="item-checkbox py-2">
- <input type="checkbox" name="save-info" id="save-info">
- <label for="save-info">Save my name, email, and website in this browser for the next time I comment.</label>
- </div>
- <button type="submit">Post Comment</button>
- </form>
-
- </div>
  </div>
  <div class="col-md-4 box-right">
  <!-- popular -->
@@ -112,25 +78,6 @@
  </div>
 
 
- <div class="have-any-question ">
-
- <div class="have-any-question-box border p-5">
-
- <h3>Có bất kỳ câu hỏi?</h3>
- <div class="box-question-new py-2">
- <ul class="box-question-list list-unstyled">
- <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</a></li>
- <li><a href="#"><span><i class='bx bxs-phone' ></i></span>(+62)81 234 567</a></li>
- <li><a href="#"><span><i class='bx bxl-gmail' ></i></span>naylish@domain.com</a></li>
-
- </ul>
- </div>
- </div>
-
-
-
-
- </div>
  </div>
  </div>
  </div>

@@ -20,7 +20,7 @@
       <div class="image-service row" data-aos="fade-down">
         @foreach($service as $key => $value)
         <div class="col-md-4 item-image-service">
-          <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
+          <img src="./public/Image/hut-chi-thai-doc-3.jpg"
                width="95%" alt="">
 
           <div class="text-item-image-service shadow-lg">

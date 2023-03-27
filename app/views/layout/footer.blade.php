@@ -8,10 +8,10 @@
         <p> Mono Bovis luôn đồng hành <br>cùng vẻ đẹp của bạn</p>
         <div class="link-icon">
           <ul class="list-unstyled d-flex">
-            <li><a href=""><i class='bx bxl-facebook'></i></a></li>
-            <li><a href=""><i class='bx bxl-instagram' ></i></a></li>
-            <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
-            <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+            <li><a href="https://www.facebook.com/bovisspa"><i class='bx bxl-facebook'></i></a></li>
+            <li><a href="tel:0902208216"><i class='bx bxs-phone'></i></a></li>
+            <li><a href="#"><i class='bx bxl-twitter' ></i></a></li>
+            <li><a href="#"><i class='bx bxl-pinterest-alt'></i></a></li>
           </ul>
         </div>
       </div>
@@ -19,7 +19,7 @@
         <h4  class="pb-3">Hỗ trợ</h4>
         <div class="list-support">
           <ul class="list-unstyled">
-            <li><a href="{{route('')}}">Hỏi đáp</a></li>
+            <li><a href="{{route('blog-questions')}}">Hỏi đáp</a></li>
             <li><a href="{{route('policy')}}">Chính sách bảo mật</a></li>
             <li><a href="{{route('terms')}}">Điều khoản & Điều kiện</a></li>
             <li><a href="{{route('contact')}}">Liên hệ</a></li>
@@ -51,6 +51,7 @@
     <div class="text-left">
       <p>Thư giãn tuyệt đỉnh cùng dịch vụ Spa chất lượng cao
       </p>
+      <img src="{{ route('./public/Image/bo-cong-thuong.png') }}" alt="">
     </div>
     <div class="text-right">
       <p> &copy; Đội ngũ hỗ trợ <a href="https://www.facebook.com/haudn02" class="text-decoration-none text-black">CodeCrafters</a> </p>

@@ -22,13 +22,7 @@
   <section class="vh-100 login">
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        @if(isset($_SESSION['errors']) && isset($_GET['msg']))
-          <ul>
-            @foreach($_SESSION['errors'] as $er)
-              <li style="color: red">{{$er}}</li>
-            @endforeach
-          </ul>
-        @endif
+
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form  action="{{route('sign-in')}}" method="post">
             <div class="divider d-flex align-items-center my-4">
@@ -39,14 +33,19 @@
               <label class="form-label" for="form3Example3">Email</label>
               <input type="text" name="email" class="form-control form-control-lg input-login " id="email-login"
                      placeholder="Nhập Email" />
-              <small class="error-message"></small>
+
+              @if(isset($_SESSION['errors']['email']) && isset($_GET['msg']))
+              <span class="error-message">{{$_SESSION['errors']['email']}}</span>
+              @endif
             </div>
             <!-- Password input -->
             <div class="form-outline mb-3">
               <label class="form-label" for="form3Example4">Mật khẩu</label>
               <input type="password" name="password" class="form-control form-control-lg input-login "
                      placeholder="Nhập mật khẩu của bạn" />
-              <small class="error-message"></small>
+              @if(isset($_SESSION['errors']['password']) && isset($_GET['msg']))
+                <span class="error-message">{{$_SESSION['errors']['password']}}</span>
+              @endif
             </div>
 
             <div class="d-flex justify-content-between align-items-center">
@@ -80,6 +79,7 @@
 
   </section>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"

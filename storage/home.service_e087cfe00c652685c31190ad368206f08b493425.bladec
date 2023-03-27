@@ -21,7 +21,7 @@
  <?php $__currentLoopData = $service; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $key => $value): $loop = $this->incrementLoopIndices();  ?>
  <div class="col-md-4 item-image-service">
- <img src="https://templatekit.jegtheme.com/naylish/wp-content/uploads/sites/221/2022/01/manicure.jpg"
+ <img src="./public/Image/hut-chi-thai-doc-3.jpg"
  width="95%" alt="">
 
  <div class="text-item-image-service shadow-lg">
@@ -106,6 +106,7 @@
  </div>
  </div>
  </div>
+ <?php echo $this->runChild("components.socialcontact"); ?>
  </main>
 <?php $this->stopSection(); ?>
 

@@ -52,7 +52,7 @@ $_SESSION['active_menu'] = $_GET['url'];
 
             @if($_SESSION['active_menu'] == 'contact-us' || $_SESSION['active_menu'] == 'instagram' ||
 $_SESSION['active_menu'] == 'staff-list' || $_SESSION['active_menu'] == 'newletters' || $_SESSION['active_menu'] == 'social' ||
-$_SESSION['active_menu'] == 'setings')
+$_SESSION['active_menu'] == 'setings'  || $_SESSION['active_menu'] == 'manage-banner' )
               <li class="has-child open" >
                 @else<li class="has-child " >
                 @endif
@@ -66,7 +66,7 @@ $_SESSION['active_menu'] == 'setings')
               <a href="{{route('contact-us')}} ">Contact Us</a>
             </li>
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'instagram' ? 'active' : ''; ?>">
-              <a href="{{route('instagram')}}">Instagram</a>
+              <a href="{{route('instagram')}}">Hình ảnh thực tế</a>
             </li>
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'staff-list' ? 'active' : ''; ?>">
               <a href="{{route('staff-list')}}">Quản lý nhân viên</a>
@@ -77,10 +77,9 @@ $_SESSION['active_menu'] == 'setings')
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'social' ? 'active' : ''; ?>">
               <a href="{{route('social')}}">Mạng xã hội</a>
             </li>
-
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'setings' ? 'active' : ''; ?>">
               <a href="{{route('setings')}}">settings</a>
-            <li class="">
+            <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'manage-banner' ? 'active' : ''; ?>">
               <a href="{{route('manage-banner')}}">Banner</a>
             </li>
           </ul>
@@ -90,6 +89,12 @@ $_SESSION['active_menu'] == 'setings')
           <a href="{{route('reply-list')}}">
             <span class="nav-icon uil uil-clipboard-notes"></span>
             <span class="menu-text">Quản lý phản hồi</span>
+          </a>
+        </li>
+        <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'contact-list' ? 'active' : ''; ?>" >
+          <a href="{{route('contact-list')}}">
+            <span class="nav-icon uil uil-clipboard-notes"></span>
+            <span class="menu-text">Quản lý liên hệ</span>
           </a>
         </li>
         <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'endow-list' ? 'active' : ''; ?>">

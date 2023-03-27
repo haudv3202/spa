@@ -124,7 +124,7 @@
       <div class="ceo-our-team row" data-aos="fade-up">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <img src="{{route('public/Image/nguyenthiquynhnhu.png')}}" width="100%" alt="">
+          <img src="{{route('public/Image/bs3.jpg')}}" width="100%" alt="">
           <h4 class="h4-ceo-ourteam">NGYỄN THỊ QUỲNH NHƯ</h4>
           <p class="p-ceo-ourteam">Giám Đốc</p>
           <p class="text-center">Hoạt động trong lĩnh vực làm đẹp, có nhiều kinh nghiệm và thường xuyên được tiếp xúc
@@ -139,7 +139,7 @@
         <div class="row doctor-user-of-team">
           <div class="user-of-team col-md-4">
             <div class="img-user-of-team">
-              <img width="100%" src="{{route('public/Image/nguyenthiquynhnhu.png')}}" alt="">
+              <img width="100%" src="{{route('public/Image/bs1.jpg')}}" alt="">
             </div>
             <h4 class="text-center h4-doctor-our-team">BS. TRẦN NHẬT QUANG </h4>
             <p class="text-center">Chuyên khoa tạo hình thẩm mỹ </p>
@@ -148,7 +148,7 @@
           </div>
           <div class="user-of-team col-md-4">
             <div class="img-user-of-team">
-              <img width="100%" src="{{route('public/Image/nguyenthiquynhnhu.png')}}" alt="">
+              <img width="100%" src="{{route('public/Image/bs2.jpg')}}" alt="">
             </div>
             <h4 class="text-center h4-doctor-our-team">Ths & Bs. NGUYỄN DUY KHÁNH </h4>
             <p class="text-center">Chuyên khoa tạo hình thẩm mỹ </p>
@@ -157,7 +157,7 @@
           </div>
           <div class="user-of-team col-md-4">
             <div class="img-user-of-team">
-              <img width="100%" src="{{route('public/Image/nguyenthiquynhnhu.png')}}" alt="">
+              <img width="100%" src="{{route('public/Image/bs4.jpg')}}" alt="">
             </div>
             <h4 class="text-center h4-doctor-our-team">TRẦN NGỌC ĐOAN TRANG </h4>
             <p class="text-center">Dược sĩ tư vấn viên chuyên khoa da liễu </p>

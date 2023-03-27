@@ -31,26 +31,26 @@ class UsersController extends BaseController
         $err = [];
         if (isset($_POST['btn-signup'])) {
             if (empty($_POST['username'])) {
-                $err[] = "Bạn chưa nhập username";
+                $err['username'] = "Bạn chưa nhập username";
             }
             if (empty($_POST['password'])) {
-                $err[] = "Bạn chưa nhập password";
+                $err['password'] = "Bạn chưa nhập password";
             }
             if (empty($_POST['sdt'])) {
-                $err[] = "Bạn chưa nhập số điện thoại";
+                $err['phone'] = "Bạn chưa nhập số điện thoại";
             }
             if (empty($_POST['email'])) {
-                $err[] = "Bạn chưa nhập email";
+                $err['email'] = "Bạn chưa nhập email";
             }
             if ($_POST['repass'] != $_POST['password']){
-                $err[] = "Mật khẩu không trùng khớp";
+                $err['pass'] = "Mật khẩu không trùng khớp";
             }
             if (count($err) > 0) {
                 redirect('errors', $err, 'sign-up');
             } else {
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $date = date("Y-m-d");
-                $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],'avatar_default.jpg','',1);
+                $this->user->addUser($_POST['username'],$_POST['password'],$_POST['sdt'],$_POST['email'],'avatar_default.jpg',1);
 //                Users::addItems([
 //                    'id' => NULL,
 //                    'name' => ,
@@ -64,7 +64,7 @@ class UsersController extends BaseController
 //                    'create_date' => $date,
 //                    'update_date' => NULL,
 //                ]);
-                redirect('success', 'Đăng ký thành công', '');
+                redirect('success', 'Đăng ký thành công', 'sign-up');
             }
         }
         $this->render('auth.sign-up');
@@ -112,7 +112,6 @@ class UsersController extends BaseController
                         header('location: '.route('user'));
                     }else{
                         header('location: '.route(''));
-
                     }
                 }else{
                     $err[] = 'Tài khoản không tồn tại';
@@ -312,13 +311,9 @@ class UsersController extends BaseController
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
         $detailPost->name_service = $this->service->getAllServiceWhere($detailPost->id_service)->name;
         $category = $this->category->getLimit();
-        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial","allService","allServiceEnd"));
+        $this->render('home.detail',compact("detailPost","newBlog","category","datasocial","allService"));
     }
 
     public function contact(){
@@ -328,11 +323,7 @@ class UsersController extends BaseController
         foreach ($allService as $value){
             $value->service = $this->service->getAllServicename($value->id);
         }
-        $allServiceEnd = $this->category->getAllCategoryNameEnd();
-        foreach ($allServiceEnd as $value){
-            $value->service = $this->service->getAllServicename($value->id);
-        }
-        $this->render('home.contactus',compact("allcontact","datasocial","allService","allServiceEnd"));
+        $this->render('home.contactus',compact("allcontact","datasocial","allService"));
     }
 
     public function socialPage(){

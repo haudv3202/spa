@@ -60,8 +60,6 @@
                           </div>
                         </td>
                         <td>
-                        </td>
-                        <td>
                           <div class="userDatatable-content">
                             <div class="userDatatable-content">{{$value->description}}</div>
                           </div>
