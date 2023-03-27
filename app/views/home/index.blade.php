@@ -369,12 +369,13 @@
 
 @push("mockup")
   <div class="modal-mockup">
+
     <div class="content-modal-mockup">
       <div class="oidoioi">
         <div class="item-modal-mockup">
           <div class="row row-mokup">
             <div class="col-sm-6 col-md-12">
-              <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" width="60px" alt="">
+              <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" width="100px" alt="">
               <h5 class="h5-item-modal-mockup">"MONO BOVIS - Spa uy tín Đà Nẵng"</h5>
 
               <p></p>
@@ -384,31 +385,33 @@
 
                 <form action="{{route('mockup-post')}}" method="post">
                   <div class="value-form-modal mb-2">
-                    <label class="label-model">Họ và tên </label>
-                    <span class="me-3">:</span><input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
+
+                    <input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
                   <div class="value-form-modal">
-                    <label class="label-model">Số điện thoại </label>
-                    <span class="me-3">:</span><input type="text" name="phone" placeholder="Nhập SĐT anh/chị" class="input-model" id="phone-mokup">
+
+                    <input type="text" name="phone" placeholder="Nhập SĐT anh/chị" class="input-model" id="phone-mokup">
                     <small class="error-message m-auto pt-3"></small>
                   </div>
-
                   <input type="submit" name="btn-sm" class="btn submit-form-modal" value="GỬI THÔNG TIN">
+{{--                  <button class="btn submit-form-modal">GỬI THÔNG TIN</button>--}}
                 </form>
 
               </div>
             </div>
             <div class="col-sm-6 col-md-12 img-modal">
-              <img src="{{route('./public/upload/insta/'.$newletter->logo)}}" width="100%" alt="">
+              <!-- <img src="../src/Image/Screenshot 2023-03-12 160307.png" width="100%" alt=""> -->
+
             </div>
           </div>
           <button class="close-modal btn" onclick="myStopFunction()"><i class='bx bx-x'
-                                                                        style='color:#a47b60'></i></button>
+                                                                        style='color:#0b0b0b'></i></button>
         </div>
       </div>
     </div>
   </div>
+
   @if(isset($_SESSION['success']) && isset($_GET['msg']))
     <script>
       Swal.fire(
