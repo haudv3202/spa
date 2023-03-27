@@ -1,27 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Cardo&display=swap");
-
+/*@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");*/
+/*@import url("https://fonts.googleapis.com/css2?family=Cardo&display=swap");*/
 /* @import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
-
-
-@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
-
+/*@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');*/
+@import url('https://fonts.cdnfonts.com/css/utm-avo');
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     /* font-family: "Roboto Slab", serif; */
-    font-family: "Cardo", serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .icon-contact .call-icon {
     background: #fff;
     box-shadow: 0 0 5px 0;
     border-radius: 50%;
-    margin: 10px 0;
+    margin: 20px 0;
     padding: 8px;
+    animation: icon 1.2s infinite;
 }
 /* Menu sub reposive  */
 .menu-sub-responsive {
@@ -205,13 +202,13 @@
 
 .menu-sub-responsive .menu ul .menu-sub-page-respon span i {
     font-size: 20px;
-    font-family: 'Philosopher', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .menu-sub-responsive .menu ul li a {
     text-decoration: none;
     color: #043542;
-    font-family: 'Philosopher', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .menu-sub-responsive .menu-responsive {
@@ -266,7 +263,7 @@
 }
 .ul-box-categories-service{
     width: 700px;
-    top: 33px;
+    top: 30px;
     left: -300px;
     height: 0 !important;
     transition: .3s;
@@ -361,7 +358,7 @@
 .menu-oppentime .menu ul li a {
     text-decoration: none;
     color: #262626;
-    font-family: 'Philosopher', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 .menu-oppentime{
     height: 40px;
@@ -399,7 +396,7 @@
     font-size: 58px;
     color: #053543;
     font-weight: 400;
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
     height: 00px;
 }
 
@@ -430,7 +427,7 @@
 
 .span-text-center-banner {
     font-style: italic;
-    font-family: 'Philosopher', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
     color: #070323;
     margin-top: 25px;
     text-align: center;
@@ -449,7 +446,7 @@
 }
 
 .menu-sub-page span {
-    font-family: 'Philosopher', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .menu-sub-page .menu-mini {
@@ -469,7 +466,7 @@
 .menu-sub-page span i {
     font-size: 25px;
     font-weight: normal;
-    font-family: "Poppins", sans-serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .menu-sub-page .menu-mini li {
@@ -582,7 +579,7 @@
     margin-top: 30%;
 }
 .h4-ourteam{
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
     margin: 50px 0;
     font-weight: 600;
 }
@@ -613,7 +610,7 @@
 .h4-ceo-ourteam{
     text-align: center;
     margin: 20px 0;
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
     font-weight: 600;
 }
 .p-ceo-ourteam{
@@ -1304,6 +1301,10 @@ footer .box-input-email button {
     .box-navbar-top{
         box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     }
+
+    .logo-menu-oppenTime .logo {
+        transform: unset!important;
+    }
 }
 
 /* end responsive  */
@@ -1317,7 +1318,7 @@ footer .box-input-email button {
     font-size: 90px;
     color: #a47b60;
     font-weight: 400;
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
     margin: 20px 0;
 }
 
@@ -1452,7 +1453,7 @@ footer .box-input-email button {
     color: #262626;
     font-weight: 600;
     position: relative;
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .text-under-h4-HomePage::after {
@@ -1469,7 +1470,7 @@ footer .box-input-email button {
     font-size: 40px;
     color: #a47b60;
     font-weight: 400;
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
     margin-top: 50px;
 }
 
@@ -1559,7 +1560,7 @@ footer .box-input-email button {
 }
 .text-read-more {
     margin-top: 100px;
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
 
 }
 
@@ -1577,7 +1578,7 @@ footer .box-input-email button {
 }
 
 .text-item-image-service {
-    width: 80%;
+    width: 60%;
     right: 0;
     left: 0;
     margin: 0 auto;
@@ -1590,12 +1591,19 @@ footer .box-input-email button {
     border-radius: 5px;
 }
 
+.text-item-image-service a {
+    text-decoration: none;
+    color: #000;
+}
+
 .text-item-image-service:hover {
     background-color: #a47b60;
     transition: 0.2s linear;
-    color: #fff;
     cursor: pointer;
     transform: scale(1.1);
+}
+.text-item-image-service:hover a {
+    color: #fff;
 }
 
 .text-item-image-service:hover button {
@@ -1617,10 +1625,10 @@ footer .box-input-email button {
     text-align: center;
     font-style: italic;
 }
-.h4-reason,.p-reason{
-    margin: 0px auto !important;
-    color: #f9f9f9;
-}
+/*.h4-reason,.p-reason{*/
+/*    margin: 0px auto !important;*/
+/*    color: #f9f9f9;*/
+/*}*/
 .p-reason{
     margin: 50px auto !important;
 }
@@ -1710,10 +1718,10 @@ footer .box-input-email button {
     z-index: 0;
 }
 
-.update-h4-testmional {
-    width: max-content;
-    margin: auto;
-}
+/*.update-h4-testmional {*/
+/*    width: max-content;*/
+/*    margin: auto;*/
+/*}*/
 
 .text-infor-testminal p {
     color: #909497;
@@ -1884,7 +1892,7 @@ footer .box-input-email button {
 .h5-item-modal-mockup {
     /* font-family: 'Lobster', cursive; */
     /* font-family: "Pacifico", cursive; */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
     /* font-family: 'Roboto Slab', serif; */
 }
 
@@ -2359,7 +2367,7 @@ main .contact {
 .make-appointment-contact .title-text-make-appointment h3 {
     color: #043542;
     font-weight: 400;
-    font-family: "Roboto Slab", serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .contact h1,
@@ -2560,17 +2568,16 @@ footer .text p {
     font-size: 15px;
 }
 
-footer h4 {
-    font-size: 26px;
-}
-
+/*footer h4 {*/
+/*    font-size: 26px;*/
+/*}*/
 footer .box-input-email input {
     border: 1px solid #a47b60;
     background-color: transparent;
     outline: none;
     border-radius: 1px;
     color: #653a1d;
-
+    width: 100%;
     padding: 3px;
     height: 40px;
     transition: 0.5s;
@@ -2686,7 +2693,7 @@ footer .coppyright {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #fcf5e7;
-    font-family: "Palanquin", sans-serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 
 .box-mxauto .small-text {
@@ -2772,24 +2779,24 @@ main {
 }
 
 .bxs-phone-call {
-    font-size: 50px;
+    font-size: 2.2rem;
 }
 
 .zalo-icon-contact img,
 .instagram-icon-contact img,
 .bxs-phone-call {
-    width: 50px;
-    animation: icon 1.2s infinite;
+    width: 2.2rem;
+
     cursor: pointer;
 }
 
 @keyframes icon {
     0% {
-        transform: scale(0.8);
+        transform: scale(0.9);
     }
 
     100% {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 

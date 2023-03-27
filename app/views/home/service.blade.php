@@ -20,13 +20,13 @@
       <div class="image-service row" data-aos="fade-down">
         @foreach($service as $key => $value)
         <div class="col-md-4 item-image-service">
-          <img src="./public/Image/hut-chi-thai-doc-3.jpg"
-               width="95%" alt="">
+          <a href="{{ route('serviceDetail/'. $value->id) }}"><img src="./public/Image/hut-chi-thai-doc-3.jpg"
+               width="95%" alt=""></a>
 
           <div class="text-item-image-service shadow-lg">
-            <h4>{{$value->name}}</h4>
+            <a href="{{ route('serviceDetail/'. $value->id) }}"><h4>{{$value->name}}</h4></a>
             <a href="{{ route('serviceDetail/'. $value->id) }}"><button class="btn btn-book-service">Xem thêm <i class='bx bx-right-arrow-alt'
-                                                                        undefined></i></button></a>
+                                                                        ></i></button></a>
           </div>
 
         </div>

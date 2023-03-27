@@ -32,25 +32,23 @@
         <p>Phone : (+62)81 234 567</p>
 
       </div>
-      <div class="col" >
-        <!-- form subcribe -->
-        <form action="">
-          <h4  class="pb-3">Theo dõi tin tức mới nhất</h4>
-          <div class="box-input-email d-flex">
-            <input type="text" placeholder="Your email"><button>Subscribe</button>
-          </div>
-        </form>
+{{--      <div class="col" >--}}
+{{--        <!-- form subcribe -->--}}
+{{--        <form action="">--}}
+{{--          <h4  class="pb-3">Theo dõi tin tức mới nhất</h4>--}}
+{{--          <div class="box-input-email d-flex">--}}
+{{--            <input type="text" placeholder="Your email"><button>Subscribe</button>--}}
+{{--          </div>--}}
+{{--        </form>--}}
 
 
-      </div>
+{{--      </div>--}}
     </div>
     <hr style="color: aliceblue;">
 
   </div>
-  <div class="coppyright   container" >
+  <div class="coppyright  container" >
     <div class="text-left">
-      <p>Thư giãn tuyệt đỉnh cùng dịch vụ Spa chất lượng cao
-      </p>
       <img src="{{ route('./public/Image/bo-cong-thuong.png') }}" alt="">
     </div>
     <div class="text-right">

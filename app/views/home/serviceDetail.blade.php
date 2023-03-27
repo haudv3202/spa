@@ -14,11 +14,11 @@
       <div class="image-service row" data-aos="fade-down">
         @foreach($Services as $key => $value)
           <div class="col-md-4 item-image-service">
-            <img src="{{ route("/public/upload/service/".$value->image) }}"
-                 width="95%" alt="">
+            <a href="{{ route("blogService/".$value->id) }}" class="btn btn-book-service"><img src="{{ route("/public/upload/service/".$value->image) }}"
+                 width="95%" alt=""></a>
 
             <div class="text-item-image-service shadow-lg">
-              <h4>{{$value->name}}</h4>
+              <a href="{{ route("blogService/".$value->id) }}" class="btn btn-book-service"><h4>{{$value->name}}</h4></a>
               <a href="{{ route("blogService/".$value->id) }}" class="btn btn-book-service">Xem thêm</a>
             </div>
           </div>

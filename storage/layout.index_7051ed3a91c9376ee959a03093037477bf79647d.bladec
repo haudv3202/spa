@@ -21,7 +21,7 @@
 <body>
 <div class="box-main">
 
-<?php echo $this->yieldContent('content'); ?>;
+<?php echo $this->yieldContent('content'); ?>
 
 <?php echo $this->runChild('layout.footer'); ?>
 </div>
