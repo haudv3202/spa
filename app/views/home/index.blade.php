@@ -70,7 +70,7 @@
                     </ul>
                   </li>
                   <li class="menu-sub-page"><a href="{{route('blog')}}">Cẩm nang bổ ích</a></li>
-                  <li><a href="{{route('blog-questions')}}">Khuyến mại</a></li>
+                  <li><a href="{{route('promotion')}}">Khuyến mại</a></li>
                   <li><a href="{{route('policy')}}">Chính sách</a></li>
                   <li><a href="{{route('contact')}}">Liên Hệ</a></li>
                 </ul>
@@ -211,7 +211,7 @@
     <!-- ==================testimonial================= -->
     <div class="bg-testminal">
       <div class="container">
-        <div class="text-infor-testminal text-center" data-aos="zoom-in-down">
+        <div class="text-infor-testminal " data-aos="zoom-in-down">
           <h4 class="text-under-h4-HomePage update-h4-testmional">PHẢN HỒI</h4>
           <h2 class="text-title-HomePage">Khách hàng nói gì?</h2>
           <p>Hãy cùng nghe khách hàng nói gì khi đến hệ thống của chúng tôi </p>
@@ -293,14 +293,34 @@
         @endforeach
       </div>
     </div>
+
+    <div class="latest-blog container">
+      <h2 class="text-title-HomePage text-center" data-aos="fade-up">HỆ SINH THÁI BOVIS SPA</h2>
+      <p class="hr-insta hr-hst mb-1"></p>
+
+      <div class="row row-lastest" data-aos="fade-down">
+
+        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
+          <img width="100%" src="https://htspa.com.vn/wp-content/uploads/2020/07/Official-Logo-Spa-L%E1%BB%9Bn-1-1400x751.png" alt="">
+        </div>
+
+        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
+          <img width="100%" src="https://www.spamamgao.com/Upload/image/2022/07/27/logo_mau_2022-07-27-144519.png" alt="">
+        </div>
+
+        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
+          <img width="100%" src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2017/07/25071054/thiet-ke-logo-spa.png" alt="">
+        </div>
+      </div>
+    </div>
     <!-- =======follow our ig============= -->
     <div class="follow-our-instagram">
       <div class="title-follow-our-instagram text-center mt-5 mb-5 container">
-        <span>HÌNH ẢNH THỰC TẾ</span>
+        <h2>HÌNH ẢNH THỰC TẾ</h2>
         <p class="hr-insta"></p>
       </div>
       <div class="container-fluid">
-        <div class="row">
+        <div class="row px-5 mx-5">
           @foreach($instagram as $value)
           <div class="col-md-4 col-sm-4 col-6 mb-4" data-aos="fade-up">
             <div class="box-insta-bottom">

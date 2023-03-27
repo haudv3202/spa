@@ -191,6 +191,7 @@ $router->get('booking',[homeuser::class,'booking']);
 $router->post('mockup-post',[homeuser::class,'mockupPost']);
 //FQA
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
+$router->get('promotion',[QuestionsController::class, 'promotion']);
 //Blog
 $router->get('blog',[BlogServiceController::class, 'blogService']);
 $router->get('blogService/{id}',[BlogServiceController::class, 'blogServiceDetail']);

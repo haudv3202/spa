@@ -1558,6 +1558,20 @@ footer .box-input-email button {
     border-bottom: 1px solid #dd9002;
     border-bottom-right-radius:10px ;
 }
+
+.right-row-form-service input[type="submit"]{
+    border: 1px solid #dd9002;
+    border-radius:10px ;
+    background: #dd9002;
+    color: #fff;
+}
+
+.right-row-form-service input[type="submit"]:hover {
+    background: #fff;
+    color: #000;
+    border: 1px solid #dd9002;
+    transition:.2s;
+}
 .text-read-more {
     margin-top: 100px;
     font-family: 'UTM Avo', sans-serif;
@@ -1806,7 +1820,7 @@ footer .box-input-email button {
 }
 
 .item-lastest-blog h3 {
-    color: #262626;
+    color: #262626 !important;
     font-weight: bolder;
     font-size: 32px;
     margin: 50px 0 5px 0;

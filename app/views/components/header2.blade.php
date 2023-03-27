@@ -47,7 +47,7 @@
 {{--            </div>--}}
             <div class="menu-oppentime ">
               <div class="menu container pb-3">
-                <ul class="d-flex gap-2 d-flex gap-3 align-items-center justify-content-around ">
+                <ul class="d-flex gap-2 d-flex gap-4 align-items-center justify-content-around ">
                   <li><a href="{{route('')}}">Trang Chủ</a></li>
                   <li><a href="{{route('about')}}">Về Chúng Tôi</a></li>
                   <li class="categosies-dv position-relative"><span>Dịch Vụ</span>
@@ -67,7 +67,7 @@
                     </ul>
                   </li>
                   <li class="menu-sub-page"><a href="{{route('blog')}}">Cẩm nang bổ ích</a></li>
-                  <li><a href="{{route('blog-questions')}}">Trải Nghiệm khách hàng</a></li>
+                  <li><a href="{{route('promotion')}}">Khuyến mãi</a></li>
                   <li><a href="{{route('policy')}}">Chính sách</a></li>
                   <li><a href="{{route('contact')}}">Liên Hệ</a></li>
                 </ul>
