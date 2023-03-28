@@ -52,7 +52,7 @@ $_SESSION['active_menu'] = $_GET['url'];
 
             @if($_SESSION['active_menu'] == 'contact-us' || $_SESSION['active_menu'] == 'instagram' ||
 $_SESSION['active_menu'] == 'staff-list' || $_SESSION['active_menu'] == 'newletters' || $_SESSION['active_menu'] == 'social' ||
-$_SESSION['active_menu'] == 'setings'  || $_SESSION['active_menu'] == 'manage-banner' )
+$_SESSION['active_menu'] == 'setings'  || $_SESSION['active_menu'] == 'manage-banner'  || $_SESSION['active_menu'] == 'list_khuyenmai')
               <li class="has-child open" >
                 @else<li class="has-child " >
                 @endif
@@ -73,6 +73,9 @@ $_SESSION['active_menu'] == 'setings'  || $_SESSION['active_menu'] == 'manage-ba
             </li>
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'newletters' ? 'active' : ''; ?>">
               <a href="{{route('newletters')}}">Newletters</a>
+            </li>
+            <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'list_khuyenmai' ? 'active' : ''; ?>">
+              <a href="{{route('list_khuyenmai')}}">Khuyến mại</a>
             </li>
             <li class="sub-menu-item <?php echo $_SESSION['active_menu'] == 'social' ? 'active' : ''; ?>">
               <a href="{{route('social')}}">Mạng xã hội</a>

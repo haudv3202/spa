@@ -359,15 +359,17 @@
     text-decoration: none;
     color: #262626;
     font-family: 'UTM Avo', sans-serif;
+    font-size: 0.9rem;
 }
 .menu-oppentime{
-    height: 40px;
+    /*height: 40px;*/
 }
 .logo-menu-oppenTime .logo img {
-    width: 120px;
+    width: 100%;
+    object-fit: cover;
 }
 .img-banner-homePage{
-    margin-top: 120px;
+    margin-top: 5%;
 }
 .banner-page {
     z-index: -1;
@@ -874,7 +876,7 @@
 /*======================== Css Page FAQ ============================*/
 
 .client-question .title-question {
-    margin-top: 300px;
+    margin-top: 100px;
 }
 
 .box-text-question {
@@ -1287,6 +1289,14 @@ footer .box-input-email button {
         display: none !important;
     }
 
+    .oidoioi {
+        width: 100%!important;
+    }
+
+    .input-model {
+        width: 100% !important;
+    }
+
     .icon-menu-sub-responsive {
         display: block;
     }
@@ -1395,7 +1405,11 @@ footer .box-input-email button {
 
 /* ==========about-us============== */
 .story-about {
-    margin-top: 20%;
+    margin-top: 10%;
+}
+
+.contactwe {
+    margin-top: 10%!important;
 }
 .h5-story-about{
     margin: 50px 0;
@@ -1518,7 +1532,7 @@ footer .box-input-email button {
 
 /* ============our-service============ */
 .our-service {
-    margin-top: 10px;
+    margin-top: 10%;
 }
 .form-service{
     margin: 150px auto;
@@ -1528,11 +1542,13 @@ footer .box-input-email button {
     margin-top: 0px;
 }
 .left-row-form-service{
-    padding: 0px 20px;
+    /*padding: 0px 20px;*/
 }
 .left-row-form-service a{
     font-style: italic;
     text-decoration: none;
+    display: block;
+    color: #000;
 }
 .left-row-form-service p:nth-child(2){
     font-size: 1.3rem;
@@ -1554,9 +1570,8 @@ footer .box-input-email button {
     outline: none;
     width:100%;
     /* padding: 10px 0; */
-    border: none;
-    border-bottom: 1px solid #dd9002;
-    border-bottom-right-radius:10px ;
+    border: 1px solid #dd9002;
+    border-radius: 5px;
 }
 
 .right-row-form-service input[type="submit"]{
@@ -1564,6 +1579,16 @@ footer .box-input-email button {
     border-radius:10px ;
     background: #dd9002;
     color: #fff;
+    margin-left: 50%;
+    transform: translateX(25%);
+}
+
+.iconsContact {
+    margin : 5px 0;
+}
+
+.iconsContact i {
+   font-size: 4em;
 }
 
 .right-row-form-service input[type="submit"]:hover {
@@ -1743,9 +1768,9 @@ footer .box-input-email button {
     margin: auto;
 }
 
-.right-testimonial {
-    margin-top: 200px;
-}
+/*.right-testimonial {*/
+/*    margin-top: 200px;*/
+/*}*/
 
 .right-testimonial p {
     color: #909497;
@@ -1899,21 +1924,21 @@ footer .box-input-email button {
 
 .oidoioi {
     position: relative;
-    width: 100%;
+    transform: translateX(-50%);
+    width: 50%;
+    left: 50%;
     height: 100%;
 }
 
 .h5-item-modal-mockup {
-    /* font-family: 'Lobster', cursive; */
-    /* font-family: "Pacifico", cursive; */
     font-family: 'UTM Avo', sans-serif;
-    /* font-family: 'Roboto Slab', serif; */
+    font-size: 1.1rem;
 }
 
 .title-give {
-    font-style: italic;
     color: #c6641b;
-    margin: 20px 0;
+    margin: 5px 0 20px 0;
+    font-size: 0.8rem;
 }
 
 .close-modal {
@@ -1923,23 +1948,10 @@ footer .box-input-email button {
     font-size: 40px;
 }
 
-.item-modal-mockup {
-    right: 0;
-    left: 0;
-    width: 40%;
-    margin: 0 auto;
-    top: 15%;
-    bottom: 5%;
-    min-height: 60%;
-    position: absolute;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 10px 20px;
-}
+
 
 .row-mokup {
-    overflow: scroll;
+    /*overflow: scroll;*/
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
     height: 100%;
@@ -1969,27 +1981,32 @@ footer .box-input-email button {
 
 .input-model {
     border: none;
-    padding: 0px 20px 5px 0;
+    padding: 5px 20px 5px 5px;
     color: #053543;
     outline: none;
-    border-bottom: 1px solid #053543;
-    background-color: transparent;
-    padding: 10px;
+    background-color: #f7f5f2;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #85644e;
 }
 
 .input-model::placeholder {
-    font-style: normal;
     font-size: 13px;
     color: #070323;
-    font-style: italic;
 }
 
 .submit-form-modal {
     background-color: #a47b60;
     color: #eee;
-    padding: 10px 15px;
+    padding: 5px 10px;
     margin: 20px 0;
     transition: 0.2s linear;
+}
+
+.logo_popup {
+    width: 6rem;
+    height:6rem;
+    margin: 0 auto;
+
 }
 
 .submit-form-modal:hover {
@@ -2028,9 +2045,9 @@ footer .box-input-email button {
 }
 
 /*BLOG---------------*/
-.blog-page-box {
-    margin-top: 10%;
-}
+/*.blog-page-box {*/
+/*    margin-top: 10%;*/
+/*}*/
 
 /*
 .blog-page, .single-blog-page, .contact-information{
@@ -2649,11 +2666,11 @@ footer .coppyright {
         height: 490px;
     }
 
-    footer .row-footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
+    /*footer .row-footer {*/
+    /*    display: grid;*/
+    /*    grid-template-columns: 1fr 1fr;*/
+    /*    gap: 40px;*/
+    /*}*/
 }
 
 @media (max-width: 768px) {
@@ -2786,6 +2803,7 @@ main {
     position: fixed;
     bottom: 50px;
     right: 20px;
+    z-index: 100;
 }
 
 .icon-call {
@@ -2938,18 +2956,39 @@ main {
         height: 60%;
     }
 }
+@media only screen and (max-width: 600px) {
+    .instass {
+        padding-right: 0!important;
+        padding-left: 0!important;
+        margin-right: 0!important;
+        margin-left: 0!important;
+    }
+
+    .item-modal-mockup {
+        width: 90%!important;
+    }
+
+    .make-appointment-contact .background-make-appointment {
+     width: 0;
+    }
+    .contactwe {
+        margin-top: 100px !important;
+    }
+}
 
 @media (max-width: 350px) {
-    .banner-page {
-        height: 60%;
-    }
+.banner-page {
+height: 60%;
+}
 
-    .service-menu .title-service-menu {
-        margin-top: 60%;
 
-    }
 
-    .box-professional-team>.location {
-        display: none !important;
-    }
+.service-menu .title-service-menu {
+margin-top: 60%;
+
+}
+
+.box-professional-team>.location {
+display: none !important;
+}
 }

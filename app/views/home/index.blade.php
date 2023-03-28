@@ -6,7 +6,7 @@
 
         <div class="header-menutop-banner">
           <div
-            class="logo-menu-oppenTime d-flex justify-content-between align-items-center container position-relative"
+            class="logo-menu-oppenTime d-flex justify-content-lg-around justify-content-between align-items-center container position-relative"
           >
 {{--            <div class="oppentime-icon">--}}
 {{--              @if(!isset($_SESSION['account']))--}}
@@ -35,7 +35,7 @@
 {{--                @endif--}}
 {{--              @endif--}}
 {{--            </div>--}}
-            <div class="logo" style="transform: translateX(30%);">
+            <div class="logo" style=" width: 80px; height: 80px;display:block;">
               <a href="{{ route('home') }}"> <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" alt="" /></a>
             </div>
 {{--            <div class="email-sdt">--}}
@@ -47,8 +47,8 @@
 {{--              </div>--}}
 {{--            </div>--}}
             <div class="menu-oppentime ">
-              <div class="menu container pb-3">
-                <ul class="d-flex gap-2 d-flex gap-3 align-items-center justify-content-around ">
+              <div class="menu container">
+                <ul class="d-flex gap-2 d-flex gap-3 align-items-center justify-content-around mb-0">
                   <li><a href="{{route('')}}">Trang Chủ</a></li>
                   <li><a href="{{route('about')}}">Về Chúng Tôi</a></li>
                   <li class="categosies-dv position-relative"><span>Dịch Vụ</span>
@@ -71,7 +71,7 @@
                   </li>
                   <li class="menu-sub-page"><a href="{{route('blog')}}">Cẩm nang bổ ích</a></li>
                   <li><a href="{{route('promotion')}}">Khuyến mại</a></li>
-                  <li><a href="{{route('policy')}}">Chính sách</a></li>
+                  <li><a href="{{route('policyMember')}}">Chính sách</a></li>
                   <li><a href="{{route('contact')}}">Liên Hệ</a></li>
                 </ul>
               </div>
@@ -158,7 +158,7 @@
     </div>
 
 
-    <!-- =============lý do nên chọn bọn dở hơi này =========== -->
+
     <div class="reason" data-aos="fade-up">
       <div class="container-fluid">
         <div class="container" >
@@ -213,15 +213,15 @@
       <div class="container">
         <div class="text-infor-testminal " data-aos="zoom-in-down">
           <h4 class="text-under-h4-HomePage update-h4-testmional">PHẢN HỒI</h4>
-          <h2 class="text-title-HomePage">Khách hàng nói gì?</h2>
-          <p>Hãy cùng nghe khách hàng nói gì khi đến hệ thống của chúng tôi </p>
+{{--          <h3 class="text-title-HomePage">Khách hàng nói gì?</h3>--}}
         </div>
-        <div class="testimonial-row row">
-          <div class="left-testimonial col-md-6" data-aos="zoom-in-right">
-            <img src="{{route('public/Image/treatment.jpg')}}" width="100%" alt="">
+        <div class="testimonial-row row align-items-center justify-content-center">
+          <div class="left-testimonial col-md-6" style="width:19rem;height:19rem;" data-aos="zoom-in-right">
+{{--            {{route('public/Image/treatment.jpg')}}--}}
+            <img src="https://cdn.diemnhangroup.com/seoulspa/2022/11/ket-qua-tri-mun-6-300x300.jpg" width="100%" alt="">
           </div>
           <div class="right-testimonial col-md-6" ata-aos="zoom-in-left">
-            <p>Tôi đã thực sự thích trải nghiệm của mình tại spa này. Không gian rất thoải mái và thư giãn, nhân viên thân thiện và chuyên nghiệp, và dịch vụ massage tuyệt vời. Tuy nhiên, tôi nghĩ rằng có thể cải thiện thêm về chất lượng sản phẩm được sử dụng trong quá trình trị liệu. Một số sản phẩm được sử dụng không có mùi thơm hoặc không cải thiện được tình trạng da của tôi như tôi mong đợi </p>
+            <p style="text-align: justify;">Tôi đã thực sự thích trải nghiệm của mình tại spa này. Không gian rất thoải mái và thư giãn, nhân viên thân thiện và chuyên nghiệp, và dịch vụ massage tuyệt vời. Tuy nhiên, tôi nghĩ rằng có thể cải thiện thêm về chất lượng sản phẩm được sử dụng trong quá trình trị liệu. Một số sản phẩm được sử dụng không có mùi thơm hoặc không cải thiện được tình trạng da của tôi như tôi mong đợi </p>
             <div class="start-testimonal">
               <i class='bx bxs-star'>
               </i><i class='bx bxs-star'>
@@ -230,10 +230,11 @@
               <i class='bx bxs-star'></i>
             </div>
             <div class="user-vote-treatmen">
-              <img src="{{route('public/Image/about-us1.jpg')}}" alt="">
+{{--              {{route('public/Image/about-us1.jpg')}}--}}
+              <img src="https://2sao.vietnamnetjsc.vn/images/2022/11/18/15/46/trai-dep-do-xang-9.jpeg" alt="">
               <div class="text-user-vote">
-                <p>Chị hoa</p>
-                <p style="margin-left: 10px;">40 tuổi</p>
+                <p>anh Tân</p>
+                <p style="margin-left: 10px;">20 tuổi</p>
               </div>
             </div>
           </div>
@@ -274,8 +275,8 @@
     <!-- =============latest blog============== -->
     <div class="latest-blog container">
       <h2 class="text-title-HomePage text-center" data-aos="fade-up">TIN TỨC MỚI NHẤT</h2>
-      <p class="text-center" data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-        do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+{{--      <p class="text-center" data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed--}}
+{{--        do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>--}}
 
       <div class="row row-lastest" data-aos="fade-down">
         @foreach($posts as $value)
@@ -294,25 +295,7 @@
       </div>
     </div>
 
-    <div class="latest-blog container">
-      <h2 class="text-title-HomePage text-center" data-aos="fade-up">HỆ SINH THÁI BOVIS SPA</h2>
-      <p class="hr-insta hr-hst mb-1"></p>
 
-      <div class="row row-lastest" data-aos="fade-down">
-
-        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
-          <img width="100%" src="https://htspa.com.vn/wp-content/uploads/2020/07/Official-Logo-Spa-L%E1%BB%9Bn-1-1400x751.png" alt="">
-        </div>
-
-        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
-          <img width="100%" src="https://www.spamamgao.com/Upload/image/2022/07/27/logo_mau_2022-07-27-144519.png" alt="">
-        </div>
-
-        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
-          <img width="100%" src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2017/07/25071054/thiet-ke-logo-spa.png" alt="">
-        </div>
-      </div>
-    </div>
     <!-- =======follow our ig============= -->
     <div class="follow-our-instagram">
       <div class="title-follow-our-instagram text-center mt-5 mb-5 container">
@@ -320,9 +303,9 @@
         <p class="hr-insta"></p>
       </div>
       <div class="container-fluid">
-        <div class="row px-5 mx-5">
+        <div class="row px-5 mx-5 instass">
           @foreach($instagram as $value)
-          <div class="col-md-4 col-sm-4 col-6 mb-4" data-aos="fade-up">
+          <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
             <div class="box-insta-bottom">
               <div class="img">
                 <img src="{{route('public/upload/insta/'.$value->link)}}"
@@ -345,83 +328,33 @@
       </div>
 
     </div>
-    <div class="container form-service">
-      <div class="row row-form-service" data-aos="fade-up">
-        <div class="col-md-4 text-center left-row-form-service">
-          <h4>Nhận tư vấn miễn phí</h4>
-          <p>090 220 82 16</p>
-          <p> <a href="tel:090 220 82 16"> Liên hệ đặt lịch</a></p>
-          <a href="tek:090 220 82 16"> Đặt lịch hẹn hôm nay nhận ưu đão chỉ dành riêng cho bạn</a>
+
+    <div class="latest-blog container">
+      <h2 class="text-title-HomePage text-center" data-aos="fade-up">HỆ SINH THÁI BOVIS SPA</h2>
+      <p class="hr-insta hr-hst mb-1"></p>
+
+      <div class="row row-lastest" data-aos="fade-down">
+
+        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
+          <img width="100%" src="https://htspa.com.vn/wp-content/uploads/2020/07/Official-Logo-Spa-L%E1%BB%9Bn-1-1400x751.png" alt="">
         </div>
-        <div class="col-md-8 right-row-form-service">
-          <h3 class="text-center">ĐĂNG KÝ NGAY NHẬN QUÀ LIỀN TAY</h3>
-          <p class="text-center">Để lại thông tin Mono Bovis Spa sẽ gửi ngay quà cho bạn</p>
-          <form action="{{route('mockup-post')}}" method="post">
-            <table>
-              <tr>
-                <th>Họ và tên:</th>
-                <td><input type="text" name="fullname"></td>
-              </tr>
-              <tr>
-                <th>Số điện thoại </th>
-                <td><input type="text" name="phone"></td>
-              </tr>
-              <tr>
-                <th><input type="submit" name="btn-sm" class="btn btn-ourSerVice" value="Đăng Ký Ngay"></th>
-              </tr>
-            </table>
-          </form>
+
+        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
+          <img width="100%" src="https://www.spamamgao.com/Upload/image/2022/07/27/logo_mau_2022-07-27-144519.png" alt="">
+        </div>
+
+        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
+          <img width="100%" src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2017/07/25071054/thiet-ke-logo-spa.png" alt="">
         </div>
       </div>
     </div>
+    @include("components.contactmember")
     @include("components.socialcontact")
   </main>
 @endsection
 
 @push("mockup")
-  <div class="modal-mockup">
-
-    <div class="content-modal-mockup">
-      <div class="oidoioi">
-        <div class="item-modal-mockup">
-          <div class="row row-mokup">
-            <div class="col-sm-6 col-md-12">
-              <img src="{{route('public/Image/photo_2023-03-10_10-33-00.png')}}" width="100px" alt="">
-              <h5 class="h5-item-modal-mockup">"MONO BOVIS - Spa uy tín Đà Nẵng"</h5>
-
-              <p></p>
-              <p class="title-give"> * Đăng ký liền tay, nhận ngay quà cực chất*
-              </p>
-              <div class="form-modal text-center">
-
-                <form action="{{route('mockup-post')}}" method="post">
-                  <div class="value-form-modal mb-2">
-
-                    <input type="text" name="fullname" placeholder="Nhập tên anh/chị" class="input-model" id="name-mokup">
-                    <small class="error-message m-auto pt-3"></small>
-                  </div>
-                  <div class="value-form-modal">
-
-                    <input type="text" name="phone" placeholder="Nhập SĐT anh/chị" class="input-model" id="phone-mokup">
-                    <small class="error-message m-auto pt-3"></small>
-                  </div>
-                  <input type="submit" name="btn-sm" class="btn submit-form-modal" value="GỬI THÔNG TIN">
-{{--                  <button class="btn submit-form-modal">GỬI THÔNG TIN</button>--}}
-                </form>
-
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-12 img-modal">
-              <!-- <img src="../src/Image/Screenshot 2023-03-12 160307.png" width="100%" alt=""> -->
-
-            </div>
-          </div>
-          <button class="close-modal btn" onclick="myStopFunction()"><i class='bx bx-x'
-                                                                        style='color:#0b0b0b'></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
+  @include('components.popup')
 
   @if(isset($_SESSION['success']) && isset($_GET['msg']))
     <script>

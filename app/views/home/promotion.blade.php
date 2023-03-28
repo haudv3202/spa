@@ -9,7 +9,7 @@
   <div class="box-main">
     @include("components.header2")
     <main>
-      <div class="client-question">
+      <div class="client-question mb-5">
         <div class="title-question text-center">
           <h1>Khuyến mãi</h1>
         </div>
@@ -17,13 +17,14 @@
 
       <div class="follow-our-instagram">
         <div class="container-fluid">
-          <div class="row">
+          <div class="row px-5 mx-5">
             @foreach($promotion as $value)
               <div class="col-md-4 col-sm-4 col-6 mb-4" data-aos="fade-up"
               >
                 <div class="box-insta-bottom">
                   <div class="img">
-                    <img src="{{route('public/promotion/insta/'.$value->image	)}}" alt="">
+{{--                    'public/promotion/insta/'.--}}
+                    <img src="{{ route("public/upload/promotion/" .$value->image) }}" alt="">
                     <div class="backgrond-hover-image-insta"></div>
                     <div class="icon-insta-follow">
                       <a class="text-white" href="{{ $value->link_book }}"><i class='bx bx-show fs-1' style="margin-left: 0.5em;"></i> </a>
@@ -36,36 +37,24 @@
         </div>
 
       </div>'
-      <div class="container form-service">
-        <div class="row row-form-service" data-aos="fade-up">
-          <div class="col-md-4 text-center left-row-form-service">
-            <h4>Nhận tư vấn miễn phí</h4>
-            <p>090 220 82 16</p>
-            <p> <a href="tel:090 220 82 16"> Liên hệ đặt lịch</a></p>
-            <a href="tek:090 220 82 16"> Đặt lịch hẹn hôm nay nhận ưu đão chỉ dành riêng cho bạn</a>
-          </div>
-          <div class="col-md-8 right-row-form-service">
-            <h3 class="text-center">ĐĂNG KÝ NGAY NHẬN QUÀ LIỀN TAY</h3>
-            <p class="text-center">Để lại thông tin Mono Bovis Spa sẽ gửi ngay quà cho bạn</p>
-            <form action="{{route('mockup-post')}}" method="post">
-              <table>
-                <tr>
-                  <th>Họ và tên:</th>
-                  <td><input type="text" name="fullname"></td>
-                </tr>
-                <tr>
-                  <th>Số điện thoại </th>
-                  <td><input type="text" name="phone"></td>
-                </tr>
-                <tr>
-                  <th><input type="submit" name="btn-sm" class="btn btn-ourSerVice" value="Đăng Ký Ngay"></th>
-                </tr>
-              </table>
-            </form>
-          </div>
-        </div>
-      </div>
+      @include("components.contactmember")
       @include("components.socialcontact")
     </main>
   </div>
 @endsection
+@push("mockup")
+  @include('components.popup')
+
+  @if(isset($_SESSION['success']) && isset($_GET['msg']))
+    <script>
+      Swal.fire(
+        'Thông báo!',
+        '{{$_SESSION['success']}}',
+        'success'
+      )
+      window.setTimeout(function(){
+        window.location.href = '{{ route('') }}';
+      },1500)
+    </script>
+  @endif
+@endpush

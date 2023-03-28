@@ -5,6 +5,7 @@ namespace App\admin\controllers;
 use App\controllers\BaseController;
 use App\models\contactUs;
 use App\models\insta;
+use App\models\promotion;
 class UserDisplayController extends BaseController
 {
     public function index() {
@@ -87,9 +88,78 @@ class UserDisplayController extends BaseController
         $this->render('admin.UserDisplay.insta.insta',compact('allData'));
     }
 
+    public function khuyenmai(){
+        $allData = promotion::GetAll();
+        $this->render('admin.UserDisplay.khuyenmai.khuyenmai',compact('allData'));
+    }
+
     public function editInsta($id) {
         $oneData = insta::findOne($id);
         $this->render('admin.UserDisplay.insta.edit_insta',compact('oneData'));
+    }
+
+    public function editkhuyenmai($id) {
+        $oneData = promotion::findOne($id);
+        if(isset($_POST['sb-poro'])){
+            $link_ins = $_POST['link_image'];
+            $image_old = promotion::findOne($id)->image;
+            $target_dir = "./public/upload/promotion/";
+            $nameimage = time() . $_FILES["upload-avatar-input"]["name"];
+            $target_file = $target_dir . $nameimage;
+            $errors = [];
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+
+
+            if(count($errors) > 0){
+                redirect('errors', $errors, 'edit-khuyenmai/'.$id);
+            }else {
+                if(!($_FILES['upload-avatar-input']['name'] == "")) {
+                    if (empty($_POST['link_image'])) {
+                        $errors[] = 'Không được để trống link insta';
+                    }
+                    if (empty($_POST['meta'])) {
+                        $errors[] = 'Không được để trống link tiêu đề';
+                    }
+
+// Check file size
+                    if ($_FILES["upload-avatar-input"]["size"] > 500000) {
+                        $errors[]= "Sorry, your file is too large.";
+                    }
+
+// Allow certain file formats
+                    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                        && $imageFileType != "gif" ) {
+                        $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    }
+                    if (move_uploaded_file($_FILES["upload-avatar-input"]["tmp_name"], $target_file)) {
+                        $result = promotion::updatefind($id,[
+                            "image" => $nameimage,
+                            "link_book" => $link_ins,
+
+                        ]);
+
+                        if (file_exists('./public/upload/insta/'.$image_old)) {
+                            unlink('./public/upload/insta/'.$image_old);
+                        }
+                        if ($result){
+                            redirect('success', "Cập nhật thành công!", 'edit-khuyenmai/'.$id);
+                        }
+                    }
+
+                }else {
+                    promotion::updatefind($id,[
+                        "image" => $image_old,
+                        "link_book" => $link_ins
+                    ]);
+                    redirect('success', "Cập nhật thành công!", 'edit-khuyenmai/'.$id);
+
+                }
+
+            }
+
+        }
+        $this->render('admin.UserDisplay.khuyenmai.editkhuyetmai',compact('oneData'));
     }
 
     public function updateInsta($id){

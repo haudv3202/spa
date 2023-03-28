@@ -128,6 +128,14 @@ class HomeController extends BaseController{
         }
         $this->render('home.policy',compact("allService"));
     }
+
+    public function policyMember(){
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('home.policymember',compact("allService"));
+    }
     public function terms(){
         $this->render('home.terms');
     }
