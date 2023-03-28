@@ -1,16 +1,19 @@
 <?php
 namespace App\admin\controllers;
 use App\controllers\BaseController;
-use App\models\BlogService;use App\models\Category;
+use App\models\BlogService;
+use App\models\Category;
 use App\models\Service;
 
 class ServiceController extends BaseController{
     protected $service;
     protected $category;
+    protected $blogsv;
     public function __construct()
     {
         $this->service = new Service();
         $this->category = new Category();
+        $this->blogsv = new BlogService();
     }
     public function listService(){
         $result = $this->service->countColumn();
@@ -150,6 +153,7 @@ class ServiceController extends BaseController{
     }
     public function deteleService($id){
         $this->service->deleteService($id);
+        $this->blogsv->deleteServiceId($id);
         header('location: '.route('service-list'));
     }
 }

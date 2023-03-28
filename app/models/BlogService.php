@@ -8,5 +8,10 @@ class BlogService extends boostrap {
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+    public function deleteServiceId($id){
+        $sql = "DELETE FROM $this->table WHERE 	id_service = '$id'";
+        $this->setQuery($sql);
+        return $this->execute();
+    }
 }
 ?>
