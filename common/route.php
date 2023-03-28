@@ -86,8 +86,11 @@ if (isset($_SESSION['account'])){
         $router->get('contact-us', [UserDisplayController::class, 'index']);
         $router->get('quan-li-khach-hang', [UserDisplayController::class, 'index']);
         $router->get('instagram', [UserDisplayController::class, 'insta']);
+        $router->get('list_khuyenmai', [UserDisplayController::class, 'khuyenmai']);
         $router->get('edit-contact/{id}', [UserDisplayController::class, 'edit']);
         $router->get('edit-insta/{id}', [UserDisplayController::class, 'editInsta']);
+        $router->get('edit-khuyenmai/{id}', [UserDisplayController::class, 'editkhuyenmai']);
+        $router->post('edit-khuyenmai/{id}', [UserDisplayController::class, 'editkhuyenmai']);
         $router->post('update-contact/{id}', [UserDisplayController::class, 'update']);
         $router->post('update-insta/{id}', [UserDisplayController::class, 'updateInsta']);
         $router->get('social', [socialController::class, 'index']);
@@ -191,11 +194,13 @@ $router->get('booking',[homeuser::class,'booking']);
 $router->post('mockup-post',[homeuser::class,'mockupPost']);
 //FQA
 $router->get('blog-questions',[QuestionsController::class, 'blogQuestions']);
+$router->get('promotion',[QuestionsController::class, 'promotion']);
 //Blog
 $router->get('blog',[BlogServiceController::class, 'blogService']);
 $router->get('blogService/{id}',[BlogServiceController::class, 'blogServiceDetail']);
 //Policy
 $router->get('policy',[homeuser::class,'policy']);
+$router->get('policyMember',[homeuser::class,'policyMember']);
 //Terns
 $router->get('terms',[homeuser::class,'terms']);
 //contact

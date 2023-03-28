@@ -9,6 +9,7 @@ use App\models\insta;
 use App\models\questions;
 use App\models\Service;
 use App\models\social;
+use App\models\promotion;
 
 class QuestionsController extends BaseController
 {
@@ -95,6 +96,16 @@ class QuestionsController extends BaseController
     public function blogQuestion($id){
         $question = questions::findOne($id);
         $this->render('admin.UserDisplay.questions.blogQuestion',compact('question'));
+    }
+
+    public function promotion(){
+        $datasocial = social::GetAll();
+        $promotion = promotion::GetAll();
+        $allService = $this->category->getAllCategoryName();
+        foreach ($allService as $value){
+            $value->service = $this->service->getAllServicename($value->id);
+        }
+        $this->render('home.promotion',compact('promotion',"datasocial","allService"));
     }
     // giao diện
     public function blogQuestions(){

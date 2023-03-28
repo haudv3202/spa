@@ -21,7 +21,7 @@
 <body>
 <div class="box-main">
 
-@yield('content');
+@yield('content')
 
 @include('layout.footer')
 </div>
