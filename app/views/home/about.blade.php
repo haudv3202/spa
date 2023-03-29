@@ -61,8 +61,7 @@
     <div class="container ourteam-ceo" >
       <h4 class="h4-ourteam text-center">ĐỘI NGŨ NHÂN SỰ</h4>
       <div class="ceo-our-team row" data-aos="fade-up">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-12">
           <img src="{{route('public/Image/bs3.jpg')}}" width="100%" alt="">
           <h4 class="h4-ceo-ourteam">NGYỄN THỊ QUỲNH NHƯ</h4>
           <p class="p-ceo-ourteam">Giám Đốc</p>
@@ -76,7 +75,7 @@
       </div>
       <div class="right-our-service" data-aos="fade-up">
         <div class="row doctor-user-of-team">
-          <div class="user-of-team col-md-4">
+          <div class="user-of-team col-lg-4 col-12">
             <div class="img-user-of-team">
               <img width="100%" src="{{route('public/Image/bs1.jpg')}}" alt="">
             </div>
@@ -85,7 +84,7 @@
             <p>Là chuyên gia hàng đầu về lĩnh vực trị liệu và tạo hình thẩm mỹ công nghệ cao. Trong suốt gần 10 năm
               kinh nghiệm, bác sĩ Nhật Quang luôn đặt hiệu quả và an toàn của khách hàng lên trên hết. </p>
           </div>
-          <div class="user-of-team col-md-4">
+          <div class="user-of-team col-lg-4 col-12">
             <div class="img-user-of-team">
               <img width="100%" src="{{route('public/Image/bs2.jpg')}}" alt="">
             </div>
@@ -94,7 +93,7 @@
             <p>Bằng kinh nghiệm và nhiều thành tựu đạt được trong hơn 10 năm hoạt động với lĩnh vực tạo hình thẩm mỹ,
               Thạc sĩ & Bác sĩ Nguyễn Duy Khánh đã lấy lại sự tự tin vốn có cho nhiều khách hàng </p>
           </div>
-          <div class="user-of-team col-md-4">
+          <div class="user-of-team col-lg-4 col-12">
             <div class="img-user-of-team">
               <img width="100%" src="{{route('public/Image/bs4.jpg')}}" alt="">
             </div>

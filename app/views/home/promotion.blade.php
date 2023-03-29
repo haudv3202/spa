@@ -17,9 +17,9 @@
 
       <div class="follow-our-instagram">
         <div class="container-fluid">
-          <div class="row px-5 mx-5">
+          <div class="row px-lg-5 px-0 mx-1 mx-lg-5">
             @foreach($promotion as $value)
-              <div class="col-md-4 col-sm-4 col-6 mb-4" data-aos="fade-up"
+              <div class="col-lg-4 col-sm-6 col-12 mb-4" data-aos="fade-up"
               >
                 <div class="box-insta-bottom">
                   <div class="img">
