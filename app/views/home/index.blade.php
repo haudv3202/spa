@@ -335,17 +335,17 @@
 
       <div class="row row-lastest" data-aos="fade-down">
 
-        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
-          <img width="100%" src="https://htspa.com.vn/wp-content/uploads/2020/07/Official-Logo-Spa-L%E1%BB%9Bn-1-1400x751.png" alt="">
+        <div class="item-lastest-blog item-lastest-blog-hst">
+          <img width="100%" src="{{route('public/Image/logo-he-sinh-thai.png')}}" alt="">
         </div>
 
-        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
-          <img width="100%" src="https://www.spamamgao.com/Upload/image/2022/07/27/logo_mau_2022-07-27-144519.png" alt="">
-        </div>
+{{--        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">--}}
+{{--          <img width="100%" src="https://www.spamamgao.com/Upload/image/2022/07/27/logo_mau_2022-07-27-144519.png" alt="">--}}
+{{--        </div>--}}
 
-        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">
-          <img width="100%" src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2017/07/25071054/thiet-ke-logo-spa.png" alt="">
-        </div>
+{{--        <div class="item-lastest-blog item-lastest-blog-hst col-md-4 column-gap-2 mb-3">--}}
+{{--          <img width="100%" src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2017/07/25071054/thiet-ke-logo-spa.png" alt="">--}}
+{{--        </div>--}}
       </div>
     </div>
     @include("components.contactmember")
