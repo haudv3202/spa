@@ -8,7 +8,6 @@
 @section('content')
   @include("components.header2")
   <div class="box-policy-and-privacy">
-
     <div class="container ">
       <div class="policy-and-privacy">
         <div class="title-policy">

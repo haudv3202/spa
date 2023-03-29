@@ -1575,12 +1575,10 @@ footer .box-input-email button {
 }
 
 .right-row-form-service input[type="submit"]{
-    border: 1px solid #dd9002;
+    border: 1px solid #a47b60;
     border-radius:10px ;
-    background: #dd9002;
+    background: #a47b60;
     color: #fff;
-    margin-left: 50%;
-    transform: translateX(25%);
 }
 
 .iconsContact {
@@ -1960,6 +1958,10 @@ footer .box-input-email button {
 @media only screen and (max-width: 600px) {
     .item-modal-mockup {
         width: 95%;
+    }
+
+    .img-banner-homePage {
+        margin-top: 20%;
     }
 }
 
