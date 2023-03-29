@@ -21,10 +21,10 @@
         <h4 class="pb-3">Chính sách điều khoản</h4>
         <div class="list-support">
           <ul class="list-unstyled">
-            <li><a href="{{route('blog-questions')}}">Hỏi đáp</a></li>
+            <li><a href="{{route('policyMember')}}">Chính sách khách hàng thân thiết</a></li>
             <li><a href="{{route('policy')}}">Chính sách bảo mật</a></li>
-            <li><a href="{{route('terms')}}">Điều khoản & Điều kiện</a></li>
-            <li><a href="{{route('contact')}}">Liên hệ</a></li>
+            <li><a href="{{route('terms')}}">Chính sách thanh toán</a></li>
+            <li><a href="{{route('')}}">Điều khoản CTV</a></li>
           </ul>
         </div>
       </div >
