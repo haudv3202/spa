@@ -34,7 +34,7 @@ class BannerController extends BaseController{
                     $errors[] = "Sorry, file already exists.";
                 }
 // Check file size
-                if ($_FILES["upload"]["size"] > 500000) {
+                if ($_FILES["upload"]["size"] > 5000000) {
                     $errors[] = "Sorry, your file is too large.";
                 }
 // Allow certain file formats
@@ -43,7 +43,7 @@ class BannerController extends BaseController{
                     $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                 }
                 if (count($errors) > 0) {
-                    redirect('errors', $errors, 'add-blog-service');
+                    redirect('errors', $errors, 'edit-banner/'.$id);
                 }else{
                      if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
                          $result = Banner::updatefind($id, [
