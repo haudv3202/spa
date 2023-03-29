@@ -148,6 +148,7 @@
  </div>
 
  </div>
+ <?php echo $this->runChild("components.contactmember"); ?>
  <?php echo $this->runChild("components.socialcontact"); ?>
  </main>
 <?php $this->stopSection(); ?>

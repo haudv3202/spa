@@ -90,40 +90,40 @@
       <li><a href="{{route('')}}">Trang chủ</a></li>
       <li><a href="{{route('about')}}">Giới thiệu</a></li>
       <li><a href="{{route('service')}}">Dịch vụ</a></li>
-      <li><a href="{{route('ourTeam')}}">Đội ngũ</a></li>
-      <li><a href="{{route('booking')}}">Đặt lịch</a></li>
-      <li><a href="{{route('blog')}}">Bài viết</a></li>
-      <li><a href="{{route('contact')}}">Liên hệ</a></li>
+      <li><a href="{{route('blog')}}">Cẩm nang bổ ích</a></li>
+      <li><a href="{{route('promotion')}}">Khuyến mại</a></li>
+      <li><a href="{{route('policyMember')}}">Chính sách</a></li>
+      <li><a href="{{route('contact')}}">Liên Hệ</a></li>
         </ul>
-    @if(!isset($_SESSION['account']))
-      <li class="pe-3" style="list-style:none;">  <button type="button" onclick="" class="user-login-responsive w-100">
-          <a href="{{ route("sign-in") }}" class="text-white border-0 d-flex align-items-center gap-3 p-2"><i class='bx bx-user-circle'></i> Đăng Nhập</a>
-        </button></li>
-    @else
-      @if($_SESSION['account']->role_id == 1)
-      <li class="user-account pe-3 " style="list-style: none;">
-        <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">
-          <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
-          <span class="fs-5">{{ $_SESSION['account']->name }}</span>
-        </button>
-        <ul class="box-fs-account-responsive">
-          <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">{{ $_SESSION['account']->role_id }}</a></li>
-          <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
-          <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
-        </ul></li>
-      @else
-        <li class="user-account pe-3 " style="list-style: none;">
-          <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">
-            <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">
-            <span class="fs-5">{{ $_SESSION['account']->name }}</span>
-          </button>
-          <ul class="box-fs-account-responsive">
-            <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>
-            <li><a href="{{route('user')}}">Vào trang quản trị</a></li>
-            <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>
-          </ul></li>
-      @endif
-    @endif
+{{--    @if(!isset($_SESSION['account']))--}}
+{{--      <li class="pe-3" style="list-style:none;">  <button type="button" onclick="" class="user-login-responsive w-100">--}}
+{{--          <a href="{{ route("sign-in") }}" class="text-white border-0 d-flex align-items-center gap-3 p-2"><i class='bx bx-user-circle'></i> Đăng Nhập</a>--}}
+{{--        </button></li>--}}
+{{--    @else--}}
+{{--      @if($_SESSION['account']->role_id == 1)--}}
+{{--      <li class="user-account pe-3 " style="list-style: none;">--}}
+{{--        <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">--}}
+{{--          <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">--}}
+{{--          <span class="fs-5">{{ $_SESSION['account']->name }}</span>--}}
+{{--        </button>--}}
+{{--        <ul class="box-fs-account-responsive">--}}
+{{--          <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">{{ $_SESSION['account']->role_id }}</a></li>--}}
+{{--          <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>--}}
+{{--          <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>--}}
+{{--        </ul></li>--}}
+{{--      @else--}}
+{{--        <li class="user-account pe-3 " style="list-style: none;">--}}
+{{--          <button class="box-account-responsive border-0 d-flex align-items-center gap-3 p-2 w-100">--}}
+{{--            <img src="{{ route('public/upload/avatar/'.$_SESSION['account']->image ) }}" alt="">--}}
+{{--            <span class="fs-5">{{ $_SESSION['account']->name }}</span>--}}
+{{--          </button>--}}
+{{--          <ul class="box-fs-account-responsive">--}}
+{{--            <li><a href="{{route('update-profile/'.$_SESSION['account']->id)}}">Xem thông tin</a></li>--}}
+{{--            <li><a href="{{route('user')}}">Vào trang quản trị</a></li>--}}
+{{--            <li><a href="{{ route('sign-out') }}">Đăng Xuất</a></li>--}}
+{{--          </ul></li>--}}
+{{--      @endif--}}
+{{--    @endif--}}
 
   </div>
 </div>

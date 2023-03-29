@@ -51,10 +51,6 @@
  <h1>Hệ thống làm đẹp hàng đầu Việt Nam</h1>
  <p class="mt-3 mb-4 fs-6 text" >Để có được kết quả điều trị, chăm sóc như mong đợi, khách hàng cần lựa chọn cho mình địa làm đẹp uy tín - an toàn với công nghệ hiện đại và quy trình chuyên nghiệp.</p>
  <div class="map">
-<?php /*              <iframe*/ ?>
-<?php /*                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.5279906195747!2d105.72918181176156!3d21.051564180522636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345551a699e24f%3A0xbd593c1821a34094!2zWMOzbSB0cuG7jSBDw7QgSOG7k25n!5e0!3m2!1svi!2s!4v1678635633117!5m2!1svi!2s"*/ ?>
-<?php /*                width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy"*/ ?>
-<?php /*                referrerpolicy="no-referrer-when-downgrade"></iframe>*/ ?>
  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1499.627972342347!2d108.20831363946627!3d16.07637758457597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219994fbe3a33%3A0x65244ab2e691a4a4!2zQm92aXMgU3BhIEJlYXV0eSDEkMOgIE7hurVuZyBDxqEgc-G7nyAxIC0gU3BhIFV5IFTDrW4gVOG6oWkgxJDDoCBO4bq1bmc!5e0!3m2!1svi!2s!4v1679994042146!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
  </div>
 
