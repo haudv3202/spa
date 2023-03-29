@@ -29,6 +29,11 @@
  <label for="phone" class="form-label" style="width:10em;">Số điện thoại:</label>
  <input type="text" class="form-control" id="phone"  name="phone">
  </div>
+ <div class="mb-3 d-flex align-items-center">
+ <label for="phone" class="form-label" style="width:10em;">Vấn đề:</label>
+<?php /*            <textarea name="problem"></textarea>*/ ?>
+ <input type="text" class="form-control" id="problem"  name="problem">
+ </div>
  <input type="submit" name="btn-sm" class="btn btn-ourSerVice" value="Đăng ký ngay">
  </form>
  </div>

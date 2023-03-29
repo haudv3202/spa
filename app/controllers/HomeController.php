@@ -72,7 +72,12 @@ class HomeController extends BaseController{
             }else{
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $date = date("Y-m-d");
-                $result = $this->endow->addEndow($_POST['fullname'], $_POST['phone'], $date);
+                if (isset($_POST['problem']) == true){
+                    $problem = $_POST['problem'];
+                }else{
+                    $problem = NULL;
+                }
+                $result = $this->endow->addEndow($_POST['fullname'], $_POST['phone'], $problem , $date);
                 if ($result){
                     redirect('success', "Gửi thông tin thành công!", '');
                 }
