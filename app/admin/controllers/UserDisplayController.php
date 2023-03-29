@@ -165,6 +165,7 @@ class UserDisplayController extends BaseController
     public function updateInsta($id){
         if(isset($_POST['sb-insta'])){
             $link_ins = $_POST['link_image'];
+            $meta = $_POST['meta'];
             $image_old = insta::findOne($id)->link;
             $target_dir = "./public/upload/insta/";
             $nameimage = time() . $_FILES["upload-avatar-input"]["name"];
@@ -177,7 +178,7 @@ class UserDisplayController extends BaseController
             if(count($errors) > 0){
                 redirect('errors', $errors, 'edit-insta/'.$id);
             }else {
-                if(!($_FILES['logo']['name'] == "")) {
+                if(!($_FILES['upload-avatar-input']['name'] == "")) {
                     if (empty($_POST['link_image'])) {
                         $errors[] = 'Không được để trống link insta';
                     }
@@ -199,7 +200,7 @@ class UserDisplayController extends BaseController
                         $result = insta::updatefind($id,[
                             "link" => $nameimage,
                             "link_insta" => $link_ins,
-                            "meta" => $_POST['meta']
+                            "meta" => $meta
                         ]);
 
                         if (file_exists('./public/upload/insta/'.$image_old)) {
@@ -213,7 +214,8 @@ class UserDisplayController extends BaseController
                 }else {
                      insta::updatefind($id,[
                         "link" => $image_old,
-                        "link_insta" => $link_ins
+                        "link_insta" => $link_ins,
+                         "meta" => $meta
                     ]);
                     redirect('success', "Cập nhật thành công!", 'edit-insta/'.$id);
 

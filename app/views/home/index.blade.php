@@ -172,7 +172,7 @@
                 </div>
                 <div class="text-item-reason">
                   <h4 class="h4-item-reason">Cam kết chất lượng & uy tín</h4>
-                  <p class="p-item-reason">Đến với MONO BOVIS SPA, khách hàng sẽ được trải nghiệm dịch vụ hoàn hảo và đội ngũ chăm sóc khách hàng nhiệt tình. Cam kết giuýp bạn thực hiện ước mơ tìm đến vẻ đẹp</p>
+                  <p class="p-item-reason">Đến với  BOVIS SPA, khách hàng sẽ được trải nghiệm dịch vụ hoàn hảo và đội ngũ chăm sóc khách hàng nhiệt tình. Cam kết giuýp bạn thực hiện ước mơ tìm đến vẻ đẹp</p>
 
                 </div>
               </div>
@@ -185,7 +185,7 @@
                 <div class="text-item-reason">
                   <h4 class="h4-item-reason">Đội ngũ bác sĩ chuyên nghiệp</h4>
                   <p class="p-item-reason">"
-                    Mono Bovis Spa đặc biệt chú trọng xây dựng đội ngũ bác sĩ,
+                     BOVIS SPA đặc biệt chú trọng xây dựng đội ngũ bác sĩ,
                     chuyên gia và kỹ thuật viên giỏi, tâm huyết với nghề.
                     Thường xuyên cập nhật kiến thức chuyên môn thông qua các khóa tập huấn, hội thảo khoa học, chuyển giao công nghệ,…
                   		</p>
@@ -199,7 +199,7 @@
                 </div>
                 <div class="text-item-reason">
                   <h4 class="h4-item-reason">Cam kết chất lượng & uy tín</h4>
-                  <p class="p-item-reason">Đến với MONO BOVIS SPA, khách hàng sẽ được trải nghiệm dịch vụ hoàn hảo và đội ngũ chăm sóc khách hàng nhiệt tình. Cam kết giuýp bạn thực hiện ước mơ tìm đến vẻ đẹp</p>
+                  <p class="p-item-reason">Đến với  BOVIS SPA, khách hàng sẽ được trải nghiệm dịch vụ hoàn hảo và đội ngũ chăm sóc khách hàng nhiệt tình. Cam kết giuýp bạn thực hiện ước mơ tìm đến vẻ đẹp</p>
 
                 </div>
               </div>
@@ -287,7 +287,7 @@
             <i class='bx bxs-time'></i>
             <p class="mb-0">{{ date('j F, Y', strtotime($value->create_date))  }}</p>
           </div>
-          <p>{{ $value->description }}</p>
+{{--          <p>{{ $value->description }}</p>--}}
           <a href="{{ route("detail/".$value->id) }}"><button class="btn btn-read-more">Xem thêm <i
                 class='bx bx-right-arrow-alt'></i></button></a>
         </div>
