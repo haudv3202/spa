@@ -27,7 +27,9 @@
                     <a href="{{route('detail/'.$value->id)}}"><h3>{{$value->title}}</h3></a>
                     <a href="{{route('detail/'.$value->id)}}"><p>{{$value->description}}
                     </p></a>
+
                   </div>
+
                 </div>
               @endforeach
               <!-- end blog-item -->

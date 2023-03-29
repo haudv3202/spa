@@ -2633,7 +2633,6 @@ footer .coppyright {
     display: flex;
     justify-content: space-between;
 }
-
 /* responsive  */
 @media (max-width: 2410px) {
     footer .background-image-footer {
