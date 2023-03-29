@@ -1535,7 +1535,7 @@ footer .box-input-email button {
     margin-top: 10%;
 }
 .form-service{
-    margin: 150px auto;
+    margin: 20px auto;
 }
 /*  blog */
 .form-service-blog{
@@ -1838,9 +1838,9 @@ footer .box-input-email button {
     color: #fff;
 }
 
-.row-lastest {
-    margin-top: 100px;
-}
+/*.row-lastest {*/
+/*    margin-top: 100px;*/
+/*}*/
 
 .item-lastest-blog h3 {
     color: #262626 !important;

@@ -22,13 +22,14 @@
                     <span><?php echo $sv->id == $blog[$i]->id_service ? $sv->name : ''?></span>
                   @endforeach
                 </div>
-                <img src="{{route('public/upload/blogSv/'.$blog[$i]->image)}}" class="w-100" alt="">
+
+                <a href="{{route('detail/'.$blog[$i]->id)}}"><img src="{{route('public/upload/blogSv/'.$blog[$i]->image)}}" class="w-100" alt=""></a>
 
               </div>
               <div class="box-text py-4">
                 <a href="{{route('detail/'.$blog[$i]->id)}}"><h3>{{$blog[$i]->title}}</h3></a>
-                <p>{{$blog[$i]->description}}
-                </p>
+{{--                <p>{{$blog[$i]->description}}--}}
+{{--                </p>--}}
               </div>
             </div>
             @endfor
@@ -58,18 +59,6 @@
             <!-- end -->
           </div>
           <!-- end popular -->
-          <div class="py-5">
-            <div class="categories border p-5">
-              <h3>Danh Mục</h3>
-              <div class="box-popular-new pt-3">
-                <ul class="categories-list list-unstyled">
-                  @for($i = 0; $i < 3; $i++ )
-                  <li><a href="{{ route("serviceDetail/" . $category[$i]->id) }}"><span><i class='bx bx-minus'></i></span>{{$category[$i]->name}}</a></li>
-                  @endfor
-                </ul>
-              </div>
-            </div>
-          </div>
 
 
         </div>
